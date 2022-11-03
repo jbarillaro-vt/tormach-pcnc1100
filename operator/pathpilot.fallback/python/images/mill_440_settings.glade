@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.24"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="mill_settings_window">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkFixed" id="notebook_settings_fixed">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage" id="diagnostics_background">
+            <property name="width_request">1001</property>
+            <property name="height_request">409</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">dark_background.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_soft_keyboard_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_soft_keyboard_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_soft_keyboard_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Soft / Onscreen Keyboard&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">500</property>
+            <property name="y">160</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_tooltips_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_enable_tooltips_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_tooltips_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Show Tooltips&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">500</property>
+            <property name="y">190</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="use_atc_checkbutton">
+            <property name="width_request">150</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">use_manual_toolchange_checkbutton</property>
+            <signal name="toggled" handler="on_use_atc_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="use_atc_checkbutton_text">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;ATC&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">500</property>
+            <property name="y">55</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="use_manual_toolchange_checkbutton">
+            <property name="width_request">200</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_use_manual_toolchange_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="use_manual_toolchange_text">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Manual Tool Change&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">500</property>
+            <property name="y">85</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="network_name_text">
+            <property name="width_request">112</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Network Name:&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">420</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="netbios_name">
+            <property name="width_request">160</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">●</property>
+            <property name="primary_icon_activatable">False</property>
+            <property name="secondary_icon_activatable">False</property>
+            <property name="primary_icon_sensitive">True</property>
+            <property name="secondary_icon_sensitive">True</property>
+            <signal name="activate" handler="on_netbios_name_activate" swapped="no"/>
+            <signal name="focus-in-event" handler="on_netbios_name_focus_in_event" swapped="no"/>
+            <signal name="focus-out-event" handler="on_netbios_name_focus_out_event" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">536</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="g30m998_move_z_only_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_g30m998_move_z_only_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="g30m998_move_z_only_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;G30/M998 Move in Z Only&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">750</property>
+            <property name="y">130</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_scanner_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_scanner_checkbutton_toggled" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_scanner_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;CNC Scanner&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">750</property>
+            <property name="y">190</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_home_switches_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_home_switches_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_home_switches_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Limit Switches&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">500</property>
+            <property name="y">130</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_usbio_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_usbio_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_io_board_text">
+                <property name="width_request">230</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;USB IO Kit (PN 32616)&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">750</property>
+            <property name="y">160</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="fourth_axis_type_combobox">
+            <property name="width_request">150</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <signal name="changed" handler="on_4th_axis_type_combobox_changed" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">815</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="fourth_axis_type_label">
+            <property name="width_request">100</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;4th Axis:&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">732</property>
+            <property name="y">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="enable_feeds_speeds_checkbutton">
+            <property name="width_request">230</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_feeds_speeds_checkbutton_toggled" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="enable_feeds_speeds_text">
+                <property name="width_request">230</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" foreground="white" &gt;Conversational Feeds and
+Speeds&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="width_chars">4</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">750</property>
+            <property name="y">215</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

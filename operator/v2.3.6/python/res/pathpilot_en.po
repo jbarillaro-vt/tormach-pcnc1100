@@ -1,0 +1,1973 @@
+# Primary PathPilot UI strings file.
+# Copyright (C) 2018 Tormach Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pathpilot 2.1.5\n"
+"POT-Creation-Date: 2017-12-14 17:13+CST\n"
+"PO-Revision-Date: 2018-04-18 18:24-0600\n"
+"Last-Translator: John Freeborg <jfreeborg@tormach.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: en\n"
+
+#. These are comments providing context TO the human translator so they can choose the proper word during localization.
+# for '{}' formatting spec - lookup pthon str.format
+
+#-- 'span' colors ---------------------------------------------------------------------------------
+# dark green: '#16861f'
+# blue: '#003aff'
+# dkblue: '#0012da'
+# red: '#ff0000'
+
+###################################################################################################
+# - Errors
+###################################################################################################
+
+msgid "file_delete_button_text"
+msgstr "Delete"
+
+msgid "file_delete_button_tooltip"
+msgstr "Delete selected file(s) or folder(s)."
+
+msgid "file_rename_button_text"
+msgstr "Rename"
+
+msgid "file_rename_button_tooltip"
+msgstr "Rename selected file or folder."
+
+msgid "file_new_folder_button_text"
+msgstr "New Folder"
+
+msgid "file_new_folder_button_tooltip"
+msgstr "Create a new folder in current folder."
+
+msgid "file_eject_button_text"
+msgstr "Eject USB Drive"
+
+msgid "file_eject_button_tooltip"
+msgstr "Eject USB drive so it can be safely removed."
+
+msgid "file_back_button_text"
+msgstr "Back"
+
+msgid "file_back_button_tooltip"
+msgstr "Change file chooser to parent folder"
+
+msgid "file_home_button_text"
+msgstr "Home"
+
+msgid "file_home_button_tooltip"
+msgstr "Change file chooser to Home folder"
+
+msgid "clipboard_button_text"
+msgstr "File clipboard options"
+
+msgid "clipboard_button_tooltip"
+msgstr "Provides familiar copy, cut, and paste functionality for file and folder management.  Paste creates new names as needed which will never overwrite existing items.\n\nButton provides easy access to this functionality for touchscreen owners."
+
+msgid "err_tt_dynamic_failure"
+msgstr "tooltip could not be generated"
+
+msgid "err_tt_dynamic_bad_path"
+msgstr "dynamic: bad path spec"
+
+msgid "err_machine_in_estop"
+msgstr "N/A: : tool is in e-stop condition"
+
+msgid "err_tool_number_range"
+msgstr "Tool number {} needs to be from {:d} to {:d}."
+
+msgid "err_tool_number_bad_text"
+msgstr "could not evaluate '{}' as a tool number."
+
+msgid "err_zero_diameter_tool"
+msgstr "Tool {:d} has a zero diameter, check the Offsets tab."
+
+msgid "err_update_fs_fp"
+msgstr "{:s}.update_feeds_speeds - failed floating point conversion"
+
+msgid "err_exception_fs"
+msgstr "{:s}.update_feeds_speeds - exception: {:s}"
+
+msgid "err_lathe_profile_tool_angle"
+msgstr "tool angle is not supported"
+
+msgid "err_lathe_profile_combined_tool_angle"
+msgstr "Angle less than combined tool angle: tool path will create gouging"
+
+msgid "err_lathe_profile_front_tool_angle"
+msgstr "Front tool angle too large: tool path will create gouging"
+
+msgid "err_lathe_profile_rear_tool_angle"
+msgstr "Rear tool angle too large: tool path will create gouging"
+
+msgid "err_lathe_profile_angle_not_compat"
+msgstr "Angle not compatible with current tool: tool path will create gouging"
+
+msgid "err_lathe_profile_full_cirle_arc"
+msgstr "Conversational/Profile/Profile Points line: {} - Full circle arcs not allowed"
+
+
+###################################################################################################
+# - User queries
+###################################################################################################
+
+msgid "user_query_pathpilot_to_change_tool_diameter"
+msgstr "PathPilot wants to change the Tool Diameter column value {} to the tool description value of {}"
+
+###################################################################################################
+# - Common
+###################################################################################################
+msgid "PathPilot_logo_text"
+msgstr "PathPilot"
+
+msgid "gcode_options_button_text"
+msgstr "G-code Options"
+
+msgid "pre_RESET_gcode_status"
+msgstr "Press RESET to initialize machine and G-code status."
+
+msgid "gcode_options_button_tooltip"
+msgstr "<b>@@</b> allows selection of options for the G-code window to the left. (Same as right clicking in the G-code window)<span color='#0012da'>\n    <b>Set Start Line</b>\n    <b>Show/Hide Line</b>\n    <b>Show/Hide G-code color high-lighting</b></span>"
+
+msgid "PathPilot_logo_tooltip"
+msgstr "Tormach® is the leader in affordable CNC mills and accessories for prototyping, R&amp;D, custom manufacturing, hobby, and education.\n\nTechnical Support: <span color='#0012da'> Tormach.com/support</span>"
+
+msgid "goto_g30_text"
+msgstr "Go To G30 Position"
+
+msgid "jog_speed_scale_text"
+msgstr "Jog Speed"
+
+msgid "jog_speed_scale_tooltip"
+msgstr "<b>@@</b>: controls the percentage of rapid speed the axis will jog in <i>continuous mode when using the keyboard</i>.\n<span color='#16861f'><i>Note: clicking in this slider will change jog mode from incremental to continuous. This applies to keyboard jogging only.</i></span>"
+
+msgid "post_to_file_text"
+msgstr "Post To File"
+
+msgid "post_to_file_tooltip"
+msgstr "<b>@@</b>: Validates the settings on the current conversational page, then if valid, generates G-code. It opens a file navigation window to allow the G-code saved as a file."
+
+msgid "append_to_file_text"
+msgstr "Post To File"
+
+msgid "append_to_file_tooltip"
+msgstr "<b>@@</b>: Validates the settings on the current conversational page, then if valid, generates G-code. It opens a file navigation window to select a file to be appended with the current G-code. <span color='#16861f'><i>Note: this way multiple operations can be built up into a single G-code file.</i></span>"
+
+msgid "msg_work_offset_label_text"
+msgstr "Work Offset"
+
+msgid "msg_dtg_label_text"
+msgstr "Distance To Go"
+
+msgid "msg_dtg_label_tooltip"
+msgstr "<b>@@</b> displays <span color='#16861f'><i>the distance remaining in any single move</i></span>. Apply feedhold, or set Maxvel or Feedrate overrides to 0 percent, in the middle of a move, these labels display the distance left in the commanded move - useful when proving out a part."
+
+msgid "msg_cycle_start_text"
+msgstr "Cycle Start"
+
+msgid "msg_tool_info_na"
+msgstr "<span foreground='red'><b><i>N/A: : no tool data for tool: {0:s}</i></b></span>"
+
+msgid "msg_spindle_override_text"
+msgstr "Spindle RPM Override"
+
+msgid "msg_zero_diameter_tool"
+msgstr "<span foreground='red'><b><i>Warning: tool {0:s} has zero diameter</i></b></span>"
+
+msgid "msg_invalid_tool"
+msgstr "<span foreground='red'><b><i>Warning: tool {0:s} Errors: {1:s}</i></b></span>"
+
+msgid "msg_tool_text"
+msgstr "Tool"
+
+msgid "msg_tool_tooltip"
+msgstr "The currently selected tool defined in the tool table.\n\n{0:s}\n{1:s}"
+
+msgid "msg_active_gcodes_text"
+msgstr "Active G-codes"
+
+msgid "msg_active_gcodes_tooltip"
+msgstr "<b>Current G-code states:</b> {0:s}."
+
+msgid "msg_reset_text"
+msgstr "Reset"
+
+msgid "msg_reset_tooltip"
+msgstr "Reset brings the machine <span color='#16861f'><b>out of an E-stop condition</b></span>, <span color='#16861f'><b>resets G-code modes with the exception of G20/G21,</b></span>, <span color='#16861f'><b>clears alarm messages on the Status page</b></span>, and <span color='#16861f'><b>rewinds the G-code program</b></span>. The Reset text flashes when the machine is first powered on, or after an emergency stop. When flashing and after the machine has been powered on again, clicking <span color='#16861f'><b>Reset starts and verifies communication between the machine and the controller</b></span>."
+
+msgid "msg_stop_text"
+msgstr "Instant Stop"
+
+msgid "msg_stop_tooltip"
+msgstr "Stops all machine motion, and spindle motion. If clicked while running a program or during an MDI move, the machine stops. If clicked while running a G-code program, it rewinds the G-code program. Stop doesn’t change the current modal state of the machine (G54, G01, etc.)."
+
+msgid "msg_single_block_text"
+msgstr "Execute Single Block"
+
+msgid "msg_single_block_tooltip"
+msgstr "<b>@@:</b> When active (LED - on), modifies the behavior of Cycle Start to executes <b><i>one block (or line)</i></b> of G-code. Program execution is then paused, the Cycle Start LED will flash prompting the user to execute the next (single) line. This feature may be turned on or off before running a program or during program execution. <span color='#16861f'><i>NOTE: Non-motion lines are ignored by single block mode: the interface will skip comment lines non-motion G-codes commands.</i></span>"
+
+msgid "msg_m01_break_text"
+msgstr "M01 Break Execution"
+
+msgid "msg_m01_break_tooltip"
+msgstr "<b>@@:</b> When active (LED - on), program execution will stop at an M01 (optional stop) in the G-code file. The machine stops at the M01 line and the Cycle Start LED flashes. Cycle Start will resume program execution."
+
+msgid "msg_feedhold_text"
+msgstr "Feedhold"
+
+msgid "msg_feedhold_tooltip"
+msgstr "When active (LED - on), pauses machine motion, the Cycle Start LED will begin flashing. Feedhold leaves the spindle running if it is already on. To turn feedhold off, click Cycle Start. The Feedhold button works during program execution or during manual data input (MDI) moves. Feedhold has no effect when the machine is not moving. Application of Feedhold is delayed if clicked during a G76 threading or G33.1 rigid tapping move until that spindle-synchronized move is complete."
+
+msgid "msg_coolant_text"
+msgstr "Coolant"
+
+msgid "msg_coolant_tooltip"
+msgstr "Turns Coolant on (LED illuminated) or off (LED off). This is equivalent to the M08 or M09 G-code commands. It may be clicked before, after, or during program execution or an MDI move."
+
+msgid "msg_feedrate_override_text"
+msgstr "Feedrate Override"
+
+msgid "msg_feedrate_override_tooltip"
+msgstr "The <b>@@:</b> slider and 100 Percent button affect the <i>commanded feedrate</i> by a percentage from 1-150 percent.The feedrate override works for both MDI, jogging, and G-code program G01/G02/G03 moves. The override has no effect on G0 (rapid) moves."
+
+msgid "msg_maxvel_override_text"
+msgstr "Maximum Velocity Override"
+
+msgid "msg_maxvel_override_tooltip"
+msgstr "The <b>@@:</b> slider and 100 Percent button affect <i>both G00 and G01/G02/G03 moves</i>. They limit the machine velocity to a percentage of the maximum velocity.\n<span color='#16861f'><i>Note: this can be very useful when running new code for the first time. Machine motion can be stopped by sliding it down to 0 percent and verifying that the Distance To Go and Dia./Z DROs look 'right' before continuing.</i></span>"
+
+msgid "msg_jog_x_active"
+msgstr "Jog X Selected"
+
+msgid "msg_jog_z_active"
+msgstr "Jog Z Selected"
+
+msgid "jog_incremental_text"
+msgstr "Incremental Jog"
+
+msgid "jog_incremental_tooltip"
+msgstr "The <b>@@:</b> - when selected (LED is green), the current axis <b><i>will move {:s}</i></b> per press of a jog key or rotational click of the jog wheel."
+
+msgid "msg_spindle_range_text"
+msgstr "Spindle Range"
+
+msgid "msg_spindle_range_tooltip"
+msgstr "<b>@@:</b> The selected spindle range <i>must match the pulley selection from the motor</i>. Current RPM range is <span color='#0012da'>{0:s}</span>"
+
+# the spindle range string must begin NOT begin with \n
+msgid "msg_spindle_ranges"
+msgstr " \n    min RPM: {0:d}\n    max RPM: {1:d}"
+
+msgid "msg_tool_description_header"
+msgstr "Rich tooling descriptions are used for conversational feeds and speeds suggestions.\nFor Tormach tooling, enter the 5 digit part number to autofill description (e.g. 35571)\nFor others, use the attributes below to characterize the tool."
+
+msgid "enable_tooltips_text"
+msgstr "Show Tooltips"
+
+msgid "enable_tooltips_tooltip"
+msgstr "When checked, tooltips are displayed for many features of PathPilot. When unchecked, tooltips are not displayed though it is still possible to display a specific tooltip by holding down either 'shift' key and then moving the mouse over the feature."
+
+msgid "enable_home_switches_short"
+msgstr "Limit Switches"
+
+msgid "enable_home_switches_tooltip"
+msgstr "<b>@@</b>: provides a <i>temporary workaround</i> for a malfunctioning reference switch circuit. Ref X, Ref Y, Ref Z, and Ref A buttons now set the machine reference position to the mill position at the time the button is pressed instead of going through the homing procedure.\n <span color='#16861f'><i>Note: if an axis has been jogged to a hard stop before homing, disable (un-check) this, then carefully jog the axis off the switch in the right direction, then re-enable this setting.</i></span>"
+
+msgid "enable_soft_keyboard_short"
+msgstr "Soft / Onscreen Keyboard"
+
+msgid "enable_soft_keyboard_tooltip"
+msgstr "Used with the Touch Screen LCD Monitor PN 35575, a numeric keypad is shown if a numeric entry box such as a DRO is clicked on. A full alphanumeric keyboard is shown if an alphanumeric entry box, such as MDI, is clicked on."
+
+msgid "enable_usbio_short"
+msgstr "USB IO"
+
+msgid "enable_usbio_tooltip"
+msgstr "When checked, enable support for the USB-based IO module (PN 32616) which provides an extra eight points of non-real time IO (four digital inputs, four outputs). This IO can be controlled via M-codes in a G-code program."
+
+msgid "enable_feeds_speeds_short"
+msgstr "Conversational Feeds and Speeds"
+
+msgid "enable_feeds_speeds_tooltip"
+msgstr "<b>@@</b>: If checked this enables Material Type selection and the Feeds and Speeds update button on the Conversational page.\n <span color='#16861f'><i>Note: the Feeds and Speeds update button will update DROs related to cutting of material selected such as RPM, feed rates, Depth of Cut, etc.</i></span>"
+
+msgid "refresh_fs_text"
+msgstr "Update Feeds and Speeds"
+
+msgid "refresh_idle_tooltip"
+msgstr "<b>@@</b>: will recalculate feed and speed values for DROs for the current conversational page.<img>1</img><span color='#16861f'>Note: recalculated DROs will have a green tint background.</span>"
+
+msgid "refresh_on_tooltip"
+msgstr "<b>@@</b>: <b><i>Is recommended!</i></b> A change has occurred that will effect feeds and speeds. This will recalculate feed and speed values for DROs for the current conversational page.<img>1</img><span color='#16861f'>Note: recalculated DROs will have a green tint background.</span>"
+
+msgid "spindle_stop_text"
+msgstr "Spindle Stop"
+
+msgid "spindle_stop_tooltip"
+msgstr "<b>@@</b>: Stops the spindle. It is the same as typing M05 on the MDI line or an M05 in the G-code file."
+
+msgid "cw_text"
+msgstr "Spindle Reverse"
+
+msgid "cw_tooltip"
+msgstr "<b>@@</b>: causes the spindle to rotate in the clockwise direction at the speed specified in the RPM DRO. It is the same as typing M04 on the MDI line or an M04 in the G-code file."
+
+msgid "ccw_text"
+msgstr "Spindle Forward"
+
+msgid "ccw_tooltip"
+msgstr "<b>@@</b>: causes the spindle to rotate in the counter-clockwise direction at the speed specified in the RPM DRO. It is the same as typing M03 on the MDI line or an M03 in the G-code file."
+
+msgid "spindle_rpm_dro_tooltip"
+msgstr "<b>@@</b>: specifies the spindle speed. This must be within the current range dictated by the pulley arrangement. Current RPM range is <span color='#0012da'>{0:s}</span>"
+
+msgid "exit_text"
+msgstr "Exit"
+
+msgid "exit_tooltip"
+msgstr "Exits PathPilot and prompts to turn off the controller.\n<span color='#ff0000'><i><b>Note:</b> be sure to E-stop the machine before exiting PathPilot.</i></span>"
+
+msgid "expandview_text"
+msgstr "G-code Window Size"
+
+msgid "expandview_tooltip"
+msgstr "Toggles the G-code window between normal and expanded sizes."
+
+msgid "gcode_edit_button_text"
+msgstr "Edit G-code"
+
+msgid "gcode_edit_button_tooltip"
+msgstr "Load the selected file into a text editor for direct editing of the G-code on the controller."
+
+msgid "conv_title_dro_text"
+msgstr "Title"
+
+msgid "conv_title_dro_tooltip"
+msgstr "<b>@@:</b> the title of this conversational step.\n <span color='#16861f'>Note:If the <i>Post To File</i> button is clicked this will become the suggested file name to save this conversational step as.</span>"
+
+msgid "conv_work_offset_text"
+msgstr "Work Offset"
+
+msgid "conv_edit_button_text"
+msgstr "Conversational Edit"
+
+msgid "conv_edit_button_tooltip"
+msgstr "Load the selected file into the conversational editor, which allows for each <i>step (or operation)</i> of the file to be edited on it's conversational screen.\n <span color='#16861f'>Note: <i>Hand coded or CAM created G-code files may also be selected and will appear as a generic G-code step in conv-edit steps list.</i></span>"
+
+msgid "conv_edit_job_move_up_button_text"
+msgstr "Move Up"
+
+msgid "conv_edit_job_move_up_button_tooltip"
+msgstr "<b>@@:</b> will move the selected <i>step</i> in the conversational list up one row. If a <i>file</i> row is selected the file and all it's steps will move above the preceding file row.\n <span color='#16861f'>Note: <i>Steps</i> will move across file boundaries so it is possible to move a step from one file to the previous one.</span>"
+
+msgid "conv_edit_job_move_down_button_text"
+msgstr "Move Down"
+
+msgid "conv_edit_job_move_down_button_tooltip"
+msgstr "<b>@@:</b> will move the selected <i>step</i> in the conversational list down one row. If a <i>file</i> row is selected the file and all it's steps will move below the next file row.\n <span color='#16861f'>Note: <i>Steps</i> will move across file boundaries so it is possible to move a step from one file to the next one.</span>"
+
+msgid "conv_edit_job_duplicate_button_text"
+msgstr "Duplicate"
+
+msgid "conv_edit_job_duplicate_button_tooltip"
+msgstr "<b>@@:</b> creates a duplicate of the selected <i>step</i> in the conversational list and places it one row below. If a <i>file</i> row is selected the file and all it's steps will be duplicated below.\n <span color='#16861f'>Note: The <i><b>duplicated icon</b></i> will appear next to the title of the duplicated step. Duplicating is handy when the same step is needed but with minor changes.</span>"
+
+msgid "conv_edit_job_remove_button_text"
+msgstr "Remove"
+
+msgid "conv_edit_job_remove_button_tooltip"
+msgstr "<b>@@:</b> removes the selected <i>step</i> in the conversational list. If a <i>file</i> row is selected the file and all it's steps will be removed."
+
+msgid "conv_edit_job_ins_from_new_button_text"
+msgstr "Insert New"
+
+msgid "conv_edit_job_ins_from_new_button_tooltip"
+msgstr "<b>@@:</b> goes to the conversational pages to create a <i>new conversational step</i> and insert it below the selected step in the conversational list.\n <span color='#16861f'>Note: The <i><b>plus icon</b></i> will appear next to the title of the inserted step.</span>"
+
+msgid "conv_edit_job_ins_from_file_button_text"
+msgstr "Insert File"
+
+msgid "conv_edit_job_ins_from_file_button_tooltip"
+msgstr "<b>@@:</b> brings up a file selection window. The file with all it's steps will be placed below the list selected file."
+
+msgid "conv_edit_job_conv_edit_button_text"
+msgstr "Conv-Edit"
+
+msgid "conv_edit_job_conv_edit_button_tooltip"
+msgstr "<b>@@:</b> loads the selected <i>step</i> into it's conversational page for editing with all DROs set to the step's values.\n <span color='#16861f'>Note: Upon return if any changes are present from the original, a pencil icon will appear next to the title of the edited step.</span>"
+
+msgid "conv_edit_job_revert_button_text"
+msgstr "Revert"
+
+msgid "conv_edit_job_revert_button_tooltip"
+msgstr "<b>@@:</b> reverts the selected <i>step</i> to it's original values."
+
+msgid "conv_edit_job_save_button_text"
+msgstr "Save"
+
+msgid "conv_edit_job_save_button_tooltip"
+msgstr "{}<b>@@:</b> Saves <i><b>all</b></i> the steps in the list to the file named in the title bar at the top of the list.\n <span color='#16861f'>Note: If there are other files in the list all of their steps will be put in order of top to bottom into the file named in the title bar. After save, the list is rebuilt to reflect the new contents of the saved file.</span>"
+
+msgid "conv_edit_job_save_update_text"
+msgstr "<span color='#ff0000'><b>Recommended:</b><i> the conversational file format has been updated. It is recommended the current file be saved.</i>\n</span>"
+
+msgid "conv_edit_job_saveas_button_text"
+msgstr "Save As"
+
+msgid "conv_edit_job_saveas_button_tooltip"
+msgstr "<b>@@:</b> will save <i><b>all</b></i> the steps in the list to a <i>new</i> file.\n <span color='#16861f'>Note: If there are other files in the list all of their steps will be put in order of top to bottom into this new file. After save-as, the list is rebuilt to reflect the new contents of the saved file, and the title at the top of the list is renamed to the new file name.</span>"
+
+msgid "conv_edit_job_cancel_button_text"
+msgstr "Close"
+
+msgid "conv_edit_job_cancel_button_tooltip"
+msgstr "<b>@@:</b> ends the Conv-Edit session.\n <span color='#16861f'>Note: If there are unsaved edits a prompt will appear to save the changes.</span>"
+
+msgid "job_assignment_finish_editing_button_text"
+msgstr "Finish Editing"
+
+msgid "job_assignment_finish_editing_button_tooltip"
+msgstr "<b>@@:</b> ends editing, validates the conversational step's entries and returns the edited values to the Conv-Edit session.\n <span color='#16861f'>Note: If there are changes to the original conversational step, the pencil icon will appear in the step's row in the list of steps.</span>"
+
+msgid "job_assignment_cancel_editing_button_text"
+msgstr "Cancel"
+
+msgid "job_assignment_cancel_editing_button_tooltip"
+msgstr "<b>@@:</b> ends editing, without returning any changes to the Conv-Edit session."
+
+msgid "job_assignment_finish_new_button_text"
+msgstr "Insert"
+
+msgid "job_assignment_finish_new_button_tooltip"
+msgstr "<b>@@:</b> ends editing, validates the conversational step's entries and returns the edited values to the Conv-Edit session as a new step.\n <span color='#16861f'>Note: The plus icon will appear in the step's row in the list of steps.</span>"
+
+msgid "job_assignment_cancel_new_button_text"
+msgstr "Cancel"
+
+msgid "job_assignment_cancel_new_button_tooltip"
+msgstr "<b>@@:</b> ends editing, without creating a new step in the Conv-Edit session."
+
+msgid "job_assignment_op_fba7_text"
+msgstr "Conversational Step"
+
+msgid "job_assignment_op_1faa_file"
+msgstr "<b>File</b>: {}"
+
+msgid "job_assignment_op_fba7_tooltip"
+msgstr "{}"
+
+msgid "job_assignment_1faa_copy"
+msgstr "-is Copy-"
+
+msgid "job_assignment_1faa_edited"
+msgstr "-edited-"
+
+msgid "job_assignment_1faa_new"
+msgstr "-new step-"
+
+msgid "job_assignment_1faa_update"
+msgstr "<span color='#ff0000'><b>-update-</b></span>"
+
+msgid "job_assignment_1faa_optype"
+msgstr "<b>Step Type: </b>"
+
+msgid "job_assignment_1faa_opname"
+msgstr "<b>Step Name: </b>{}"
+
+msgid "job_assignment_1faa_external"
+msgstr "-external-"
+
+msgid "job_assignment_1faa_tooltype"
+msgstr "<b>Tool Type: </b>{}"
+
+msgid "job_assignment_1faa_tooldiameter"
+msgstr "<b>Tool Diameter: </b>{}"
+
+msgid "job_assignment_1faa_toolradius"
+msgstr "<b>Tool Tip Radius: </b>{}"
+
+msgid "job_assignment_1faa_warn_tool_diff"
+msgstr "<span color='#ff0000'><b>*WARNING: </b> major tool attributes may have changed. <i>Review tool (Offsets Tab) and/or conversational step.</i></span>"
+
+msgid "job_assignment_1faa_tooldata"
+msgstr "<span color='#16861f'><b>Tool Number: </b>{}\n{}\n{}\n<b>Tool Description: </b>{}</span>"
+
+msgid "job_assignment_1faa_needupdate"
+msgstr "<span color='{}'><b>*NEEDS UPDATE: </b> tool diameters or other tool attributes have changed. Click the 'Save' button to bring the gcode up to date.</span>"
+
+msgid "job_assignment_1faa_undefined"
+msgstr " <span color='#ff0000'><i>undefined</i></span>"
+
+msgid "usbio_board_selector_combobox_evtbox_text"
+msgstr "USB I/O Board Selector"
+
+msgid "usbio_board_selector_combobox_evtbox_tooltip"
+msgstr "<b>@@:</b> selects the <i>active</i> USB I/O board for the lower four buttons."
+
+msgid "import_tool_table_text"
+msgstr "Import Tool Table"
+
+msgid "import_tool_table_tooltip"
+msgstr "Imports an entire tool table from a csv file.\n\n<span color='#16861f'>Note: The entire tool table is replaced by the contents of the csv file.  Consider exporting first and saving an unmodified csv file as a backup to avoid any possibility of data loss.</span>"
+
+msgid "export_tool_table_text"
+msgstr "Export Tool Table"
+
+msgid "export_tool_table_tooltip"
+msgstr "Exports the entire tool table to a csv file that can be edited with other software such as Excel or a text editor."
+
+msgid "loaded_gcode_combobox_evtbox_text"
+msgstr "G-code History"
+
+msgid "loaded_gcode_combobox_evtbox_tooltip"
+msgstr "<b>@@:</b> displays for selection the recent G-code programs that were loaded.\n <span color='#16861f'>Note: 'Clear current program' will unload the current G-code.</span>"
+
+msgid "feed_rate_text_metric"
+msgstr "millimeters per minute"
+
+msgid "feed_rate_text_imperial"
+msgstr "inches per minute"
+
+msgid "mrr_volume_text_imperial"
+msgstr "cubic inches"
+
+msgid "mrr_volume_text_metric"
+msgstr "cubic centimeters"
+
+msgid "smm_text_metric"
+msgstr "SMM - <i>surface meters per minute</i>"
+
+msgid "sfm_text_imperial"
+msgstr "SFM - <i>surface feet per minute</i>"
+
+msgid "machine_ok_led_tooltip"
+msgstr "If the LED is green, indicates the machine is connected to the controller and communicating."
+
+msgid "usbio_output_0_led_button_text"
+msgstr "USB I/O - 1"
+
+msgid "usbio_output_0_led_button_tooltip"
+msgstr "<b>@@</b>: clicking this button will turn on or off <i>the first</i> USB I/O relay. The LED is lit (green) if in the <i>On</i> state, and unlit (grey) if in the <i>Off</i> state.\n<span color='#16861f'><i>Note: <b>clicking this On</b> is the same as typing <b>M64 P{0:s}</b> in the MDI box (Main Tab), or an  <b>M64 P{0:s}</b> in the G-code. <b>Clicking Off</b> is the same as <b>M65 P{0:s}</b>.</i></span>"
+
+msgid "usbio_output_1_led_button_text"
+msgstr "USB I/O - 2"
+
+msgid "usbio_output_1_led_button_tooltip"
+msgstr "<b>@@</b>: clicking this button will turn on or off <i>the second</i> USB I/O relay. The LED is lit (green) if in the <i>On</i> state, and unlit (grey) if in the <i>Off</i> state.\n<span color='#16861f'><i>Note: <b>clicking this On</b> is the same as typing <b>M64 P{0:s}</b> in the MDI box (Main Tab), or an  <b>M64 P{0:s}</b> in the G-code. <b>Clicking Off</b> is the same as <b>M65 P{0:s}</b>.</i></span>"
+
+msgid "usbio_output_2_led_button_text"
+msgstr "USB I/O - 3"
+
+msgid "usbio_output_2_led_button_tooltip"
+msgstr "<b>@@</b>: clicking this button will turn on or off <i>the third</i> USB I/O relay. The LED is lit (green) if in the <i>On</i> state, and unlit (grey) if in the <i>Off</i> state.\n<span color='#16861f'><i>Note: <b>clicking this On</b> is the same as typing <b>M64 P{0:s}</b> in the MDI box (Main Tab), or an  <b>M64 P{0:s}</b> in the G-code. <b>Clicking Off</b> is the same as <b>M65 P{0:s}</b>.</i></span>"
+
+msgid "usbio_output_3_led_button_text"
+msgstr "USB I/O - 4"
+
+msgid "usbio_output_3_led_button_tooltip"
+msgstr "<b>@@</b>: clicking this button will turn on or off <i>the fourth</i> USB I/O relay. The LED is lit (green) if in the <i>On</i> state, and unlit (grey) if in the <i>Off</i> state.\n<span color='#16861f'><i>Note: <b>clicking this On</b> is the same as typing <b>M64 P{0:s}</b> in the MDI box (Main Tab), or an  <b>M64 P{0:s}</b> in the G-code. <b>Clicking Off</b> is the same as <b>M65 P{0:s}</b>.</i></span>"
+
+msgid "internet_led_button_tooltip"
+msgstr "If the LED is green, indicates the network is configured and the Internet is reachable.\n<span color='#16861f'>Note: To configure the network click the LED or type ADMIN NETWORK on the MDI line.</span>"
+
+msgid "G0_tooltip_text"
+msgstr "G0"
+
+msgid "G0_tooltip_tooltip"
+msgstr "<b>@@</b>: causes <i>linear</i> rapid movement of the tool from the current position to the position specified by the coordinates. If no coordinates are specified the controller is put into rapid motion mode. Any subsequent coordinates will be traveled to in rapid mode until a G1, G2, or G3 is encountered.{}"
+
+msgid "G1_tooltip_text"
+msgstr "G1"
+
+msgid "G1_tooltip_tooltip"
+msgstr "<b>@@</b>: causes <i>linear</i> movement of the tool from the current position to the position specified by the coordinates <i>at the current feed rate</i>. If no coordinates are specified the controller is put into feed motion mode. Any subsequent coordinates will be traveled at the current feed rate mode.{}"
+
+msgid "G2_tooltip_text"
+msgstr "G2"
+
+msgid "G2_tooltip_tooltip"
+msgstr "<b>@@</b>: causes movement of the tool in a <i>clockwise arc</i> from the current position to the position specified by the coordinates <i>at the current feed rate</i>{}"
+
+msgid "G3_tooltip_text"
+msgstr "G3"
+
+msgid "G3_tooltip_tooltip"
+msgstr "<b>@@</b>: causes movement of the tool in a <i>counter-clockwise arc</i> from the current position to the position specified by the coordinates <i>at the current feed rate</i>{}"
+
+msgid "G4_tooltip_text"
+msgstr "G4"
+
+msgid "G4_tooltip_tooltip"
+msgstr "<b>@@</b>: Dwell for 'P' seconds.<img>1</img><span color='#16861f'><b>Example: G4 P0.5</b> - will dwell for one half second.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     P<i>n</i> - dwell for <i>n</i> seconds where <i>n</i> is a floating point number.</span>"
+
+msgid "G20_tooltip_text"
+msgstr "G20"
+
+msgid "G20_tooltip_tooltip"
+msgstr "<b>@@</b>: all length units are in '<b>inch</b>' or imperial units.<img>1</img><span color='#16861f'><b>Example: G20</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G21_tooltip_text"
+msgstr "G21"
+
+msgid "G21_tooltip_tooltip"
+msgstr "<b>@@</b>: all length units are in '<b>metric</b>' units.<img>1</img><span color='#16861f'><b>Example: G21</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G30_tooltip_text"
+msgstr "G30"
+
+msgid "G30_tooltip_tooltip"
+msgstr "<b>@@</b>: move to a predefined position or stored values of absolute machine coordinates.<img>1</img><span color='#16861f'><b>Example: G30 Z5.0</b> - rapid to Z5.0 then to the  G30 stored position.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     <i>axis</i> (optional) go to this position first then the stored G30 position.</span>"
+
+msgid "G30.1_tooltip_text"
+msgstr "G30.1"
+
+msgid "G30.1_tooltip_tooltip"
+msgstr "<b>@@</b>:  <i>stores</i> current absolute position.<img>1</img><span color='#16861f'><b>Example:</b>\nG0 X0.0 Z6.0\n<b>G30.1</b> - would move the tool to X0.0 Z6.0 and stores the current G30 position at X0.0 Z6.0</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G40_tooltip_text"
+msgstr "G40"
+
+msgid "G40_tooltip_tooltip"
+msgstr "<b>@@</b>: turn off cutter compensation.<img>1</img><span color='#16861f'><b>Example: G40</b></span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G41_tooltip_text"
+msgstr "G41"
+
+msgid "G41_tooltip_tooltip"
+msgstr "<b>@@</b>: cutter compensation <i>left</i> of programmed path.{}"
+
+msgid "G42_tooltip_text"
+msgstr "G42"
+
+msgid "G42_tooltip_tooltip"
+msgstr "<b>@@</b>: cutter compensation <i>right</i> of programmed path.{}"
+
+msgid "G54_59_tooltip_text"
+msgstr "G54...G59.3"
+
+msgid "G54_59_tooltip_tooltip"
+msgstr "<b>@@</b>: selects the coordinate system. Nine coordinate basis are available: G54, G55, G56, G57, G58, G59, G59.1, G59.2, G59.3.{}<img>2</img>Note: it is an error selecting a coordinate system while cutter compensation (G41/G42) is on."
+
+msgid "G73_tooltip_text"
+msgstr "G73"
+
+msgid "G73_tooltip_tooltip"
+msgstr "<b>@@</b> - drill cycle with chip break. After the peck distance is reached rapid the drill up just a small amount to break the chip.<img>1</img><span color='#16861f'><b>Example: G73 X1.0 Y0.0 Z-0.5 R0.1 Q0.1</b>   -    go to X1.0 Y0.0, go to Z0.1, peck 0.1 with small pull backs until Z-0.5 is reached.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - 'X' position of the hole.\n     Y - 'Y' position of the hole. \n     Z - 'Z' depth of the hole\n     R - the retract position - Z axis (see G98, G99)\n     Q - (peck) delta distance along the Z axis. Must be  <i>greater than</i>> 0.0\n     L - (<i>optional</i>)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G80_tooltip_text"
+msgstr "G80"
+
+msgid "G80_tooltip_tooltip"
+msgstr "<b>@@</b> - cancels a G81-G89 drill cycle.<img>1</img><span color='#16861f'><b>Example: G80</b></span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G90_tooltip_text"
+msgstr "G90"
+
+msgid "G91_tooltip_text"
+msgstr "G91"
+
+msgid "G90.1_tooltip_text"
+msgstr "G90.1"
+
+msgid "G91.1_tooltip_text"
+msgstr "G91.1"
+
+msgid "G93_tooltip_text"
+msgstr "G93"
+
+msgid "G93_tooltip_tooltip"
+msgstr "<b>@@</b> <i><b>(rarely used)</b></i> Inverse Time Mode. In inverse time feed rate mode, an F word means the move should be completed in [one divided by the F number] minutes. For example, if the F number is 2.0, the move should be completed in half a minute. When the inverse time feed rate mode is active, an F word must appear on every line which has a G1, G2, or G3 motion, and an F word on a line that does not have G1, G2, or G3 is ignored.<img>1</img><span color='#16861f'><b>Example: G93</b></span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G94_tooltip_text"
+msgstr "G94"
+
+msgid "G94_tooltip_tooltip"
+msgstr "<b>@@</b> <i>Units per Minute Mode</i>. In units per minute feed mode, an F word is interpreted to mean the controlled point should move at a certain number of units per minute, millimeters per minute, or degrees per minute, depending upon what length units are being used and which axis or axes are moving.<img>1</img><span color='#16861f'><b>Example: G94</b></span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G95_tooltip_text"
+msgstr "G95"
+
+msgid "G95_tooltip_tooltip"
+msgstr "<b>@@</b> <i>Units per Revolution Mode</i>. In units per revolution mode, an F word is interpreted to mean the controlled point should move a certain number of units per revolution of the spindle, depending on what length units are being used and which axis or axes are moving. G95 is not suitable for threading, for threading use G33 or G76. G95 requires that motion.spindle-speed-in to be connected.<img>1</img><span color='#16861f'><b>Example: G95</b></span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+###################################################################################################
+# - Lathe
+###################################################################################################
+
+msgid "goto_g30_lathe_tooltip"
+msgstr "<b>@@</b>: causes the machine to move to a predefined G30 position, and is equivalent to typing G30 in the MDI Line. This G30 position can be set using the <span color='#16861f'><i><b>Set G30</b></i></span> button."
+
+msgid "msg_lathe_work_offset_label_tooltip"
+msgstr "<b>@@</b> allows the operator to think in terms of X/Z coordinates with respect to the part instead of thinking of them with respect to the machine position."
+
+msgid "msg_feed_per_rev"
+msgstr "Feed Per Revolution"
+
+msgid "msg_conv_rough_sfm_dro_tooltip"
+msgstr "<b>@@</b> is the Surface Feet Per Minute for roughing operations. Consult your tooling manufacturer's guide for determining the proper SFM of the material being cut. <span color='#16861f'><i>Note: turning operations use CSS (Constant Surface Speed) which will keep cutting at a constant surface feet by speeding up the spindle as cutting diameter decreases.</i></span>"
+
+msgid "msg_conv_finish_sfm_dro_tooltip"
+msgstr "<b>@@</b> is the Surface Feet Per Minute for finishing passes. These are typically faster that roughing to achieve a better surface finish. Consult your tooling manufacturer's guide for determining the proper SFM of the material being cut. <span color='#16861f'><i>Note: turning operations use CSS (Constant Surface Speed) which will keep cutting at a constant surface feet by speeding up the spindle as cutting diameter decreases.</i></span>"
+
+msgid "msg_conv_max_spindle_rpm_dro_tooltip"
+msgstr "<b>@@</b> Sets a maximum spindle RPM in operations that use CSS (constant surface speed). CSS allows the spindle rpm to increase as cutting diameters decrease. <span color='#16861f'><i>Note: When a chuck is in use set his to a lower value depending on the chuck manufacturer's recommendation. With collets, this can be set to the machine's max rpm.</i></span>"
+
+msgid "msg_conv_rough_fpr_dro_tooltip"
+msgstr "<b>@@</b> sets the value for feed or units per spindle revolution for the roughing section of the G-code. When this is grayed out, a DRO field should be available to set a simple feed per minute."
+
+msgid "msg_conv_finish_fpr_dro_tooltip"
+msgstr "<b>@@</b> sets the value for feed or units per spindle revolution for the finishing section of the G-code. When this is grayed out, a DRO field should be available to set a simple feed per minute."
+
+msgid "msg_feed_per_rev_tooltip"
+msgstr "<b>@@:</b> is the amount of <span color='#16861f'><i>X and/or Z travel per revolution of the spindle</i></span>. This is the alternative RPM mode to CSS and is typically used during axial operations such as drilling. See G-code G95"
+
+msgid "msg_od_turn_stock_dia_dro_tooltip"
+msgstr "<b>@@:</b> the initial diameter of the OD turning operation.\n<span color='#16861f'>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative.</span>"
+
+msgid "msg_od_turn_final_dia_dro_tooltip"
+msgstr "<b>@@:</b> The final diameter of the OD turning operation.\n<span color='#16861f'>Note: <i>This must be a smaller diameter than Initial X</i>. For <i>X-</i> operations (typically QCTP) this figure must be negative.</span>"
+
+msgid "msg_od_turn_z_start_dro_tooltip"
+msgstr "<b>@@:</b> The Z start of the OD turning operation.\n<span color='#16861f'>Note: <i>This is the point on the Z axis where the tool transitions from rapid to feed</i>. This should never be <i>after</i> or <i>less than</i> the Z start of the OD turning dimension. It's a good idea to put this point a little <i>before the start of the actual point at which the tool will contact the material</i>.</span>"
+
+msgid "msg_zero_z_text"
+msgstr "Zero Z Work Offset"
+
+msgid "msg_zero_z_tooltip"
+msgstr "<b>@@:</b> puts the Z work offset at zero."
+
+msgid "msg_od_turn_z_end_dro_tooltip"
+msgstr "<b>@@:</b> The Z end of the OD turning operation.\n<span color='#16861f'>Note: <i>This must be less than Z Start</i>.</span>"
+
+msgid "msg_od_turn_tc_dro_tooltip"
+msgstr "<b>@@:</b> the desired clearance distance from both Z Start and initial X that ,with these values, marks the transition point between rapid and feed.\n <span color='#16861f'><i>Note: larger values may be safer; smaller values may save time once the operator is familiar with how well the program works.</i></span>"
+
+msgid "msg_id_turn_pilot_dia_dro_tooltip"
+msgstr "<b>@@:</b> The initial <i>smaller</i> diameter of the ID turning operation.\n<span color='#16861f'>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative.</span>"
+
+msgid "msg_id_turn_final_dia_dro_tooltip"
+msgstr "<b>@@:</b> The ending <i>larger</i> diameter of the ID turning operation.\n<span color='#16861f'>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative. <i>This must be a greater diameter than the initial X diameter.</i></span>"
+
+msgid "msg_css"
+msgstr "Constant Surface Speed"
+
+msgid "msg_css_tooltip"
+msgstr "<b>@@:</b> varies the spindle rpm to maintain a <span color='#16861f'><i>constant surface cutting speed</i></span>. RPM increases as cutting diameter decreases. Because, as cutting diameter approaches zero rpm can increase to infinity, rpm is <span color='#16861f'><i>limited or 'clamped' to a maximum value</i></span>. See G-code G96 "
+
+msgid "msg_set_g30"
+msgstr "Set G30"
+
+msgid "msg_set_g30_tooltip"
+msgstr "<b>@@:</b> After jogging to a <span color='#16861f'><i>safe tool change position</i></span>, click to set that position as the G30 position. Subsequent uses of the G30 command in G-code or the 'Go To G30' button will cause the machine to move to that position."
+
+msgid "msg_goto_g30"
+msgstr "Go To G30 Position"
+
+msgid "goto_g30_mill_tooltip"
+msgstr "<b>@@:</b> This button causes the machine to move to the G30 position, and is equivalent to typing G30 in the MDI field. The G30 position can be set using the <span color='#16861f'><i><b>Set G30</b></i></span> button on the Offsets page."
+
+msgid "msg_collet_closer"
+msgstr "Collet Clamped"
+
+msgid "msg_collet_closer_tooltip"
+msgstr "Clamps or un-clamps the collet using the automatic collet closer (PN 38690). Collet is clamped when LED is green. Check the Settings tab for ID or OD clamping."
+
+msgid "msg_lathe_ref_x"
+msgstr "Reference X"
+
+msgid "msg_lathe_ref_z"
+msgstr "Reference Z"
+
+msgid "msg_lathe_ref_x_tooltip"
+msgstr "<b>@@:</b> will move the carriage upwards to it's <i>limit switch</i> which references the axis to it's home location. This <i>must be done after power on</i> before you run a part program or use MDI commands. The axes must be referenced individually and not simultaneously. <span color='#16861f'><i>When referenced, the LED on each button turns green.</i></span>"
+
+msgid "msg_lathe_ref_z_tooltip"
+msgstr "<b>@@:</b> will move the carriage all the way to the rear of the lathe to it's <i>limit switch</i> which references the axis to it's home location. This <i>must be done after power on</i> before you run a part program or use MDI commands. The axes must be referenced individually and not simultaneously. <span color='#16861f'><i>When referenced, the LED on each button turns green.</i></span>"
+
+msgid "msg_lathe_jog_x_active_tooltip"
+msgstr "If the lathe is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>X axis is selected</b></span>."
+
+msgid "msg_lathe_jog_z_active_tooltip"
+msgstr "If the lathe is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>Z axis is selected</b></span>."
+
+msgid "msg_empty_tool_description"
+msgstr "<i>Tool description is empty.</i>"
+
+msgid "msg_dia_dro_tooltip"
+msgstr "<b>@@:</b> Displays the current 'X' machine position expressed in the currently active work-offset coordinate system (G54, G55, etc.)."
+
+msgid "msg_z_dro_tooltip"
+msgstr "<b>@@:</b> Displays the current 'Z' machine position expressed in the currently active work-offset coordinate system (G54, G55, etc.)."
+
+msgid "msg_lathe_spindle_override_tooltip"
+msgstr "The <b>@@:</b> slider and 100 Percent button allow overriding of the <i>commanded spindle</i> speed by percentages ranging from 1-150 percent. The 100 Percent button returns the override to 100 percent of the commanded value (no override). Overriding the spindle when the spindle is stopped will effect spindle speed the next time the spindle is started.\n<span color='#16861f'><i>Note: The override doesn’t drive the spindle past its maximum speed of 3500 RPM (5C configuration) or 2500 (6” chuck configuration). It does affect the speed of a spindle command limited by a D word.</i></span>"
+
+msgid "msg_lathe_cycle_start_tooltip"
+msgstr "<b>@@:</b> Starts a program. An <i>alarm is triggered if the chuck guard or enclosure door is not closed and a valid G-code program is loaded</i>. While running a program, the Cycle Start LED illuminates green.<span color='#16861f'><i>\nNote: The LED will flash during Feedhold and tool changes.\nKeyboard shortcut: Alt-R</i></span>"
+
+msgid "profile_tool_renderer_tooltip"
+msgstr "<b>@@</b> shows the selected tool and geometry <i><u>as it would face the work</u>.\n<span color='#16861f'>Note:\n<b>External:</b> The <u>tool cuts X- it will point up from the bottom; X+ it will point down from the top.</u>\n <b>Internal:</b> The <u>tool cuts X- it will point down from the top; X+ it will point up from the bottom.</u></span></i>\nIf the tool geometry is unavailable or incorrect a bar circle will appear."
+
+msgid "msg_profile_stock_x_tooltip"
+msgstr "<b>@@</b> is the <i>outer diameter</i> of the stock or the initial <i>outer diameter</i> spanning the profile.\n<span color='#16861f'><i>Note: This number must be positive</i></span>."
+
+msgid "msg_profile_stock_z_tooltip"
+msgstr "<b>@@</b> is the initial Z value of the profile {}"
+
+msgid "msg_profile_roughing_tool_clear_x_tooltip"
+msgstr "<b>@@</b> is the initial X value (or 'Safe' X) of the tool. For <i><u>external</u></i> profiles, this diameter is <i><u>greater than</u></i> that the initial profile diameter. For <i>internal</u></i> profiles, this must be <i><u>less than</u></i> the initial internal diameter."
+
+msgid "msg_profile_roughing_tool_clear_z_tooltip"
+msgstr "<img>1</img>The @@ is the initial Z plane for the tool for the profile. This value may be less than the 'Stock Z Value' to start a profile behind the leading edge of the part.{}"
+
+msgid "msg_profile_tool_num_tooltip"
+msgstr "The @@ tool selected for profiling. <b>Tool {0:s}</b> <b>Description:</b> <span color = '#003aff'>{1:s}.</span>"
+
+msgid "msg_profile_roughing_doc_dro_tooltip"
+msgstr "<b>@@</b>: the amount of material the <i>radius</i> of the stock is reduced per <i>roughing</i> pass. <i>A blank or zero value for roughing depth of cut will result in no roughing passes (Finish passes only).</i> <span color='#16861f'>Note: typically roughing depth of cut should be at least 2/3rds the tool radius to minimize tool deflection. Depth of cut will reduce diameter by twice the depth of cut per pass.</span>"
+
+msgid "msg_profile_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: the amount of material in both X and Z taken per finish pass. <i>A zero value for finish depth of cut will result on no finishing passes (Roughing passes only).</i> <span color='#16861f'>Note: typically finishing depth of cut is light about .002-.005 in.  or .04-1.2mm.</span>"
+
+msgid "msg_profile_finish_passes_dro_tooltip"
+msgstr "<b>@@</b>: the number of finish passes. <span color='#16861f'>Note: <i>zero finish passes</i> will change the <b>Finish DOC</b> to <b>Material to Leave</b>. This will leave that amount of material in both X and Z after roughing passes.</span>"
+
+msgid "msg_stock_diameter"
+msgstr "Stock Diameter"
+
+msgid "msg_od_turn_fillet_dro_tooltip"
+msgstr "<b>@@</b>: A fillet may be specified here. The fillet radius should be larger than the tool radius. <span color='#16861f'>Note: an entry of zero in this field will be interpreted as <i>no</i> radius, resulting in a fillet equal to the tool radius.</span>"
+
+msgid "msg_turn_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>radius</i> of the stock is reduced per <i>roughing</i> pass. A zero value for depth of cut will make one pass only of the specified OD dimensions, only. <span color='#16861f'>Note: typically roughing depth of cut should be at least 2/3rds the tool radius to minimize tool deflection. Depth of cut will reduce diameter by twice the depth of cut per pass.</span>"
+
+msgid "msg_turn_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>radius</i> of the stock is reduced on the <i>finish</i> pass. A zero value for finishing depth of cut will result in the final pass using roughing depth of cut to the specified OD dimensions.  Depth of cut will increase bore diameter by twice the depth of cut."
+
+msgid "msg_id_basic_rough_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>radius</i> of the bore is increased per <i>roughing</i> pass. A zero value for depth of cut will make one pass only of the specified ID dimensions, only. <span color='#16861f'>Note: typically roughing depth of cut should be at least 2/3rds the tool radius to minimize tool deflection, though on blind holes less may create better chip evacuation. Depth of cut will increase bore diameter by twice the depth of cut.</span>"
+
+msgid "msg_id_basic_finish_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>radius</i> of the bore is increased per <i>finishing</i> pass. A zero value for finishing depth of cut will result in the final pass using roughing depth of cut to the specified dimensions. Depth of cut will increase bore diameter by twice the depth of cut."
+
+msgid "msg_face_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>length</i> is reduced per <i>roughing</i> pass. <span color='#16861f'>Note: typically roughing depth of cut should be at around 2/3rds that of the tool radius.</span>"
+
+msgid "msg_face_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the amount of material the <i>length</i> is reduced per <i>finish</i> pass. A zero value for finishing depth of cut will result in the final pass using roughing depth of cut to the specified dimensions."
+
+msgid "msg_id_turn_face_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the depth of cut on the on the internal face of the bore. <span color='#16861f'><i>Note: Be sure the tool geometry allows for the figure entered here and does not gouge the part.</i></span>"
+
+msgid "msg_face_tc_dro_tooltip"
+msgstr "<b>@@</b>: is the distance from 'Z Start'. This is the point the tool transitions from rapid to feed."
+
+msgid "msg_face_stock_dia_dro_tooltip"
+msgstr "<b>@@:</b> the initial diameter of the Facing operation. <span color='#16861f'>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative.</span>"
+
+msgid "msg_face_x_end_dro_tooltip"
+msgstr "<b>@@:</b> the final diameter of the Facing operation. <span color='#16861f'>Note: this must be a smaller diameter than the <i>Initial X</i> diameter.</span>"
+
+msgid "msg_face_z_start_dro_tooltip"
+msgstr "<b>@@:</b> the starting Z dimension of the facing operation. <span color='#16861f'>Note: this must be a greater than the <i>Z End</i> value.</span>"
+
+msgid "msg_face_z_end_dro_tooltip"
+msgstr "<b>@@:</b> the final Z dimension of the facing operation. <span color='#16861f'>Note: this must be a less than the <i>Z Start</i> value.</span>"
+
+msgid "msg_id_turn_pilot_dro_tooltip"
+msgstr "<b>@@</b>: is the depth of the major diameter of the pilot hole. <span color='#16861f'><i>Note: If the pilot hole is a drilled hole use the drill depth minus about 1/3 of the drill diameter.</i></span>"
+
+msgid "msg_id_turn_fillet_dro_tooltip"
+msgstr "<b>@@</b>: an internal fillet radius can be specified here. The fillet radius should be larger than the tool radius. <span color='#16861f'>Note: an entry of zero in this field will be interpreted as <i>no</i> radius, resulting in a fillet equal to the tool radius.</span>"
+
+msgid "conv_work_offset_lathe_tooltip"
+msgstr "The work coordinate system used for the conversational operation. Puts X/Z coordinates <i>with respect to the part instead of with respect to the lathe position</i>. Valid work coordinate systems are G54-G59, G59.1, G59.2, G59.3, or G54.1 Pnnn where nnn is 1-500."
+
+msgid "lathe_profile_raise_in_table_text"
+msgstr "Move Row Up"
+
+msgid "lathe_profile_raise_in_table_tooltip"
+msgstr "<b>@@</b>: Move the selected row up one row."
+
+msgid "lathe_profile_lower_in_table_text"
+msgstr "Move Row Down"
+
+msgid "lathe_profile_lower_in_table_tooltip"
+msgstr "<b>@@</b>: Move the selected row down one row."
+
+msgid "lathe_profile_insert_row_table_text"
+msgstr "Insert One row Above"
+
+msgid "lathe_profile_insert_row_table_tooltip"
+msgstr "<b>@@</b>: will open an emtpy row above the selected row."
+
+msgid "lathe_profile_delete_row_table_text"
+msgstr "Delete Row"
+
+msgid "lathe_profile_delete_row_table_tooltip"
+msgstr "<b>@@</b>: will delete the selected row."
+
+msgid "lathe_profile_clear_table_text"
+msgstr "Clear Table"
+
+msgid "lathe_profile_clear_table_tooltip"
+msgstr "<b>@@</b>: <span foreground='red'><b><i>Warning! This will delete the entire table.</i></b></span>"
+
+msgid "profile_tool_clear_x_dro_tooltip"
+msgstr "<b>@@</b>: is the tool clearance X plane for the profile.{}"
+
+msgid "profile_external_clear_x_note"
+msgstr "    \n<span color='#16861f'><i>Note: for external profiles this is a larger diameter than the first X dimension (diameter) in the profile points table.</i></span>"
+
+msgid "profile_internal_clear_x_note"
+msgstr "    \n<span color='#16861f'><i>Note: for internal profiles this is a <b>smaller diameter than minimum bore (X dimension diameter)</b> in the profile points table.</i></span>"
+
+msgid "profile_external_z_start_note"
+msgstr "<img>1,2</img><span color='#16861f'><i>Note: for external profiles this is the Z plane at the start of the profile.</i></span>"
+
+msgid "profile_external_tool_clear_z_note"
+msgstr "<img>2</img><span color='#16861f'><i>Note: for external profiles tool clearance may be less than the end of the stock or part.</i></span>"
+
+msgid "profile_internal_z_start_note"
+msgstr "<img>1</img><span color='#16861f'><i>Note: for internal profiles this is the Z plane at the open end of the profile.</i></span>"
+
+msgid "msg_profile_points_x_text_evtbox_text"
+msgstr "Profile Points: X"
+
+msgid "msg_profile_points_x_text_tooltip"
+msgstr "<b>@@</b>: values are in <i>diameter</i> terms and are <i><b>always positive</b></i> unless they intentionally cross X0.0 (as in a facing operation).\n<span color='#16861f'><i>   Note: <b>X- cutting</b> is determined by tool orientations 4, 8, 3. if an external profile, and orientations 1, 6, 2 if internal.</i></span>"
+
+msgid "msg_profile_points_z_text_evtbox_text"
+msgstr "Profile Points: Z"
+
+msgid "msg_profile_points_z_text_tooltip"
+msgstr "<b>@@</b>: values typically flow from greater Z value at the tailstock side of the feature to lesser going toward the headstock side. \n<span color='#16861f'><i>Example: row 1 might contain a Z value of 0.0, row 3: Z=-.5, row 4: Z=-.6, etc.</i></span>"
+
+msgid "msg_profile_points_r_text_evtbox_text"
+msgstr "Profile Points: Radius"
+
+msgid "msg_profile_points_r_text_tooltip"
+msgstr "<b>@@</b>: adds a radius between the <i>last</i> X,Z point and the current X,Z point. A positive radius has it's center point above and/or right, a negative radius below and/or left. A radius must be larger than half the distance between the start and end points. The larger the radius the 'flatter' the curve. \n<span color='#16861f'><i>Example: to add a .05 in. radius from X.5 Z-.5 to X.6 Z-.55 (note: X is in diameter values) add R.05</i></span>"
+
+msgid "msg_corner_chamfer_od_tc_dro_tooltip"
+msgstr "<b>@@</b>: the <b>external</b> tool clearance.\n <span color='#16861f'><i>is a reference value that should match the <b>desired space beyond the Initial X</b> diameter and face that is needed for some movements to clear the workpiece.\n Since there is one value used for X and Z moves, the value should be set to the greater of the two clearances.</i></span>"
+
+msgid "msg_corner_chamfer_id_tc_dro_tooltip"
+msgstr "<b>@@</b>: the <b>internal</b> tool clearance.\n <span color='#16861f'><i>is a reference value that should match the <b>desired space beyond (less than) the Initial X</b> diameter and face that is needed for some movements to clear the workpiece.\n Since there is one value used for X and Z moves, the value should be set to the greater of the two clearances.</i></span>"
+
+msgid "msg_corner_chamfer_od_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: sets the depth of cut during roughing. The depth of cut is adjusted. In this case the roughing range is the distance from the workpiece corner (the intersection of the face and OD) and the closest point on the chamfer or radius minus the finish DOC. Valid values are positive."
+
+msgid "msg_corner_chamfer_id_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: sets the depth of cut during roughing. The depth of cut is adjusted. In this case the roughing range is the distance from the workpiece corner (the intersection of the face and ID) and the closest point on the chamfer or radius minus the finish DOC. Valid values are positive."
+
+msgid "msg_corner_chamfer_od_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is used to leave enough material after roughing to do one finish pass. Valid values are positive."
+
+msgid "msg_corner_chamfer_id_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is used to leave enough material after roughing to do one finish pass. Valid values are positive."
+
+msgid "msg_corner_radius_od_tc_dro_tooltip"
+msgstr "<b>@@</b>: the <b>external</b> tool clearance.\n <span color='#16861f'><i>is a reference value that should match the <b>desired space beyond the Initial X</b> diameter and face that is needed for some movements to clear the workpiece.\n Since there is one value used for X and Z moves, the value should be set to the greater of the two clearances.</i></span>"
+
+msgid "msg_corner_radius_id_tc_dro_tooltip"
+msgstr "<b>@@</b>: the <b>internal</b> tool clearance.\n <span color='#16861f'><i>is a reference value that should match the <b>desired space beyond (less than) the Initial X</b> and face that is needed for some movements to clear the workpiece.\n Since there is one value used for X and Z moves, the value should be set to the greater of the two clearances.</i></span>"
+
+msgid "msg_corner_radius_od_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: sets the depth of cut during roughing. The depth of cut is adjusted. In this case the roughing range is the distance from the workpiece corner (the intersection of the face and OD) and the closest point on the chamfer or radius minus the finish DOC. Valid values are positive."
+
+msgid "msg_corner_radius_id_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: sets the depth of cut during roughing. The depth of cut is adjusted. In this case the roughing range is the distance from the workpiece corner (the intersection of the face and ID) and the closest point on the chamfer or radius minus the finish DOC. Valid values are positive."
+
+msgid "msg_corner_radius_od_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is used to leave enough material after roughing to do one finish pass. Valid values are positive."
+
+msgid "msg_corner_radius_id_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: is used to leave enough material after roughing to do one finish pass. Valid values are positive."
+
+msgid "msg_corner_z_start_dro_tooltip"
+msgstr "<b>@@</b>: is a reference value for the stock face or the start of the chamfer or radius.\n<span color='#16861f'><i>Note: The Z width of a chamfer or the radius of a corner radius is the distance from  Z START to Z END. </i></span>"
+
+msgid "msg_corner_z_end_dro_tooltip"
+msgstr "<b>@@</b>: is a reference value for the stock face or the end of the chamfer or radius.\n<span color='#16861f'><i>Note: The Z width of a chamfer or the radius of a corner radius is the distance from  Z START to Z END. </i></span>"
+
+msgid "msg_groove_stock_dia_dro_tooltip"
+msgstr "<b>@@</b>: field is a reference value which should describe an existing dimension. <i>This value is usually set to the stock diameter.</i> It is used with Tool Clearance to locate the transition between rapid and feed rates.\n<span color='#16861f'><i>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative.</i></span>"
+
+msgid "msg_groove_final_dia_dro_tooltip"
+msgstr "<b>@@:</b> the final diameter of the Grooving operation. <span color='#16861f'>Note: this must be a smaller diameter than the <i>Initial X</i> diameter.</span>"
+
+msgid "msg_groove_z_start_dro_tooltip"
+msgstr "<b>@@</b>: is one edge of the groove. \n<span color='#16861f'><i>Note: If the value in the Z Start DRO field is greater than the value in the Z End DRO field, the tool’s control point is set to the +Z side of the tool. If the value in the Z Start DRO field is less than the value in the Z End DRO field, the control point is set to the -Z side of the tool.</i></span>"
+
+msgid "msg_groove_z_end_dro_tooltip"
+msgstr "<b>@@</b>: is the forward (tailstock) edge of the groove.\n<span color='#16861f'><i>Note: If the value in the Z Start DRO field is greater than the value in the Z End DRO field, the tool’s control point is set to the +Z side of the tool. If the value in the Z Start DRO field is less than the value in the Z End DRO field, the control point is set to the -Z side of the tool.</i></span>"
+
+msgid "msg_part_z_start_dro_tooltip"
+msgstr "<b>@@</b>: The parting (rear) dimension on the part. Parting occurs on the Z+ edge of the tool regardless if the orientation of the tool."
+
+msgid "msg_groove_rough_doc_dro_tooltip"
+msgstr "<b>@@</b>: for groove, it is the Z offset for each plunge cut. Valid values are positive and normally should be less than the full width of the tool tip (the distance between tip radii centers)."
+
+msgid "msg_groove_finish_doc_dro_tooltip"
+msgstr "<b>@@</b>: material roughing should leave for the finishing pass (groove sides and bottom). Valid values are positive."
+
+msgid "msg_groove_tc_dro_tooltip"
+msgstr "<b>@@</b>: is the <b>desired space beyond the Initial X</b> diameter for rapid movements to clear the workpiece.\n<span color='#16861f'><i>Note: Larger values may be safer; smaller values may save time once the operator is familiar with how well the program works.</i></span>"
+
+msgid "msg_part_stock_dia_dro_tooltip"
+msgstr "<b>@@</b>: field is a reference value which should describe an existing dimension. <i>This value is usually set to the stock diameter.</i> It is used with Tool Clearance to locate the transition between rapid and feed rates.\n<span color='#16861f'><i>Note: For <i>X-</i> operations (typically QCTP) this figure must be negative.</i></span>"
+
+msgid "msg_part_final_dia_dro_tooltip"
+msgstr "<b>@@:</b> the final diameter of the Parting operation. <span color='#16861f'>Note: this must be a smaller diameter than the <i>Initial X</i> diameter.</span>"
+
+msgid "msg_part_tc_dro_tooltip"
+msgstr "<b>@@</b>: is the  <b>desired space beyond the Initial X</b> diameter for rapid movements to clear the workpiece.\n<span color='#16861f'><i>Note: Larger values may be safer; smaller values may save time once the operator is familiar with how well the program works.</i></span>"
+
+msgid "msg_groove_part_tw_dro_tooltip"
+msgstr "<b>@@</b>: is a reference value for setting the groove or parting tool width. This value is added or subtracted based on the tool’s control point.\n<span color='#16861f'><i>If 'width' (example: W:.1234) is included in the tool's description (Offset Page) this will be filled in automatically once the tool number is typed into the Tool DRO.</i></span>"
+
+msgid "msg_part_peck_dro_tooltip"
+msgstr "<b>@@</b>: is a value for setting the amount of plunge to tool takes before a retract. For deeper parting it's  <i>advisable to peck and retract</i> to allow a developing chip to escape from the groove being cut during parting."
+
+msgid "msg_part_retract_dro_tooltip"
+msgstr "<b>@@</b>: is a value for setting the amount retract from a parting 'peck' action. For deeper parting it's <i>advisable to peck and retract</i> to allow a developing chip to escape from the groove being cut during parting."
+
+msgid "msg_part_ebw_dro_tooltip"
+msgstr "<b>@@</b>: parting operations can include an <i>edge break</i> which is a 45 degree chamfer of width specified by this value. These chamfer as cut in one pass and are limited to 40% of the tool width or .7 in. whichever is less."
+
+msgid "msg_drill_z_start_dro_tooltip"
+msgstr "<b>@@</b>: a reference value for the stock face location. It is used with Tool Clearance to set the transition between rapid and the feed for drilling or tapping. <i>This field must be greater than Z End DRO field</i>."
+
+msgid "msg_drill_z_end_dro_tooltip"
+msgstr "<b>@@</b>: a reference value for final depth of drilling. This is the final Z value for the point of the drill and is not where the drill reaches full diameter."
+
+msgid "msg_drill_tc_dro_tooltip"
+msgstr "<b>@@</b>: a reference value for the transition Z point from rapid to feed. This value <i>must be greater than Z Start</i>."
+
+msgid "msg_drill_peck_dro_tooltip"
+msgstr "<b>@@</b>: can be used to help clear chips before they bind in the hole during drilling. The peck motion retracts to <i>Z Start + Tool Clearance</i> on each cycle. If drilling the hole does not need a peck, enter zero."
+
+msgid "msg_drill_spindle_rpm_dro_tooltip"
+msgstr "<b>@@</b>: is the RPM the spindle will be set to for drilling. Unlike CSS this RPM value is constant."
+
+msgid "msg_drill_dwell_dro_tooltip"
+msgstr "<b>@@</b>: field is provided to allow a pause for the drill to stay at Z END long enough to cut a full revolution at the bottom of the hole, otherwise the drill is immediately retracted and may leave an irregular bottom."
+
+msgid "msg_tap_z_end_dro_tooltip"
+msgstr "<b>@@</b>: a reference value for final depth of tapping. This is the final Z value for the point of the tap and is not where the tap reaches full thread diameter."
+
+msgid "msg_tap_peck_dro_tooltip"
+msgstr "<b>@@</b>: can be used to help clear chips before they bind in the hole during tapping. The peck motion retracts to <i>Z Start + Tool Clearance</i> on each cycle. In tapping the Z axis movement is electronically locked to spindle rotation so threads are picked up perfectly."
+
+msgid "msg_tap_spindle_rpm_dro_tooltip"
+msgstr "<b>@@</b>:  is the RPM the spindle will be set to for drilling. Unlike CSS this RPM value is constant."
+
+msgid "msg_tap_pitch_dro_tooltip"
+msgstr "<b>@@</b>:  is used with tap to set the Z motion to spindle ratio to match the required thread pitch. This DRO field is coupled with the Threads/Inch, mm DRO field, so entering a value in either DRO field calculates and enters a value in the other."
+
+msgid "msg_tap_tpu_dro_tooltip"
+msgstr "<b>@@</b>:  is <i>Threads per Unit</i>. This DRO field is coupled with the <i>pitch</i>, so entering a value in either DRO field calculates and enters a value in the other."
+
+msgid "msg_thread_z_start_dro_tooltip"
+msgstr "<b>@@</b>:  is a reference value for the stock face location. It is used with Tool Clearance to set the transition between rapid and feed rate on some Z moves. The value in the Z Start DRO field should be larger than the value in the Z End DRO field."
+
+msgid "msg_thread_z_end_dro_tooltip"
+msgstr "<b>@@</b>:  value that sets the final thread Z location. The value in the Z End DRO field should be smaller than the value in the Z Start DRO field."
+
+msgid "msg_thread_tc_dro_tooltip"
+msgstr "<b>@@</b>: is the X clearance dimension needed for rapid movements to clear the workpiece. This sets the starting X diameter of the thread cycle return path.\n{}"
+
+msgid "msg_thread_clear_int_tooltip"
+msgstr "<span color='#16861f'><i>Note: Larger values may be safer with care not to collide with the opposite wall of the bore.</i></span>"
+
+msgid "msg_thread_clear_ext_tooltip"
+msgstr "<span color='#16861f'><i>Note: Larger values may be safer; smaller values may save time once the operator is familiar with how well the program works.</i></span>"
+
+msgid "msg_thread_taper_dro_tooltip"
+msgstr "<b>@@</b>: the X dimension at <i>Z End</i> to define a tapered thread."
+
+msgid "msg_thread_lead_dro_tooltip"
+msgstr "<b>@@</b>: A margin distance before <i>Z Start</i>(where the thread begins). Typical values are around .150in or 5mm. This is to allow the enough room for the Z axis to sync with the spindle and get up to the proper speed."
+
+msgid "msg_thread_major_dia_dro_tooltip"
+msgstr "<b>@@</b>: is the larger diameter, or <i><b>major diameter</b></i> of the thread."
+
+msgid "msg_thread_minor_dia_dro_tooltip"
+msgstr "<b>@@</b>: is the smaller diameter, or <i><b>minor diameter</b></i> of the thread."
+
+msgid "msg_thread_spindle_rpm_dro_tooltip"
+msgstr "<b>@@</b>: the spindle rpm of the threading operation. <span color='#16861f'><i>Note: Spindle RPM can not be so high maximum Z axis travel is exceeded or that spindle - Z axis synchronization becomes compromised. RPMs values of around 400-800 are, typically, in a safe zone</i></span>."
+
+msgid "msg_thread_tpu_dro_tooltip"
+msgstr "<b>@@</b>: the thread density described in threads per unit (inch or millimeters). <span color='#16861f'><i>Note: Threads per unit and thread pitch describe the same thing, whichever is easier to think about. If one is changed the other changes automatically</i></span>."
+
+msgid "msg_thread_pitch_dro_tooltip"
+msgstr "<b>@@</b>: the thread density described in the distance from one thread <i>crest to the next</i>. <span color='#16861f'><i>Note: Thread pitch and threads per unit describe the same thing, whichever is easier to think about. If one is changed the other changes automatically</i></span>."
+
+msgid "msg_thread_pass_dro_tooltip"
+msgstr "<b>@@</b>: the number of successive passes to cut the thread. This number and thread <i>depth of cut</i> can be derived from each other, i.e., changing one will cause the other to change. <span color='#16861f'><i>Note: This number depends on the material being cut and the size of the thread. Typically a number between 8 and 15 should satisfy most threads</i></span>."
+
+msgid "msg_thread_doc_dro_tooltip"
+msgstr "<b>@@</b>: the depth of cut of the first pass.\n<span color='#16861f'><i>Note: Threading G-code generates a constant area cutting strategy, with a tool lead-in of 30 degrees. At first this value may seem large, but as the width of tool contact increases DOC decreases until the final passes where DOC is quite small</i></span>."
+
+msgid "thread_ext_int_text"
+msgstr "Thread External / Internal"
+
+msgid "thread_ext_int_tooltip"
+msgstr "<b>@@</b>: selects for External or Internal threading."
+
+msgid "thread_rh_lh_text"
+msgstr "Right Hand / Left Hand"
+
+msgid "thread_rh_lh_tooltip"
+msgstr "<b>@@</b>: selects for Right hand or Left hand threading.\n<span color='#16861f'><i>Note: <b>Right hand</b> threading is typical and cuts from the right to left toward the headstock.\n<b>Left hand</b> threading, uses the same setup except cuts from left to right toward the tailstock. This requires a 'lead-in' length, or shoulder with diameter less than the minor thread diameter, long enough for spindle synchronization, usually about 1/8-3/16 in or 3-5mm.</i></span>"
+
+msgid "thread_chart_text"
+msgstr "Thread Select"
+
+msgid "thread_chart_tooltip"
+msgstr "<b>@@</b>: selects size and pitch for the most common SAE threads or ISO metric if in metric mode (G21). All thread related parameters, such as X Start, X End, Pitch, Number of Passes will be filled in automatically.\n<span color='#16861f'><i>Note: If selected, thread specifications are for <b>full profile</b> threading inserts. Pointed or partial profile tooling will require some adjustment to deepen thread depth.</i></span>"
+
+msgid "door_sw_tooltip"
+msgstr "<b>@@</b>: LED will be green when the switch is closed - the enclosure door closed or the chuck guard down."
+
+msgid "encoder_counts_dro_tooltip"
+msgstr "<b>@@</b>:A count on the number of times Encoder A and B are triggered.\n<span color='#16861f'><i>Note: This will count up when the spindle is rotating forward, clockwise (M3). It will count down when the spindle is rotating reverse, counter-clockwise (M4).</i></span>"
+
+msgid "G30__lathe_Z_move_only_tooltip"
+msgstr "<b>@@</b>: G30 or M998 G-code commands can be used to move the carriage to a preset position. The position is settable using the Set G30 button on the Main screen. A G30 or M998 command is typically programmed right before a tool change line in G-code programs so that the tools clear the workpiece, chuck, tailstock with sufficient clearance. If selected, <span color='#16861f'><i>this option moves to the tool change position in Z only, otherwise a coordinated Z, then X move occurs on G30 or M998.</i></span>"
+
+msgid "G0_lathe_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G0 X1.0 Z0.0</b>  - will cause rapid motion to X1.0, Z0.0</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G1_lathe_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G1 X1.0 Z-1.0</b>  - will cause motion at the current feed rate to X1.0 Z-1.0</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G2_lathe_tooltip"
+msgstr " \nNote: the same curve using G2 in X+ cutting would use G3 in X- cutting.<img>1</img><span color='#16861f'><b>Example: G2 X1.0 Z-0.5 I0.25 K0.0</b> - clockwise arc motion from X0.5 Z0.0 to X1.0, Z-0.5 at the current feed rate</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     I - <i>X</i> offset to arc center in radius(not diameter) mode\n     K - <i>Z</i> offset to arc center\n     R - radius mode if I,K not used</span>"
+
+msgid "G3_lathe_tooltip"
+msgstr " \nNote: the same curve using G3 in X+ cutting would use G2 in X- cutting.<img>1</img><span color='#16861f'><b>Example: G3 X1.0 Z-0.5 I0.25 K0.0</b> - counter-clockwise arc motion from X0.5 Z0.0 to X1.0, Z-0.5 at the current feed rate</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     I - <i>X</i> offset to arc center in radius(not diameter) mode\n     K - <i>Z</i> offset to arc center\n     R - radius mode if I,K not used</span>"
+
+msgid "G7_tooltip_text"
+msgstr "G7"
+
+msgid "G7_tooltip_tooltip"
+msgstr "<b>@@</b>: Lathe diameter mode <i>(<b>preferred mode</b>)</i>. All <i>X</i> dimensions are diameter dimensions.\nNote: does not apply to 'I' parameters for G2, G3.<img>1</img><span color='#16861f'><b>Example: G7</b>\nG0 X1.0  - would phyically move to tool to an X position of 0.5, which would cut a diameter of 1.0.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G8_tooltip_text"
+msgstr "G8"
+
+msgid "G8_tooltip_tooltip"
+msgstr "<b>@@</b>: Lathe radius mode. All <i>X</i> dimensions are radius dimensions.\nNote: does not apply to 'I' values for G2, G3.<img>1</img><span color='#16861f'><b>Example: G8</b>\nG0 X1.0  - would phyically move to tool to an X position of 1.0, which would cut a diameter of 2.0.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G33.1_tooltip_text"
+msgstr "G33.1"
+
+msgid "G33.1_tooltip_tooltip"
+msgstr "<b>@@</b> rigid tapping, synchronizes the spindle, moves in Z until the Z parameter depth is reached at 'K' distance per revolution, then reverses motion, stays synchronized until the starting Z value, then reverse the spindle to the original direction.<img>1</img><span color='#16861f'><b>Example: G33.1 Z-0.50 K0.05</b> - start tapping at current X,Z position, tap until Z is -.5 at 20 tpi.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     X (optional) - rapid to this X position first.\n     Z - perform rigid tapping to this Z position.\n     K - move Z distance per revolution.</span>"
+
+msgid "G41_lathe_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G41</b> </span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D (optional) - tool number. If no D word the radius of the currently loaded tool is used; if no tool is loaded and no D word is given, a radius of 0 will be used; if supplied, the D word is the tool number to use.</span>"
+
+msgid "G41.1_tooltip_text"
+msgstr "G41.1"
+
+msgid "G41.1_tooltip_tooltip"
+msgstr "<b>@@</b>: dynamic cutter compensation <i>left</i> of programmed path. This allows for use of a cutter diameter instead of a tool number.<img>1</img><img>2</img><span color='#16861f'><b>Example G41.1 D.0158 L2</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D - cutter diameter.\n     L(optional) - tool orientation.</span><img>2</img>Note: it is an error if:\n     The YZ plane is active.\n     The L number is not in the range from 0 to 9 inclusive.\n     The L number is used when the XZ plane is not active.\n     Cutter compensation is already active."
+
+msgid "G42_lathe_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G42</b> </span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D (optional) - tool number. If no D word the radius of the currently loaded tool is used; if no tool is loaded and no D word is given, a radius of 0 will be used; if supplied, the D word is the tool number to use.</span>"
+
+msgid "G42.1_tooltip_text"
+msgstr "G42.1"
+
+msgid "G42.1_tooltip_tooltip"
+msgstr "<b>@@</b>: dynamic cutter compensation <i>right</i> of programmed path. This allows for use of a cutter diameter instead of a tool number.<img>1</img><img>2</img><span color='#16861f'><b>Example: G42.1 D.031 L2</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D - cutter diameter.\n     L(optional) - tool orientation.</span><img>2</img>Note: it is an error if:\n     The YZ plane is active.\n     The L number is not in the range from 0 to 9 inclusive.\n     The L number is used when the XZ plane is not active.\n     Cutter compensation is already active."
+
+msgid "G54_59_lathe_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G54</b> ( or G55 or G56, etc ). Useful for creating multiple parts off the same bar without advancing it.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G71_tooltip_text"
+msgstr "G71"
+
+msgid "G71_tooltip_tooltip"
+msgstr "<b>@@</b> lathe profiling canned cycle.\n\n<span color='#16861f'><b>Example:G71 P1099 D0.0200 F0.0081 J0.0100 L10 I0.0050 K0.0050 R0.0200 E1</b> -- cut the profile defined by SUB o109 (P), using roughing depth of cut of 0.020 inches (D), using feedrate override of 0.0081 (F), 0.0100 inches radial stock left between roughing pass and first finish pass (J), 0.0100 axial stock left between roughing and first finish pass 10 / 1000 (L), 0.0050 inches radial stock left between finish pass(es) (I), 0.0100 axial stock left between finish pass(es) (K), 0.0200 inches retraction between roughing passes (R), approach profile from the Z axis (E).\n\n<span color='#0012da'><b>Parameters:</b>\n     P - oword SUB number defining profile\n     D - roughing depth of cut\n     F - feedrate override\n     I - radial stock final finish pass\n     J - radial stock between roughing and finish\n     K - axial stock final finish pass\n     L - axial stock between roughing and finish * 1000\n     R - retract amount roughing passes\n     E - approach 0  - 'X' direction, 1 - 'Z' direction</span>"
+
+msgid "G76_tooltip_text"
+msgstr "G76"
+
+msgid "G76_tooltip_tooltip"
+msgstr "<b>@@</b> lathe threading cycle.<img>1</img><span color='#16861f'><b>Example:</b> G0 X.35 Z0.2\n<b>G76 P0.05 Z-1.0 I-0.05 J0.008 K0.045 Q29.5 R2.0 H1</b> -- go to X.35 Z0.2, thread to Z-1.0, starting at .05 from the thread peak (I), initial cut of 0.008 (J), thread delta to minor diameter 0.045 (K), infeed angle of 29.5 (Q), constant area regression (R), one spring pass (H).<img>2</img><span color='#0012da'><b>Parameters:</b>\n     P - thread pitch\n     Z - Z end of thread\n     I - thread peak offset from the drive line\n     J - initial depth of cut (determines number of passes)\n     K - thread final pass will be 'K' diameter from the thread crest\n     R - regression 1.0 for constant depth, 2.0 for constant area\n     Q - compound slide angle\n     H - number of spring passes\n     E - distance along drive line used for taper\n     L - which end for taper: 0 no taper, 1 entry, 2 exit, 3 both</span>"
+
+msgid "G90_lathe_tooltip_tooltip"
+msgstr "<b>@@</b>: absolute distance mode. In absolute distance mode axis values usually represent positions in terms of the currently active coordinate system (G54, G55, .. etc.). All coordinates will be relative to the zero point of that coordinate system.<img>1</img><span color='#16861f'><b>Example G90 X1.0 Z0.0\nX1.1 Z-1.0\nX1.2 Z-1.5:</b> - move X,ZY to X1.0, Y0.0, then move to X1.1 Z-1.0, then move to X1.2 Z-1.5</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G91_lathe_tooltip_tooltip"
+msgstr "<b>@@</b>: incremental distance mode. In incremental distance mode axis values represent positions relative to the previous position of currently active coordinate system (G54, G55, .. etc.).<img>1</img><span color='#16861f'><b>Example: G91 X1.0 Z-1.0\nX0.2 Z-0.5</b> - move X,Z incrementally 1.0 and -1.0 respectively, then move X,Z incrementally 0.2 and -0.5 respectively. If the starting point was X0.0 Z0.0 the final position would be X1.2 Z-1.5</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G90.1_lathe_tooltip"
+msgstr "<b>@@</b> absolute distance mode for I and K offsets. When G90.1 is in effect, <i>both</i> I and K must be specified with G2 G3.<img>1</img><img>2</img><span color='#16861f'><b>Example: G90.1</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G91.1_lathe_tooltip"
+msgstr "<b>@@</b> incremental distance mode for I and K offsets. When G91.1 is in effect, I and K are returned to their default behavior.<img>1</img><img>2</img><span color='#16861f'><b>Example: G91.1</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G96_tooltip_text"
+msgstr "G96"
+
+msgid "G96_tooltip_tooltip"
+msgstr "<b>@@</b> selects constant surface speed (CSS). When using G96, ensure that X0, in the current coordinate system (including offsets and tool lengths),is the center of rotation or LinuxCNC will not give the desired spindle speed. G96 is not affected by radius or diameter mode.<img>1</img><span color='#16861f'><b>Example: G96 D2300 S360</b>  - will change RPM with the X position of the tool to maintain a surface speed of 360 feet per minute (assuming G20 is in effect). RPM increases as the X position of the tool approaches 0.0, but is capped at 2300 RPM (the D parameter)</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D - (optional)maximum RPM allowed.\n     S - the specified surface speed.\n          <i>feet</i> per minute if G20 active.\n          <i>meters</i> per minute if G21 active.</span>"
+
+msgid "G97_tooltip_text"
+msgstr "G97"
+
+msgid "G97_tooltip_tooltip"
+msgstr "<b>@@</b> selects RPM mode.<img>1</img><span color='#16861f'><b>Example: G97 S2300</b> - will set spindle RPM to 2300 RPM. Note: 'S' is the speed command not a parameter.</span><img>1</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+###################################################################################################
+# - Mill
+###################################################################################################
+
+msgid "x_dro_text"
+msgstr "X DRO"
+
+msgid "y_dro_text"
+msgstr "Y DRO"
+
+msgid "z_dro_text"
+msgstr "Z DRO"
+
+msgid "a_dro_text"
+msgstr "A DRO"
+
+msgid "zero_x_text"
+msgstr "Zero X DRO"
+
+msgid "zero_x_tooltip"
+msgstr "<b>@@</b>: sets the 'X' DRO to zero"
+
+msgid "zero_y_text"
+msgstr "Zero Y DRO"
+
+msgid "zero_y_tooltip"
+msgstr "<b>@@</b>: sets the 'Y' DRO to zero"
+
+msgid "zero_z_text"
+msgstr "Zero Z DRO"
+
+msgid "zero_z_tooltip"
+msgstr "<b>@@</b>: sets the 'Z' DRO to zero"
+
+msgid "zero_a_text"
+msgstr "Zero A DRO"
+
+msgid "zero_a_tooltip"
+msgstr "<b>@@</b>: sets the 'A' DRO to zero"
+
+msgid "x_dtg_label_evtbox_text"
+msgstr "X Distance To Go"
+
+msgid "x_dtg_label_evtbox_tooltip"
+msgstr "<b>@@</b> displays <span color='#16861f'><i>the distance remaining in the 'X' axis</i></span>. Apply feedhold, or set Maxvel or Feedrate overrides to 0 percent, in the middle of a move, this labels display the 'X' axis distance left in the commanded move."
+
+msgid "y_dtg_label_evtbox_text"
+msgstr "Y Distance To Go"
+
+msgid "y_dtg_label_evtbox_tooltip"
+msgstr "<b>@@</b> displays <span color='#16861f'><i>the distance remaining in the 'Y' axis</i></span>. Apply feedhold, or set Maxvel or Feedrate overrides to 0 percent, in the middle of a move, this labels display the 'Y' axis distance left in the commanded move."
+
+msgid "z_dtg_label_evtbox_text"
+msgstr "Z Distance To Go"
+
+msgid "z_dtg_label_evtbox_tooltip"
+msgstr "<b>@@</b> displays <span color='#16861f'><i>the distance remaining in the 'Z' axis</i></span>. Apply feedhold, or set Maxvel or Feedrate overrides to 0 percent, in the middle of a move, this labels display the 'Z' axis distance left in the commanded move."
+
+msgid "a_dtg_label_evtbox_text"
+msgstr "A Distance To Go"
+
+msgid "a_dtg_label_evtbox_tooltip"
+msgstr "<b>@@</b> displays <span color='#16861f'><i>the distance remaining in the 'A' axis</i></span>. Apply feedhold, or set Maxvel or Feedrate overrides to 0 percent, in the middle of a move, this labels display the 'A' axis distance left in the commanded move."
+
+msgid "xyza_dro_tooltip"
+msgstr "<b>@@</b>: The X, Y, Z, and A work offset DROs display the current mill position expressed in the currently active work offset coordinate system (G54, G55, etc.). \nWhen the mill is at rest, these readouts are also operator entry fields. Change the current work offset position by clicking in the DRO field, which illuminates. Type a number, for example 4.0, and click Enter on keyboard. <span color='#16861f'><i>Press the Esc key to return to the original value</i></span>."
+
+msgid "msg_table_str"
+msgstr "table"
+
+msgid "sfm_mrr_hint_text"
+msgstr "Cutting Speed and MRR"
+
+msgid "sfm_mrr_hint_tooltip"
+msgstr "<b>@@</b> {} is distance the cutter will pass by the material at the current spindle speed. It is calculated by: <b>cutter-diameter * pi * rpm / 12</b>. Harder materials typically need lower values whereas softer material can use higher.\nMRR -<i>material removal rate</i> is the number of {} per minute removed with the current depth of cut, stepover, and feed rate. It is calculated by <b>DOC * Stepover * Feed rate</b>."
+
+msgid "msg_chip_load_label_text"
+msgstr "Chip Load"
+
+msgid "msg_chip_load_tooltip"
+msgstr "<b>@@</b> is the amount a material the cutter is removing <i>per tooth</i>. This changes with spindle speed (rpm), {:s} feed, and the number of flutes on the cutter."
+
+msgid "msg_chip_load_stepover_label_text"
+msgstr "Chip Load at Stepover"
+
+msgid "msg_chip_load_stepover_tooltip"
+msgstr "<b>@@</b>, or <i>chip thinning</i> is the amount a material the cutter is removing <i>per tooth</i> relative to the <i>side</i> depth (stepover) of the cutter. This changes with spindle speed (rpm), {:s} feed, the number of flutes on the cutter, and <i><b>the amount of stepover</b></i>. It will always be <i>equal to or less than chip load</i>. As stepover goes to zero so does this number. This number should not be less than .0005 in. or .013 mm. If this chip load number is near this limit it <i><b>it will turn yellow</b></i>, if less than this limit <span foreground='red'><i><b>it will turn red</b></i></span>."
+
+msgid "msg_mill_work_offset_label_tooltip"
+msgstr "<b>@@</b> DROs display the current mill position ( <i>the center of tip of the tool in the spindle </i>) expressed in the currently active work offset coordinate system (G54, G55, etc.)."
+
+msgid "msg_mill_ref_x"
+msgstr "Reference X"
+
+msgid "msg_mill_ref_y"
+msgstr "Reference Y"
+
+msgid "msg_mill_ref_z"
+msgstr "Reference Z"
+
+msgid "msg_mill_ref_a"
+msgstr "Reference A"
+
+msgid "msg_mill_ref_x_y_z_a_tooltip"
+msgstr "Ref X, Ref Y, Ref Z, and Ref A buttons move the axes to their limit switches. This <i>must be done after power on</i> before you run a part program or use MDI commands. The axes may be referenced simultaneously, though it is common practice to reference the Z-axis first to clear the spindle or tool from the area of the workpiece or vise. <span color='#16861f'><i>When referenced, the LED on each button turns green.</i></span>"
+
+msgid "msg_mill_jog_x_active_tooltip"
+msgstr "If the mill is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>X axis is selected</b></span>."
+
+msgid "msg_jog_y_active"
+msgstr "Jog Y Selected"
+
+msgid "msg_mill_jog_y_active_tooltip"
+msgstr "If the mill is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>Y axis is selected</b></span>."
+
+msgid "msg_mill_jog_z_active_tooltip"
+msgstr "If the mill is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>Z axis is selected</b></span>."
+
+msgid "msg_jog_a_active"
+msgstr "Jog A Selected"
+
+msgid "msg_mill_jog_a_active_tooltip"
+msgstr "If the mill is equipped with an optional Jog Shuttle (PN 30616), the LED turns green when the <span color='#16861f'><b>A axis is selected</b></span>."
+
+msgid "msg_cycle_start_tooltip"
+msgstr "The Cycle Start button is used to start a program. While running a program the LED in the upper right hand corner of the button is illuminated. <span color='#16861f'><i>Note: The LED will flash during Feedhold and tool changes.\nKeyboard shortcut: Alt-R</i></span>"
+
+msgid "msg_mill_spindle_override_tooltip"
+msgstr "The <b>@@:</b> slider and 100 Percent button allow overriding of the <i>commanded spindle</i> speed by percentages ranging from 1-150 percent. The 100 Percent button returns the override to 100 percent of the commanded value (no override).\n<span color='#16861f'><i>Note: Overriding the spindle when the spindle is stopped will effect spindle speed the next time the spindle is started. The override doesn’t drive the spindle past its maximum speed.</i></span> "
+
+msgid "conv_work_offset_mill_tooltip"
+msgstr "The work coordinate system used for the conversational operation. Puts X/Y/Z coordinates <i>with respect to the part instead of with respect to the mill position</i>. Valid work coordinate systems are G54-G59, G59.1, G59.2, G59.3, or G54.1 Pnnn where nnn is 1-500."
+
+msgid "conv_rpm_dro_text"
+msgstr "Spindle RPM"
+
+msgid "msg_conv_rpm_dro_tooltip"
+msgstr "<b>@@:</b> the programmed spindle speed for this operation. Current RPM range is <span color='#0012da'>{0:s}</span>"
+
+msgid "conv_feed_dro_text"
+msgstr "Feed"
+
+msgid "msg_conv_feed_dro_tooltip"
+msgstr "<b>@@:</b> is the <i>cutting</i> feed rate in <u>{}</u>"
+
+msgid "conv_z_feed_dro_text"
+msgstr "Feed"
+
+msgid "msg_conv_z_feed_dro_tooltip"
+msgstr "<b>@@:</b> is the <i>Z axis</i> feed rate in <u>{}</u>"
+
+msgid "msg_tool_number"
+msgstr "The currently selected tool defined in the tool table.\n\n{0:s}\n{1:s}"
+
+msgid "msg_feeds_speeds_update_short"
+msgstr "Recalculate Feeds Speeds"
+
+msgid "msg_feeds_speeds_update"
+msgstr "<b>@@</b> will reset DROs based on the selected material and tool. Effected DROs will take on a light green background."
+
+msgid "msg_face_stepover"
+msgstr "<img>1</img><b>@@</b> is the space between tool paths. This should be <i>limited to about 80%</i> of tool diameter.<img>2</img><span color = '#16861f'>Note: A <b>0.0 stepover</b> will result in a <u>single centered only cut</u>.</span>"
+
+msgid "msg_z_clear"
+msgstr "<b>@@</b> is the Z location the tool moves or retracts to when starting or ending a Z pass. This should be set to clear any obstructions in the path between the end of one Z pass and the beginning of the next."
+
+msgid "msg_prof_stepover_tooltip"
+msgstr "<img>1</img><b>@@</b> is the tool path offset between passes on the XY plane. A <i>stepover of around 10-20%</i> of tool diameter is recommended depending on how hard the material is.<img>2</img><span color='#16861f'><i>Note: a 0.0 stepover creates a single pass around the perimeter (outside) of the profile.</i></span>"
+
+msgid "msg_pocket_stepover_tooltip"
+msgstr "<img>1</img><b>@@</b> is the tool path offset between passes on the XY plane. A <i>stepover of around 10-20%</i> of tool diameter is recommended depending on how hard the material is.<img>2</img><span color='#16861f'><i>Note: a 0.0 stepover creates a single pass around the perimeter (inside) of the pocket.</i></span>"
+
+msgid "msg_face_prof_pock_z_doc"
+msgstr "<b>@@</b>DOC(depth of cut) is later adjusted to fit evenly within the Z range (Z End – Z Start). Each Z pass has the same depth. For a <i>single Z pass</i>, enter 0.0 or a full Z range value into the Depth of Cut DRO."
+
+msgid "msg_drill_spot_tool"
+msgstr "<b>@@</b>: will cause a spotting operation before the drilling operation on the current hole pattern, at the same rpm and feed as the drill. This will result in <i>more accurate hole locations</i>. <span color='#16861f'><i><b>Leave blank for no spotting.</b></i></span>"
+
+msgid "msg_drill_spot_doc"
+msgstr "<b>@@</b>: DOC(depth of cut) for the spotting operation. This is single plunge (no pecking)."
+
+msgid "msg_drill_circ_angle_start"
+msgstr "<b>@@</b>: is the angle offset from 0 degrees (9 o'clock or a line going directly level and east from the center point) to start the circular pattern. Maximum offset is -90 degrees to 90 degrees."
+
+msgid "msg_drill_circ_diameter"
+msgstr "<b>@@</b>: The diameter size of the circular pattern as defined by a line through the <i>center</i> point of each hole. Must be greater than zero."
+
+msgid "msg_drill_circ_pattern"
+msgstr "<b>@@</b>: Number of holes in a evenly spaced circular pattern. Hole center points will be put in the <i>drill pattern table</i> for use in tapping, pocketing, and internal thread milling."
+
+msgid "tap_dwell_dro_tooltip"
+msgstr "<b>@@</b>: and the calculation is a guide to how much a <b>tension/compression</b> tapping head may need to extend during spindle reversal at the bottom of the hole. Dwell travel is half the distance the tap would travel at the selected RPM (half the dwell time is on the down stroke and half up).\n<span color='#16861f'><i>Note: since the spindle is actually decelerating to a stop, the actual travel should be less.</i></span>"
+
+msgid "drill_z_start_dro_tooltip"
+msgstr "<b>@@</b> is the <i>retract</i> Z plane for drilling.<img>1</img><span color='#16861f'>Note: This is the Z plane the drill will retract before drilling a next hole</span>."
+
+msgid "drill_z_end_dro_tooltip"
+msgstr "<b>@@</b> is the Z point the drill point will reach. For the full diameter depth, see the hint below."
+
+msgid "drill_through_hole_hint_text_text"
+msgstr "Drill Through Depth"
+
+msgid "drill_through_hole_hint_text_tooltip"
+msgstr "<b>@@</b> where <i>Z End</i> will be the depth of the drill point, this is depth at which the drill hole will reach full diameter.<img>1</img><span color='#16861f'>Note: This will change depending on the drill point angle. 'Jobber' drills typically have 118° points. 'Stub' drills typically have 135° points</span>."
+
+msgid "drill_peck_dro_tooltip"
+msgstr "<b>@@</b> is typically used for holes deeper than 2x diameter of the drill in most materials. An entry greater than 0 replaces G81 with G83 in the G-code. The G83 routine feeds at the Z Feedrate starting from Z Clear down a Peck distance, then rapid retracts to Z Clear, and rapid-returns to start the next peck. The peck distance is not adjusted so the first and last peck will likely be shorter than the Peck setting."
+
+msgid "thread_mill_passes"
+msgstr "<b>@@</b>: Number of successive passes to complete the thread. This is <i>either calculated from the Depth of Cut value</i> or can be <i>entered here</i>, which invokes (upon pressing the Enter key) a calculation and entry to the Depth of Cut DRO."
+
+msgid "thread_mill_use_of_drill_table_short"
+msgstr "Drill Table Use"
+
+msgid "thread_mill_use_of_drill_table_long"
+msgstr "<b>@@</b>: Center points of bosses to be threaded are stored in the drill table. This way multiple bosses can be threaded in one conversational step."
+
+msgid "thread_mill_minimal_retract_checkbutton_tooltip"
+msgstr "<img>1</img><b>@@</b>: when checked will cause the thread mill to retract a minimal amount to a point just inside of the minor diameter of the thread. This is useful to avoid a feature that may be in the middle of the thread bore.<img>2</img><span color='#16861f'><i>Note: leaving this un-checked will cause the thread mill to retract to the center of the thread bore.</i></span>"
+
+msgid "use_atc_short"
+msgstr "Automatic Tool Changer"
+
+msgid "use_atc_tooltip"
+msgstr "<b>@@</b>: If the mill is equipped with an ATC, tools that have been assigned to the tray are changed automatically when a Tx M6 command is issued via MDI or G-code program"
+
+msgid "use_manual_tool_change_short"
+msgstr "Manual Tool Change"
+
+msgid "use_manual_tool_change_tooltip"
+msgstr "<b>@@</b>: The manual tool change option <i>causes the mill to pause at the M6 command</i> during a G-code program execution. This allows the operator to manually change tools. After changing tools, press Cycle Start to resume program execution."
+
+msgid "enable_door_sw_short"
+msgstr "Enclosure Door Switch"
+
+msgid "enable_door_sw_tooltip"
+msgstr "When checked and the door switch is installed, enables additional safety features:\n\n* Door must be closed before Cycle Start\n* Opening door pauses running G code program\n* Enforce spindle RPM limit when door is open\n\nLocking door switch kits lock the doors after Cycle Start and only unlock when operator assistance is needed."
+
+msgid "enable_4th_axis_short"
+msgstr "4th Axis Homing"
+
+msgid "enable_4th_axis_tooltip"
+msgstr "When checked, enable homing for the 4th axis using the proximity sensor kit. 4th axis must be connected using the 6' lead to the accessory plug."
+
+msgid "G30_Z_move_only_short"
+msgstr "G30 Z Move"
+
+msgid "G30_Z_move_only_tooltip"
+msgstr "<b>@@</b>: G30 or M998 G-code commands can be used to move the mill to a pre-set position. The position is settable using the Set G30 button on the Offsets screen. A G30 or M998 command is typically programmed right before a tool change line in G-code programs so that the spindle head clears the workpiece with sufficient distance to be able to change tools. If selected, <span color='#16861f'><i>this option moves to the tool change position in Z only, otherwise a coordinated XYZ move occurs on G30 or M998.</i></span>"
+
+msgid "enable_injector_short"
+msgstr "Injection Molder"
+
+msgid "enable_injector_tooltip"
+msgstr "Check to enable the Tormach Injection Molder (PN 32079). The Tormach injection molder turns any PCNC mill into a small (maximum 1 oz. shot size) injection molder for prototyping and short-run molding."
+
+msgid "active_probe_short"
+msgstr "Active Probe"
+
+msgid "active_probe_tooltip"
+msgstr "Check to enable use of the Tormach Digitizing Probe (PN 31858) or the Tormach Tool Setter (PN 31875)"
+
+msgid "passive_probe_short"
+msgstr "Passive Probe"
+
+msgid "passive_probe_tooltip"
+msgstr "Check to enable use of the Tormach Passive Digitizing Probe (PN 32309)"
+
+msgid "atc_manual_insert_short"
+msgstr "(New)Tool Number"
+
+msgid "atc_manual_insert_tooltip"
+msgstr "<b>@@</b>: Used to change tool numbers in the carousel. Enter a tool number then the return key, then click Insert. <span color='#16861f'><i>This will replace the tool number in the ATC pocket closest to the spindle (the pocket directly East).</i></span> Tool numbers can be changed either in the Tray Load Position or the Retracted position."
+
+msgid "atc_insert_btn_short"
+msgstr "Insert Tool Number"
+
+msgid "atc_insert_btn_tooltip"
+msgstr "<b>@@</b>: Used to change tool numbers in the tray. This will replace the tool number in the ATC pocket closest to the spindle (the pocket directly East) <span color='#16861f'><i>with the tool number in the DRO to the left.</i></span> Tool numbers can be changed either in the Tray Load Position or the Retracted position."
+
+msgid "atc_delete_btn_short"
+msgstr "Insert Tool Number"
+
+msgid "atc_delete_btn_tooltip"
+msgstr "<b>@@</b>: Deletes the tool number in the ATC pocket closest to the spindle (the pocket directly East) <span color='#16861f'><i>and leaves an empty pocket.</i></span>"
+
+msgid "atc_delete_all_btn_short"
+msgstr "Insert Tool Number"
+
+msgid "atc_delete_all_btn_tooltip"
+msgstr "<b>@@</b>: Deletes all the tool numbers <span color='#16861f'><i>and leaves an ALL empty pockets.</i></span>"
+
+msgid "atc_tray_forward_btn_short"
+msgstr "Rotate Tray Forward"
+
+msgid "atc_tray_forward_btn_tooltip"
+msgstr "<b>@@</b>: Rotates the tray is the clockwise direction (if looking down from the top of the ATC). <span color='#16861f'><i>Tools on the far side of the tray will come around to the pocket closest to the spindle</i></span> (the pocket directly East)."
+
+msgid "atc_tray_reverse_btn_short"
+msgstr "Rotate Tray Reverse"
+
+msgid "atc_tray_reverse_btn_tooltip"
+msgstr "<b>@@</b>: Rotates the tray is the counter-clockwise direction (if looking down from the top of the ATC). <span color='#16861f'><i>Tools on the near side of the tray will come around to the pocket closest to the spindle</i></span> (the pocket directly East)."
+
+msgid "atc_goto_tray_load_btn_short"
+msgstr "Goto Tray Load Position"
+
+msgid "atc_goto_tray_load_btn_tooltip"
+msgstr "<b>@@</b>: Moves the spindle up to the tool change position, then <span color='#16861f'><i>moves the tray to position under the spindle and opens the tray door.</i></span> If there is a tool number other than zero in the tool DRO - lower right panel, PathPilot will ask if the spindle is empty. <span color='red'><i>Remove any tool in the spindle</i></span> before proceeding."
+
+msgid "atc_retract_btn_short"
+msgstr "Retract"
+
+msgid "atc_retract_btn_tooltip"
+msgstr "<b>@@</b>: Moves the tray to initial position away from, to the left of the spindle."
+
+msgid "atc_drawbar_btn_short"
+msgstr "Collet (Open/Close)"
+
+msgid "atc_drawbar_btn_tooltip"
+msgstr "<b>@@</b>: Opens and closes the collet in the spindle. The LED indicates whether the collet is currently opened or closed. <span color='red'><i>Do not click this button if there is a tool spindle without a grasp on that tool as it will fall onto the work or the table.</i></span>"
+
+msgid "atc_blast_btn_short"
+msgstr "Blast"
+
+msgid "atc_blast_btn_tooltip"
+msgstr "<b>@@</b>: Gives the tool closest to the spindle (the pocket directly East) a blast of air to clean any chips on the tool holder's shank."
+
+msgid "atc_ref_tray_btn_short"
+msgstr "Ref Tool Tray"
+
+msgid "atc_ref_tray_btn_tooltip"
+msgstr "<b>@@</b>: References to tool tray for correct positioning during subsequent operations. This will be done automatically once before the first tool change."
+
+msgid "atc_set_tool_change_z_btn_short"
+msgstr "Set TC Pos"
+
+msgid "atc_set_tool_change_z_btn_tooltip"
+msgstr "<b>@@</b>: This is used mainly during ATC setup and will set the Z position at which the spindle comes down to receive a tool holder. To use: The spindle must be positioned directly over the tool (see ATC setup). Jog the spindle down <i>until the spindle rests on the shoulder</i> of the tool holder. Once the button is clicked, this position will be remembered."
+
+msgid "atc_plus_plus_btn_short"
+msgstr "Plus Plus"
+
+msgid "atc_minus_minus_btn_short"
+msgstr "Minus Minus"
+
+msgid "atc_plus_plus_btn_tooltip"
+msgstr "<b>@@</b>: Plus Plus and Minus Minus are used to make small radial adjustments in the ATC during setup. These will jog the tray slightly clockwise or counter clockwise to achieve centering over the spindle during setup."
+
+msgid "atc_remove_btn_short"
+msgstr "Remove"
+
+msgid "atc_remove_btn_tooltip"
+msgstr "<b>@@</b>: Takes the tool number from the Remove DRO from the tray and places it in the spindle. The tool is now removed from the tray, and the tray position at 3 o'clock indicated by the ATC page graphic will be empty. A prompt will appear to remove the tool from the spindle."
+
+msgid "atc_auto_dro_short"
+msgstr "Remove Tool DRO"
+
+msgid "atc_auto_dro_tooltip"
+msgstr "<b>@@</b>: Type in the tool number in the tray to be removed. Be sure to hit 'Return' after entering the number."
+
+msgid "atc_rev_btn_short"
+msgstr "Previous Tool"
+
+msgid "atc_rev_btn_tooltip"
+msgstr "<b>@@</b>: will move to the previous tool to be deleted."
+
+msgid "atc_fw_btn_short"
+msgstr "Next Tool"
+
+msgid "atc_fw_btn_tooltip"
+msgstr "<b>@@</b>: will advance to the next tool to be deleted."
+
+msgid "atc_touch_entire_tray_short"
+msgstr "Touch Off Entire Tray"
+
+msgid "atc_touch_entire_tray_tooltip"
+msgstr "<b>@@</b>: Used with TTS Tool Setter (PN 31875) to automatically measure the tool height offset for every tool in the tray. The Tool Setter must be plugged into the accessory port and communications tested by actuating the Tool Setter by hand and confirming a green LED on the Tool Setter graphic. Center the Tool Setter directly under the spindle. Clicking this button will cycle the ATC through every tool and enter the measured tool length in the tool table.\n <span color='red'><i>Note: some tools such as flycutters and face mills may not be measured this way as their inserts may reach beyond the diameter of the Tool Setter pad.</i></span>"
+
+msgid "atc_store_short"
+msgstr "Store Current Tool"
+
+msgid "atc_store_tooltip"
+msgstr "<b>@@</b>: places the tool in the spindle back into it's position in the tray."
+
+msgid "engrave_sn_start_dro_tooltip"
+msgstr "<b>@@</b>: clicking this DRO will bring up the last serial number used plus one. Serial numbers retain the number of leading zeros last used. If this DRO is blank no serial number will be appended to the text. If there is a number, serial numbers will resume from that number. Serial numbers are engraved to the right of the specified text. \n<span color = '#003aff'>    Current Serial Number: {}</span>"
+
+msgid "tap_2x_checkbutton_text"
+msgstr "2X retract for Procunier"
+
+msgid "tap_2x_checkbutton_tooltip"
+msgstr "<b>@@</b>: Check this if the Tormach Reversing Tapping Head by Procunier (part number 32657) is used. This will double the return rate used with this tapping head. For other tapping heads do not check this."
+
+
+msgid "switch_to_rapidturn_button_text"
+msgstr "Switch to RapidTurn"
+
+msgid "switch_to_rapidturn_button_tooltip"
+msgstr "For machines configured with the RapidTurn lathe accessory (PN 37132), switch to the lathe version of PathPilot for turning parts."
+
+msgid "m6_g43_text"
+msgstr "M6 G43"
+
+msgid "m6_g43_tooltip"
+msgstr "<b>@@</b>: causes the system to <i>change the number of the tool that is currently in the spindle</i> to the number typed in the DRO, as well as <i>apply the length offset for that tool</i>. M6 is the G-code command that requests a tool change and G43 is the command that applies a tool length offset."
+
+msgid "feed_per_min_dro_tooltip"
+msgstr "<b>@@</b>: is the velocity at which the workpiece can be fed against the machine tool. The DRO displays this velocity."
+
+msgid "jog_inc_cont_text"
+msgstr "Jog Step/Continuous"
+
+msgid "jog_inc_cont_tooltip"
+msgstr "<b>@@</b>: In <span color='#16861f'><i><b>Step mode</b></i></span> the mill jogs in steps, where the step size is controlled by the four buttons to the right of the Step label. In <span color='#16861f'><i><b>Continuous mode</b></i></span> the mill jogs at a continuous velocity when you press and hold any one keyboard arrow key; stop the mill by releasing the key."
+
+msgid "thread_mill_z_start_dro_tooltip"
+msgstr "<b>@@</b>: is the Z plane where the thread will start."
+
+msgid "thread_mill_z_end_dro_tooltip"
+msgstr "<b>@@</b>: is the Z plane where the thread will end."
+
+msgid "thread_mill_major_dia_dro_tooltip"
+msgstr "<b>@@</b>: is the larger diameter, or <i><b>major diameter</b></i> of the thread."
+
+msgid "thread_mill_minor_dia_dro_tooltip"
+msgstr "<b>@@</b>: is the smaller diameter, or <i><b>minor diameter</b></i> of the thread."
+
+msgid "thread_mill_pitch_dro_tooltip"
+msgstr "<b>@@</b>: the thread density described in the distance from one thread <i>crest to the next</i>.\n<span color='#16861f'><i>Note: Thread pitch and threads per unit describe the same thing, whichever is easier to think about. If one is changed the other changes automatically</i></span>."
+
+msgid "thread_mill_tpu_dro_tooltip"
+msgstr "<b>@@</b>: the thread density described in threads per unit (inch or millimeters). <span color='#16861f'><i>Note: Threads per unit and thread pitch describe the same thing, whichever is easier to think about. If one is changed the other changes automatically</i></span>."
+
+msgid "thread_mill_passes_dro_tooltip"
+msgstr "<b>@@</b>: the number of successive passes to cut the thread. This number and thread <i>depth of cut</i> can be derived from each other, i.e., changing one will cause the other to change. <span color='#16861f'><i>Note: This number depends on the material being cut and the size of the thread. Typically a number between 2 and 6 should satisfy most threads</i></span>."
+
+msgid "thread_mill_doc_dro_tooltip"
+msgstr "<b>@@</b>: the depth of cut of the first pass. <span color='#16861f'><i>Note: Threading G-code generates a constant area cutting strategy, with a tool lead-in of 30 degrees. At first this value may seem large, but as the width of tool contact increases DOC decreases until the final passes where DOC is quite small</i></span>."
+
+msgid "thread_mill_combobox_evtbox_tooltip"
+msgstr "<b>@@</b>: selects size and pitch for the most common SAE threads or ISO metric if in metric mode (G21). All thread related parameters, such as X Start, X End, Pitch, Number of Passes will be filled in automatically.\n<span color='#16861f'><i>Note: If selected, may require some adjustment to deepen thread depth.</i></span>"
+
+msgid "engrave_x_base_dro_tooltip"
+msgstr "<b>@@</b>: is the <i><b>left edge</b></i> of the text to be engraved. <span color='#16861f'><i>Note: some characters, such as <b>g</b>, or <b>q</b>, go below this baseline</i></span>."
+
+msgid "engrave_y_base_dro_tooltip"
+msgstr "<b>@@</b>: is the  <i><b>bottom edge</b></i> of the text to be engraved."
+
+msgid "engrave_height_dro_tooltip"
+msgstr "<b>@@</b>: Sets the Y distance from bottom to top of text. This includes ascenders and descenders, but not the tool cutting diameter. <span color='#16861f'><i>Note: subtract this diameter from the overall desired height to get a more accurate value to enter. Height is used with the font data to calculate a scale value that is applied to the character paths in the G-code. The actual height may vary and need adjustment</i></span>."
+
+msgid "engrave_text_dro_tooltip"
+msgstr "<b>@@</b>: is the text to be engraved. <span color='#16861f'><i>Note: A sample of the text in the selected font is updated in a box below the Font list when the Enter key is pressed</i></span>."
+
+msgid "engrave_z_start_dro_tooltip"
+msgstr "<b>@@</b>: sets the <b>Z</b>location of the surface to engrave."
+
+msgid "engrave_z_doc_dro_tooltip"
+msgstr "<b>@@</b>: is the depth the cutter is fed into the workpiece, or the depth of the engraving cut. <span color='#16861f'><i>Note: a typical value for engraving depth would be .008-.010 in - or 0.2mm</i></span>."
+
+msgid "probe_change_corner_text"
+msgstr "Probe Change Corner"
+
+msgid "probe_change_corner_tooltip"
+msgstr "<b>@@</b>: used to set a work-offset origin (X0.0, Y0.0) on a corner of the workpiece.<i><b>This selects which corner to use.</b></i>"
+
+msgid "probe_find_corner_text"
+msgstr "Probe Find Corner"
+
+msgid "probe_find_corner_tooltip"
+msgstr "<b>@@</b>: is used to probe the selected corner of a vise jaw or rectangular workpiece and set that corner to X/Y zero. <span color='#16861f'><i>First position the probe roughly 1” away from the corner in X and Y.</i></span> Upon completion of the probing moves, the current active work offset system (e.g. G54) is set such that the vise jaw corner is 0, 0 (the X/Y origin)."
+
+msgid "probe_origin_x_plus_text"
+msgstr "Probe X+"
+
+msgid "probe_origin_x_plus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>X+ side</b> of the object <span color='#16861f'><i>and set the <b>X origin</b> to 0.0</i></span>."
+
+msgid "probe_origin_x_minus_text"
+msgstr "Probe X-"
+
+msgid "probe_origin_x_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the<b>X- side</b> of the object <span color='#16861f'><i>and set the <b>X origin</b> to 0.0</i></span>."
+
+msgid "probe_origin_y_plus_text"
+msgstr "Probe Y+"
+
+msgid "probe_origin_y_plus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Y+ side</b> of the object <span color='#16861f'><i>and set the <b>Y origin</b> to 0.0</i></span>."
+
+msgid "probe_origin_y_minus_text"
+msgstr "Probe Y-"
+
+msgid "probe_origin_y_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Y- side</b> of the object <span color='#16861f'><i>and set the <b>Y origin</b> to 0.0</i></span>."
+
+msgid "probe_x_plus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>X+ side</b> of the object <span color='#16861f'><i>and display the value below the button</i></span>."
+
+msgid "probe_x_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>X- side</b> of the object <span color='#16861f'><i>and display the value below the button</i></span>."
+
+msgid "probe_y_plus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Y+ side</b> of the object <span color='#16861f'><i>and display the value below the button</i></span>."
+
+msgid "probe_y_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Y- side</b> of the object <span color='#16861f'><i>and display the value below the button</i></span>."
+
+msgid "probe_origin_z_minus_text"
+msgstr "Probe Z-"
+
+msgid "probe_origin_z_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Z- (top)</b> of the object <span color='#16861f'><i>and set the <b>Z origin</b> to 0.0</i></span>."
+
+msgid "probe_z_minus_tooltip"
+msgstr "<b>@@</b>: will probe to the <b>Z- (top)</b> of the object <span color='#16861f'><i>and display the value below the button</i></span>."
+
+msgid "acc_input_tooltip"
+msgstr "<b>@@: <i>NOTE: Check that probe polarity is set correctly on Settings screen (before using the probing buttons) by pressing probe tip while looking at Accessory Input LED on Probe or Status screens</i></b>."
+
+msgid "probe_find_pocket_center_text"
+msgstr "Find Pocket Center"
+
+msgid "probe_find_pocket_center_tooltip"
+msgstr "<b>@@</b>: works in either a round or rectangular pocket. The probe moves in both X and Y to find the pocket center. <span color='#16861f'><i>Note: first jog the probe roughly in the center of the pocket, then jog the probe below the top surface of the feature to be probed</i></span>."
+
+msgid "probe_find_pocket_x_center_text"
+msgstr "Find Slot X Center"
+
+msgid "probe_find_pocket_x_center_tooltip"
+msgstr "<b>@@</b>: is intended for finding the center of a slot. <span color='#16861f'><i>Note: first jog the probe roughly in the center of the slot, then below the top surface of the feature to be probed</i></span>."
+
+msgid "probe_find_pocket_y_center_text"
+msgstr "Find Slot Y Center"
+
+msgid "probe_find_pocket_y_center_tooltip"
+msgstr "<b>@@</b>: is intended for finding the center of a slot. <span color='#16861f'><i>Note: first jog the probe roughly in the center of the slot, then below the top surface of the feature to be probed</i></span>."
+
+msgid "probe_find_rect_boss_center_text"
+msgstr "Find Rectangular Boss Center"
+
+msgid "probe_find_rect_boss_center_tooltip"
+msgstr "<b>@@</b>: hunts around the edge of a rectangular workpiece to find the center. <span color='#16861f'><i>Note: To use this routine, start with the probe below the top surface of the boss and on the left-hand side roughly in the center of the Y axis</i></span>."
+
+msgid "probe_find_circ_boss_center_text"
+msgstr "Find Circular Boss Center"
+
+msgid "probe_find_circ_boss_center_tooltip"
+msgstr "<b>@@</b>: hunts around the edge of a circular workpiece to find the center. <span color='#16861f'><i>Note: To use this routine, start with the probe below the top surface of the boss and on the left-hand side roughly in the center of the Y axis</i></span>."
+
+msgid "probe_a_axis_center_text"
+msgstr "Find A Axis Center"
+
+msgid "probe_a_axis_center_tooltip"
+msgstr "<b>@@</b>: is available for use with a 4th axis mounted in the A-axis orientation. The function probes a round workpiece mounted in the A-axis to find the center rotation of the A-axis. Move the probe to a point approximately directly above the A-axis center of rotation."
+
+msgid "set_g30_text"
+msgstr "Set G30 Position"
+
+msgid "set_g30_tooltip"
+msgstr "<b>@@</b>: <span color='#16861f'><i>jog the mill to the desired position and click the Set G30 Position button.</i></span> Subsequent uses of the G30 command in G-code or the Go To G30 button will cause the mill to move to this position."
+
+msgid "touch_z_dro_text"
+msgstr "Touch Z DRO"
+
+msgid "touch_z_dro_tooltip"
+msgstr "<b>@@</b>: Enter the thickness of object used to measure the distance of a tool to the reference. <span color='#16861f'><i>For example: a piece of paper enter the thickness of the paper (about 0.004in); for a feeler gauge enter the thickness of the gauge.</i></span>"
+
+msgid "touch_z_text"
+msgstr "Touch Z"
+
+msgid "touch_z_tooltip"
+msgstr "<b>@@</b>: sequence of use:\n<span color='#16861f'>    1) Jog the tool down to make contact with the reference surface or the 'feeler'.\n    2) Enter the thickness of the 'feeler', or '0.0' for no feeler, in the DRO above.\n    3) Click this button to add the tool Z offset into the selected tool row in the tool table.</span>"
+
+msgid "move_and_set_tool_length_text"
+msgstr "Move and Set Tool Length"
+
+msgid "move_and_set_tool_length_tooltip"
+msgstr "<b>@@</b>: sequence of use:\n <span color='#16861f'><i><b>    1) Before using an electronic tool setter, set the work offset such that the surface upon which the electronic tool setter sits is Z zero.</b></i>\n    2)Put the tool in the spindle.\n    3)Type the tool number in the Tool DRO (next to the M6 G43 button).\n    4)Click this button.</span>\nThe spindle will come down, touch off the tool and enter the offset on the selected row in the tool table."
+
+msgid "axial_tool_description_imperial"
+msgstr "Diameter: {:>10.4f} in\nLength: {:>15.4f} in"
+
+msgid "axial_tool_description_metric"
+msgstr "Diameter: {:>10.3f} mm\nLength: {:>15.3f} mm"
+
+msgid "axial_lathe_tool_description_imperial"
+msgstr "Diameter: {:>10.4f} in"
+
+msgid "axial_lathe_tool_description_metric"
+msgstr "Diameter: {:>10.3f} mm"
+
+msgid "spindle_type_text"
+msgstr "Spindle Type"
+
+msgid "spindle_type_tooltip"
+msgstr "The type of spindle installed on the mill. In addition to the standard spindle, the optional Tormach Speeder (PN 31350) multiplies the input spindle speed by 3x on the 770 and 1100. For 1100 machines, the optional High Speed Spindle (PN HSS-PCNC1100) is also available."
+
+msgid "G0_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G0 X0.0 Y0.0</b>  - will cause rapid motion to X0.0, Y0.0</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G1_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G0 X-1.0 Y0.0</b>  - will cause motion at the current feed rate to X-1.0 Y0.0</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G2_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G2 X-1.0 Y1.0 I0.0 J1.0</b> - clockwise arc motion, radius 1.0, from X0.0, Y0.0 to X-1.0, Y1.0 at the current feed rate.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     I - <i>X</i> offset to arc center\n     J - <i>Y</i> offset to arc center\n     K - <i>Z</i> offset to arc center\n     R - radius mode if I,J,K not used\n     P - (integer only)number of circles</span><img>2</img>Note: I,J,K values depend on <i>arc distance mode</i> see G90.1, G91.1. Use of I,J  I,K  or J,K depends on plane selection (see G17, G18, G19)."
+
+msgid "G3_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G3 X-1.0 Y-1.0 I0.0 J-1.0</b> - counter-clockwise arc motion, radius 1.0, from X0.0, Y0.0 to X-1.0, Y-1.0 at the current feed rate</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     I - <i>X</i> offset to arc center\n     J - <i>Y</i> offset to arc center\n     K - <i>Z</i> offset to arc center\n     R - radius mode if I,J,K not used\n     P - (integer only)number of circles</span><img>2</img>Note: I,J,K values depend on <i>arc distance mode</i> see G90.1, G91.1. Use of I,J  I,K  or J,K depends on plane selection (see G17, G18, G19)."
+
+msgid "G17_mill_tooltip_text"
+msgstr "G17"
+
+msgid "G17_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: selects the XY plane. Circular interpolation (G2, G3) and canned cycles (G81-G89) will occur in the XY plane.<img>1</img><span color='#16861f'><b>Example: G7</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span><img>2</img>Note: It is a good idea to include this at the beginning of a G-code file."
+
+msgid "G18_mill_tooltip_text"
+msgstr "G18"
+
+msgid "G18_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: selects the XZ plane. Circular interpolation (G2, G3) and canned cycles (G81-G89) will occur in the XZ plane.<img>1</img><span color='#16861f'><b>Example: G7</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span><img>2</img>Note: It is a good idea to include this at the beginning of a G-code file."
+
+msgid "G19_mill_tooltip_text"
+msgstr "G19"
+
+msgid "G19_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: selects the YZ plane. Circular interpolation (G2, G3) and canned cycles (G81-G89) will occur in the YZ plane.<img>1</img><span color='#16861f'><b>Example: G7</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span><img>2</img>Note: It is a good idea to include this at the beginning of a G-code file."
+
+msgid "G41_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G41</b> </span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D (optional) - if no D word the radius of the currently loaded tool is used; if no tool is loaded and no D word is given, a radius of 0 will be used; if supplied, the D word is the tool number to use.</span>"
+
+msgid "G42_mill_tooltip"
+msgstr "<img>1</img><span color='#16861f'><b>Example: G42</b> </span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     D (optional) - if no D word the radius of the currently loaded tool is used; if no tool is loaded and no D word is given, a radius of 0 will be used; if supplied, the D word is the tool number to use.</span>"
+
+msgid "G54_59_mill_tooltip"
+msgstr "<img>1</img><b>Example: G54</b> ( or G55 or G56, etc ). Useful for creating multiple parts on different parts of the table.<img>2</img><span color='#0012da'><b>Parameters:</b>\n     None</span>"
+
+msgid "G81_mill_tooltip_text"
+msgstr "G81"
+
+msgid "G81_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: drilling cycle: a rapid move to the X,Y position, a rapid Z-axis move to the 'R' position, feed Z axis to 'Z' position, rapid move to the 'R' position, or 'last Z' if G98 is active. Subsequent X,Y positions for holes can follow this command, and will repeat drilling at those positions with retract to the 'R' position, until a G80 is encountered.<img>1</img><span color='#16861f'><b>Example: G81 X0.0 Y0.0 Z-0.5 R0.25</b> - rapid X,Y to X0.0, Y0.0. Rapid Z to Z0.25. Z feed to Z-0.5. Rapid to Z0.25.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - the X position of the hole.\n     Y - the X position of the hole.\n     Z - the Z depth of the hole.\n     R - the retract Z plane (see G98, G99).\n     L - (optional)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G82_mill_tooltip_text"
+msgstr "G82"
+
+msgid "G82_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: drilling cycle with <i>dwell</i>: a rapid move to the X,Y position, a rapid Z-axis move to the 'R' position, feed Z axis to 'Z' position, with spindle rotating <i>dwell</i> for 'P' number of seconds, rapid move to the 'R' position, or 'last Z' if G98 is active. Subsequent X,Y positions for holes can follow this command, and will repeat drilling at those positions with retract to the 'R' position, until a G80 is encountered.<img>1</img><span color='#16861f'><b>Example: G82 X0.0 Y0.0 Z-0.5 R0.25 P0.01</b> - rapid X,Y to X0.0, Y0.0. Rapid Z to Z0.25. Z feed to Z-0.5. Dwell with spindle turning for .01 seconds. Rapid to Z0.25.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - the X position of the hole.\n     Y - the X position of the hole.\n     Z - the Z depth of the hole.\n     R - the retract Z plane (see G98, G99).\n     P - number of seconds to dwell at Z depth.\n     L - (<i>optional</i>)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G83_mill_tooltip_text"
+msgstr "G83"
+
+msgid "G83_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: <i>peck</i> drilling cycle: a rapid move to the X,Y position, a rapid Z-axis move to the 'R' position, feed Z axis to 'Q'*1 depth, rapid move to the 'R' position, feed Z axis to 'Q'*n depth or 'Z' depth whichever is greater, rapid to 'R' plane or 'last Z' if G98 is active. Subsequent X,Y positions for holes can follow this command, and will repeat drilling at those positions with retract to the 'R' position, until a G80 is encountered.<img>1</img><span color='#16861f'><b>Example: G83 X0.0 Y0.0 Z-0.5 R0.25 Q0.2</b> - rapid X,Y to X0.0, Y0.0. Rapid Z to Z0.25. Z feed to Z-0.2. Rapid to Z0.25. Z feed to Z-0.4. Rapid to Z0.25. Z feed to Z-0.5. Rapid to Z0.25.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - the X position of the hole.\n     Y - the X position of the hole.\n     Z - the Z depth of the hole.\n     R - the retract Z plane (see G98, G99).\n     Q - Z depth of peck. Must be <i>greater than</i> 0.0.\n     L - (<i>optional</i>)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G86_mill_tooltip_text"
+msgstr "G86"
+
+msgid "G86_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: rapid out boring cycle: a rapid move to the X,Y position, a rapid Z-axis move to the 'R' position, feed Z axis to 'Z', with spindle rotating <i>dwell</i> for 'P' number of seconds if the 'P' parameter is present, stop the spindle, rapid to 'R' plane or 'last Z' if G98 is active, restart the spindle. Subsequent X,Y positions for holes can follow this command, and will repeat boring at those positions with retract to the 'R' position, until a G80 is encountered.<img>1</img><span color='#16861f'><b>Example: G86 X0.0 Y0.0 Z-0.5 R0.25 P0.1</b> - rapid X,Y to X0.0, Y0.0. Rapid Z to Z0.25. Z feed to Z-0.5. Dwell .1 seconds. Spindle stop. Rapid to Z0.25.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - the X position of the hole.\n     Y - the X position of the hole.\n     Z - the Z depth of the hole.\n     R - the retract Z plane (see G98, G99).\n     P - number of seconds to dwell at Z depth.\n     L - (<i>optional</i>)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G89_mill_tooltip_text"
+msgstr "G89"
+
+msgid "G89_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: feed out boring cycle: a rapid move to the X,Y position, a rapid Z-axis move to the 'R' position, feed Z axis to 'Z', with spindle rotating <i>dwell</i> for 'P' number of seconds if the 'P' parameter is present,  feed to 'R' plane or 'last Z' if G98 is active. Subsequent X,Y positions for holes can follow this command, and will repeat boring at those positions with retract to the 'R' position, until a G80 is encountered.<img>1</img><span color='#16861f'><b>Example: G89 X0.0 Y0.0 Z-0.5 R0.25 P0.1</b> - rapid X,Y to X0.0, Y0.0. Rapid Z to Z0.25. Z feed to Z-0.5. Dwell .1 seconds. Feed to Z0.25.</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     X - the X position of the hole.\n     Y - the X position of the hole.\n     Z - the Z depth of the hole.\n     R - the retract Z plane (see G98, G99).\n     P - number of seconds to dwell at Z depth.\n     L - (<i>optional</i>)Repeat. Must be integer <i>greater than</i> 0.</span>"
+
+msgid "G90_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: absolute distance mode. In absolute distance mode axis values usually represent positions in terms of the currently active coordinate system (G54, G55, .. etc.). All coordinates will be relative to the zero point of that coordinate system.<img>1</img><span color='#16861f'><b>Example: G90 X0.0 Y0.0\nX1.0 Y1.0\nX1.5 Y1.5</b> - move X,Y to X0.0, Y0.0, then move to X1.0 Y1.0, then move to X1.5 Y1.5</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G91_mill_tooltip_tooltip"
+msgstr "<b>@@</b>: incremental distance mode. In incremental distance mode axis values represent positions relative to the previous position of currently active coordinate system (G54, G55, .. etc.).<img>1</img><span color='#16861f'><b>Example: G91 X1.0 Y1.0\nX0.5 Y0.5</b> - move X,Y incrementally 1.0 and 1.0 respectively, then move X,Y incrementally 0.5 and 0.5 respectively. If the starting point was X0.0 Y0.0 the final position would be X1.5 Y1.5</span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G90.1_mill_tooltip"
+msgstr "<b>@@</b> absolute distance mode for I, J and K offsets. When G90.1 is in effect, <i>both</i> I and J must be specified with G2 G3 if on the XY plane. If on the XZ plane both I and K must be specified. If on the YZ plane both J and K must be specified.<img>1</img><span color='#16861f'><b>Example: G90.1</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G91.1_mill_tooltip"
+msgstr "<b>@@</b> incremental distance mode for I, J and K offsets. When G91.1 is in effect, I, J and K are returned to their default behavior.<img>1</img><span color='#16861f'><b>Example: G91.1</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G98_tooltip_text"
+msgstr "G98"
+
+msgid "G98_tooltip_tooltip"
+msgstr "<b>@@</b> (canned cycle) return mode retract to the position that axis was in just before this series of one or more contiguous canned cycles was started.<img>1</img><span color='#16861f'><b>Example: G98</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "G99_tooltip_text"
+msgstr "G99"
+
+msgid "G99_tooltip_tooltip"
+msgstr "<b>@@</b> canned cycle return mode retract to the position specified by the R word of the canned cycle.<img>1</img><span color='#16861f'><b>Example: G98</b></span><img>2</img><span color='#0012da'><b>Parameters:</b>\n     None.</span>"
+
+msgid "msg_door_open_led"
+msgstr "Door Open LED"
+
+msgid "msg_door_locked_led"
+msgstr "Door Locked LED"
+
+msgid "msg_door_sw_led_tooltip"
+msgstr "LED is lit green when enclosure door is open, unlit when closed."
+
+msgid "msg_door_locked_led_tooltip"
+msgstr "LED is lit green when enclosure door is locked, unlit when unlocked."
+
+
+###################################################################################################
+# - Material Data
+###################################################################################################
+
+msgid "material_text"
+msgstr "Material"
+
+msgid "msg_material_text_tooltip"
+msgstr "<b>{}</b>: {}"
+#msgstr "<b>@@</b>: mild steel: yield:47,100 psi ultimate: 55,800 machinability 60%"
+
+msgid "msg_tool_search_entry_shorttip"
+msgstr "Tool Search"
+
+msgid "msg_tool_search_entry_longtip"
+msgstr "Search for tools in the tool table across any column (case insensitive).\n\nUp and Down arrow keys will scroll to previous and next match. Enter key also scrolls to next match. ESC key starts search over."
+
+msgid "msg_filter_tool_table_shorttip"
+msgstr "Tool Table Display Filter"
+
+msgid "msg_filter_tool_table_longtip"
+msgstr "Filter which rows are displayed in the tool table."
+
+msgid "msg_workoffset_search_entry_shorttip"
+msgstr "Work Offset Search"
+
+msgid "msg_workoffset_search_entry_longtip"
+msgstr "Search for work offsets in the offset table across any column (case insensitive).\n\nUp and Down arrow keys will scroll to previous and next match. Enter key also scrolls to next match. ESC key starts search over."
+
+msgid "msg_filter_work_offsets_shorttip"
+msgstr "Work Offsets Display Filter"
+
+msgid "msg_filter_work_offsets_longtip"
+msgstr "Filter which rows are displayed in the work offsets table."

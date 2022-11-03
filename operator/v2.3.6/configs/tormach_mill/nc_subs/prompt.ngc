@@ -1,0 +1,27 @@
+(------------------------------------------------------------------------------------------)
+(                     PROMPT                                                               )
+( Prompting is a goofy complex process end to end, due to the need to display the message  )
+(    on the gremlin screen during part program execution, but in a dialog when no part     )
+(    program is running                                                                    )
+(   M100 is a standard python written user M code.  It is used to access redis from NGC .  )
+(   It will create a specially formatted message and put it in a Redis message queue for   )
+(   the GUI to pick up during the 500ms periodic update routines.                          )
+(   The GUI will prompt as appropriate - dialog or gremlin and place the response in a AIO )
+(    pin- values 0,waiting  1,OK  2,cancel - this is only way for NGC to communicate       )                                                )
+(    The only responses possible are 1 and 2 . We will wait indefinitely                   )
+(------------------------------------------------------------------------------------------)
+
+
+o<prompt> sub
+        M100 P[#1] Q[#2]               (positive or p12  for insert)
+        G4 P1                          (GUI set pin to 0 in this interval)
+        M66 E[#<_prompt_reply>] L0
+        o<wait_manual_reply_in> while [#5399 EQ 0]        (wait until the cows come home)
+            G4 P.25
+            M66 E[#<_prompt_reply>] L0                           (spin a bit)
+        o<wait_manual_reply_in> endwhile
+
+        o<prompt_manual_reply_in_cancel> if [#5399 EQ 2]   (answer is CANCEL)
+           o<atc_errors> call [#<_atc_user_cancel>]
+        o<prompt_manual_reply_in_cancel> endif
+o<prompt> endsub [0]

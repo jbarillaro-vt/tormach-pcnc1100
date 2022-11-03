@@ -1,0 +1,61 @@
+
+#
+# This HAL file hooks up a ShuttleXpress USB dongle from Contour Design.
+#
+#  Author J A Prentice, modified by Tormach
+#
+# The ShuttleXpress has five momentary buttons, a jog-wheel with 10
+# counts per revolution and detents, and a 15-position rotary knob with
+# return-to-center springy action.
+#
+
+loadusr -W shuttlexpress4
+
+loadrt milljogtranslator names=milljogtranslator
+addf milljogtranslator servo-thread
+
+# Next value NZ if buttons to latch axes
+setp milljogtranslator.radio-latching 1
+
+#
+# connect shuttlexpress buttons and wheels to milljogtranslator
+#
+net sxp.x-button    shuttlexpress4.0.button-0 => milljogtranslator.ax-butt-0
+net sxp.y-button    shuttlexpress4.0.button-1 => milljogtranslator.ax-butt-1
+net sxp.z-button    shuttlexpress4.0.button-2 => milljogtranslator.ax-butt-2
+net sxp.a-button    shuttlexpress4.0.button-3 => milljogtranslator.ax-butt-3
+net sxp.step-button shuttlexpress4.0.button-4 => milljogtranslator.cycle-stepsizes
+net sxp.spring-wheel shuttlexpress4.0.spring-wheel-s32 => milljogtranslator.ring-raw
+
+# Here is the ring jogging
+net sxp.jog-ring-speed-signed <= milljogtranslator.ax-jog-speed-signed
+net sxp.selected-axis => milljogtranslator.ax-selected-axis
+
+# Here is wheel jogging
+# step in 1/1000 of desired move
+setp milljogtranslator.smallest-step 0.0000001
+setp milljogtranslator.number-of-stepsizes 4
+
+# hook up selected axis signals
+net sxp.xen-button milljogtranslator.ax-out-0-sel
+net sxp.yen-button milljogtranslator.ax-out-1-sel
+net sxp.zen-button milljogtranslator.ax-out-2-sel
+net sxp.aen-button milljogtranslator.ax-out-3-sel
+
+# minimum and maximum ring speeds in machine units per minute
+# these are ring speeds '1' and '7' and intermediate speeds are a geometric progression
+# they are units per second from the main INI file [AXIS_N] sections
+setp milljogtranslator.jt-min-speed.0 [AXIS_0]MIN_JOG_VELOCITY_UPS
+setp milljogtranslator.jt-max-speed.0 [AXIS_0]MAX_JOG_VELOCITY_UPS
+setp milljogtranslator.jt-min-speed.1 [AXIS_1]MIN_JOG_VELOCITY_UPS
+setp milljogtranslator.jt-max-speed.1 [AXIS_1]MAX_JOG_VELOCITY_UPS
+setp milljogtranslator.jt-min-speed.2 [AXIS_2]MIN_JOG_VELOCITY_UPS
+setp milljogtranslator.jt-max-speed.2 [AXIS_2]MAX_JOG_VELOCITY_UPS
+
+# The ShuttleXpress inner jog wheel has 10 clicks per revolution
+#
+net sxp.counts-smoothed => shuttlexpress4.0.counts
+
+net sxp.shuttle_step_index => milljogtranslator.shuttle-step-index
+net sxp.gui_step_index => milljogtranslator.gui-step-index
+net sxp.is_metric => milljogtranslator.is-metric

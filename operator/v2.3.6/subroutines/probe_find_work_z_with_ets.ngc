@@ -1,0 +1,43 @@
+o<probe_find_work_z_with_ets> sub
+(Probe to find Z posion of tool tip surface and set origin )
+
+;(PRINT,begin o<probe_find_work_z_with_ets> sub ----------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6)
+
+o<probe_prep> call
+
+#<feed_rapid> = #1       (current units)
+#<feed_ruff> = #2        (current units)
+#<feed_fine> = #3        (current units)
+#<axis_limit> = #4       (current units)
+#<wcs_offset> = #5       (current units)
+#<ets_height> = #6       (current units)
+
+(probe to find Z posion of tool tip surface on ETS and set origin)
+(return to starting position)
+
+o<probe_prep> call
+
+(probe in Z minus, no set origin, no analog pin, retract to start)
+o<probe_xyz> call [2] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<axis_limit>] [#<wcs_offset>] [0] [-1] [0.0] [-1] [1]
+
+#<z_minus> = #<_value>
+(PRINT,z_minus_fine: #<z_minus>)
+
+(remove the distance included by the ETS)
+(add the tool point position in the current WCS to the WCS offset)
+(results in the desired new WCS offset to use in this WCS)
+#<new_wcs_offset> = [#<z_minus> - #<ets_height> + #<wcs_offset>]
+(PRINT,new_wcs_offset: #<new_wcs_offset>)
+
+(PRINT,setting new_wcs_offset: G10 L2 P0 Z #<new_wcs_offset>)
+G10 L2 P0 Z #<new_wcs_offset>
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_find_work_z_with_ets> sub --------------------------------------------------)
+
+o<probe_find_work_z_with_ets> endsub
+
+M02 (end program)
+

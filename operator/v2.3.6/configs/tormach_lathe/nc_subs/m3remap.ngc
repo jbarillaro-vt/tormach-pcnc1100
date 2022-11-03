@@ -1,0 +1,21 @@
+o<m3remap> sub
+
+o<preview> if [#<_task> EQ 1]
+    (queue bust the interp read ahead and read the collet status and put result in 5399)
+    M66 P21 L0
+
+    (prolog reads the redis setting and sets up the named parameter to check against for us)
+    o<collet_check> if [#5399 EQ #<_collet_status_block_spindle_value>]
+        (abort,M3 aborted as part is not clamped or OD/ID clamping setting is incorrect.)
+    o<collet_check> endif
+o<preview> endif
+
+(collet is clamped so let 'er rip)
+o<sargpresent> if [EXISTS[#<s>]]
+    M3 S#<s>
+o<sargpresent> else
+    M3
+o<sargpresent> endif
+
+o<m3remap> endsub
+M30

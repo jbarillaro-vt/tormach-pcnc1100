@@ -1,0 +1,93 @@
+o<probe_g38n_by_index> sub
+;(PRINT,o<probe_g38n_by_index> start ---------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4)
+
+(#1 is the axis index where 0 means X, 1 means Y, 2 means Z, 3 means A)
+(#2 is the destination coordinate)
+(#3 is the feedrate)
+(#4 is the G38 sub type: 2 means G38.2, 3 means G38.3)
+(                        4 means G38.3, 5 means G38.5, 6 means G38.6)
+
+o140 if [[#1 LT 0] OR [#1 GT 3]]
+  (ABORT,o<probe_g38x_by_index> axis index argument 1 is #1, must be 0-3)
+  M2
+o140 endif
+
+o160 if [[#4 LT 2] OR [#4 GT 6]]
+  (ABORT,o<probe_g38x_by_index> G38.n argument 4 is #4, must be 2-6)
+  M2
+o160 endif
+
+#<save_feedrate> = #<_feed>
+o170 if [#3 NE #<_feed>]
+  (PRINT,F #3)
+  F #3
+;o170 else
+;  (PRINT,F word is already #3 -- skip setting it)
+o170 endif
+
+#<_probe_did_not_trip> = 0.0
+
+o100 if [#1 EQ 0]
+  o110 if [#4 EQ 2]
+    (PRINT,G38.2 X #2)
+    G38.2 X #2
+  o110 elseif [#4 EQ 3]
+    (PRINT,G38.3 X #2)
+    G38.3 X #2
+  o110 elseif [#4 EQ 4]
+    (PRINT,G38.4 X #2)
+    G38.4 X #2
+  o110 elseif [#4 EQ 5]
+    (PRINT,G38.5 X #2)
+    G38.5 X #2
+  o110 elseif [#4 EQ 6]
+    (PRINT,G38.6 X #2)
+    G38.6 X #2
+  o110 endif
+o100 elseif [#1 EQ 1]
+  o120 if [#4 EQ 2]
+    (PRINT,G38.2 Y #2)
+    G38.2 Y #2
+  o120 elseif [#4 EQ 3]
+    (PRINT,G38.3 Y #2)
+    G38.3 Y #2
+  o120 elseif [#4 EQ 4]
+    (PRINT,G38.4 Y #2)
+    G38.4 Y #2
+  o120 elseif [#4 EQ 5]
+    (PRINT,G38.5 Y #2)
+    G38.5 Y #2
+  o120 elseif [#4 EQ 6]
+    (PRINT,G38.6 Y #2)
+    G38.6 Y #2
+  o120 endif
+o100 elseif [#1 EQ 2]
+  o130 if [#4 EQ 2]
+    (PRINT,G38.2 Z #2)
+    G38.2 Z #2
+  o130 elseif [#4 EQ 3]
+    (PRINT,G38.3 Z #2)
+    G38.3 Z #2
+  o130 elseif [#4 EQ 4]
+    (PRINT,G38.4 Z #2)
+    G38.4 Z #2
+  o130 elseif [#4 EQ 5]
+    (PRINT,G38.5 Z #2)
+    G38.5 Z #2
+  o130 elseif [#4 EQ 6]
+    (PRINT,G38.6 Z #2)
+    G38.6 Z #2
+  o130 endif
+o100 endif
+
+o180 if [#<save_feedrate> NE #<_feed>]
+  (PRINT,F #<save_feedrate>)
+  F #<save_feedrate>
+o180 endif
+
+
+;(PRINT,o<probe_g38n_by_index> end -------------------------------------------------)
+o<probe_g38n_by_index> endsub
+
+M02

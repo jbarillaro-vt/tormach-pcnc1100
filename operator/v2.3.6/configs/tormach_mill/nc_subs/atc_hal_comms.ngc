@@ -1,0 +1,47 @@
+o<atc_hal_comms> sub 
+
+      (ATC HAL COMPONENT NGC INTERFACE)       
+      (execute atc primitive operations through HAL)
+      (inputs :  1  is request,  2 is data)
+      ( send command off to HAL component using interface pins)
+      ( hard error returns result in call go atc_errors to abort)
+      ( good returns - OK, pressure faults, and cylinder arrival faults go back to caller)
+
+    M66 P#<_exec_pin> L4 Q10              (busy must be low)
+    
+    o<busytest> if [#5399 EQ 0.0]            (component is idle)
+        #<_request_number> = [#<_request_number> +1.0] (set sequence number)
+        M68 E06 Q#<_request_number> 
+        M68 E#<_request_data> Q#2 (set data)
+        M68 E#<_request> Q#1      (set command)
+        #<counter> = 0.0
+        o<timer> while [#<counter> LT 300.0]   (wait 15 secs to complete)
+              
+            M66 E7 L0  
+            o<check_complete> if [#5399 EQ #<_request_number>]
+                 o<timer> break
+            o<check_complete> endif
+            G4 p.05
+            #<counter> =  [#<counter> + 1]
+        o<timer> endwhile
+   
+        o<timeouts> if [#5399 NE #<_request_number>]     ( timeout error) 
+            (msg,ATC - ngc, TIME OUT , EXPECTED :#<_request_number>  GOT REQ: #5399  command: #1   data #2 )
+            o<atc_errors> call [#<_atc_timeout_error> ] [#1]  [#2]    (print human readable text)
+        o<timeouts> endif 
+        
+        M66 E #<_hal_return> L0      (response has sequence match - return code immediate )  
+        #<_atc_return> = [#5399]        (set return code from hal)
+    
+   
+        o<device_error> if [[#<_atc_return> LT 0]  AND [#<_atc_return> NE #<_atc_pressure_error>] AND [#<_atc_return> NE #<_atc_tray_error>]]
+            o<atc_errors> call [#<_atc_return> ] [#1]  [#2]    (print human readable text)
+        o<device_error> endif 
+        
+      
+    o<busytest> elseif [#5399 EQ 1.0] (component is busy)
+           o<atc_errors> call [#<_atc_interface_busy> ] [#1]  [#2]    (print human readable text)
+
+    o<busytest> endif 
+
+o<atc_hal_comms> endsub

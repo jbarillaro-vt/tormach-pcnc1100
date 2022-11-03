@@ -1,0 +1,38 @@
+o<fetch_tool> sub
+
+    G0 G53 Z0                                  (just go to top)
+    o<atc_hal_comms> call [#<_tray_index>] [#<_new_slot>] (index tray)
+
+    (-----------------------------------------------------------------------------------)
+    ( tray could be in already from stow op or pre existing condition - do it now if not)
+    (-----------------------------------------------------------------------------------)
+    o<trayin> call    (get it in now - if in already in <trayin> will bounce back)
+
+    (---------------------------------------------------------------------)
+    ( blast off chips - atc hal runs this for .5 seconds - then auto off  )
+    (---------------------------------------------------------------------)
+    o<atc_airop> call [#<_solenoid>] [#<_blast_on>]  (blast solenoid 2)
+    
+    (------------------------------------------------------------------------)
+    ( draw bar open (if closed)  -NOTE USING NEW HAL AUTOMATIC SUPPRESSION   )
+    (------------------------------------------------------------------------)
+    o<atc_airop> call [#<_draw_bar>] [#<_activate>]         (draw bar open)
+        
+    (-------------------------------------------------------------)
+    (  Descend over tool shank                                    )
+    (  TTS squishes down a bit, BT30 stays neutral                )
+    (-------------------------------------------------------------)
+
+    G1 G53 Z [#<_tool_change_Z> - #<_compression>]  F [#<_jog_speed>]     (scaled in prolog - squish a skosh)
+    M5       (release the lock now to keep from regrabbing if lock is active)
+    (-------------------------------------------------------------)
+    ( close draw bar                                              )
+    (-------------------------------------------------------------)
+    o<atc_airop> call [#<_draw_bar>][#<_deactivate>] (draw up)
+
+    (-------------------------------------------------------------)
+    (ready Z axis for tray retract  - get to neutral slot height  )
+    (-------------------------------------------------------------)
+    G0 G53 Z [#<_tool_change_Z>] 
+    
+o<fetch_tool> endsub [0]

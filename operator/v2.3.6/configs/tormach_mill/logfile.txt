@@ -1,0 +1,7 @@
+DEBUG      PostPro.PostProcessorConfig load_config 227 :  - read existing varspace '/home/operator/tmc/configs/tormach_mill/dxf2gcode/postpro_config/postpro_config.cfg'
+DEBUG      root            main       46  :  - Started with following options:
+Namespace(config_folder='/home/operator/tmc/configs/tormach_mill/dxf2gcode')
+INFO       application.dbusnode start      200 :  - Publishing DBus service: com.tormach.Dxf2GCode
+DEBUG      application.dbusnode set_layers 123 :  - set layers called: dbus.Array([], signature=dbus.Signature('(a{sv}aa{sv})'))
+DEBUG      application.dbusnode set_layers 123 :  - set layers called: dbus.Array([], signature=dbus.Signature('(a{sv}aa{sv})'))
+DEBUG      application.dbusnode set_layers 123 :  - set layers called: dbus.Array([], signature=dbus.Signature('(a{sv}aa{sv})'))

@@ -1,0 +1,4 @@
+[TASK]
+TASK = milltask
+CYCLE_TIME = 0.010
+LOGFILE_PREFIX = ~/gcode

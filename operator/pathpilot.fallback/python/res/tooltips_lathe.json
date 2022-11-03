@@ -1,0 +1,719 @@
+{
+    "lathe" : {
+        "work_offset_label_evtbox": {
+            "shorttext_id" : "msg_work_offset_label_text",
+            "longtext_id" : "msg_lathe_work_offset_label_tooltip"
+        },        
+        "material_type": {
+            "shorttext_id" : "material_text",
+            "longtext_id" : "msg_material_text_tooltip",
+            "dynamic" : ["ui:material_data:get_material_description"],
+            "long_width": 300
+        },
+        "material_subtype": {
+            "shorttext_id" : "material_text",
+            "longtext_id" : "msg_material_text_tooltip",
+            "dynamic" : ["ui:material_data:get_material_description"],
+            "long_width": 300
+        },
+        "goto_g30": {
+            "shorttext_id" : "goto_g30_text",
+            "longtext_id" : "goto_g30_lathe_tooltip"
+        },
+        "cycle_start": {
+            "shorttext_id" : "msg_cycle_start_text",
+            "longtext_id" : "msg_lathe_cycle_start_tooltip",
+            "long_width": 275
+        },
+        "dia_dro": {
+            "label_id" : "dia_label",
+            "longtext_id" : "msg_dia_dro_tooltip"
+        },
+        "z_dro": {
+            "label_id" : "z_label",
+            "longtext_id" : "msg_z_dro_tooltip"
+        },
+        "zero_z": {
+            "shorttext_id" : "msg_zero_z_text",
+            "longtext_id" : "msg_zero_z_tooltip"
+        },
+        "g30m998_move_lathe_z_only_checkbutton": {
+            "shorttext_id" : "G30_Z_move_only_short",
+            "longtext_id" : "G30__lathe_Z_move_only_tooltip",
+            "long_width": 300
+        },
+       "conv_rough_sfm_dro": {
+            "label_id" : "conv_rough_sfm_text",
+            "longtext_id" : "msg_conv_rough_sfm_dro_tooltip"
+        },
+       "conv_finish_sfm_dro": {
+            "label_id" : "conv_finish_sfm_text",
+            "longtext_id" : "msg_conv_finish_sfm_dro_tooltip"
+        },
+       "conv_max_spindle_rpm_dro": {
+            "label_id" : "conv_max_rpm_text",
+            "longtext_id" : "msg_conv_max_spindle_rpm_dro_tooltip"
+        },
+       "conv_rough_fpr_dro": {
+            "label_id" : "conv_rough_fpr_text",
+            "longtext_id" : "msg_conv_rough_fpr_dro_tooltip"
+        },
+       "conv_finish_fpr_dro": {
+            "label_id" : "conv_finish_fpr_text",
+            "longtext_id" : "msg_conv_finish_fpr_dro_tooltip"
+        },
+        "spindle_rpm_dro": {
+            "label_id" : "rpm_text",
+            "longtext_id" : "spindle_rpm_dro_tooltip"
+        },
+        "spindle_override_scale": {
+            "shorttext_id" : "msg_spindle_override_text",
+            "longtext_id" : "msg_lathe_spindle_override_tooltip",
+            "long_width": 275
+        },
+        "rpm_override_100": {
+            "shorttext_id" : "msg_spindle_override_text",
+            "longtext_id" : "msg_lathe_spindle_override_tooltip",
+            "long_width": 275
+        },
+        "tool_label_evtbox": {
+            "shorttext_id" : "msg_tool_text",
+            "longtext_id" : "msg_tool_tooltip",
+            "dynamic" : ["ui:get_panel_tip_tool_description"]
+        },
+        "conv_work_offset_dro": {
+            "shorttext_id" : "conv_work_offset_text",
+            "longtext_id" : "conv_work_offset_lathe_tooltip"
+        },
+        "spindle_text_evtbox": {
+            "shorttext_id" : "msg_spindle_range_text",
+            "longtext_id" : "msg_spindle_range_tooltip",
+            "dynamic" : ["ui:get_current_spindle_range"]
+        },
+        "od_turn_tool_num_dro": {
+            "label_id" : "od_turn_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "od_turn_stock_dia_dro": {
+            "label_id" : "od_turn_x_start_text",
+            "longtext_id" : "msg_od_turn_stock_dia_dro_tooltip"
+        },
+        "od_turn_final_dia_dro": {
+            "label_id" : "od_turn_x_end_text",
+            "longtext_id" : "msg_od_turn_final_dia_dro_tooltip"
+        },
+        "od_turn_z_start_dro": {
+            "label_id" : "od_turn_z_start_text",
+            "longtext_id" : "msg_od_turn_z_start_dro_tooltip"
+        },
+        "od_turn_z_end_dro": {
+            "label_id" : "od_turn_z_end_text",
+            "longtext_id" : "msg_od_turn_z_end_dro_tooltip"
+        },
+        "od_turn_tc_dro": {
+            "label_id" : "od_turn_tc_text",
+            "longtext_id" : "msg_od_turn_tc_dro_tooltip"
+        },
+        "id_turn_pilot_dia_dro": {
+            "label_id" : "id_turn_pilot_size_text",
+            "longtext_id" : "msg_id_turn_pilot_dia_dro_tooltip"
+        },
+        "id_turn_final_dia_dro": {
+            "label_id" : "id_turn_final_diameter_text",
+            "longtext_id" : "msg_id_turn_final_dia_dro_tooltip"
+        },
+        "id_turn_tool_num_dro": {
+            "label_id" : "id_turn_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "id_basic_pilot_dia_dro": {
+            "label_id" : "id_turn_pilot_size_text",
+            "longtext_id" : "msg_id_turn_pilot_dia_dro_tooltip"
+        },
+        "id_basic_final_dia_dro": {
+            "label_id" : "id_turn_final_diameter_text",
+            "longtext_id" : "msg_id_turn_final_dia_dro_tooltip"
+        },
+        "id_basic_tool_num_dro": {
+            "label_id" : "id_turn_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "profile_tool_renderer": {
+            "label_id" : "profile_tool_geometry_text",
+            "longtext_id" : "profile_tool_renderer_tooltip"
+        },
+        "lathe_profile_raise_in_table": {
+            "shorttext_id" : "lathe_profile_raise_in_table_text",
+            "longtext_id" : "lathe_profile_raise_in_table_tooltip"
+        },
+        "lathe_profile_lower_in_table": {
+            "shorttext_id" : "lathe_profile_lower_in_table_text",
+            "longtext_id" : "lathe_profile_lower_in_table_tooltip"
+        },
+        "lathe_profile_insert_row_table": {
+            "shorttext_id" : "lathe_profile_insert_row_table_text",
+            "longtext_id" : "lathe_profile_insert_row_table_tooltip"
+        },
+        "lathe_profile_delete_row_table": {
+            "shorttext_id" : "lathe_profile_delete_row_table_text",
+            "longtext_id" : "lathe_profile_delete_row_table_tooltip"
+        },
+        "lathe_profile_clear_table": {
+            "shorttext_id" : "lathe_profile_clear_table_text",
+            "longtext_id" : "lathe_profile_clear_table_tooltip"
+        },
+        "profile_roughing_doc_dro": {
+            "label_id" : "profile_roughing_doc_text",
+            "longtext_id" : "msg_profile_roughing_doc_dro_tooltip",
+            "long_width" : 300
+        },
+        "profile_finish_doc_dro": {
+            "label_id" : "profile_finish_text",
+            "longtext_id" : "msg_profile_finish_doc_dro_tooltip"
+        },
+        "profile_finish_passes_dro": {
+            "label_id" : "profile_finish_pre_x_text",
+            "longtext_id" : "msg_profile_finish_passes_dro_tooltip"
+        },
+        "face_tool_num_dro": {
+            "label_id" : "face_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "face_stock_dia_dro": {
+            "label_id" : "face_stock_dia_text",
+            "longtext_id" : "msg_face_stock_dia_dro_tooltip"
+        },
+        "face_x_end_dro": {
+            "label_id" : "face_id",
+            "longtext_id" : "msg_face_x_end_dro_tooltip"
+        },
+        "face_z_start_dro": {
+            "label_id" : "face_z_start_text",
+            "longtext_id" : "msg_face_z_start_dro_tooltip"
+        },
+        "face_z_end_dro": {
+            "label_id" : "face_z_end_text",
+            "longtext_id" : "msg_face_z_end_dro_tooltip"
+        },
+        "corner_chamfer_od_tool_num_dro": {
+            "label_id" : "corner_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "corner_chamfer_id_tool_num_dro": {
+            "label_id" : "corner_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "corner_radius_od_tool_num_dro": {
+            "label_id" : "corner_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "corner_radius_id_tool_num_dro": {
+            "label_id" : "corner_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "groove_tool_num_dro": {
+            "label_id" : "groove_part_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "part_tool_num_dro": {
+            "label_id" : "groove_part_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "drill_tool_num_dro": {
+            "label_id" : "drill_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "tap_tool_num_dro": {
+            "label_id" : "groove_part_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "thread_tool_num_dro": {
+            "label_id" : "thread_tool_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "profile_stock_x_dro": {
+            "shorttext_id" : "msg_stock_diameter",
+            "label_id" : "profile_stock_x_text",
+            "long_width" : 250,
+            "longtext_id" : "msg_profile_stock_x_tooltip",
+            "images" : ["TT.profile-stock-diam.png"]
+        },
+        "profile_stock_z_dro": {
+            "label_id" : "profile_stock_z_text",
+            "longtext_id" : "msg_profile_stock_z_tooltip",
+            "images" : ["TT.lathe-profile-z-start-ext-end.png","TT.lathe-profile-z-start-ext-mid.png"],
+            "dynamic" : ["ui:get_profile_stock_z_description"]
+        },
+        "profile_roughing_tool_clear_x_dro": {
+            "label_id" : "profile_roughing_tool_clear_x_text",
+            "longtext_id" : "profile_tool_clear_x_dro_tooltip",
+            "images" : ["TT.tool-clear-X-ext.png"],
+            "dynamic" : ["ui:get_profile_tool_clear_x_description"]
+        },
+        "profile_roughing_tool_clear_z_dro": {
+            "label_id" : "profile_roughing_tool_clear_z_text",
+            "longtext_id" : "msg_profile_roughing_tool_clear_z_tooltip",
+            "images" : ["TT.profile-tool-clearance.png","TT.profile-tool_clearance_mid.png"],
+            "dynamic" : ["ui:get_tool_tip_tool_clear_z"]
+        },
+        "profile_tool_num_dro": {
+            "label_id" : "profile_tool_num_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "ref_x": {
+            "shorttext_id": "msg_lathe_ref_x",
+            "longtext_id" : "msg_lathe_ref_x_tooltip"
+        },
+        "ref_z": {
+            "shorttext_id": "msg_lathe_ref_z",
+            "longtext_id" : "msg_lathe_ref_z_tooltip"
+        },
+        "jog_x_active_led_evtbox": {
+            "shorttext_id": "msg_jog_x_active",
+            "longtext_id" : "msg_lathe_jog_x_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "jog_z_active_led_evtbox": {
+            "shorttext_id": "msg_jog_z_active",
+            "longtext_id" : "msg_lathe_jog_z_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "feed_per_rev": {
+            "shorttext_id": "msg_feed_per_rev",
+            "longtext_id" : "msg_feed_per_rev_tooltip"
+        },
+        "css": {
+            "shorttext_id": "msg_css",
+            "longtext_id" : "msg_css_tooltip"
+        },
+        "set_g30": {
+            "shorttext_id": "msg_set_g30",
+            "longtext_id" : "msg_set_g30_tooltip"
+        },
+        "collet_closer": {
+            "shorttext_id": "msg_collet_closer",
+            "longtext_id" : "msg_collet_closer_tooltip",
+            "images" : ["TT.colletcloser.jpg"]
+        },
+        "od_turn_fillet_dro": {
+            "label_id":     "od_turn_fillet_text",
+            "longtext_id" : "msg_od_turn_fillet_dro_tooltip"
+        },
+        "od_turn_rough_doc_dro": {
+            "label_id":     "od_turn_rough_doc_text",
+            "longtext_id" : "msg_turn_rough_doc_dro_tooltip"
+        },
+        "od_turn_finish_doc_dro": {
+            "label_id":     "od_turn_finish_doc_text",
+            "longtext_id" : "msg_turn_finish_doc_dro_tooltip"
+        },
+        "id_basic_rough_doc_dro": {
+            "label_id":     "id_turn_rough_doc_text",
+            "longtext_id" : "msg_id_basic_rough_tooltip"
+        },
+        "id_turn_rough_doc_dro": {
+            "label_id":     "id_turn_rough_doc_text",
+            "longtext_id" : "msg_id_basic_rough_tooltip"
+        },
+        "id_basic_finish_doc_dro": {
+            "label_id":     "id_turn_finish_doc_text",
+            "longtext_id" : "msg_id_basic_finish_tooltip"
+        },
+        "id_turn_finish_doc_dro": {
+            "label_id":     "id_turn_finish_doc_text",
+            "longtext_id" : "msg_id_basic_finish_tooltip"
+        },
+        "face_rough_doc_dro": {
+            "label_id":     "face_rough_doc_text",
+            "longtext_id" : "msg_face_rough_doc_dro_tooltip"
+        },
+        "face_finish_doc_dro": {
+            "label_id":     "face_finish_doc_text",
+            "longtext_id" : "msg_face_finish_doc_dro_tooltip"
+        },
+        "id_turn_face_doc_dro": {
+            "label_id":     "id_turn_face_doc_text",
+            "longtext_id" : "msg_id_turn_face_doc_dro_tooltip"
+        },
+        "id_turn_pilot_dro": {
+            "label_id":     "id_turn_pilot_end_text",
+            "longtext_id" : "msg_id_turn_pilot_dro_tooltip"
+        },
+        "id_turn_fillet_dro": {
+            "label_id":     "id_turn_fillet_text",
+            "longtext_id" : "msg_id_turn_fillet_dro_tooltip"
+        },
+        "id_turn_tc_dro": {
+            "label_id" : "od_turn_tc_text",
+            "longtext_id" : "msg_od_turn_tc_dro_tooltip"
+        },
+        "id_basic_tc_dro": {
+            "label_id" : "od_turn_tc_text",
+            "longtext_id" : "msg_od_turn_tc_dro_tooltip"
+        },
+        "face_tc_dro": {
+            "label_id" : "face_tool clearance_text",
+            "longtext_id" : "msg_face_tc_dro_tooltip"
+        },
+        "profile_points_x_text_evtbox": {
+            "shorttext_id" : "msg_profile_points_x_text_evtbox_text",
+            "longtext_id" : "msg_profile_points_x_text_tooltip"
+        },
+        "profile_points_z_text_evtbox": {
+            "shorttext_id" : "msg_profile_points_z_text_evtbox_text",
+            "longtext_id" : "msg_profile_points_z_text_tooltip"
+        },
+        "profile_points_r_text_evtbox": {
+            "shorttext_id" : "msg_profile_points_r_text_evtbox_text",
+            "longtext_id" : "msg_profile_points_r_text_tooltip"
+        },
+        "corner_chamfer_od_tc_dro": {
+            "label_id" : "corner_radius_od_tc_text",
+            "longtext_id" : "msg_corner_chamfer_od_tc_dro_tooltip"
+        },
+        "corner_chamfer_id_tc_dro": {
+            "label_id" : "corner_radius_id_tc_text",
+            "longtext_id" : "msg_corner_chamfer_id_tc_dro_tooltip"
+        },
+        "corner_chamfer_od_rough_doc_dro": {
+            "label_id" : "corner_radius_od_rough_doc_text",
+            "longtext_id" : "msg_corner_chamfer_od_rough_doc_dro_tooltip"
+        },
+        "corner_chamfer_id_rough_doc_dro": {
+            "label_id" : "corner_radius_id_rough_doc_text",
+            "longtext_id" : "msg_corner_chamfer_id_rough_doc_dro_tooltip"
+        },
+        "corner_chamfer_od_finish_doc_dro": {
+            "label_id" : "corner_radius_od_finish_doc_text",
+            "longtext_id" : "msg_corner_chamfer_od_finish_doc_dro_tooltip"
+        },
+        "corner_chamfer_id_finish_doc_dro": {
+            "label_id" : "corner_radius_id_finish_doc_text",
+            "longtext_id" : "msg_corner_chamfer_id_finish_doc_dro_tooltip"
+        },
+        "corner_radius_od_tc_dro": {
+            "label_id" : "corner_radius_od_tc_text",
+            "longtext_id" : "msg_corner_radius_od_tc_dro_tooltip"
+        },
+        "corner_radius_id_tc_dro": {
+            "label_id" : "corner_radius_id_tc_text",
+            "longtext_id" : "msg_corner_radius_id_tc_dro_tooltip"
+        },
+        "corner_radius_od_rough_doc_dro": {
+            "label_id" : "corner_radius_od_rough_doc_text",
+            "longtext_id" : "msg_corner_radius_od_rough_doc_dro_tooltip"
+        },
+        "corner_radius_id_rough_doc_dro": {
+            "label_id" : "corner_radius_id_rough_doc_text",
+            "longtext_id" : "msg_corner_radius_id_rough_doc_dro_tooltip"
+        },
+        "corner_radius_od_finish_doc_dro": {
+            "label_id" : "corner_radius_od_finish_doc_text",
+            "longtext_id" : "msg_corner_radius_od_finish_doc_dro_tooltip"
+        },
+        "corner_radius_id_finish_doc_dro": {
+            "label_id" : "corner_radius_id_finish_doc_text",
+            "longtext_id" : "msg_corner_radius_id_finish_doc_dro_tooltip"
+        },
+        "corner_chamfer_od_z_start_dro": {
+            "label_id" : "corner_z_start_text",
+            "longtext_id" : "msg_corner_z_start_dro_tooltip"
+        },
+        "corner_chamfer_id_z_start_dro": {
+            "label_id" : "corner_z_start_text",
+            "longtext_id" : "msg_corner_z_start_dro_tooltip"
+        },
+        "corner_radius_od_z_start_dro": {
+            "label_id" : "corner_z_start_text",
+            "longtext_id" : "msg_corner_z_start_dro_tooltip"
+        },
+        "corner_radius_id_z_start_dro": {
+            "label_id" : "corner_z_start_text",
+            "longtext_id" : "msg_corner_z_start_dro_tooltip"
+        },
+        "corner_chamfer_od_z_end_dro": {
+            "label_id" : "corner_z_end_text",
+            "longtext_id" : "msg_corner_z_end_dro_tooltip"
+        },
+        "corner_chamfer_id_z_end_dro": {
+            "label_id" : "corner_z_end_text",
+            "longtext_id" : "msg_corner_z_end_dro_tooltip"
+        },
+        "corner_radius_od_z_end_dro": {
+            "label_id" : "corner_z_end_text",
+            "longtext_id" : "msg_corner_z_end_dro_tooltip"
+        },
+        "corner_radius_id_z_end_dro": {
+            "label_id" : "corner_z_end_text",
+            "longtext_id" : "msg_corner_z_end_dro_tooltip"
+        },
+        "groove_stock_dia_dro": {
+            "label_id" : "groove_part_stock_dia_text",
+            "longtext_id" : "msg_groove_stock_dia_dro_tooltip"
+        },
+        "groove_final_dia_dro": {
+            "label_id" : "groove_part_final_dia_text",
+            "longtext_id" : "msg_groove_final_dia_dro_tooltip"
+        },
+        "groove_z_start_dro": {
+            "label_id" : "groove_part_z_start_text",
+            "longtext_id" : "msg_groove_z_start_dro_tooltip"
+        },
+        "part_stock_dia_dro": {
+            "label_id" : "groove_part_stock_dia_text",
+            "longtext_id" : "msg_part_stock_dia_dro_tooltip"
+        },
+        "part_final_dia_dro": {
+            "label_id" : "groove_part_final_dia_text",
+            "longtext_id" : "msg_part_final_dia_dro_tooltip"
+        },
+        "part_z_start_dro": {
+            "label_id" : "groove_part_z_start_text",
+            "longtext_id" : "msg_part_z_start_dro_tooltip"
+        },
+        "groove_z_end_dro": {
+            "label_id" : "groove_z_end_text",
+            "longtext_id" : "msg_groove_z_end_dro_tooltip"
+        },
+        "groove_rough_doc_dro": {
+            "label_id" : "groove_rough_doc_text",
+            "longtext_id" : "msg_groove_rough_doc_dro_tooltip"
+        },
+        "groove_finish_doc_dro": {
+            "label_id" : "groove_finish_doc_text",
+            "longtext_id" : "msg_groove_finish_doc_dro_tooltip"
+        },
+        "groove_tc_dro": {
+            "label_id" : "groove_part_tc_text",
+            "longtext_id" : "msg_groove_tc_dro_tooltip"
+        },
+        "part_tc_dro": {
+            "label_id" : "groove_part_tc_text",
+            "longtext_id" : "msg_part_tc_dro_tooltip"
+        },
+        "groove_tw_dro": {
+            "label_id" : "groove_tool_width_text",
+            "longtext_id" : "msg_groove_part_tw_dro_tooltip"
+        },
+        "part_tw_dro": {
+            "label_id" : "groove_tool_width_text",
+            "longtext_id" : "msg_groove_part_tw_dro_tooltip"
+        },
+        "part_peck_dro": {
+            "label_id" : "part_peck_text",
+            "longtext_id" : "msg_part_peck_dro_tooltip"
+        },
+        "part_retract_dro": {
+            "label_id" : "part_retract_text",
+            "longtext_id" : "msg_part_retract_dro_tooltip"
+        },
+        "part_ebw_dro": {
+            "label_id" : "part_ebw_text",
+            "longtext_id" : "msg_part_ebw_dro_tooltip"
+        },
+        "drill_z_start_dro": {
+            "label_id" : "drill_z_start_text",
+            "longtext_id" : "msg_drill_z_start_dro_tooltip"
+        },
+        "drill_z_end_dro": {
+            "label_id" : "drill_z_end_text",
+            "longtext_id" : "msg_drill_z_end_dro_tooltip"
+        },
+        "drill_tc_dro": {
+            "label_id" : "drill_tc_dro_text",
+            "longtext_id" : "msg_drill_tc_dro_tooltip"
+        },
+        "drill_peck_dro": {
+            "label_id" : "drill_peck_depth_text",
+            "longtext_id" : "msg_drill_peck_dro_tooltip"
+        },
+        "drill_spindle_rpm_dro": {
+            "label_id" : "drill_spindle_rpm",
+            "longtext_id" : "msg_drill_spindle_rpm_dro_tooltip"
+        },
+        "drill_dwell_dro": {
+            "label_id" : "drill_dwell_text",
+            "longtext_id" : "msg_drill_dwell_dro_tooltip"
+        },
+        "tap_z_start_dro": {
+            "label_id" : "drill_z_start_text",
+            "longtext_id" : "msg_drill_z_start_dro_tooltip"
+        },
+        "tap_z_end_dro": {
+            "label_id" : "drill_z_end_text",
+            "longtext_id" : "msg_tap_z_end_dro_tooltip"
+        },
+        "tap_tc_dro": {
+            "label_id" : "drill_tc_dro_text",
+            "longtext_id" : "msg_drill_tc_dro_tooltip"
+        },
+        "tap_peck_dro": {
+            "label_id" : "drill_peck_depth_text",
+            "longtext_id" : "msg_tap_peck_dro_tooltip"
+        },
+        "tap_spindle_rpm_dro": {
+            "label_id" : "drill_spindle_rpm",
+            "longtext_id" : "msg_tap_spindle_rpm_dro_tooltip"
+        },
+        "tap_pitch_dro": {
+            "label_id" : "tap_pitch_text",
+            "longtext_id" : "msg_tap_pitch_dro_tooltip",
+            "images" : ["TT.pitch.horz.svg"]
+        },
+        "tap_tpu_dro": {
+            "label_id" : "tap_tpu_text",
+            "longtext_id" : "msg_tap_tpu_dro_tooltip"
+        },
+        "thread_z_start_dro": {
+            "label_id" : "thread_z_start_text",
+            "longtext_id" : "msg_thread_z_start_dro_tooltip"
+        },
+        "thread_z_end_dro": {
+            "label_id" : "thread_z_end_text",
+            "longtext_id" : "msg_thread_z_end_dro_tooltip"
+        },
+        "thread_tc_dro": {
+            "label_id" : "thread_tc_text",
+            "longtext_id" : "msg_thread_tc_dro_tooltip",
+            "long_width" : 320,
+            "images": ["TT.Thread-int-clearance.svg"],
+            "dynamic": ["ui:get_thread_tool_clear_x_description"]
+        },
+        "thread_taper_dro": {
+            "label_id" : "thread_taper_text",
+            "longtext_id" : "msg_thread_taper_dro_tooltip"
+        },
+        "thread_lead_dro": {
+            "label_id" : "thread_lead_text",
+            "longtext_id" : "msg_thread_lead_dro_tooltip"
+        },
+        "thread_major_dia_dro": {
+            "label_id" : "thread_major_dia_text",
+            "longtext_id" : "msg_thread_major_dia_dro_tooltip"
+        },
+        "thread_minor_dia_dro": {
+            "label_id" : "thread_minor_dia_text",
+            "longtext_id" : "msg_thread_minor_dia_dro_tooltip"
+        },
+        "thread_spindle_rpm_dro": {
+            "label_id" : "thread_spindle_rpm_text",
+            "longtext_id" : "msg_thread_spindle_rpm_dro_tooltip"
+        },
+        "thread_tpu_dro": {
+            "label_id" : "thread_calc_text",
+            "longtext_id" : "msg_thread_tpu_dro_tooltip"
+        },
+        "thread_pitch_dro": {
+            "label_id" : "thread_pitch_text",
+            "longtext_id" : "msg_thread_pitch_dro_tooltip",
+            "images" : ["TT.pitch.horz.svg"]
+        },
+        "thread_pass_dro": {
+            "label_id" : "thread_pass_text",
+            "longtext_id" : "msg_thread_pass_dro_tooltip"
+        },
+        "thread_doc_dro": {
+            "label_id" : "thread_doc_text",
+            "longtext_id" : "msg_thread_doc_dro_tooltip"
+        },
+        "thread_ext_int": {
+            "shorttext_id" : "thread_ext_int_text",
+            "longtext_id" : "thread_ext_int_tooltip"
+        },
+        "thread_rh_lh": {
+            "shorttext_id" : "thread_rh_lh_text",
+            "longtext_id" : "thread_rh_lh_tooltip"
+        },
+        "thread_chart_evtbox": {
+            "shorttext_id" : "thread_chart_text",
+            "longtext_id" : "thread_chart_tooltip"
+        },
+        "door_sw_evtbox": {
+            "label_id" : "door_sw_text",
+            "longtext_id" : "door_sw_tooltip"
+        },
+        "door_sw_led_evtbox": {
+            "label_id" : "door_sw_text",
+            "longtext_id" : "door_sw_tooltip"
+        },
+        "encoder_counts_dro": {
+            "label_id" : "encoder_counts_text",
+            "longtext_id" : "encoder_counts_dro_tooltip"
+        },
+        "G7_tooltip" : {
+            "shorttext_id" : "G7_tooltip_text",
+            "longtext_id" : "G7_tooltip_tooltip",
+            "images"      : ["TT.v-space-3.png"]
+        },
+        "G8_tooltip" : {
+            "shorttext_id" : "G8_tooltip_text",
+            "longtext_id" : "G8_tooltip_tooltip",
+            "images"      : ["TT.v-space-3.png"]
+        },
+        "G33.1_tooltip": {
+            "shorttext_id" : "G33.1_tooltip_text",
+            "longtext_id" : "G33.1_tooltip_tooltip",
+            "images"      : ["TT.v-space-3.png"],
+            "long_width" : 320
+        },
+        "G71_tooltip": {
+            "shorttext_id" : "G71_tooltip_text",
+            "longtext_id" : "G71_tooltip_tooltip",
+            "long_width" : 380
+        },
+        "G76_tooltip": {
+            "shorttext_id" : "G76_tooltip_text",
+            "longtext_id" : "G76_tooltip_tooltip",
+            "images"      : ["TT.G76-lathe.png","TT.v-space-3.png"],
+            "long_width" : 380
+        },
+        "G90_tooltip": {
+            "shorttext_id" : "G90_tooltip_text",
+            "longtext_id" : "G90_lathe_tooltip_tooltip",
+            "images" : ["TT.G90-lathe.png", "TT.v-space-3.png"],
+            "long_width": 300
+        },
+        "G91_tooltip": {
+            "shorttext_id" : "G91_tooltip_text",
+            "longtext_id" : "G91_lathe_tooltip_tooltip",
+            "images" : ["TT.G91-lathe.png", "TT.v-space-3.png"],
+            "long_width": 300
+        },
+        "G90.1_tooltip" : {
+            "shorttext_id" : "G90.1_tooltip_text",
+            "longtext_id" : "G90.1_lathe_tooltip",
+            "images" : ["TT.G90.1-lathe.png", "TT.v-space-3.png"]
+        },
+        "G91.1_tooltip" : {
+            "shorttext_id" : "G91.1_tooltip_text",
+            "longtext_id" : "G91.1_lathe_tooltip",
+            "images" : ["TT.G91.1-lathe.png", "TT.v-space-3.png"]
+        },
+        "G96_tooltip" : {
+            "shorttext_id" : "G96_tooltip_text",
+            "longtext_id" : "G96_tooltip_tooltip",
+            "images"      : ["TT.G96-lathe.png","TT.v-space-3.png"],
+            "long_width": 370
+        },
+        "G97_tooltip" : {
+            "shorttext_id" : "G97_tooltip_text",
+            "longtext_id" : "G97_tooltip_tooltip",
+            "images"      : ["TT.v-space-3.png"],
+            "long_width": 320
+        }
+    }
+}

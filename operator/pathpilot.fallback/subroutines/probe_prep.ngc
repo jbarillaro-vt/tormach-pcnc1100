@@ -1,0 +1,17 @@
+o<probe_prep> sub
+(prepatory code called at the start of all probe subroutines)
+
+(save stuff)
+M80
+
+(exact stop mode)
+G61
+
+(set to absolute position mode)
+G90
+
+(cancel G92 offset, maybe some day it should be allowed and accounted for in the travel limits)
+(could cancel with G92.2 and restore with G92.3)
+G92.1
+
+o<probe_prep> endsub

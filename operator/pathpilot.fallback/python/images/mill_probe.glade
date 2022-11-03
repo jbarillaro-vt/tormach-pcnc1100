@@ -1,0 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.24"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkLabel" id="probe_tab_label">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="black" &gt;Probe&lt;/span&gt;</property>
+    <property name="use_markup">True</property>
+  </object>
+  <object class="GtkWindow" id="mill_probe_window">
+    <property name="can_focus">False</property>
+            <child>
+              <object class="GtkFixed" id="probe_fixed">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkImage" id="probe_background">
+                    <property name="width_request">1001</property>
+                    <property name="height_request">408</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">dark_background.jpg</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkNotebook" id="probe_notebook">
+                    <property name="width_request">993</property>
+                    <property name="height_request">399</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <child>
+                      <object class="GtkFixed" id="xyz_probe_fixed">
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="xyz_probe_background">
+                            <property name="width_request">987</property>
+                            <property name="height_request">364</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">dark_background.jpg</property>
+                          </object>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_vise_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0.1900000125169754</property>
+                            <property name="pixbuf">probe_corner_nw.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">100</property>
+                            <property name="y">46</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_corner_text">
+                            <property name="width_request">250</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;OUTER CORNER&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">75</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_corner">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_corner_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_corner_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Corner-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">14</property>
+                            <property name="y">110</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_change_corner">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_change_corner_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_change_corner_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">button-change-corner.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">14</property>
+                            <property name="y">50</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHSeparator" id="hseparator5">
+                            <property name="width_request">225</property>
+                            <property name="height_request">6</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">20</property>
+                            <property name="y">180</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_inner_corner_text">
+                            <property name="width_request">250</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;INNER CORNER&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">80</property>
+                            <property name="y">195</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_inner_corner_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0.1900000125169754</property>
+                            <property name="pixbuf">probe_corner_in_nw.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">110</property>
+                            <property name="y">225</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_inner_corner">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_inner_corner_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_inner_corner_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Corner-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">14</property>
+                            <property name="y">290</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_change_inner_corner">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_change_inner_corner_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_change_inner_corner_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">button-change-corner.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">14</property>
+                            <property name="y">230</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_x_plus">
+                            <property name="width_request">99</property>
+                            <property name="height_request">37</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_x_plus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_x_plus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-X+.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_x_minus">
+                            <property name="width_request">99</property>
+                            <property name="height_request">37</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_x_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_x_minus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-X-.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">100</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_y_plus">
+                            <property name="width_request">99</property>
+                            <property name="height_request">37</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_y_plus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_y_plus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Y+.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">190</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_y_minus">
+                            <property name="width_request">99</property>
+                            <property name="height_request">37</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_y_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_y_minus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Y-.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">280</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_x_plus_image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_x_plus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">390</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_x_minus_image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_x_minus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">390</property>
+                            <property name="y">100</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_y_plus_image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_y_plus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">390</property>
+                            <property name="y">190</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_y_minus_image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_y_minus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">390</property>
+                            <property name="y">280</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_origin_x_plus">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_origin_x_plus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="origin_x_plus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Probe-X-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_origin_x_minus">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_origin_x_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="origin_x_minus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Probe-X--Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">100</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_origin_y_plus">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_origin_y_plus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="origin_y_plus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Probe-Y+-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">190</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_origin_y_minus">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_origin_y_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="origin_y_minus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Probe-Y--Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">280</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHSeparator" id="hseparator1">
+                            <property name="width_request">286</property>
+                            <property name="height_request">6</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">88</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHSeparator" id="hseparator2">
+                            <property name="width_request">286</property>
+                            <property name="height_request">6</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">179</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHSeparator" id="hseparator3">
+                            <property name="width_request">286</property>
+                            <property name="height_request">6</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">269</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_z_minus_image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_z_minus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">787</property>
+                            <property name="y">27</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_z_minus">
+                            <property name="width_request">99</property>
+                            <property name="height_request">38</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_z_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_z_minus_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Z-.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">875</property>
+                            <property name="y">32</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_origin_z_minus">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_origin_z_minus_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe-set_work_offset_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Probe-Z--Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">703</property>
+                            <property name="y">38</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_z_set_work_text">
+                            <property name="width_request">268</property>
+                            <property name="height_request">136</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 11" foreground="white" &gt;NOTE:
+The correct length for the probe must be set before using the probe to find Z or to set work offset Z.
+
+See the 'Probe Setup' tab for instructions.&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">699</property>
+                            <property name="y">133</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_x_plus_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">53</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_x_minus_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">143</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">485</property>
+                            <property name="y">233</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_minus_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">484</property>
+                            <property name="y">323</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_z_minus_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">874</property>
+                            <property name="y">78</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="acc_input_evtbox_1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <child>
+                              <object class="GtkLabel" id="acc_input_text1">
+                                <property name="width_request">140</property>
+                                <property name="height_request">25</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;ACCESSORY INPUT:&lt;/span&gt;</property>
+                                <property name="use_markup">True</property>
+                                <property name="width_chars">4</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">810</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="acc_input_led1">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">LED-Black.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">955</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="xyz_probe_tab_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="black" &gt;X/Y/Z Probe&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="tab_fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFixed" id="probe_pocket_boss_fixed">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="probe_pocket_boss_background">
+                            <property name="width_request">987</property>
+                            <property name="height_request">364</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="pixbuf">dark_background.jpg</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_pocket_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_pocket_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_pocket_center_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Center-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">152</property>
+                            <property name="y">245</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_rect_boss_image">
+                            <property name="width_request">215</property>
+                            <property name="height_request">166</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_rect_boss_center.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">412</property>
+                            <property name="y">52</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_boss_circ_ruf_image">
+                            <property name="width_request">156</property>
+                            <property name="height_request">98</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_circular_boss_center_ruf.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">647</property>
+                            <property name="y">83</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_rect_boss_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_rect_boss_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_rect_boss_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Center-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">490</property>
+                            <property name="y">200</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_circ_boss_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_circ_boss_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_circ_boss_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Center-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">727</property>
+                            <property name="y">200</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_pocket_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;FIND POCKET CENTER&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">60</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_pocket_image">
+                            <property name="width_request">225</property>
+                            <property name="height_request">205</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_pocket_center.svg</property>
+                          </object>
+                          <packing>
+                            <property name="y">28</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_pocket_note_text">
+                            <property name="width_request">141</property>
+                            <property name="height_request">139</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;Place probe in the pocket, close to the center.  Pressing the button will move the probe in X and find the middle.  The probe will then find the middle of Y and set the center to (0,0).&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">5</property>
+                            <property name="y">220</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_boss_rect_text">
+                            <property name="width_request">260</property>
+                            <property name="height_request">22</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;FIND RECTANGULAR BOSS CENTER&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">411</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_boss_circ_text">
+                            <property name="width_request">260</property>
+                            <property name="height_request">22</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;FIND CIRCULAR BOSS CENTER&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">690</property>
+                            <property name="y">10</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_boss_circ_fin_image">
+                            <property name="width_request">176</property>
+                            <property name="height_request">137</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_circular_boss_center_fin.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">800</property>
+                            <property name="y">64</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_boss_circ_ruf_text">
+                            <property name="width_request">55</property>
+                            <property name="height_request">22</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;ROUGH&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">674</property>
+                            <property name="y">40</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_boss_circ_ruf_text1">
+                            <property name="width_request">55</property>
+                            <property name="height_request">0</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;FINISH&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">847</property>
+                            <property name="y">40</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_pocket_x_text">
+                            <property name="width_request">55</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;X ONLY&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">230</property>
+                            <property name="y">119</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_pocket_y_text">
+                            <property name="width_request">55</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;Y ONLY&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">335</property>
+                            <property name="y">240</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_pocket_y_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_pocket_y_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_pocket_center_y_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Center-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">331</property>
+                            <property name="y">277</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_find_pocket_x_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_find_pocket_x_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_find_pocket_center_x_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-Center-Set-Work-Origin.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">105</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_pocket_x_image">
+                            <property name="width_request">128</property>
+                            <property name="height_request">85</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_pocket_x_center.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">235</property>
+                            <property name="y">13</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_pocket_y_image">
+                            <property name="width_request">85</property>
+                            <property name="height_request">128</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_find_pocket_y_center.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">232</property>
+                            <property name="y">214</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="acc_input_evtbox_2">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <child>
+                              <object class="GtkLabel" id="acc_input_text2">
+                                <property name="width_request">140</property>
+                                <property name="height_request">25</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;ACCESSORY INPUT:&lt;/span&gt;</property>
+                                <property name="use_markup">True</property>
+                                <property name="width_chars">4</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">810</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="acc_input_led2">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">LED-Black.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">955</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_a_axis_center">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_a_axis_center_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_a_axis_center_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Find-A-Axis-and-Set.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">830</property>
+                            <property name="y">200</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="probe_pocket_boss_tab_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="black" &gt;Rect / Circ&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                        <property name="tab_fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFixed" id="probe_setup_fixed">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="probe_setup_background">
+                            <property name="width_request">987</property>
+                            <property name="height_request">364</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">dark_background.jpg</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_set_image">
+                            <property name="width_request">138</property>
+                            <property name="height_request">166</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">1</property>
+                            <property name="pixbuf">Digitizing Probe 72.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">534</property>
+                            <property name="y">194</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_set_probe_length">
+                            <property name="width_request">60</property>
+                            <property name="height_request">60</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_set_probe_length_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_set_probe_length_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Move-and-Set-Probe-Length.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">688</property>
+                            <property name="y">226</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_tip_adjust_text">
+                            <property name="width_request">280</property>
+                            <property name="height_request">157</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;Rotate a socket screw towards the Y+ direction and mark as 'A'.  Press button for A to probe the face.  Rotate probe to the next socket screw, mark as 'B' and probe.  Repeat for 'C'.
+
+The screw with the largest DRO value should be tightened or the other two loosened.  Repeat until all  DROs probe near the same value and all screws are tight.&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">223</property>
+                            <property name="y">170</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="probe_adjust_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">probe_y_plus.svg</property>
+                          </object>
+                          <packing>
+                            <property name="x">405</property>
+                            <property name="y">60</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_a_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;A&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">435</property>
+                            <property name="y">35</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_c_text1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;C&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">473</property>
+                            <property name="y">130</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_b_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="BRoboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;B&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">402</property>
+                            <property name="y">130</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_y_plus_a">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_y_plus_a_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_y_plus_a_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Y+.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">247</property>
+                            <property name="y">35</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_y_plus_b">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_y_plus_b_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_y_plus_b_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Y+.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">247</property>
+                            <property name="y">80</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_y_plus_c">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_y_plus_c_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_y_plus_c_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Y+.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">247</property>
+                            <property name="y">125</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_a_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;A&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">232</property>
+                            <property name="y">43</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_b_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;B&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">232</property>
+                            <property name="y">88</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_c_text">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;C&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+
+                            <property name="x">232</property>
+                            <property name="y">134</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_concentricity_title_text">
+                            <property name="width_request">183</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;&lt;b&gt;TIP CONCENTRICTY&lt;/b&gt;&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="width_chars">4</property>
+                          </object>
+                          <packing>
+                            <property name="x">232</property>
+                            <property name="y">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_ref_height_instructions_text">
+                            <property name="width_request">203</property>
+                            <property name="height_request">200</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;&lt;b&gt;REFERENCE HEIGHT&lt;/b&gt;
+
+Remove tool and R8 collet from spindle, enter 0 in tool DRO.
+
+Jog spindle down with feeler gauge positioned between spindle and reference surface.
+
+When feeler gauge binds, click the button below.&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">7</property>
+                            <property name="y">7</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVSeparator" id="vseparator1">
+                            <property name="height_request">339</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">764</property>
+                            <property name="y">14</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="spindle_zero_image">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">Spindle Head Zeroed 72.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">7</property>
+                            <property name="y">224</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_length_instructions_text">
+                            <property name="width_request">225</property>
+                            <property name="height_request">177</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;&lt;b&gt;PROBE LENGTH&lt;/b&gt;
+
+Place probe in the spindle, enter 99 in the tool DRO.
+
+Make sure that the probe polarity (active or passive) is set correctly on the Settings tab.
+
+Click the button below.&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">532</property>
+                            <property name="y">7</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVSeparator" id="vseparator2">
+                            <property name="height_request">339</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">216</property>
+                            <property name="y">14</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVSeparator" id="vseparator3">
+                            <property name="height_request">339</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">516</property>
+                            <property name="y">14</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="probe_set_gauge_ref">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_probe_set_gauge_ref_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="probe_set_gauge_ref_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Move-and-Set-Reference-Surface-Height.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">132</property>
+                            <property name="y">224</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_a_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="width_chars">4</property>
+                          </object>
+                          <packing>
+                            <property name="x">292</property>
+                            <property name="y">40</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_b_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="width_chars">4</property>
+                          </object>
+                          <packing>
+                            <property name="x">292</property>
+                            <property name="y">85</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_y_plus_c_label">
+                            <property name="width_request">100</property>
+                            <property name="height_request">30</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;--&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="width_chars">4</property>
+                          </object>
+                          <packing>
+                            <property name="x">292</property>
+                            <property name="y">130</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_tip_instructions_text">
+                            <property name="width_request">225</property>
+                            <property name="height_request">177</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;&lt;b&gt;EFFECTIVE TIP DIAMETER&lt;/b&gt;&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">7</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="probe_ring_gauge_dia_dro">
+                            <property name="width_request">75</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_probe_ring_gauge_dia_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">27</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_ring_gauge_dia_dro_label">
+                            <property name="width_request">125</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;RING GAUGE DIA:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">27</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="probe_tip_effective_dia_dro">
+                            <property name="width_request">75</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_probe_tip_effective_dia_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">57</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_tip_effective_dia_dro_label">
+                            <property name="width_request">125</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;EFFECTIVE TIP DIA:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">57</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="ring_gauge_image">
+                            <property name="width_request">120</property>
+                            <property name="height_request">152</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">1</property>
+                            <property name="pixbuf">Digitizing-Probe-Ring-72.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">778</property>
+                            <property name="y">85</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="move_and_set_probe_tip_diameter">
+                            <property name="width_request">61</property>
+                            <property name="height_request">61</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="button-press-event" handler="on_button_press_event" swapped="no"/>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <signal name="button-release-event" handler="on_move_and_set_probe_tip_diameter_button_release_event" swapped="no"/>
+                            <child>
+                              <object class="GtkImage" id="move_and_set_tip_diameter_image">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="pixbuf">Move-and-Set-Tip-Diameter.png</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">120</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHSeparator" id="probe_feed_hseparator">
+                            <property name="width_request">205</property>
+                            <property name="height_request">6</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">240</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="probe_rapid_feedrate_dro">
+                            <property name="width_request">75</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                             <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_probe_rapid_feedrate_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">249</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_rapid_feedrate_dro_label">
+                            <property name="width_request">125</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;RAPID PROBE FEED:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">249</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="probe_rough_feedrate_dro">
+                            <property name="width_request">75</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                             <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_probe_rough_feedrate_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">279</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_rough_feedrate_dro_label">
+                            <property name="width_request">125</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;ROUGH PROBE FEED:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">279</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="probe_fine_feedrate_dro">
+                            <property name="width_request">75</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                             <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_probe_fine_feedrate_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">905</property>
+                            <property name="y">309</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="probe_fine_feedrate_dro_label">
+                            <property name="width_request">125</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 9" foreground="white" &gt;FINE PROBE FEED:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">775</property>
+                            <property name="y">309</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="acc_input_evtbox_3">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <child>
+                              <object class="GtkLabel" id="acc_input_text3">
+                                <property name="width_request">140</property>
+                                <property name="height_request">25</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;ACCESSORY INPUT:&lt;/span&gt;</property>
+                                <property name="use_markup">True</property>
+                                <property name="width_chars">4</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">810</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="acc_input_led3">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">LED-Black.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">955</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="probe_setup_tab_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="black" &gt;Probe Setup&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">2</property>
+                        <property name="tab_fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkFixed" id="ets_setup_fixed">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkImage" id="ets_setup_background">
+                            <property name="width_request">987</property>
+                            <property name="height_request">364</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">dark_background.jpg</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="ets_setup_instructions_text">
+                            <property name="width_request">209</property>
+                            <property name="height_request">306</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="white" &gt;&lt;b&gt;ETS SETUP&lt;/b&gt;
+
+The MOVE AND SET WORK OFFSET and MOVE AND SET TOOL LENGTH buttons on the Offsets tab require that the height of the electronic tool setter be correctly entered in the DRO on this tab.
+
+The Tormach ETS has a trigger height (distance from the ETS base to top surface in the triggered position) of 80mm (3.1496 inches).  If you are using a tool setter from a different manufacturer, you must enter the trigger height in the DRO below.
+&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">7</property>
+                            <property name="y">7</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="ets_height_dro">
+                            <property name="width_request">100</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="has_frame">False</property>
+                            <property name="invisible_char">●</property>
+                            <property name="xalign">1</property>
+                            <property name="primary_icon_activatable">False</property>
+                            <property name="secondary_icon_activatable">False</property>
+                            <property name="primary_icon_sensitive">True</property>
+                            <property name="secondary_icon_sensitive">True</property>
+                            <signal name="activate" handler="on_ets_height_dro_activate" swapped="no"/>
+                            <signal name="key-press-event" handler="on_dro_key_press_event" swapped="no"/>
+                            <signal name="button-release-event" handler="on_dro_gets_focus" swapped="no"/>
+                            <signal name="focus-out-event" handler="on_dro_loses_focus" swapped="no"/>
+                          </object>
+                          <packing>
+                            <property name="x">110</property>
+                            <property name="y">320</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="ets_height_dro_label">
+                            <property name="width_request">77</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">&lt;span weight="light" font_desc="Roboto Condensed 10" font_stretch="ultracondensed" foreground="white" &gt;ETS HEIGHT:&lt;/span&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">7</property>
+                            <property name="y">320</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVSeparator" id="vseparator4">
+                            <property name="height_request">339</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="x">225</property>
+                            <property name="y">14</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEventBox" id="acc_input_evtbox_4">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="visible_window">False</property>
+                            <property name="above_child">True</property>
+                            <signal name="enter-notify-event" handler="on_mouse_enter" swapped="no"/>
+                            <signal name="leave-notify-event" handler="on_mouse_leave" swapped="no"/>
+                            <child>
+                              <object class="GtkLabel" id="acc_input_text4">
+                                <property name="width_request">140</property>
+                                <property name="height_request">25</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 12" font_stretch="ultracondensed" foreground="white" &gt;ACCESSORY INPUT:&lt;/span&gt;</property>
+                                <property name="use_markup">True</property>
+                                <property name="width_chars">4</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="x">810</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="acc_input_led4">
+                            <property name="width_request">25</property>
+                            <property name="height_request">25</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">LED-Black.png</property>
+                          </object>
+                          <packing>
+                            <property name="x">955</property>
+                            <property name="y">335</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="ets_setup_tab_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">&lt;span weight="regular" font_desc="Roboto Condensed 10" foreground="black" &gt;ETS Setup&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
+                        <property name="tab_fill">False</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">4</property>
+                    <property name="y">4</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">5</property>
+              </packing>
+            </child>
+  </object>
+</interface>

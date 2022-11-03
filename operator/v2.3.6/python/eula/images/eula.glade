@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="eula_window">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="main_fixed">
+        <property name="width_request">680</property>
+        <property name="height_request">510</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage" id="background">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">Background.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="license_agreement_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 16" foreground="black" &gt;License Agreement&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">50</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="eula_exit_button">
+            <property name="label" translatable="yes">Exit</property>
+            <property name="width_request">60</property>
+            <property name="height_request">29</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_exit_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">607</property>
+            <property name="y">467</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="tormach_image">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">logo.png</property>
+          </object>
+          <packing>
+            <property name="x">388</property>
+            <property name="y">44</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow">
+            <property name="width_request">518</property>
+            <property name="height_request">275</property>
+            <property name="visible">True</property>
+            <property name="app_paintable">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">never</property>
+            <child>
+              <object class="GtkTextView" id="license_textview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="wrap_mode">word</property>
+                <property name="cursor_visible">False</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">60</property>
+            <property name="y">178</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="agree_button">
+            <property name="label" translatable="yes">Agree</property>
+            <property name="width_request">100</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="can_default">True</property>
+            <property name="has_default">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_agree_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">481</property>
+            <property name="y">463</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

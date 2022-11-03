@@ -1,0 +1,50 @@
+o<inject> sub
+(#1 = feedrate)
+(#2 d= well)
+(#3 = z min limit from calling function)
+
+G92.1
+
+o110 if [#5220 EQ 1]     (G54, 5520 = current work space ID 1-9) 
+  #<workspace_z> = #5223
+o110 elseif [#5220 EQ 2] (G55)
+  #<workspace_z> = #5243
+o110 elseif [#5220 EQ 3] (G56)
+  #<workspace_z> = #5263
+o110 elseif [#5220 EQ 4] (G57)
+  #<workspace_z> = #5283
+o110 elseif [#5220 EQ 5] (G58)
+  #<workspace_z> = #5303
+o110 elseif [#5220 EQ 6] (G59)
+  #<workspace_z> = #5323
+o110 elseif [#5220 EQ 7] (G59.1)
+  #<workspace_z> = #5343
+o110 elseif [#5220 EQ 8] (G59.2)
+  #<workspace_z> = #5363
+o110 elseif [#5220 EQ 9] (G59.3)
+  #<workspace_z> = #5383
+o110 else                (default to G54)
+  #<workspace_z> = #5223
+o110 endif
+ 
+#100 = #5403              (stuff in tool length)
+
+#<z_min> = [#3 - #<workspace_z> - #100 + .001] (100 current tool Z offset)
+#<z_start> = #5422       (Current Z Position including offsets in current program units)
+
+#<feed_rate> = #1        (feed rate from UI main screen DRO)
+F #<feed_rate>
+#<dwell> = #2            (dwell from inject screen DRO)
+
+
+
+G38.3 Z #<z_min>       (probe)
+G4 P #<dwell>
+
+
+G0 Z #<z_start>
+
+o<inject> endsub
+
+M02 (end program)
+

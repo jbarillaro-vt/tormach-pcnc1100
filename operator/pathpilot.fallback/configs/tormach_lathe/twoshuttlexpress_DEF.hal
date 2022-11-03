@@ -1,0 +1,102 @@
+
+#
+# This HAL file hooks up two ShuttleXpress USB dongle from Contour Design.
+# As a DEMO for jogging X and Z as on a lathe
+
+#  Author J A Prentice
+# Revised 11 Oct 2012 with new jogtranslator to feed speedto GUI
+#
+# The ShuttleXpress has five momentary buttons, a jog-wheel with 10
+# counts per revolution and detents, and a 15-position rotary knob with
+# return-to-center springy action.
+# Buttons 0-3 are not used
+# Button 5 cycles the jog step size
+#
+
+# millshuttlexpress and jogtranslators already loaded in twoshuttlexpress_DEC
+
+loadrt ilowpass names=ilowpass0.sxp,ilowpass1.sxp
+addf ilowpass0.sxp servo-thread
+addf ilowpass1.sxp servo-thread
+
+# Next value NZ if buttons to latch axes - not used here
+setp jogtranslator.0.radio-latching 0
+setp jogtranslator.1.radio-latching 0
+
+# same scaling on both shuttle rings max around 1.0
+#
+net sxp.step-button-0 shuttlexpress4.0.button-4 => jogtranslator.0.cycle-stepsizes
+net sxp.step-button-1 shuttlexpress4.1.button-4 => jogtranslator.1.cycle-stepsizes
+
+net sxp.spring-wheel-0 shuttlexpress4.0.spring-wheel-s32 => => jogtranslator.0.ring-raw
+net sxp.spring-wheel-1 shuttlexpress4.1.spring-wheel-s32 => => jogtranslator.1.ring-raw
+
+# Here we calculate combined jog speed
+
+setp jogtranslator.0.vec-spd-sq-in 0
+net wk-speed-carry-0 jogtranslator.0.vec-spd-sq-out => jogtranslator.1.vec-spd-sq-in
+
+# Here is the ring jogging
+
+setp halui.jog-speed 1
+
+# NOTE this is needed to get very low speeds
+setp halui.jog-deadband 0.001
+
+net sxp.move-speed0 jogtranslator.0.ax-jog-speed-signed => halui.jog.0.analog
+net sxp.move-speed1 jogtranslator.1.ax-jog-speed-signed => halui.jog.2.analog
+
+
+# Here is wheel jogging
+
+# step in 1/1000 of desired move
+setp jogtranslator.0.smallest-step 0.000001
+setp jogtranslator.0.number-of-stepsizes 5
+
+setp jogtranslator.1.smallest-step 0.000001
+setp jogtranslator.1.number-of-stepsizes 5
+
+net sxp.jog-increment0 tormach.jog-gui-ustep-size => axis.0.jog-scale => axis.2.jog-scale
+
+# hook up the axis choice signals to the axis jog-enable pins
+setp axis.0.jog-enable TRUE
+setp axis.2.jog-enable TRUE
+
+# The ShuttleXpress jog wheel has 10 clicks per revolution
+# 
+# Low-pass filter the jogwheel, and scale it so one click is 1000 counts
+# coming out of the ilowpass.
+#
+# Then connect it to the jog input on all the axes.
+
+setp ilowpass0.sxp.gain .02
+setp ilowpass0.sxp.scale 1000
+
+setp ilowpass1.sxp.gain .02
+setp ilowpass1.sxp.scale 1000
+
+net sxp.counts0 shuttlexpress4.0.counts => ilowpass0.sxp.in
+net sxp.counts-smoothed0  ilowpass0.sxp.out => axis.0.jog-counts
+
+net sxp.counts1 shuttlexpress4.1.counts => ilowpass1.sxp.in
+net sxp.counts-smoothed1 ilowpass1.sxp.out => axis.2.jog-counts
+
+# connect to the outer ring speeds
+# *** TODO*** need to be calculated by jogtranslator to be in line with mill
+setp jogtranslator.0.jt-speed-1 0.1
+setp jogtranslator.0.jt-speed-2 0.6
+setp jogtranslator.0.jt-speed-3 2.856
+setp jogtranslator.0.jt-speed-4 6.826
+setp jogtranslator.0.jt-speed-5 16.314
+setp jogtranslator.0.jt-speed-6 38.990
+setp jogtranslator.0.jt-speed-7 93.187
+
+# set second jog shuttle ring speeds here until UI knows about second jog shuttle
+setp jogtranslator.1.jt-speed-1 0.1
+setp jogtranslator.1.jt-speed-2 0.6
+setp jogtranslator.1.jt-speed-3 2.856
+setp jogtranslator.1.jt-speed-4 6.826
+setp jogtranslator.1.jt-speed-5 16.314
+setp jogtranslator.1.jt-speed-6 38.990
+setp jogtranslator.1.jt-speed-7 93.187
+

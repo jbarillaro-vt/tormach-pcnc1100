@@ -1,0 +1,89 @@
+o<probe_pocket_xy> sub
+
+;(PRINT,begin o<probe_pocket_xy> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+;(x_y_or_both, rapid_feedrate, rough_feedrate, fine_feedrate, x_limit_min, x_limit_max, y_limit_min, y_limit_max, x_wcs_offset, y_wcs_offset, tip_diameter))
+
+#<x_y_or_both> = #1       (0 X, 1 Y, 2 X then Y)
+#<feed_rapid> = #2        (current units)
+#<feed_ruff> = #3         (current units)
+#<feed_fine> = #4         (current units)
+#<x_axis_limit_min> = #5  (current units)
+#<x_axis_limit_max> = #6  (current units)
+#<y_axis_limit_min> = #7  (current units)
+#<y_axis_limit_max> = #8  (current units)
+#<x_wcs_offset> = #9      (current units)
+#<y_wcs_offset> = #10     (current units)
+#<tip_diameter> = #11     (current units)
+
+(PRINT,x_y_or_both: #<x_y_or_both>, feed_ruf: #<feed_ruff>, feed_fine: #<feed_fine>)
+(PRINT,x_axis_limit_min: #<x_axis_limit_min>, x_axis_limit_max: #<x_axis_limit_max>)
+(PRINT,y_axis_limit_min: #<y_axis_limit_min>, y_axis_limit_max: #<y_axis_limit_max>)
+(PRINT,x_wcs_offset: #<x_wcs_offset>, y_wcs_offset: #<y_wcs_offset>)
+(PRINT,tip_diameter: #<tip_diameter>)
+
+o<probe_prep> call
+
+#<do_x> = 0
+#<do_y> = 0
+o105 if [#<x_y_or_both> EQ 0]
+  #<do_x> = 1
+o105 elseif [#<x_y_or_both> EQ 1]
+  #<do_y> = 1
+o105 elseif [#<x_y_or_both> EQ 2]
+  #<do_x> = 1
+  #<do_y> = 1
+o105 endif
+
+o110 if [#<do_x> EQ 1]
+  (probe in X max)
+  o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+  #<x_axis_fine_max> = #<_value>
+  (PRINT,x_axis_fine_max: #<x_axis_fine_max>)
+
+  (probe in X min)
+  o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_min>] [#<x_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [0]
+  #<x_axis_fine_min> = #<_value>
+  (PRINT,x_axis_fine_min: #<x_axis_fine_min>)
+  #<x_axis_center> = [[#<x_axis_fine_max> + #<x_axis_fine_min>] / 2]
+
+  (move to X center)
+  (PRINT,moving X to center: X #<x_axis_center>)
+  o<probe_g1_by_index> call [0] [#<x_axis_center>] [#<feed_rapid>]
+o110 endif
+
+o140 if [#<do_y> EQ 1]
+  (probe in Y max)
+  o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_max>] [#<y_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+  #<y_axis_fine_max> = #<_value>
+  (PRINT,y_axis_fine_max: #<y_axis_fine_max>)
+
+  (probe in Y min)
+  o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_min>] [#<y_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [0]
+  #<y_axis_fine_min> = #<_value>
+  (PRINT,y_axis_fine_min: #<y_axis_fine_min>)
+  #<y_axis_center> = [[#<y_axis_fine_max> + #<y_axis_fine_min>] / 2]
+
+  (move to Y center)
+  (PRINT,moving Y to center: Y #<y_axis_center>)
+  o<probe_g1_by_index> call [1] [#<y_axis_center>] [#<feed_rapid>]
+o140 endif
+
+o170 if [#<do_x> EQ 1]
+  (PRINT,setting origin with G10 L20 P0 X0)
+  G10 L20 P0 X0
+o170 endif
+
+o180 if [#<do_y> EQ 1]
+  (PRINT,setting origin with G10 L20 P0 Y0)
+  G10 L20 P0 Y0
+o180 endif
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_pocket_xy> sub --------------------------------------------------)
+
+o<probe_pocket_xy> endsub
+
+M02

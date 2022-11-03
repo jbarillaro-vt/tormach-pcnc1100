@@ -1,0 +1,91 @@
+#!/usr/bin/env python
+# coding=utf-8
+#
+## "Copyright © 2017 Tormach® Inc. All rights reserved."
+#
+
+import os
+import sys
+import time
+import subprocess
+
+resolution_string = '1024x768'
+sleep_secs = 1
+this_program = sys.argv[0]
+
+verbose = False
+if len(sys.argv) > 1 and (sys.argv[1] == '-v' or sys.argv[1] == '--verbose'):
+    verbose = True
+
+
+def lprint(msg):
+    print '%s: %s' % (this_program, msg)
+
+
+def check_for_connected_monitor():
+    #print 'Checking for attached monitor.'
+    directory = '/sys/class/drm'
+    card0 = 'card0'
+
+    subfolders = os.listdir(directory)
+    for folder in subfolders:
+        if folder.startswith(card0) and len(folder) > len(card0):
+            filename = os.path.join(directory, folder, 'status')
+            if os.path.isfile(filename):
+                with open(filename) as f:
+                    line = f.readline().strip()
+                    # filenames look like: /sys/class/drm/card0-HDMI-A-1/status
+                    #                      /sys/class/drm/card0-HDMI-A-2/status
+                    #                      /sys/class/drm/card0-HDMI-A-3/status
+                    #                      /sys/class/drm/card0-DP-1/status
+                    #                      /sys/class/drm/card0-VGA-1/status
+                    #                      /sys/class/drm/card0-LVDS-1/status
+                    # we want 'output' to look like: HDMI1, HDMI2, HDMI3, DP1, VGA1, LVDS1
+                    pieces = filename.split('-')
+                    name = pieces[1]
+                    num = pieces[2][0]
+                    if len(pieces) > 3:
+                        num = num = pieces[3][0]
+                    output = name + num
+                    if verbose:
+                        lprint('%s: %s' % (filename, line))
+                    if line == 'connected':
+                        return filename, output
+
+    return '', ''
+
+
+def run_cmd(cmd):
+    result = ''
+    try:
+        result = subprocess.check_output(cmd, shell=True)
+        print '%s: %s' % (cmd, result.strip())
+    except subprocess.CalledProcessError:
+        print 'Failed to run %s' % cmd
+    return result
+
+
+if __name__ == "__main__":
+    if os.geteuid() != 0:
+        lprint('must be run as root and intended to be run from /etc/rc.local')
+        exit(1)
+
+    # xrandr needs this
+    os.environ['XAUTHORITY'] = '/var/lib/mdm/:0.Xauth'
+
+    while True:
+        lprint('checking for connected monitor.')
+        filename, outputname = check_for_connected_monitor()
+        if filename == '':
+            lprint('no monitor connected - sleeping for %ds.' % sleep_secs)
+            time.sleep(sleep_secs)
+        else:
+            lprint('found monitor connected to %s' % filename)
+            lprint('adding mode %s to output %s' % (resolution_string, outputname))
+            # xrandr -d :0 --addmode VGA1 1024x768; xrandr -d :0 --output VGA1 --mode 1024x768
+            run_cmd('xrandr -d :0 --addmode %s %s' % (outputname, resolution_string))
+            lprint('setting mode %s on output %s' % (resolution_string, outputname))
+            run_cmd('xrandr -d :0 --output %s --mode %s' % (outputname, resolution_string))
+            break
+
+    exit(0)

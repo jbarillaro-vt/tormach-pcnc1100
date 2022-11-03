@@ -1,0 +1,682 @@
+#!/bin/bash
+#-----------------------------------------------------------------------
+# coding=utf-8
+#
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+# heavily altered by Tormach to support arbitrary run-in-place directory
+#
+################################################################################
+# usage: linuxcnc [options] [<ini-file>]
+#
+# options:
+#     -v = verbose - prints info as it works
+#     -d = echos script commands to screen for debugging
+#
+# this version calls pickconfig.tcl to pick an ini file if one
+# is not specified on the command line
+#
+################################################################################
+# Author:
+# License: GPL Version 2
+# System: Linux
+#
+# Copyright (c) 2004-2009 All rights reserved.
+################################################################################
+
+# make it easier to tell when this actually kicks off in combined logs
+echo "------------------------------------------------------------------------------"
+echo "|                               start_linuxcnc                               |"
+echo "------------------------------------------------------------------------------"
+
+# this will be the run-in-place directory where LinuxCNC and the UI are located
+prefix=$EMC2_HOME
+exec_prefix=${prefix}
+echo "prefix: $prefix"
+echo "exec_prefix: $exec_prefix"
+
+
+PIDOF="/bin/pidof -x"
+PS=/bin/ps
+KILL=/bin/kill
+
+LINUXCNC_HOME=$EMC2_HOME
+export LINUXCNC_HOME
+
+# where all the LinuxCNC executables live
+EMC2_BIN_DIR=$LINUXCNC_BIN_DIR
+export EMC2_BIN_DIR
+echo "EMC2_BIN_DIR=$EMC2_BIN_DIR"
+
+# .ko realtime modules
+EMC2_RTLIB_DIR=$LINUXCNC_RTLIB_DIR
+export EMC2_RTLIB_DIR
+echo "EMC2_RTLIB_DIR=$EMC2_RTLIB_DIR"
+
+# RIP directory changes
+#REALTIME=$EMC2_HOME/scripts/realtime
+
+# splash screen lives here
+LINUXCNC_IMAGEDIR=$EMC2_HOME
+
+# module extension, used when insmod'ing
+MODULE_EXT=.ko
+
+MODULE_EXT=.so # module extension, used when insmod'ing
+
+program_available () {
+    type -path "$1" > /dev/null 2>&1
+}
+
+usage () {
+	P=${0##*/}
+	cat <<EOF
+$P: Run LINUXCNC
+
+Usage:
+	$P [-d] [-v] path/to/your.ini
+		Name the configuration file using its path
+
+	-d: Turn on "debug" mode
+	-v: Turn on "verbose" mode
+EOF
+
+}
+
+
+# strip and process command line options
+while getopts "dvh" opt
+do
+	case "$opt" in
+	d)
+		# enable echoing of script and command output
+		if tty -s; then
+		    echo "ignoring -d command line option"
+		    #DEBUG_FILE=/dev/fd/2
+		    #echo "Debug mode on" >>$DEBUG_FILE
+		fi
+		set -x;;
+	v)
+		# enable printing of verbose messages
+		if tty -s; then
+		    "echo ignoring -v command line option"
+		    #PRINT_FILE=/dev/fd/1
+		    #echo "Verbose mode on" >>$PRINT_FILE
+		fi;;
+	h)
+		usage
+		exit 0;;
+	*)
+		usage
+		exit 1
+	esac
+done
+shift $(($OPTIND-1))
+
+# only use the command line specified INI_FILE
+INIFILE="$1"
+echo "INIFILE: $INIFILE"
+
+# realpath -s doesn't grok "~" properly
+if [ "${INIFILE:0:1}" == "~" ]; then
+  echo "$INIFILE started with tilde"
+  INIFILE="$HOME""${INIFILE:1}"
+fi
+# leaving "realpath" out for now - need to check return code for non-existant file
+#INIFILE=`realpath -s "$INIFILE"`
+echo "expanded INIFILE: $INIFILE"
+
+# NOTE: launch_config.sh and rip-environment break EXTRA_ARGS
+#       only the INI file name is passed to this script
+shift
+EXTRA_ARGS="$@"
+echo "EXTRA_ARGS: $EXTRA_ARGS"
+
+# always run in place
+RUN_IN_PLACE=yes
+echo RUN_IN_PLACE=$RUN_IN_PLACE
+
+
+# TODO: this needs to be kept up to date from LinuxCNC source
+LINUXCNCVERSION="2.8.0~pre1"; export LINUXCNCVERSION
+echo "LINUXCNC version - $LINUXCNCVERSION"
+
+# common from here..
+INIVAR=inivar
+HALCMD="halcmd"
+
+echo LINUXCNC_DIR=$LINUXCNC_DIR
+echo LINUXCNC_BIN_DIR=$LINUXCNC_BIN_DIR
+echo LINUXCNC_RTLIB_DIR=$LINUXCNC_RTLIB_DIR
+
+echo INIVAR=$INIVAR
+echo HALCMD=$HALCMD
+
+#export REALTIME
+export HALCMD
+
+
+# was an inifile specified on the command line?
+if [ ! -n "$INIFILE" ] ; then
+    # nothing specified, exit
+    echo "No INI file specified."
+    exit 0
+fi
+
+# delete directories from path, save name only
+INI_NAME="${INIFILE##*/}"
+INI_DIR="${INIFILE%/*}"
+
+# add the INI_DIR subdirectory 'python' to PYTHONPATH
+if [ -z "$PYTHONPATH" ]; then
+    PYTHONPATH="$INI_DIR/python"
+else
+    PYTHONPATH="$INI_DIR/python:$PYTHONPATH"
+fi
+echo "inserted into PYTHONPATH: $INI_DIR/python"
+echo 'new PYTHONPATH: ' $PYTHONPATH
+
+echo "Machine configuration directory is '$INI_DIR'"
+echo "Machine configuration file is '$INI_NAME'"
+
+# make sure ini file exists
+
+if [ ! -f "$INIFILE" ] ; then
+    echo "Could not find ini file '$INIFILE'"
+    trap '' EXIT
+    exit -1
+fi
+echo INIFILE=$INIFILE
+
+
+# extract info from the ini file that we will need later
+retval=
+
+# define helper functions
+function GetFromIniQuiet {
+    #$1 var name   $2 - section name
+    name=$1
+    retval=`$INIVAR -ini "$INIFILE" -var $1 -sec $2 2> /dev/null`
+    if [ ! -n "$1" ] ; then
+        exit -1
+    fi
+    echo "$name=$retval"
+}
+
+function GetFromIni {
+    #$1 var name   $2 - section name
+    name=$1
+    retval=`$INIVAR -ini "$INIFILE" -var $1 -sec $2`
+    if [ ! -n "$1" ] ; then
+        echo "Can't find variable $1 in section [$2] of file $INIFILE."
+        exit -1
+    fi
+    echo "$name=$retval"
+}
+
+# Usage:
+#  GetFromIniEx VAR1 SEC1 [VAR2 SEC2...VARn SECn] [default]
+function GetFromIniEx {
+    original_var="[$2]$1"
+    while [ $# -ge 2 ]; do
+        if retval=`$INIVAR -ini "$INIFILE" -var "$1" -sec "$2"`; then return; fi
+        shift 2
+    done
+    if [ $# -eq 0 ]; then
+        echo "Can't find $original_var in $INIFILE."
+        exit -1
+    fi
+    retval="$1"
+}
+
+# get param file
+GetFromIni PARAMETER_FILE RS274NGC
+RS274NGC_PARAMFILE=$retval
+
+# get mot information
+GetFromIniEx MOT MOT EMCMOT EMCMOT motmod
+EMCMOT=$retval$MODULE_EXT # add module extension
+
+# get io information
+GetFromIniEx IO IO EMCIO EMCIO io
+EMCIO=$retval
+
+# get task information
+GetFromIni TASK TASK
+EMCTASK=$retval
+
+
+# hardcode the server name, change if needed
+# linuxcncsvr now holds/creates all the NML channels,
+# so it needs to start by default, as the first process
+EMCSERVER=linuxcncsvr
+
+
+# get halui information
+GetFromIniQuiet HALUI HAL
+HALUI=$retval
+
+# get display information
+GetFromIni DISPLAY DISPLAY
+EMCDISPLAY=`(set -- $retval ; echo $1 )`
+EMCDISPLAYARGS=`(set -- $retval ; shift ; echo $* )`
+
+# get full path to display program
+EMCDISPLAY_FULLPATH=`which $EMCDISPLAY`
+echo 'EMCDISPLAY_FULLPATH: ' $EMCDISPLAY_FULLPATH
+# directory containing display program
+EMCDISPLAY_DIR=`dirname $EMCDISPLAY_FULLPATH`
+echo 'EMCDISPLAY_DIR: ' $EMCDISPLAY_DIR
+if [ "$EMCDISPLAY_DIR" == "." ]; then
+    echo ""
+    echo "Invalid location for $EMCDISPLAY - will not add . to PYTHONPATH to avoid time wasting bugs"
+    echo ""
+    exit 1
+fi
+export EMCDISPLAY_DIR
+
+# prepend display directory to PYTHONPATH
+if [ -z "$PYTHONPATH" ]; then
+    PYTHONPATH="$EMCDISPLAY_DIR"
+else
+    PYTHONPATH=$"$EMCDISPLAY_DIR:$PYTHONPATH"
+fi
+echo "inserted into PYTHONPATH: " $EMCDISPLAY_DIR
+echo 'new PYTHONPATH: ' $PYTHONPATH
+
+# get NML config information
+# linuxcnc.nml in RIP directory tree
+echo "NML_FILE: "$NML_FILE
+
+USER_HOME=${HOME}
+echo "User's HOME directory: $USER_HOME"
+
+if [ -z "$PYTHONPATH" ]; then
+    PYTHONPATH="$HOME"/gcode/python
+else
+    PYTHONPATH=$"$PYTHONPATH:"$HOME"/gcode/python"
+fi
+echo "appended to PYTHONPATH: " "$HOME"/gcode/python
+echo 'new PYTHONPATH: ' $PYTHONPATH
+
+# directory for config files (tool.tbl, emc.var, dump.rdb)
+# in case they're not already made
+# this is all done up in pathpilotmanager.py now before this runs.
+
+if [ ! -d "$USER_HOME/gcode" ]; then
+  echo "Creating directory: $USER_HOME/gcode"
+  mkdir -p $USER_HOME/gcode
+fi
+
+if [ ! -d "$USER_HOME/gcode/subroutines" ]; then
+  echo "Creating directory: $USER_HOME/subroutines"
+  mkdir -p $USER_HOME/gcode/subroutines
+fi
+
+# check for zero length position.txt file and delete it.
+# this is done up in pathpilotmanager.py now before this runs.
+
+# get redis information
+# redis-server will be started unless explicitly disabled by [REDIS]DISABLE_SERVER=1
+GetFromIni DISABLE_SERVER REDIS
+DISABLE_REDIS=$retval
+#echo "REDIS_SERVER_DISABLE: $DISABLE_REDIS"
+
+# the redis startup command defaults to 'redis-server'
+# override with [REDIS]SERVER_PATH=<pathname>  (no args!)
+GetFromIni SERVER_PATH REDIS
+REDIS_SERVER_PATH=$retval
+
+# realpath -s doesn't grok "~" properly
+if [ "${REDIS_SERVER_PATH:0:1}" == "~" ]; then
+  echo "$REDIS_SERVER_PATH started with tilde"
+  REDIS_SERVER_PATH="$HOME""${REDIS_SERVER_PATH:1}"
+fi
+
+# the redis-server startup arguments default to ' <default server config path>'
+# override with [REDIS]SERVER_ARGS=<pathname> <other args>
+GetFromIni SERVER_ARGS REDIS
+REDIS_SERVER_ARGS=$retval
+echo "REDIS_SERVER_ARGS: $REDIS_SERVER_ARGS"
+REDIS_SERVER_ARGS=`eval echo $REDIS_SERVER_ARGS`
+echo "REDIS_SERVER_ARGS: $REDIS_SERVER_ARGS"
+
+# walk args for --dir and make sure directory exists
+for redarg in $REDIS_SERVER_ARGS; do
+
+    if [[ "$prev_redarg" == "--dir" ]] ; then
+        # test if $redarg is a directory that exists
+        if [ ! -d "$redarg" ]; then
+            echo "Error: redis-server directory '$redarg' does not exist"
+            exit 1
+        fi
+    fi
+    prev_redarg=$redarg
+done
+
+# the output from running the redis server will be redirected to /dev/null
+# unless a [REDIS]SERVER_LOG=<pathname> is specified.
+GetFromIni SERVER_LOG REDIS
+REDIS_SERVER_LOG=$retval
+
+
+KILL_TASK=
+KILL_TIMEOUT=20
+
+# kills a list of tasks with timeout
+# if it doesn't work, kill -9 is used
+function KillTaskWithTimeout() {
+    if [ ! -n "$KILL_PIDS" ] ; then
+        KILL_PIDS=`$PIDOF $KILL_TASK`
+    fi
+    if [ ! -n "$KILL_PIDS" ] ; then
+        echo "Could not find pid(s) for task $KILL_TASK"
+        return -1
+    fi
+    for KILL_PID in $KILL_PIDS ; do
+        echo "Killing task $KILL_TASK, PID=$KILL_PID"
+        # first a "gentle" kill with signal TERM
+        $KILL $KILL_PID
+        WAIT=$KILL_TIMEOUT
+        # wait and see if it dissappears
+        while [ $WAIT -gt 1 ] ; do
+	         # see if it's still alive
+	        if $PS $KILL_PID ; then
+               WAIT=$(($WAIT-1))
+               sleep .1
+	        else
+               WAIT=0
+           fi
+        done
+        if [ $WAIT -gt 0 ] ; then
+            # gentle didn't work, get serious
+            echo "Timeout, trying kill -9"
+            $KILL -9 $KILL_PID
+            WAIT=$KILL_TIMEOUT
+            # wait and see if it dissappears
+            while [ $WAIT -gt 1 ] ; do
+                # see if it's still alive
+                if $PS $KILL_PID ; then
+                    WAIT=$(($WAIT-1))
+                    sleep .1
+                else
+                    WAIT=0
+                fi
+            done
+        fi
+        if [ $WAIT -gt 0 ] ; then
+            echo "Could not kill task $KILL_TASK, PID=$KILL_PID"
+        fi
+        KILL_PIDS=
+        KILL_TASK=
+    done
+}
+
+
+# define the cleanup function
+#
+# this cleanup function doesn't know or care what was actually
+# loaded - it simply kills _any_ processes in its list of
+# components
+function Cleanup() {
+
+    echo "Shutting down and cleaning up LinuxCNC..."
+    # Kill displays first - that should cause an orderly
+    #   shutdown of the rest of linuxcnc
+    for KILL_TASK in xlinuxcnc ylinuxcnc linuxcncpanel keystick iosh linuxcncsh linuxcncrsh linuxcnctop mdi debuglevel; do
+        if $PIDOF $KILL_TASK ; then
+            echo "Killing $KILL_TASK"
+            KillTaskWithTimeout
+        fi
+    done
+
+    if [ "$1" = "other" ]; then
+        echo -n "Waiting for other session to finish exiting..."
+        WAIT=$KILL_TIMEOUT
+        while [ $WAIT -gt 1 ]; do
+            if ! [ -f $LOCKFILE ]; then
+                echo " Ok"
+                return 0
+            fi
+            WAIT=$(($WAIT-1))
+            sleep .1
+        done
+        echo "lockfile still not removed"
+    fi
+
+    SHUTDOWN=`$INIVAR -ini "$INIFILE" -var SHUTDOWN -sec HAL 2> /dev/null`
+    if [ -n "$SHUTDOWN" ]; then
+        echo "Running HAL shutdown script"
+        echo "$HALCMD -f $SHUTDOWN"
+        $HALCMD -f $SHUTDOWN
+    fi
+
+    # now kill all the other user space components
+    for KILL_TASK in linuxcncsvr milltask redis-server; do
+        if $PIDOF $KILL_TASK ; then
+            echo "Killing $KILL_TASK"
+	         KillTaskWithTimeout
+    fi
+    done
+
+    echo "Stopping realtime threads"
+    echo "$HALCMD stop"
+    $HALCMD stop
+    echo "Unloading hal components"
+    echo "$HALCMD unload all"
+    $HALCMD unload all
+
+    for i in `seq 10`; do
+        # (the one component is the halcmd itself)
+        if [ `$HALCMD list comp | wc -w` = 1 ]; then break; fi
+        sleep .2
+    done
+
+    echo "Removing HAL_LIB, RTAPI, and Real Time OS modules"
+    #echo "$REALTIME stop"
+    #$REALTIME stop
+
+    echo "Removing NML shared memory segments"
+    while read b x t x x x x x x m x; do
+        case $b$t in
+            BSHMEM) ipcrm -M $m 2>/dev/null;;
+        esac
+    done < $NML_FILE
+
+
+    # remove lock file
+    if [ -f $LOCKFILE ] ; then
+        echo "rm $LOCKFILE"
+        rm $LOCKFILE
+    fi
+
+    echo "Cleanup done"
+}
+
+
+# name of lock file to check for that signifies that LinuxCNC is up,
+# to prevent multiple copies of controller
+LOCKFILE=/tmp/linuxcnc.lock
+
+# Check for lock file - but always step on it
+if [ -f $LOCKFILE ]; then
+    echo Lockfile exists, cleaning up old LinuxCNC..
+    Cleanup other
+fi
+echo Starting LinuxCNC...
+
+# trap ^C so that it's called if user interrupts script
+trap 'Cleanup ; exit 0' SIGINT SIGTERM
+
+# go to the dir where the ini file is
+cd "$INI_DIR"
+
+# Create the lock file
+touch $LOCKFILE
+
+
+# start redis-server as the very first thing
+echo "Starting redis server program: $REDIS_SERVER"
+if [ "$DISABLE_REDIS" = "" ] ; then
+    if [ "$REDIS_SERVER_PATH" = "" ] ; then
+    REDIS_SERVER_PATH=redis-server
+    fi
+    if ! program_available $REDIS_SERVER_PATH; then
+       echo "Can't execute Redis server program $REDIS_SERVER_PATH"
+       Cleanup
+       exit 1
+    fi
+    if [ "$REDIS_SERVER_ARGS" = "" ] ; then
+    REDIS_SERVER_ARGS=''
+    fi
+    if [ "$REDIS_SERVER_LOG" = "" ] ; then
+    REDIS_SERVER_LOG=/dev/null
+    fi
+    $REDIS_SERVER_PATH $REDIS_SERVER_ARGS >$REDIS_SERVER_LOG &
+    echo "redis server started as: '"$REDIS_SERVER_PATH $REDIS_SERVER_ARGS"', logging to:" $REDIS_SERVER_LOG
+else
+    echo "redis server startup disabled in inifile"
+fi
+
+
+# run linuxcncserver in background, always (it owns/creates the NML buffers)
+echo "Starting LinuxCNC server program: $EMCSERVER"
+if ! program_available $EMCSERVER; then
+    echo "Can't execute server program $EMCSERVER"
+    Cleanup
+    exit 1
+fi
+export INI_FILE_NAME="$INIFILE"
+$EMCSERVER -ini "$INIFILE" &
+sleep 1
+
+
+# start realtime parts
+#echo "Loading Real Time OS, RTAPI, and HAL_LIB modules"
+#if ! $REALTIME start ; then
+#    echo "$REALTIME start: Realtime system did not load"
+#    Cleanup
+#    exit -1
+#fi
+
+
+# export the location of the HAL realtime modules so that
+# "halcmd loadrt" can find them
+export HAL_RTMOD_DIR=$LINUXCNC_RTLIB_DIR
+
+# run io in background if so defined in INI
+if [ "$EMCIO" != "" ] ; then
+    echo "Starting LinuxCNC IO program: $EMCIO"
+    if ! program_available $EMCIO ; then
+        echo "Can't execute IO program $EMCIO"
+        Cleanup
+        exit 1
+    fi
+    echo $EMCIO started
+    $HALCMD loadusr -Wn iocontrol $EMCIO -ini "$INIFILE"
+    echo halcmd loadusr $EMCIO started
+else
+    echo "Skipping LinuxCNC IO program"
+fi
+
+
+# run halui in background, if necessary
+if [ -n "$HALUI" ] ; then
+    echo "Starting HAL User Interface program: $HALUI"
+    if ! program_available $HALUI ; then
+	     echo "Can't execute halui program $HALUI"
+	     Cleanup
+	     exit 1
+    fi
+    echo "$HALCMD loadusr -Wn halui $HALUI -ini "$INIFILE""
+    $HALCMD loadusr -Wn halui $HALUI -ini "$INIFILE"
+fi
+
+
+# execute HALCMD config files (if any)
+# get first config file name from ini file
+NUM=1
+CFGFILE=`$INIVAR -tildeexpand -ini "$INIFILE" -var HALFILE -sec HAL -num $NUM 2> /dev/null`
+while [ -n "$CFGFILE" ] ; do
+    echo "$HALCMD -i "$INIFILE" -f $CFGFILE"
+    if ! $HALCMD -i "$INIFILE" -f $CFGFILE ; then
+        echo "HALCMD ini file $INIFILE load failed with config file $CFGFILE"
+        Cleanup
+        # exit with the EXITCODE_CONFIG_FAILED code because HAL is failing to initialize
+        exit 17
+    fi
+    # get next config file name from ini file
+    NUM=$(($NUM+1))
+    CFGFILE=`$INIVAR -tildeexpand -ini "$INIFILE" -var HALFILE -sec HAL -num $NUM 2> /dev/null`
+done
+
+
+# execute discrete HAL commands from ini file (if any)
+# get first command from ini file
+NUM=1
+HALCOMMAND=`$INIVAR -ini "$INIFILE" -var HALCMD -sec HAL -num $NUM 2> /dev/null`
+while [ -n "$HALCOMMAND" ] ; do
+    if [ -n "$HALCOMMAND" ] ; then
+	     echo "Running HAL command: $HALCOMMAND"
+	     if ! $HALCMD $HALCOMMAND ; then
+	         echo "ini file HAL command $HALCOMMAND failed."
+	         Cleanup
+             # exit with the EXITCODE_CONFIG_FAILED code because HAL is failing to initialize
+	         exit 17
+	     fi
+    fi
+    # get next command from ini file
+    NUM=$(($NUM+1))
+    HALCOMMAND=`$INIVAR -ini "$INIFILE" -var HALCMD -sec HAL -num $NUM 2> /dev/null`
+done
+
+
+# start realtime
+$HALCMD start
+
+# start EMCTASK
+echo "Starting TASK program: $EMCTASK"
+if ! program_available $EMCTASK ; then
+    echo "Can't execute TASK program $EMCTASK"
+    Cleanup
+    exit 1
+fi
+
+$EMCTASK -ini "$INIFILE" &
+echo task pid=$!
+
+
+# start DISPLAY user interface
+echo "Starting DISPLAY program: $EMCDISPLAY_FULLPATH"
+result=0
+    if ! program_available $EMCDISPLAY_FULLPATH; then
+        echo "Can't execute DISPLAY program $EMCDISPLAY_FULLPATH $EMCDISPLAYARGS $EXTRA_ARGS"
+        Cleanup
+        exit 1
+    fi
+    $EMCDISPLAY_FULLPATH -ini "$INIFILE" $EMCDISPLAYARGS $EXTRA_ARGS &
+    PATHPILOTPID=$!
+    echo $PATHPILOTPID > $LINUXCNC_HOME/pathpilot.pid
+    echo $EMCDISPLAY pid=$PATHPILOTPID
+    wait $PATHPILOTPID
+#    kernprof.py -l -v $EMCDISPLAY_FULLPATH -ini "$INIFILE" $EMCDISPLAYARGS $EXTRA_ARGS
+    result=$?
+
+  # print .tmax values of interest
+  # motion-command-handler.tmax
+  # motion-controller.tmax
+  # hm2_boardname.0.read.tmax
+  # hm2_boardname.0.write.tmax
+hm2board=`GetFromIniQuiet BOARD HOSTMOT2`
+# don't try to print stats for a sim config that won't have a HOSTMOT2 INI section
+if [ $hm2board != 'BOARD=' ]; then
+  echo "show param hm2_[HOSTMOT2](BOARD).0.read.tmax  hm2_[HOSTMOT2](BOARD).0.write.tmax motion-command-handler.tmax motion-controller.tmax"  | $HALCMD -s -f -i "$INIFILE"
+fi
+
+# the display won't return until you shut it down,
+# so when you get here it's time to clean up
+Cleanup
+
+exit $result
+

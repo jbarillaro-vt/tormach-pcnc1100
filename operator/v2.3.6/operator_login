@@ -1,0 +1,400 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2019 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+# this script is run via the autostart application settings
+# this is configured from System -> Preferences -> Startup Applications
+#
+# it does as little as needed then runs '~/tmc/python/pathpilotmanager.py'
+# after 'pathpilotmanager.py' returns, it terminates the log rotator and shuts down the controller
+#
+
+# the update process overwrites operator_login which can cause chaos with this running
+# version of the script as bash ends up reading portions of the new and has some of the old
+# and its unpredictable.
+#
+# this little snippet makes sure that the operator_login script can always be copied on top of
+# and not affect ourselves.
+#
+SCRIPT_FULL_PATH=`realpath $0`
+echo "The running script is $SCRIPT_FULL_PATH"
+if [ "$SCRIPT_FULL_PATH" == "$HOME/operator_login" ]; then
+    echo "Creating a tmp running copy."
+    rm -f $SCRIPT_FULL_PATH.running
+    cp $SCRIPT_FULL_PATH $SCRIPT_FULL_PATH.running
+    exec $SCRIPT_FULL_PATH.running $1 $2 $3 $4 $5 $6 $7 $8 $9
+fi
+
+# NOTE!    NOTE!     NOTE!
+#
+# Do not hardcode any references to ~/tmc. At the start of this script it can
+# be pointint to ~/vA.B.C and after an update it can be pointing to
+# vD.E.F after which this script continues to run a bit as it goes into a reboot
+# or other actions - and we could be making assumptions about what and where things exist
+# in the new vD.E.F version and break.
+#
+# To combat this, we immediately follow ~/tmc and figure how what the real directory
+# is and use that to refer to files.  This way even after an update and tmc has been relinked
+# to a new version, our references are still valid.
+#
+# This points to the actual PathPilot directory to be run - follow the symlink
+# and figure out which one and use that path.
+PATHPILOT_DIR=`realpath "$HOME/tmc"`
+echo "$HOME/tmc symlink points to $PATHPILOT_DIR"
+
+# the main PathPilot log file that captures console output and messages from the UI
+LOGFILES_DIR="$HOME"/gcode/logfiles
+PATHPILOT_LOGFILE=$LOGFILES_DIR/pathpilotlog.txt
+SCRIPTS_DIR=$PATHPILOT_DIR/scripts
+LOGROTATOR=$SCRIPTS_DIR/logrotator.sh
+VENV_DIR="$PATHPILOT_DIR/venv"
+
+# this program manages all of PathPilot starting, stopping, and updating
+PATHPILOT_MANAGER=$PATHPILOT_DIR/python/pathpilotmanager.py
+
+# this program checks if we're running in virtualized OS environment
+VMCHECK=$PATHPILOT_DIR/python/vmcheck.py
+
+# logfile directory check
+if [ ! -d $LOGFILES_DIR ]; then
+  mkdir -p "$LOGFILES_DIR"
+fi
+
+echo -e "$0: redirecting stdout/stderr to: ""$PATHPILOT_LOGFILE"
+# important to use tee -a to append or logrotation will create corrupted files
+exec > >(tee -a $PATHPILOT_LOGFILE) 2>&1
+
+# make the log file far easier to parse visually for new runs of PP
+echo "---------------------------------------------------------------"
+echo -n "New PathPilot start at "
+date
+cat $PATHPILOT_DIR/version.json
+echo "---------------------------------------------------------------"
+
+
+if [ "$DEBUG" == "" ]; then
+    echo "DEBUG not defined so python IS optimizing."
+    PYTHONOPTIMIZE="YES"
+elif [ "$DEBUG" == "0" ]; then
+    echo "DEBUG defined to 0 so python IS optimizing."
+    PYTHONOPTIMIZE="YES"
+else
+    echo "DEBUG set so python is NOT optimizing."
+    PYTHONOPTIMIZE=
+fi
+echo "PYTHONOPTIMIZE=$PYTHONOPTIMIZE"
+export PYTHONOPTIMIZE
+
+# to force start of teamviewer hold down the left alt, left shift, and left control keys
+
+# set flag to indicate if this script is running from Autostart (no terminal) or from a terminal
+# if running from terminal the behavior is slightly different: do not power down
+# running from a terminal is typically for development and debugging
+RUNNING_FROM_TTY=0
+if [ "$1" == "launch_test" ]; then
+  RUNNING_FROM_TTY=1
+fi
+if tty -s; then
+  RUNNING_FROM_TTY=1
+fi
+export RUNNING_FROM_TTY
+
+# echos $1 first argument to terminal
+function tty_echo {
+  if [ $RUNNING_FROM_TTY -ne 0 ]; then
+    echo -e "$1"
+  fi
+}
+
+# set to display popups
+ZENITY_PATH=`which zenity`
+ZENITY_ERROR="$ZENITY_PATH --error --text "
+ZENITY_INFO="$ZENITY_PATH --info --text "
+
+# display error message passed as argument $1
+# blocks until OK pressed
+function popup_error {
+  # this will block until OK is pressed
+  $ZENITY_ERROR "$1"
+}
+
+# display informational message passed as argument $1
+# blocks until OK pressed
+function popup_info {
+  # this will block until OK is pressed
+  $ZENITY_INFO "$1"
+}
+
+LOGROTATOR_PID=""
+function kill_logrotator {
+  if [ "$LOGROTATOR_PID" != "" ]; then
+    tty_echo "terminating log rotator and subprocesses"
+    echo "kill -s SIGTERM -$LOGROTATOR_PID"
+    # using a negative value for the PID means treat it as a program group ID and terminate all processes in that program group
+    kill -s SIGTERM -$LOGROTATOR_PID
+    LOGROTATOR_PID=""
+  fi
+}
+
+# this is the panel that gets started if user starts or exits this script
+# and holds down both the left-alt and left-shift keys
+# typically /usr/bin/gnome-panel or /usr/bin/mate-panel
+PANEL_PROGRAM=/usr/bin/mate-panel
+if [ -e /usr/bin/gnome-panel ]; then
+  PANEL_PROGRAM=/usr/bin/gnome-panel
+fi
+export PANEL_PROGRAM
+
+function start_panel {
+    PANEL_PID=`pidof "$PANEL_PROGRAM"`
+    if [ "$PANEL_PID" == "" ]; then
+      echo "starting panel '$PANEL_PROGRAM'"
+      "$PANEL_PROGRAM" &
+    fi
+}
+
+
+# if left control and alt keys are pressed start panel and exit
+function check_shift_alt_to_desktop {
+  # check for left-shift and left-alt pressed
+  $SHIFTTEST_PROG lshift lalt
+  SHIFTTEST_RESULT=$?
+  if [ "$SHIFTTEST_RESULT" == "1" ]; then
+    # both are pressed
+    start_panel
+    exit 0
+  fi
+}
+
+# we have to use -H and not -P.  Other than the magical Brix, all other controllers if
+# shutdown with -P get into a stateful stuck mode where even after a loss/restore of AC power,
+# they refuse to power back on until the operator crawls into the cabinet and pokes the physical
+# power button.
+# when inside a virtual machine, we can use -P of course.
+
+SHUTDOWN_COMMAND_INSIDE_VM="sudo shutdown -P now"
+SHUTDOWN_COMMAND="sudo shutdown -H now"
+REBOOT_COMMAND="sudo shutdown -r now"
+
+function shutdown_controller {
+  # stop the log rotator if running
+  kill_logrotator
+
+  # if running from a terminal exit without shutdown and start the panel
+  if [ $RUNNING_FROM_TTY -ne 0 ]; then
+    start_panel
+    exit $1
+  fi
+  # allow override of shutdown if not in a terminal
+  sleep 2
+  check_shift_alt_to_desktop
+  $VMCHECK
+  if [ $? = 1 ]; then
+    tty_echo "powering off controller inside VM"
+    $SHUTDOWN_COMMAND_INSIDE_VM
+  else
+    tty_echo "shutting down controller"
+    $SHUTDOWN_COMMAND
+  fi
+}
+
+function reboot_controller {
+  # stop the log rotator if running
+  kill_logrotator
+
+  # if running from a terminal exit without reboot and start the panel
+  if [ $RUNNING_FROM_TTY -ne 0 ]; then
+    start_panel
+    exit $1
+  fi
+  # allow override of reboot if not in a terminal
+  sleep 2
+  check_shift_alt_to_desktop
+  tty_echo "rebooting controller"
+  $REBOOT_COMMAND
+}
+
+# FALLBACK_DIR
+# the controller shipped disk image is expected to have this directory always present
+# it contains a working tree of PathPilot and will never be touched
+# and can be reverted to in an emergency
+#
+# if the pathpilotmanager.py program is not present, the ~/tmc symlink
+# will be pointed to here
+#
+# to force ~/tmc to get pointed here hold the right shift and right alt keyboard keys at startup
+
+FALLBACK_DIR="$HOME/pathpilot.fallback"
+
+function revert_to_fallback_pathpilot {
+  # point ~/tmc symlink at known good PathPilot install
+  # remove the symlink
+  # CAREFUL - PATHPILOT_DIR is the actual /home/operator/vA.B.C dir.
+  # we only want to remove the tmc symlink
+  echo "rm -rf "$HOME/tmc""
+  rm -rf "$HOME/tmc"
+  # re-establish symlink
+  echo "ln -s "$FALLBACK_DIR" "$HOME/tmc""
+  ln -s "$FALLBACK_DIR" "$HOME/tmc"
+  # also force new config selection as this is a panic situation
+  echo "rm -f ~/pathpilot.json"
+  rm -f ~/pathpilot.json
+  # restore operator_login to match the code that is the pathpilot fallback version
+  cp "$FALLBACK_DIR/operator_login" "$HOME/operator_login"
+  MSG="Reverted to fallback PathPilot version and cleared configuration.\nController will now reboot."
+  tty_echo $MSG
+  popup_info "$MSG"
+  reboot_controller 0
+  # wait around waiting for the reboot to take us out by the knees
+  sleep 3600
+}
+
+
+#-------------------------------------------------------------------------------------------
+# main() - start of execution - everything above is variable setting and function
+# definitions
+#-------------------------------------------------------------------------------------------
+
+# If there is a python virtual environment present in tmc, we need to enter it
+echo $VENV_DIR
+if [ -d $VENV_DIR ]; then
+  echo "Entering Python virtual environment"
+  source $VENV_DIR/bin/activate
+else
+  echo "No Python virtual environment available"
+fi
+
+# shifttest has to be run as root to open the relevant keyboard devices
+# to read state
+SHIFTTEST_PROG="sudo $PATHPILOT_DIR/bin/shifttest"
+
+# if right-alt and right-shift held then revert to fallback PathPilot
+$SHIFTTEST_PROG rshift ralt
+SHIFTTEST_RESULT=$?
+if [ "$SHIFTTEST_RESULT" == "1" ]; then
+  # both are pressed
+  if [ -d $FALLBACK_DIR ]; then
+    REVERT_MSG="Reverting to fallback PathPilot version."
+    tty_echo $REVERT_MSG
+    popup_info "$REVERT_MSG"
+    # this reverts, confirms to user, and reboots so it never returns
+    revert_to_fallback_pathpilot
+  else
+    REVERT_MSG="Unable to revert to fallback PathPilot version because fallback directory does not exist."
+    tty_echo $REVERT_MSG
+    popup_error "$REVERT_MSG"
+    # keep going and start the fallback
+  fi
+fi
+
+# logrotate config and status files
+LOGROTATE_SIZE=1024k
+LOGROTATE_STATUS="$LOGFILES_DIR"/logrotate.status
+LOGROTATE_CONF="$LOGFILES_DIR"/logrotate.conf
+cat > "$LOGROTATE_CONF" << EOF
+"$LOGFILES_DIR/pathpilotlog.txt" {
+  # this size is the exclusive trigger for log rotation
+  # age of the log file is not considered
+  size $LOGROTATE_SIZE
+  # don't complain if one of them is missing
+  missingok
+  # copy before truncating
+  copytruncate
+  # no rotate empty log file
+  notifempty
+  # permissions of new file
+  create 644 $USER $USER
+  # leave new file and 9 previous files (dropbox can be noisy in log so a few extra is fine)
+  rotate 9
+}
+EOF
+
+# rotate once per hour
+LOGROTATE_SLEEP=3600
+echo "starting log rotator"
+# seconds to sleep between log rotations, path to config file, path to status file
+echo -e "setsid $LOGROTATOR $LOGROTATE_SLEEP \"$LOGROTATE_CONF\" \"$LOGROTATE_STATUS\""
+setsid $LOGROTATOR $LOGROTATE_SLEEP "$LOGROTATE_CONF" "$LOGROTATE_STATUS" &
+# remember PID so it (and all children) can be killed using the new program group ID that setsid establishes
+LOGROTATOR_PID=$!
+echo "kill -s SIGTERM -$LOGROTATOR_PID" > "$HOME/abortpp.sh"
+echo "LOGROTATOR_PID: $LOGROTATOR_PID"
+
+
+# if left-control, left-alt, and left-ctrl keys are pressed start remote support
+$SHIFTTEST_PROG lshift lalt lctrl
+SHIFTTEST_RESULT=$?
+if [ "$SHIFTTEST_RESULT" == "1" ]; then
+  # all three are pressed
+  # start remote support program
+  # must use nohup or teamviewer will exit after this script exits
+  nohup teamviewer > /dev/null 2>&1 &
+  start_panel
+  exit 0
+fi
+
+
+# this will not return if keys pressed
+# it will start the panel and exit to the desktop
+check_shift_alt_to_desktop
+
+
+# if PathPilot Manager program is present then run it
+if [ -e $PATHPILOT_MANAGER ]; then
+  tty_echo "Starting PathPilot Manager program."
+
+  # Exit code 16 indicates PP had to switch the monitor resolution and PyGTK freaks out and can't reinit itself correctly
+  # So the workaround is to simply restart PP immediately
+  PPEXIT_CODE=16
+  while [ $PPEXIT_CODE == 16 ]; do
+    tty_echo "Uptime of the controller is"
+    uptime --pretty
+    # we run pathpilot manager in its own program group ID so that we can reliably kill EVERY process it started after it
+    # exits, even several generations of orphans.
+    setsid $PATHPILOT_MANAGER &
+    # remember PID (and the new program group ID has the same value) so it can be killed on exit
+    PPMGR_PID=$!
+    echo "kill -s SIGTERM -$LOGROTATOR_PID" > "$HOME/abortpp.sh"
+    echo "kill -s SIGTERM -$PPMGR_PID" >> "$HOME/abortpp.sh"
+    tty_echo "wait $PPMGR_PID"
+    wait $PPMGR_PID
+    PPEXIT_CODE=$?
+    # running kill with a negative value for the PID means the PID value is really a program group ID
+    # and it will terminate every process with that program group ID
+    tty_echo "kill -s SIGTERM -$PPMGR_PID"
+    kill -s SIGTERM -$PPMGR_PID
+    if [ $PPEXIT_CODE == 16 ]; then
+        tty_echo "Restarting PathPilot Manager after resolution change."
+    fi
+  done
+
+  tty_echo "PathPilot Manager exit code = $PPEXIT_CODE"
+
+  if [ $PPEXIT_CODE == 15 ]; then
+    # reboot after a PathPilot software update
+    reboot_controller $PPEXIT_CODE
+    # wait around waiting for the reboot to take us out by the knees
+    sleep 3600
+  fi
+else
+  # PathPilot Manager program not present
+  REVERT_MSG="PathPilot Manager program missing.  Reverting to fallback PathPilot configuration."
+  tty_echo $REVERT_MSG
+  popup_error "$REVERT_MSG"
+  # this reverts, confirms to user, and reboots so it never returns
+  revert_to_fallback_pathpilot
+fi
+
+# this will not return if proper keys pressed
+# it will start a panel and exit to the desktop
+sleep 2
+check_shift_alt_to_desktop
+
+# shutdown controller
+tty_echo "Total uptime of the controller was"
+uptime --pretty
+
+shutdown_controller $PPEXIT_CODE

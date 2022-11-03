@@ -1,0 +1,264 @@
+# Tormach Mill Sim Hal file
+
+# load RT components
+loadrt trivkins
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES num_dio=64 num_aio=64
+loadrt comp count=4
+loadrt not names=prog-not-idle
+loadrt gearchange count=1
+loadrt and2 names=fake-door-lock
+loadrt sim_spindle names=mill_spindle
+loadrt sim_encoder_reader names=sim_spindle_encoder
+loadrt near count=1
+setp near.0.difference 0.5 #RPS
+loadrt ddt names=z_vel,z_acc
+
+loadusr -Wn usbio usbio.py -n usbio
+loadusr -W tormachheightgauge
+
+# Add RT components to servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf gearchange.0 servo-thread
+addf mill_spindle servo-thread
+addf sim_spindle_encoder servo-thread
+addf near.0 servo-thread
+addf z_vel servo-thread
+addf z_acc servo-thread
+
+addf comp.0 servo-thread
+addf comp.1 servo-thread
+addf comp.2 servo-thread
+addf comp.3 servo-thread
+
+# referenced in postgui
+addf prog-not-idle servo-thread
+
+addf fake-door-lock servo-thread
+
+# estop loopback
+net estop-loop iocontrol.0.user-enable-out => iocontrol.0.emc-enable-in
+
+# tool change loopback
+net tool-prep-loop iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
+net tool-change-loop iocontrol.0.tool-change => iocontrol.0.tool-changed
+
+# create HAL signals for position commands from motion module
+# loop position commands back to motion module feedback
+net J0pos axis.0.motor-pos-cmd => axis.0.motor-pos-fb 
+net J1pos axis.1.motor-pos-cmd => axis.1.motor-pos-fb
+net J2pos axis.2.motor-pos-cmd => axis.2.motor-pos-fb z_vel.in
+net J3pos axis.3.motor-pos-cmd => axis.3.motor-pos-fb
+
+net ZVel z_vel.out z_acc.in
+net ZAcc z_acc.out
+
+# Joint 0 = X axis, home switch is on negative end
+# Joint 1 = Y axis, home switch is on positive end
+# Joint 2 = Z axis, home switch is on positive end
+# Joint 3 = A axis, home switch is on positive end
+
+net J0homeswpos => comp.0.in1
+net J1homeswpos => comp.1.in0
+net J2homeswpos => comp.2.in0
+net J3homeswpos => comp.3.in0
+
+sets J0homeswpos -0.1
+sets J1homeswpos 0.1
+sets J2homeswpos 0.1
+sets J3homeswpos 0.1
+
+net J0pos => comp.0.in0
+net J1pos => comp.1.in1
+net J2pos => comp.2.in1
+net J3pos => comp.3.in1
+
+setp comp.0.hyst .02
+setp comp.1.hyst .02
+setp comp.2.hyst .02
+setp comp.3.hyst .02
+
+net J0homesw <= comp.0.out => axis.0.home-sw-in axis.0.neg-lim-sw-in axis.0.pos-lim-sw-in
+net J1homesw <= comp.1.out => axis.1.home-sw-in axis.1.neg-lim-sw-in axis.1.pos-lim-sw-in
+net J2homesw <= comp.2.out => axis.2.home-sw-in axis.2.neg-lim-sw-in axis.2.pos-lim-sw-in
+net J3homesw <= comp.3.out => axis.3.home-sw-in
+
+setp gearchange.0.min1 [SPINDLE]LO_RANGE_MIN
+setp gearchange.0.max1 [SPINDLE]LO_RANGE_MAX
+setp gearchange.0.min2 [SPINDLE]HI_RANGE_MIN
+setp gearchange.0.max2 [SPINDLE]HI_RANGE_MAX
+setp gearchange.0.scale2 [SPINDLE]HI_RANGE_SCALE
+setp gearchange.0.sel 1
+
+# direction not controlled via gearchanger, so reverse isn't set
+# and the dir-in and dir-out pins aren't linked
+net spindle-speed-raw motion.spindle-speed-out gearchange.0.speed-in
+net spindle-speed-raw-rps motion.spindle-speed-out-rps mill_spindle.velocity-cmd near.0.in1
+
+# Setup sim spindle
+setp mill_spindle.time-constant 0.1 # How long it takes to reach 63% of commanded speed
+setp mill_spindle.max-accel-rps2 80 # Limits spindle speed rate of change
+setp sim_spindle_encoder.encoder-ppr 512
+setp sim_spindle_encoder.reader-frequency 100000
+# Assume scale = 1.0 since we're using RPS command
+net spindle-velocity-real mill_spindle.velocity-fb sim_spindle_encoder.velocity-real-in near.0.in2
+net spindle-position-real mill_spindle.position-fb sim_spindle_encoder.position-real-in
+net spindle-index-enable motion.spindle-index-enable mill_spindle.index-enable
+
+net spindle-position-measured sim_spindle_encoder.encoder-position motion.spindle-revs
+net spindle-velocity-measured_rps sim_spindle_encoder.encoder-velocity motion.spindle-speed-in
+
+net spindle-at-speed near.0.out motion.spindle-at-speed
+
+# postgui provides this to the UI
+net spindle-on        motion.spindle-on
+
+# ATC uses this pin for BT30 configs -- this is a stub
+newsig orient-status float
+sets   orient-status 0
+
+
+#
+# Simulated rectangle to probe:  turn on with M64 P32, off with M65 P32
+# machine G53 work coordinate space
+loadrt sim_probe names=probe-rect,probe-circ,probe-acyl,probe-ring
+# - Rectangular boss
+net J0pos             probe-rect.x-in
+net J1pos             probe-rect.y-in
+net J2pos             probe-rect.z-in
+net dig-out-32        probe-rect.enable   motion.digital-out-32
+net J3tipdia probe-rect.effective-tip-diameter iocontrol.0.tool-diameter
+net J3tlo probe-rect.probe-length motion.tooloffset.z
+setp probe-rect.x     4.0
+setp probe-rect.y    -4.0
+setp probe-rect.z    -6.0
+setp probe-rect.w     4.0
+#setp probe-rect.h     1.0
+setp probe-rect.shape 0
+#setp probe-rect.pocket 1
+addf probe-rect servo-thread
+
+# Simulated cylinder to probe:  turn on with M64 P33, off with M65 P33
+# machine G53 work coordinate space
+# - Circular boss
+net J0pos             probe-circ.x-in
+net J1pos             probe-circ.y-in
+net J2pos             probe-circ.z-in
+net dig-out-33        probe-circ.enable   motion.digital-out-33
+net J3tipdia probe-circ.effective-tip-diameter iocontrol.0.tool-diameter
+net J3tlo probe-circ.probe-length motion.tooloffset.z
+setp probe-circ.x     4.0
+setp probe-circ.y    -4.0
+setp probe-circ.z    -6.0
+setp probe-circ.w     4.0
+setp probe-circ.shape 1
+# set to 1 to make into a pocket
+setp probe-circ.pocket 0
+addf probe-circ servo-thread
+
+# Simulated A axis cylinder to probe:  turn on with M64 P34, off with M65 P34
+# machine G53 work coordinate space
+# - Circular boss on A axis
+net J0pos             probe-acyl.x-in
+net J1pos             probe-acyl.y-in
+net J2pos             probe-acyl.z-in
+net dig-out-34        probe-acyl.enable   motion.digital-out-34
+net J3tipdia probe-acyl.effective-tip-diameter iocontrol.0.tool-diameter
+net J3tlo probe-acyl.probe-length motion.tooloffset.z
+setp probe-acyl.x     4.0
+setp probe-acyl.y    -4.0
+setp probe-acyl.z    -6.0
+setp probe-acyl.w     2.0
+setp probe-acyl.shape 2
+setp probe-acyl.pocket 0
+addf probe-acyl servo-thread
+
+# Simulated ring gage to probe:  turn on with M64 P35, off with M65 P35
+# machine G53 work coordinate space
+# - Circular boss
+net J0pos             probe-ring.x-in
+net J1pos             probe-ring.y-in
+net J2pos             probe-ring.z-in
+net dig-out-35        probe-ring.enable   motion.digital-out-35
+setp probe-ring.effective-tip-diameter 0.0
+net J3tlo probe-ring.probe-length motion.tooloffset.z
+setp probe-ring.x     4.0
+setp probe-ring.y    -4.0
+setp probe-ring.z    -6.0
+setp probe-ring.w     0.882
+setp probe-ring.shape 3
+addf probe-ring servo-thread
+
+# - Plumbing; 'or' outputs together
+loadrt or2 names=probe-out,probe-circs,probe-ring-or
+
+net node-probe-circ  probe-circ.out   probe-circs.in0
+net node-probe-acyl  probe-acyl.out   probe-circs.in1
+net node-probe-circs probe-circs.out  probe-ring-or.in0
+addf probe-circs servo-thread
+
+net node-probe-ring  probe-ring.out   probe-ring-or.in1
+net node-probe-ring-or-out probe-ring-or.out  probe-out.in0
+addf probe-ring-or servo-thread
+
+net node-probe-rect probe-rect.out    probe-out.in1
+net node-probe probe-out.out          motion.probe-input
+addf probe-out servo-thread
+
+#######################################################################
+# IO Board
+#######################################################################
+
+net dig-out-0 motion.digital-out-00 => usbio.relay-0
+net dig-out-1 motion.digital-out-01 => usbio.relay-1
+net dig-out-2 motion.digital-out-02 => usbio.relay-2
+net dig-out-3 motion.digital-out-03 => usbio.relay-3
+net dig-out-4 motion.digital-out-04 => usbio.relay-4
+net dig-out-5 motion.digital-out-05 => usbio.relay-5
+net dig-out-6 motion.digital-out-06 => usbio.relay-6
+net dig-out-7 motion.digital-out-07 => usbio.relay-7
+net dig-out-8 motion.digital-out-08 => usbio.relay-8
+net dig-out-9 motion.digital-out-09 => usbio.relay-9
+net dig-out-10 motion.digital-out-10 => usbio.relay-10
+net dig-out-11 motion.digital-out-11 => usbio.relay-11
+net dig-out-12 motion.digital-out-12 => usbio.relay-12
+net dig-out-13 motion.digital-out-13 => usbio.relay-13
+net dig-out-14 motion.digital-out-14 => usbio.relay-14
+net dig-out-15 motion.digital-out-15 => usbio.relay-15
+
+net dig-in-0 motion.digital-in-00 => usbio.input-0
+net dig-in-1 motion.digital-in-01 => usbio.input-1
+net dig-in-2 motion.digital-in-02 => usbio.input-2
+net dig-in-3 motion.digital-in-03 => usbio.input-3
+net dig-in-4 motion.digital-in-04 => usbio.input-4
+net dig-in-5 motion.digital-in-05 => usbio.input-5
+net dig-in-6 motion.digital-in-06 => usbio.input-6
+net dig-in-7 motion.digital-in-07 => usbio.input-7
+net dig-in-8 motion.digital-in-08 => usbio.input-8
+net dig-in-9 motion.digital-in-09 => usbio.input-9
+net dig-in-10 motion.digital-in-10 => usbio.input-10
+net dig-in-11 motion.digital-in-11 => usbio.input-11
+net dig-in-12 motion.digital-in-12 => usbio.input-12
+net dig-in-13 motion.digital-in-13 => usbio.input-13
+net dig-in-14 motion.digital-in-14 => usbio.input-14
+net dig-in-15 motion.digital-in-15 => usbio.input-15
+
+####################################################################
+# Z_BOT ATC HAL COMPONENT
+# We give the user comp a 'sim' argument so it knows to simulate the USB serial port to the
+# ATC control board.
+loadusr -Wn zbotatc -n zbotatc python/hal_zbotatc.py sim
+
+
+####################################################################
+# Z_BOT SMART COOL HAL COMPONENT
+loadusr -Wn zbotschnozz python/hal_zbotschnozz.py -n zbotschnozz
+
+
+#####################################################################
+# Simulated enclosure door control with UI for dev purposes
+loadusr -Wn encdoorsim ../../python/encdoor_sim/encdoor_sim.py
+net enc-door-lock-drive encdoorsim.enc-door-lock-drive
+net enc-door-open-status encdoorsim.enc-door-open-status
+net enc-door-locked-status encdoorsim.enc-door-locked-status
+

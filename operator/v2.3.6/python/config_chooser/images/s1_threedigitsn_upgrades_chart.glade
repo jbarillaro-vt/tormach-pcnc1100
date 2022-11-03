@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="s1_threedigitsn_upgrades_chart">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="fixed">
+        <property name="width_request">680</property>
+        <property name="height_request">510</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage" id="background">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">MenuBackgroundMain.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="1100_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 16" foreground="black" &gt;1100 - Original&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">50</property>
+            <property name="y">100</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_3_dig">
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_s1_3_digit_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="s1_3_dig_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;PCNC 1100 with serial number 999 or
+lower - no upgrades installed&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">70</property>
+            <property name="y">180</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="info_text">
+            <property name="width_request">315</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 11" foreground="black" &gt;Please select among the options listed below to install the correct software for your machine tool.&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="wrap">True</property>
+          </object>
+          <packing>
+            <property name="x">42</property>
+            <property name="y">37</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="tormach_image">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">logo.png</property>
+          </object>
+          <packing>
+            <property name="x">388</property>
+            <property name="y">44</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_3_dig_w_sdu">
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_s1_3_digit_w_sdu_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="s1_3_dig_sdu_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;PCNC 1100 with serial number 999 or
+lower with spindle upgrade&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">70</property>
+            <property name="y">240</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_original_s3_upgrade">
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_1100_series_3_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="1100_original_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;PCNC 1100 with serial number 999 or
+lower with spindle upgrade and Series 3 upgrade&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">70</property>
+            <property name="y">300</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_original_return">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_return_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_help_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="return_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Return to main menu&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">425</property>
+            <property name="y">420</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_original_where_is_sn">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_where_is_sn_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_help_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="sn_help_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Where is the serial number?&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">395</property>
+            <property name="y">450</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="s1_original_upgrades_how_do_i_know">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_sdu_help_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_help_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="which_upgrades">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;How do I know if upgrades have been installed?&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">320</property>
+            <property name="y">480</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,22 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+
+
+while [ true ]
+do
+/usr/sbin/tcpdump -s 30000 -i wlan0 -w /home/operator/captures/%Y_%m_%d_%H_%M_%S.cap -G 60
+
+if [ "$?" = "0" ]; then
+	echo "tcpdump started fine"
+	exit 0
+else
+	echo "tcpdump failed to start, retrying after delay"
+	sleep 10
+fi
+done
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="config_chooser_sn_help">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="help_fixed">
+        <property name="width_request">680</property>
+        <property name="height_request">510</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage" id="background">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">MenuBackgroundMain.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="sdu_help">
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_sdu_help_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_help_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="sdu_help_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;How do I know if my spindle
+drive has been upgraded?&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">385</property>
+            <property name="y">422</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="info_text">
+            <property name="width_request">297</property>
+            <property name="height_request">115</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Serial numbers for all Tormach PCNCs are located on a metal plate on the right side of the electrical cabinet.&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="wrap">True</property>
+          </object>
+          <packing>
+            <property name="x">334</property>
+            <property name="y">143</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="where _is_sn_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 16" foreground="black" &gt;Where Is The Serial Number?&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">330</property>
+            <property name="y">104</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="sn_image">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">PCNC1100SerialNumberPlate.jpg</property>
+          </object>
+          <packing>
+            <property name="x">27</property>
+            <property name="y">84</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="sn_help_return">
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="visible_window">False</property>
+            <signal name="leave-notify-event" handler="on_leave_notify_event" swapped="no"/>
+            <signal name="button-release-event" handler="on_return_button_release_event" swapped="no"/>
+            <signal name="enter-notify-event" handler="on_help_enter_notify_event" swapped="no"/>
+            <child>
+              <object class="GtkLabel" id="return_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Return to main menu&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">385</property>
+            <property name="y">476</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

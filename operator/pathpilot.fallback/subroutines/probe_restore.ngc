@@ -1,0 +1,10 @@
+o<probe_restore> sub
+(restore code called at the end of all probe subroutines)
+
+(cancel exact stop mode)
+G64
+
+(restore stuff)
+M81
+
+o<probe_restore> endsub

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/operator/operator_login
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=PathPilot
+Name=PathPilot
+Comment[en_US]=Start PathPilot CNC Machine Control Software
+Comment=Start PathPilot CNC Machine Control Software

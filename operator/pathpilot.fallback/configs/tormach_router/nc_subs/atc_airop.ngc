@@ -1,0 +1,52 @@
+(--------------------------------------------------------------------------------------------------)
+(Subroutine to run solenoids and handle pressure errors                                            )
+( prompts user to recover from pressure errors during part program execution                       )
+( NOTE : ATC hal component actually does the pressure check, and returns error code if insufficient)
+(--------------------------------------------------------------------------------------------------)
+
+o<atc_airop> sub
+
+        #<retries> = 1
+        o<keep_trying> while [ 1.0 EQ 1.0 ]      (allows infinite attempts to fix pressure)
+
+                o<atc_hal_comms> call [#1] [#2]  (HAL ATC command and data field is in #1 and #2)
+
+
+                o<response_check> if [#<_atc_return> GT -1] (all these are ok to proceed)
+                    o<atc_airop>  return
+                o<response_check> endif
+
+                o<not_pressure_error> if  [#<_atc_return> NE #<_atc_pressure_error>]
+                   o<atc_errors> call [#<_atc_return> ]
+                o<not_pressure_error> endif
+
+
+                o<pressure_check> if [#<_atc_return>  EQ #<_atc_pressure_error>] (ATC hal flags pressure faults in rc)
+                        (debug,ATC low air pressure detected, waiting for proper pressure...#<retries>/20 attempts)
+                        o<retries> if [#<retries> LT 20]
+                          #<retries> = [#<retries> +1]
+                          G4 P1    (wait one second and try again)
+                          o<keep_trying> continue
+                        o<retries> endif
+
+                        (after 20 seconds drop into a prompt)
+
+                        (debug,ATC low air pressure situation even after #<retries> seconds, prompting for operator help)
+
+                        M100 P10   (p10 is pressure prompt)
+                        G4 P1
+                        M66 E[#<_prompt_reply>] L0
+                        o<wait_reply_in> while [#5399 EQ 0]        (wait until the cows come home)
+                            G4 P.25
+                            M66 E[#<_prompt_reply>] L0                           (spin a bit)
+                        o<wait_reply_in> endwhile
+
+                        o<prompt_reply_in_ok>  if [#5399 EQ 1.0]   (answer is OK)
+                           o<keep_trying> continue                  (try again)
+                        o<prompt_reply_in_ok> endif
+
+                o<pressure_check> endif
+
+                o<atc_errors> call [#<_atc_user_cancel> ]
+        o<keep_trying> endwhile
+o<atc_airop> endsub

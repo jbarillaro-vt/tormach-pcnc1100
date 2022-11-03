@@ -1,0 +1,67 @@
+(---------------------------------------------------------------------------------------------------)
+(  Trayin is responsible for actuating the tool carousel in                                         )
+(                                                                                                   )
+(    If tray is already in, the ATC HAL component will not actuate the solenoid. Perform checks for )
+(        orientation, in case user messed with it after it was in.                                  )
+(                                                                                                   )    
+(    Drive Dogs ? -                                                                                         )
+(        Check for locked spindle condition                                                         )
+(        Validate status before tray in                      )
+(        Actuate tray in                                                                            )
+(        Check that ATC tool fork hasn't turned the drive lugs out of range.                        ) 
+(            This would be a brake failure condition - retract tray and abort                       )
+(                                                                                                   )
+(    No Dogs -                                                                                              )
+(        Just actuate tray in                                                                            )
+(                                                                                                   )
+(---------------------------------------------------------------------------------------------------)
+
+o<trayin> sub
+    #<tray_tries> = 3
+    o<trayin_loop> while [#<tray_tries> GT 0]
+        #<tray_tries> = [#<tray_tries> - 1]
+        o<quiesce_spindle> call        (spindle should not be turning )    
+  
+        (----------------------------------------------------)
+        ( drive dogs? - pre tray in orient check             )
+        (----------------------------------------------------)
+        o<dog_check> if [#<_spindle_orient_needed> EQ 1.0] 
+            o<orient_check> call
+        o<dog_check> else (just do tray in and exit for TTS, no looping required)
+            o<atc_airop> call [#<_solenoid>] [#<_tray_in>]    (tray/carousel solenoid in for TTS)
+            o<trayin> return [0] (TTS exit case)
+        o<dog_check> endif
+   
+        (-----------------------------------------------------------------------------)
+        (   Get the tray in for BT30                                                  )
+        ( ----------------------------------------------------------------------------)      
+        M64 P44 (SLP)
+        o<atc_airop> call [#<_solenoid>] [#<_tray_in>]    (tray/carousel solenoid in)
+        M65 P44 (SLP)
+        (-----------------------------------------------------------------------------)
+        (Check brake integrity - orient error reports an encoder drift from tool forks)
+        (-----------------------------------------------------------------------------)                    
+        M64 P41 (SLP TODO: REMOVE halscope bracketing of orient drift sampling)
+        M66 E #<_orient_drift> L0      (read status into  #5399)
+        #<orient_drift_val> = #5399
+        M65 P41 (SLP)
+        (Did brake hold for tool stow?)
+        o<bad_position> if [#<orient_drift_val> EQ 0]
+            o<trayin> return [0] (drift check OK after tray in. exit trayin with success)
+        o<bad_position> else
+            M64 P45 (SLP) 
+            o<atc_airop> call [#<_solenoid>] [#<_tray_out>]    (retract)
+            M65 P45 (SLP)
+            M5 (terminate previous orient)
+            (DEBUG, reorient from trayin)
+            G4 P1 (wait for tray to retract and spindle brake to release)
+            o<orient_spindle> call [0][0]
+        o<bad_position> endif
+    o<trayin_loop> endwhile
+    (----------------------------------------------------)
+    (  ERROR EXIT WITH ABORT  we've tried 3 ties         )
+    (----------------------------------------------------)
+    o<atc_errors> call [#<_atc_spindle_brake_error> ] [#<orient_drift_val>](ABORT! - yer out!)
+   
+ o<trayin> endsub  [0]
+

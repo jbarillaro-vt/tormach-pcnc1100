@@ -1,0 +1,46 @@
+
+
+loadusr -Wn tormach_console tormach_console.py -n tormach_console
+
+loadusr -Wn consoletest ./console_test.py
+
+net console-mpgcounts tormach-console.0.jog-wheel-counts-adjusted TCTest.jog-wheel
+
+net console-mpgcounts-2 tormach-console.0.jog-wheel-2-counts-adjusted TCTest.jog-wheel-2
+
+net console-feed-override TCTest.feed-override tormach-console.0.feed-override-position
+net console-rpm-override TCTest.rpm-override tormach-console.0.rpm-override-position
+net console-rapid-override TCTest.rapid-override tormach-console.0.rapid-override-position
+net pendant-knob TCTest.pendant-knob tormach-console.0.pendant-knob-position
+
+setp tormach-console.0.feed-override-center 0.5
+setp tormach-console.0.feed-override-scale 960
+setp tormach-console.0.rpm-override-center 0.5
+setp tormach-console.0.rpm-override-scale 960
+setp tormach-console.0.rapid-override-center 0.5
+setp tormach-console.0.rapid-override-scale 960
+setp tormach-console.0.pendant-knob-center 0.5
+setp tormach-console.0.pendant-knob-scale 960
+
+net console-axis-0-enable tormach-console.0.axis.0.enabled TCTest.axis.0.enabled 
+net console-axis-1-enable tormach-console.0.axis.1.enabled TCTest.axis.1.enabled 
+net console-axis-2-enable tormach-console.0.axis.2.enabled TCTest.axis.2.enabled 
+net console-axis-3-enable tormach-console.0.axis.3.enabled TCTest.axis.3.enabled 
+
+net console-jogscale tormach-console.0.step-select-counts TCTest.step-select-counts
+
+net mode-select tormach-console.0.switch.mode-select TCTest.switch.mode-select
+
+net console-feedhold TCTest.button.feedhold tormach-console.0.button.feedhold
+net console-cycle-start TCTest.button.cycle-start tormach-console.0.button.cycle-start
+net pendant-hold2run TCTest.button.hold2run tormach-console.0.button.hold2run
+net pendant-1 TCTest.button.pendant-1 tormach-console.0.button.pendant-1
+net pendant-2 TCTest.button.pendant-2 tormach-console.0.button.pendant-2
+
+net led-red TCTest.led.red tormach-console.0.led.red
+net led-green TCTest.led.green tormach-console.0.led.green
+net led-blue TCTest.led.blue tormach-console.0.led.blue
+
+net console-device-connected TCTest.console-device-connected tormach-console.device-connected
+
+waitusr consoletest

@@ -1,0 +1,38 @@
+o<stow_tool> sub
+
+    (------------------------------------------------------------)
+    ( Ready Z axis  and index tray to pickup tool                )
+    (------------------------------------------------------------)
+    G0 G53 Z [#<_tool_change_Z > + #<_compression>]    (spindle usually winds down during this move)
+    o<atc_hal_comms> call [#<_tray_index>] [#<_old_slot>] (index tray to old slot position)
+
+    (-----------------------------------------------------------------)
+    ( Get tray in and check orientation - only returns if all is well )
+    (-----------------------------------------------------------------)
+    o<trayin> call   (get tray in and check orientation)
+
+    (------------------------------------------------------------)
+    ( Open the draw bar                                          )
+    (------------------------------------------------------------)
+    o<atc_airop> call [#<_draw_bar>][#<_activate>]   (draw bar activate )
+    
+    (------------------------------------------------------------)
+    (  reset active tool                                         )                                     
+    (------------------------------------------------------------)
+    M61 Q0
+    (------------------------------------------------------------)
+    ( Elevator up! - Z to top of mill                            )
+    (------------------------------------------------------------)
+    G0 G53 Z0      (forget hover Z - just go to top of mill)
+    (---------------------------------------------------------------------)
+    (  Blast off chips - atc hal runs this for .5 seconds - then auto off )
+    (---------------------------------------------------------------------)
+    o<atc_airop> call [#<_solenoid>] [#<_blast_on>]  (blast solenoid 2)
+    
+    (--------------------------------------------------------------------)
+    (   This is here to wait for pressure to return after blast          )
+    (    HAL won't fire the bar again and will bounce right back but     )
+    (     airop will validate pressure                                   )
+    (--------------------------------------------------------------------)
+    o<atc_airop> call [#<_draw_bar>][#<_activate>]   (draw bar activate )   
+o<stow_tool> endsub [0]

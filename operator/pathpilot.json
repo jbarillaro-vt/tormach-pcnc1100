@@ -1,0 +1,19 @@
+
+{
+    "fileversion": 2, 
+    "machine": {
+        "class": "mill", 
+        "communication_method": "db25parallel", 
+        "generate_from": "/home/operator/tmc/configs/tormach_mill/tormach_1100-3_specific.ini", 
+        "linuxcnc_filepath": "/home/operator/tmc/configs/tormach_mill/tormach_1100-3.ini", 
+        "model": "1100-3", 
+        "rapidturn": false, 
+        "rapidturn_generate_from": "/home/operator/tmc/configs/tormach_lathe/tormach_1100-3_rapidturn_specific.ini", 
+        "rapidturn_linuxcnc_filepath": "/home/operator/tmc/configs/tormach_lathe/tormach_1100-3_rapidturn.ini", 
+        "sim": false
+    }, 
+    "pathpilot": {
+        "network_setup_skipped": true, 
+        "time_of_day_clock_verified": false
+    }
+}

@@ -1,0 +1,14 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+
+mkdir /home/operator/captures
+
+sudo /home/operator/tmc/scripts/tcpstart  &
+
+echo "started tcpstart"
+

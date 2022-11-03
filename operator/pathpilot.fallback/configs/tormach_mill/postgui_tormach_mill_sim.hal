@@ -1,0 +1,209 @@
+# Include your customized HAL commands here
+# The commands in this file are run after the GUI starts and has the opportunity to create the needed pins
+
+net coolant-flood => tormach.coolant
+net coolant-flood-io iocontrol.0.coolant-flood => tormach.coolant-iocontrol
+
+# wire up the UI debug level to components that can use it
+net debug-level tormach.debug-level zbotatc.debug-level
+net debug-level zbotschnozz.debug-level
+
+# this connects the GUI to the signals from the milljogtranslator/shuttlexpress
+net sxp.xen-button            => tormach.jog-axis-x-enabled
+net sxp.yen-button            => tormach.jog-axis-y-enabled
+net sxp.zen-button            => tormach.jog-axis-z-enabled
+net sxp.aen-button            => tormach.jog-axis-a-enabled
+net sxp.step-button           => tormach.jog-step-button
+net sxp.jog-ring-speed-signed => tormach.jog-ring-speed-signed
+net sxp.selected-axis         => tormach.jog-ring-selected-axis
+net sxp.counts-smoothed       => tormach.jog-counts
+net sxp.gui_step_index        <= tormach.jog-gui-step-index
+net sxp.is_metric             <= tormach.jog-is-metric
+
+# spindle RPM comes straight from motion
+net spindle-speed-raw => tormach.spindle-speed-out
+
+# digital height gauge
+net thg-net-height tormachheightgauge.net-height => tormach.hg-height
+net thg-zero-offset tormachheightgauge.zero-offset => tormach.hg-zero-offset
+net thg-button-pressed tormachheightgauge.button-pressed => tormach.hg-button-pressed
+net thg-button-changed tormachheightgauge.button-changed => tormach.hg-button-changed
+net thg-mm-mode tormachheightgauge.mm-mode => tormach.hg-mm-mode
+net thg-set-zero-offset tormachheightgauge.set-zero-offset => tormach.hg-set-zero-offset
+net thg-present tormachheightgauge.present => tormach.hg-present
+net thg-debug tormachheightgauge.debug => tormach.hg-debug
+net thg-enable tormachheightgauge.enable => tormach.hg-enable
+net thg-has-zero-button tormachheightgauge.has-zero-button => tormach.hg-has-zero-button
+
+# spindle speed range
+# connect spindle range button to hal gearchange pin
+net spindle-range tormach.spindle-range => gearchange.0.sel
+net spindle-range-alarm tormach.spindle-range-alarm => gearchange.0.alarm
+
+# these let the UI read the current min/max speeds the comp maintains based on spindle type
+# note in this case of 'sim' the spindle comp is not loaded or running
+# we get by with INI file values
+setp tormach.spindle-min-speed [SPINDLE]LO_RANGE_MIN
+setp tormach.spindle-max-speed [SPINDLE]HI_RANGE_MAX
+
+
+net enc-door-switch-enabled      tormach.enc-door-switch-enabled
+net enc-door-open-max-rpm        tormach.enc-door-open-max-rpm
+
+#--------------------------------------------------------------------------------
+# Simulated enclosure door component with UI
+# for open-status, 1 = door is open, 0 = door is closed
+net enc-door-open-status         tormach.enc-door-open-status
+net enc-door-lock-drive          tormach.enc-door-lock-drive
+net enc-door-locked-status       tormach.enc-door-locked-status
+
+net spindle-on                   tormach.spindle-on
+setp tormach.spindle-at-speed 1
+setp tormach.m200-vfd-rpm-feedback 0
+
+# GUI status LEDs
+setp tormach.machine-ok 1
+
+# limit switch status
+net J0homesw => tormach.home-switch-x
+net J1homesw => tormach.home-switch-y
+net J2homesw => tormach.home-switch-z
+net limit-switch-enable <= tormach.home-switch-enable
+
+# GUI control of PC LED on ECM1 control board
+net pc-ok-LED     tormach.pc-ok-LED
+
+# Mesa card watchdog
+setp tormach.mesa-watchdog-has-bit 0
+
+loadrt time
+addf time.0 servo-thread
+net prog-running prog-not-idle.in <= halui.program.is-idle
+net cycle-timer time.0.start <= prog-not-idle.out
+net cycle-seconds tormach.cycle-time-seconds <= time.0.seconds
+net cycle-minutes tormach.cycle-time-minutes <= time.0.minutes
+net cycle-hours tormach.cycle-time-hours <= time.0.hours
+
+loadrt stopwatch
+addf stopwatch.0 servo-thread
+net cycle-timer stopwatch.0.start
+net run-pause stopwatch.0.pause <= halui.program.is-paused
+net run-seconds tormach.run-time-seconds <= stopwatch.0.seconds
+net run-minutes tormach.run-time-minutes <= stopwatch.0.minutes
+net run-hours tormach.run-time-hours <= stopwatch.0.hours
+
+# Z-Bot ATC Pins to motion contoller DIO , AIO stuff
+
+#command and control
+net atc-request-ngc motion.analog-out-04 =>  zbotatc.0.ain.0.request
+net atc-data-ngc    motion.analog-out-05 =>  zbotatc.0.ain.1.request_data
+
+net atc-status  motion.digital-in-16 <=  zbotatc.0.dout.5.exec_status
+net atc-status  tormach.atc-hal-busy <=  zbotatc.0.dout.5.exec_status
+
+
+net atc-retcode motion.analog-in-05     <=  zbotatc.0.aout.0.request_rc
+net atc-retcode tormach.atc-hal-return  <=  zbotatc.0.aout.0.request_rc
+
+#hardware status variables
+net atc_tray-in  motion.digital-in-17    <= zbotatc.0.dout.0.tray_status
+net atc_tray-in  tormach.atc-tray-status <= zbotatc.0.dout.0.tray_status
+
+net atc-vfd      motion.digital-in-18   <= zbotatc.0.dout.1.vfd_status
+net atc-vfd      tormach.atc-vfd-status <= zbotatc.0.dout.1.vfd_status
+
+net atc-draw-bar motion.digital-in-19    <= zbotatc.0.dout.2.draw_status
+net atc-draw-bar tormach.atc-draw-status <= zbotatc.0.dout.2.draw_status
+
+net atc-pressure motion.digital-in-20        <= zbotatc.0.dout.3.pressure_status
+net atc-pressure tormach.atc-pressure-status <= zbotatc.0.dout.3.pressure_status
+
+net atc-slot     motion.analog-in-06       <= zbotatc.0.aout.1.tray_position
+net atc-slot     tormach.atc-tray-position <= zbotatc.0.aout.1.tray_position
+net atc-tray-tools tormach.atc-tools-in-tray <= zbotatc.atc-tools-in-tray
+net atc-tray-tools remap.atc-tools-in-tray
+net orient-status remap.atc-orient-status
+net orient-status motion.analog-in-08
+
+net atc-trayref tormach.atc-trayref-status zbotatc.0.dout.9.trayref_status
+
+# tool change remap code uses this to make sure z is referenced
+net z-homed axis.2.homed remap.axis.2.homed
+
+#hardware status variables
+net atc-device   motion.digital-in-21      <= zbotatc.0.dout.4.device_status
+net atc-device   tormach.atc-device-status <= zbotatc.0.dout.4.device_status
+
+net atc-ngc-running motion.digital-out-16  => tormach.atc-ngc-running
+
+net atc-loop-back    zbotatc.0.aout.2.request_ack  => motion.analog-in-07
+
+
+
+# USBIO
+# IOB notification for errors
+net iob-status usbio.IOB-OK => tormach.usbio-status
+
+net board0present usbio.board-0-present => tormach.usbio-board-0-present
+net board1present usbio.board-1-present => tormach.usbio-board-1-present
+net board2present usbio.board-2-present => tormach.usbio-board-2-present
+net board3present usbio.board-3-present => tormach.usbio-board-3-present
+
+net usbio-enabled tormach.usbio-enabled => usbio.enabled
+net dig-out-0 tormach.usbio-output-0
+net dig-out-1 tormach.usbio-output-1
+net dig-out-2 tormach.usbio-output-2
+net dig-out-3 tormach.usbio-output-3
+net dig-out-4 tormach.usbio-output-4
+net dig-out-5 tormach.usbio-output-5
+net dig-out-6 tormach.usbio-output-6
+net dig-out-7 tormach.usbio-output-7
+net dig-out-8 tormach.usbio-output-8
+net dig-out-9 tormach.usbio-output-9
+net dig-out-10 tormach.usbio-output-10
+net dig-out-11 tormach.usbio-output-11
+net dig-out-12 tormach.usbio-output-12
+net dig-out-13 tormach.usbio-output-13
+net dig-out-14 tormach.usbio-output-14
+net dig-out-15 tormach.usbio-output-15
+
+net dig-in-0 tormach.usbio-input-0
+net dig-in-1 tormach.usbio-input-1
+net dig-in-2 tormach.usbio-input-2
+net dig-in-3 tormach.usbio-input-3
+net dig-in-4 tormach.usbio-input-4
+net dig-in-5 tormach.usbio-input-5
+net dig-in-6 tormach.usbio-input-6
+net dig-in-7 tormach.usbio-input-7
+net dig-in-8 tormach.usbio-input-8
+net dig-in-9 tormach.usbio-input-9
+net dig-in-10 tormach.usbio-input-10
+net dig-in-11 tormach.usbio-input-11
+net dig-in-12 tormach.usbio-input-12
+net dig-in-13 tormach.usbio-input-13
+net dig-in-14 tormach.usbio-input-14
+net dig-in-15 tormach.usbio-input-15
+
+
+# HAL pins for GUI access to IO and motion for reading line numbers
+net motion-program-line   tormach.motion-program-line      <= motion.program-line
+net motion-next-program-line   tormach.motion-next-program-line      <= motion.next-program-line
+net motion-completed-program-line   tormach.motion-completed-program-line      <= motion.completed-program-line
+
+# for detecting current motion type: rapid, feed, probe, etc
+net motion-motion-type     tormach.motion-motion-type       motion.motion-type
+
+# prompting data
+net prompt-channel tormach.prompt-reply => motion.analog-in-10
+
+# hooked up for debug diagnostics
+setp tormach.acc-input-port2 1
+
+
+#
+# Pins to allow for monitoring of axis homing
+#
+net x-is-homing tormach.axis-0-homing
+net ignore1 axis.1.homing tormach.axis-1-homing
+net ignore2 axis.2.homing tormach.axis-2-homing
+net ax3-is-homing tormach.axis-3-homing

@@ -1,0 +1,78 @@
+(---------------------------------------------------------------------------)
+( Nothing good ends here....                                                )
+(  Issue error message   ABORT!!!!!!!!!!!!                                  )
+(                                                                           )
+( In all cases of interpreter abort, on_abort NGC exit restores modals      )
+(   and  resets is_changing HAL pin  - it catches all aborts                )
+(---------------------------------------------------------------------------)
+
+o<atc_errors> sub
+
+M81         (restore modal state before we decide to abort program execution)
+M66 P63 L0  (queue bust the interp read ahead and make sure the M81 restoration occurs before abort)
+
+(the queue bust is important as the M81 inside on_abort.ngc may not fully execute if a second on_abort situation)
+(happens and ends up discarding the interp queue - and we've seen that depends on some interp state that we)
+(need to fix)
+
+o<error_a> if [#1 EQ  #<_atc_command_reject>]
+    (abort, ATC - Device, command rejected, command = #2, data = #3)
+o<error_a> endif
+
+o<error_b> if [#1 EQ  #<_atc_homing_error> ]
+    (abort, ATC - Device, homing error)
+o<error_b> endif
+
+o<error_c> if [#1 EQ  #<_atc_timeout_error> ]
+    (abort, ATC - USB, comms timeout error, command = #2, data = #3)
+o<error_c> endif
+
+o<error_d> if [#1 EQ  #<_atc_unkown_response_error>]
+    (abort, ATC - Device, issued invalid USB response, command = #2, data = #3)
+o<error_d> endif
+
+o<error_e> if [#1 EQ  #<_atc_unknown_command_error> ]
+    (abort, ATC - Device, issued command unknown, command = #2, data = #3)
+o<error_e> endif
+
+o<error_f> if [#1 EQ  #<_atc_tray_error>]
+    (abort, ATC - Device, tray sensor not detecting arrival)
+o<error_f> endif
+
+o<error_g> if [#1 EQ  #<_atc_usb_io_error> ]
+    (abort, ATC - USB IO error, command = #2, data = #3)
+o<error_g> endif
+
+o<error_h> if [#1 EQ  #<_atc_halrequest_invalid>]
+    (abort, ATC - HAL command unknown, command = #2, data = #3)
+o<error_h> endif
+
+o<error_j> if [#1 EQ  #<_atc_not_found_error>]
+    (abort, ATC - Cannot find USB device, , command = #2, data = #3)
+o<error_j> endif
+
+o<error_k> if [#1 EQ  #<_atc_interface_busy>]
+    (abort, ATC - Device busy, , command = #2, data = #3)
+o<error_k> endif
+
+o<error_l> if [#1 EQ  #<_atc_user_cancel>]
+    (abort, ATC - User canceled at prompt)
+o<error_l> endif
+
+o<error_m> if [#1 EQ  #<_atc_spindle_running>]
+    (abort, ATC - Cannot turn off spindle)
+o<error_m> endif
+
+o<error_n> if [#1 EQ  #<_atc_spindle_orient_error>]
+    (abort, ATC - Spindle orientation failure)
+o<error_n> endif
+
+o<error_o> if [#1 EQ  #<_atc_spindle_brake_error>]
+    (abort, ATC - Spindle brake failure, orient drifted = #2)
+o<error_o> endif
+
+(catch all)
+    (abort, ATC error code #1)
+
+o<atc_errors> endsub
+M30

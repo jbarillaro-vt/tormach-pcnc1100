@@ -1,0 +1,119 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+# The one argument to this script is the full path of the temp directory where we are
+# gathering all the log data into prior to zipping.
+# The temp dir is created by the python side as it does an automatic settings backup
+# into that dir already.  Then that backup file is automatically picked up by
+# this script.
+#
+# We take ownership of this directory and must clean it up.
+LOGDATA_TMPDIR=$@
+
+if [ ! -d "$LOGDATA_TMPDIR" ]; then
+    echo "Temporary log file directory doesn't exist, aborting.  ($LOGDATA_TMPDIR)"
+    exit 1
+fi
+
+# This will be yyyy-mm-dd_HH-MM for easy alpha sorting and to prevent overwriting and
+# a FAT compatible filename (which is why there is no colon in it!)
+DATESTR=`date +%F_%H-%M`
+NAME=logdata_$DATESTR
+LOGDATA_FULLPATH="$HOME"/gcode/$NAME.zip
+
+# We echo the first line of stdout to be the filename we are creating.  That way the calling process can
+# snag that and use it to let the user know which file we just wrote into the gcode folder.
+echo $NAME.zip
+
+echo "Assembling log files into $LOGDATA_TMPDIR"
+cd "$LOGDATA_TMPDIR"
+
+# Gather basic system data
+
+uptime --pretty > uptime.txt
+sudo lshw  > lshw.txt
+sudo lsusb > lsusb.txt
+#extra info on ShuttleXpress to see bcdDevice v1.17 (good) vs v2.00 (spring wheel 0 issue)
+sudo lsusb -v -d 0b33:0020 > shuttleusb.txt
+sudo lspci > lspci.txt
+sudo cp /var/log/Xorg* .
+sudo cp /var/log/syslog* .
+sudo cp /var/log/dmesg* .
+sudo chown operator *
+ifconfig -a -v > ifconfig.txt
+
+
+# Grab PathPilot specific data
+
+if [ -f "$HOME"/imageversion.json ]; then
+    cp "$HOME"/imageversion.json .
+fi
+cp "$HOME"/tmc/version.json .
+if [ -f "$HOME"/tmc/eula_agreed.txt ]; then
+    cp "$HOME"/tmc/eula_agreed.txt .
+fi
+cp "$HOME"/gcode/logfiles/* .
+if [ -f "$HOME"/gcode/pointercal.xinput ]; then
+    cp "$HOME"/gcode/pointercal.xinput .
+fi
+xinput --list --long > ./xinput_list.txt
+cp "$HOME"/preinstall.* .
+cp "$HOME"/postinstall.* .
+cp "$HOME"/smb.conf.* .
+cp /etc/samba/smb.conf .
+cp "$HOME"/pathpilot.json .
+
+# We can tell which versions have been installed by listing all the tarballs in the updates dir
+ls -lt "$HOME"/updates > update_history.txt
+# Snag all the automatic settings backup files that are done right before an update is installed from the internet
+cp "$HOME"/updates/PathPilotBackupSettings*.zip .
+
+cp -r "$HOME"/*_data .
+
+# Run the script to dump all the redis database info to a text file so it is super easy to review.
+"$HOME"/tmc/scripts/redis-dump.py > redis-dump.txt
+
+cp /etc/timezone .
+
+# Expand any files so that it makes it a single operation to unpack the logdata zip
+# and quickly look at any file or grep through everything.  Older syslog and dmesg files
+# will be .gz otherwise and you have to unpack them laboriously (esp. on a Windows box).
+# No size impact since the complete tarball is later gzipped anyway (might even be better
+# due to a larger symbol space for compression)
+sudo gunzip *.gz
+
+# convert log file line endings to cr/lf so they're easy to review on Windows
+
+crlf.py --timestamps --windows pathpilotlog.*
+crlf.py --timestamps --windows preinstall.* postinstall.*
+crlf.py --timestamps --windows syslog* dmesg*
+crlf.py --timestamps --windows update_history.txt
+crlf.py --timestamps --windows Xorg*
+crlf.py --timestamps --windows xinput_list.txt
+crlf.py --timestamps --windows lshw.txt lspci.txt lsusb.txt ifconfig.txt
+crlf.py --timestamps --windows *.json
+
+# Now package all the data into a single easy to email tarball
+
+rm -f $LOGDATA_FULLPATH
+zip -r $LOGDATA_FULLPATH *
+
+# Cleanup after ourselves
+cd
+echo "Cleaning up tmp log file directory $LOGDATA_TMPDIR"
+rm -rf "$LOGDATA_TMPDIR"
+
+# Copy it to the USB flash drive root if it appears one is installed.
+STICKDIR=`ls -d -1 /media/operator/*/`
+if [ ! -z "$STICKDIR" ]; then
+    if [ -d "$STICKDIR" ]; then
+        echo "cp $LOGDATA_FULLPATH $STICKDIR"
+        cp $LOGDATA_FULLPATH "$STICKDIR"
+        # Just in case they get grabby on the stick...
+        sync
+    fi
+fi

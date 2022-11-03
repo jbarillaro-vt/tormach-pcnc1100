@@ -1,0 +1,9 @@
+[gcode]
+    comment Tormach PathPilot Gcode Folder
+    path = /home/operator/gcode
+    writeable = yes
+    browseable = yes
+    guest ok = yes
+    force user = operator
+
+

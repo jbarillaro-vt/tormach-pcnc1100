@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# Portions Copyright © 2014-2018 Z-Bot LLC.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+
+#waits commented out because NGC code this is used by waits on hal pin instead.
+import redis
+import tormach_file_util
+import time
+import sys
+import math
+import datetime
+import errors
+
+my_eh = errors.error_handler_base()
+
+my_db = redis.Redis()
+
+if(len(sys.argv)<=1):
+    my_eh.log("M100 need at least p argument")
+    exit()
+
+cmdN=int(math.floor(float(sys.argv[1])))
+
+if (cmdN == 10):
+    #pop up request in Gremlin window - wait for air pressure
+    my_db.hdel("TormachAnswers", "Start_Pressed")
+    my_db.rpush("TormachMessage", "AnswerKey:Start_Pressed:Insufficient ATC air pressure, $$REPLY_TEXT$$")
+    my_eh.log('M100 pressure notice')
+
+elif (cmdN == 11):
+    #pop up request Gremlin- remove tool
+    my_eh.log('M100 requesting message prompt out - P{} Q{}'.format(sys.argv[1], sys.argv[2]))
+    toolN=int(math.floor(float(sys.argv[2])))  #get Q word
+    my_db.hdel("TormachAnswers", "Start_Pressed")
+    my_db.rpush("TormachMessage", "AnswerKey:Start_Pressed:Remove T{:d} from spindle, $$REPLY_TEXT$$".format(toolN))
+
+elif (cmdN == 12):                              #pop up request in M stream - insert tool
+    #pop up request in Gremlin - remove tool
+    my_eh.log('M100 requesting message prompt in - P{} Q{}'.format(sys.argv[1], sys.argv[2]))
+    toolN=int(math.floor(float(sys.argv[2])))  #get Q word
+    desc = my_db.hget('tool_descriptions', str(toolN))
+    if desc:
+        # have a description
+        desc = (desc[:10] + '..') if len(desc) > 12 else desc
+        desc = "(" + desc + ")"
+    else:
+        desc = ''
+    my_db.hdel("TormachAnswers", "Start_Pressed")
+    if toolN == 0:
+        # Customers getting confused when it says to Insert T0 in spindle which is 'operator speak' for remove tool from spindle.
+        # So let's just be obvious about it.
+        my_db.rpush("TormachMessage", "AnswerKey:Start_Pressed:Remove tool from spindle, $$REPLY_TEXT$$")
+    else:
+        my_db.rpush("TormachMessage", "AnswerKey:Start_Pressed:Insert T{:d}{:s} in spindle, $$REPLY_TEXT$$".format(toolN, desc))

@@ -1,0 +1,47 @@
+Type,Compatibility Listings,PN,Designation,ANSI,ISO,Materials
+Turning Tool Inserts,CC _ _ 3(2.5) _ Inserts,35004,CCGX,3(2.5)2,09T308,Aluminum
+Turning Tool Inserts,CC _ _ 3(2.5) _ Inserts,35023,CCGT,3(2.5)1,16T304,Aluminum
+Turning Tool Inserts,CC _ _ 3(2.5) _ Inserts,36064,CCMT,3(2.5)1,09T304,Steel
+Turning Tool Inserts,CN _ _ 43 _ Inserts,33137,CNMG,432,120408,Steel
+Turning Tool Inserts,DC _ _ 2(1.5) _ Inserts,32420,DCMT,2(1.5)0,60201,General Purpose
+Turning Tool Inserts,DC _ _ 2(1.5) _ Inserts,36066,DCMT,2(1.5)1,60204,Steel, Stainless
+Turning Tool Inserts,DC _ _ 2(1.5) _ Inserts,36068,DCGT,2(1.5)1,60204,Aluminum
+Turning Tool Inserts,RC _ _ 0602 _ Inserts,36072,RCMT,0602M0,-,General Purpose Steel
+Turning Tool Inserts,RC _ _ 0602 _ Inserts,36073,RCMT,0602M0,-,Aluminum
+Turning Tool Inserts,SC _ _ 3 (2.5) _ Inserts,36074,SCMT,3(2.5)1,16T304,Steel
+Turning Tool Inserts,SC _ _ 3 (2.5) _ Inserts,36076,SCGT,3(2.5)1,16T304,Aluminum
+Turning Tool Inserts,SC _ _ 43 _ Inserts,36075,SCMT,431,120404,Steel
+Turning Tool Inserts,SC _ _ 43 _ Inserts,36077,SCGT,431,120404,Aluminum
+Turning Tool Inserts,TN _ _ 22 _ Inserts,35186,TNMG,222,110608,Steel
+Turning Tool Inserts,SN _ _ 32 _ Inserts,35187,SNMG,322,90608,Steel
+Turning Tool Inserts,TN _ _ 33 _ Inserts,33139,TNMG,332,160408,Steel
+Turning Tool Inserts,VB _ _ 22 _ Inserts,36070,VBMT,221,60604,Steel
+Turning Tool Inserts,VN _ _ 33 _ Inserts,33140,VNMG,332,160408,Steel
+Turning Tool Inserts,WN _ _ 43 _ Inserts,33138,WNMG,432,80402,Steel
+Grooving Tool Inserts,GTN-3 Inserts,34420,GTN-3,,,Steel
+Grooving Tool Inserts,GTN-4 Inserts,32841,GTN-4,,,Steel
+Threading Tool Inserts,16 _ _ AG50 Inserts,34421,16ELAG60 ,,,General Purpose
+Threading Tool Inserts,16 _ _ AG50 Inserts,33158,16ERAG60 ,,,General Purpose
+Threading Tool Inserts,16 _ _ AG50 Inserts,34422,16ILAG60 ,,,General Purpose
+Threading Tool Inserts,11 _ _ A60 Inserts,37288,11ELAG60,,,General Purpose
+Threading Tool Inserts,11 _ _ A60 Inserts,37287,11ERAG60,,,General Purpose
+Threading Tool Inserts,11 _ _ A60 Inserts,35582,11ILAG60,,,General Purpose
+Threading Tool Inserts,11 _ _ A60 Inserts,33346,11IRA60,,,General Purpose
+Boring Bar Inserts,CC _ _ 2(1.5) _ Inserts,32419,CCMT,2(1.5)1,60204,General Purpose
+Boring Bar Inserts,CC _ _ 2(1.5) _ Inserts,34666,CCMT,2(1.5)1,60204,Steel
+Boring Bar Inserts,CC _ _ 2(1.5) _ Inserts,36065,CCGT,2(1.5)1,60204,Aluminum
+Boring Bar Inserts,CC _ _ 43 _ Inserts,35026,CCGT,431,120404,Aluminum
+Boring Bar Inserts,CC _ _ 43 _ Inserts,35027,CCGT,433,120412,Aluminum
+Boring Bar Inserts,CC _ _ 43 _ Inserts,35657,CCMT,431,120404,Steel
+Boring Bar Inserts,CN _ _ 32 _ Inserts,33136,CNMG,322,160608,Steel
+Boring Bar Inserts,DC _ _ 3(2.5) _ Inserts,36067,DCMT,3(2.5)1,16T304,Steel
+Boring Bar Inserts,DC _ _ 3(2.5) _ Inserts,36069,DCGT,3(2.5)1,16T304,Aluminum
+Boring Bar Inserts,TC _ _ 22 _ Inserts,31073,TCMT,221,60604,Cast iron, non ferrous, and high temperature alloys.
+Boring Bar Inserts,TC _ _ 22 _ Inserts,31074,TCMT,221,60604,Steel
+Boring Bar Inserts,TC _ _ 22 _ Inserts,31075,TCMT,222,60606,Cast iron, non ferrous, and high temperature alloys.
+Boring Bar Inserts,TC _ _ 22 _ Inserts,31076,TCMT,222,60606,Steel
+Boring Bar Inserts,TC _ _ 22 _ Inserts,36080,TCMT,221,60304,Steel
+Boring Bar Inserts,TC _ _ 22 _ Inserts,36084,TCGT,221,60604,Aluminum
+Boring Bar Inserts,TC _ _ 3(2.5) _ Inserts,33353,TCMT,3(2.5)2,16T308,General Purpose
+Boring Bar Inserts,TC _ _ 3(2.5) _ Inserts,35019,TCGT,3(2.5)1,16T304,Aluminum
+Boring Bar Inserts,TC _ _ 3(2.5) _ Inserts,36081,TCMT,3(2.5)1,16T304,Steel

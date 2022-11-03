@@ -1,0 +1,25 @@
+o<probe_get_probe_result_by_index> sub
+
+(#1 is the axis index where 0 means X, 1 means Y, 2 means Z, 3 means A)
+
+(return probe trip coordinate location in current WCS)
+
+o100 if [#1 EQ 0]
+  ;(PRINT,_probe_x = #<_probe_x>)
+  #<coord> = #<_probe_x>
+o100 elseif [#1 EQ 1]
+  ;(PRINT,_probe_y = #<_probe_y>)
+  #<coord> = #<_probe_y>
+o100 elseif [#1 EQ 2]
+  ;(PRINT,_probe_z = #<_probe_z>)
+  #<coord> = #<_probe_z>
+o100 elseif [#1 EQ 3]
+  ;(PRINT,_probe_a = #<_probe_a>)
+  #<coord> = #<_probe_a>
+o100 else
+  (ABORT,o<probe_get_probe_result_by_index> axis index arg ^#1^ is #1, not 0-3)
+o100 endif
+
+o<probe_get_probe_result_by_index> return [#<coord>]
+
+M02

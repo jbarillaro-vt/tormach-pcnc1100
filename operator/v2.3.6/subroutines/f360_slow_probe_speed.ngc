@@ -1,0 +1,7 @@
+o<f360_slow_probe_speed> sub
+(return the slow probe speed)
+
+o<f360_slow_probe_speed> endsub [#<_probeSlowSpeed>]
+
+M02 (end program)
+

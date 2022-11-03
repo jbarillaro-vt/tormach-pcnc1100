@@ -1,0 +1,149 @@
+o<tormach_tool_change> sub         (UNIVERSAL TOOL CHANGE NGC)
+(----------------------------------------------------------------------------------------------------)
+(note - GREMLIN calls this routine to do a preview - sets #<_task> global variable to 0              )
+(note - the interp calls this - sets #<_task> global variable to -1                                  )
+(note - REMAP expects any positive return value when exiting these routines, hence return [1] is used)
+(----------------------------------------------------------------------------------------------------)
+
+o<preview> if [#<_task> NE 1]
+    o<tormach_tool_change  > return [1]   (gremlin is loading this code or we're in read-behind for set start line)
+o<preview> endif
+
+M80    (Store users modal variables, feed rate, G90/91, overrides,etc)
+
+M64 P#<_is_changing>    (in a tool change NGC routine - tells cycle start to ignore tray in conditions)
+                        (in event feed hold is pressed in middle of a change                          )
+
+(----------------------------------------------------------------------------------)
+(                      Abbreviated tool change  - shorty                           )
+( Manual changes, non tray tool (both old and new), & old=new tools process here   )
+( ATC or not . Remap sets the mode in the prolog                                   )
+(----------------------------------------------------------------------------------)
+
+o<shorty_check> if [#<_mode> EQ -1.0]            (manual changes -  nothing for ATC here to do)
+    o<tool_to_do> if [#<_new_tool> NE #<_old_tool>]  (do we need to change anything here?)
+        M5     (stop spindle - doesn't wait - windown checked later by quiesce_spindle)
+        o<prompt> call  [12] [#<_new_tool>]     (prompt for new tool, 12 = insert)
+    o<tool_to_do> endif
+(------------------------------------------------------------)
+( Synch and exit to part program                             )
+(------------------------------------------------------------)
+
+  M61 Q #<_new_tool>       (let lcnc do it's thing )
+  M81                      (restore user's modal state exiting subroutine)
+  M65 P#<_is_changing>     (not in tool change code anymore)
+  o<tormach_tool_change> return
+
+o<shorty_check> endif
+
+(-------------------------------------------------------------------------------------------------)
+(                             ATC tool change                                                     )
+( Set up modals for tool changer G-Code sequence , housekeeping                                   )
+(-------------------------------------------------------------------------------------------------)
+M5     (stop spindle - doesn't wait - windown checked later by quiesce_spindle)
+M50 P0 (Cancel feed rate override for duration of tool change - restored by M81 at exit)
+M51 P0 (Cancel spindle speed override for duration of tool change - restored by M81 at exit)
+G90    (always in absolute movement for G53 moves that follow - reset to users original mode at exit)
+#<_spindle_quiesced> = 0.0        (default to running state until we know it stopped)
+
+(----------------------------------------------------------------------------------------)
+(                Tray in at entry to change mop up                                       )
+( Results from prior unprogrammed abort, mid change user cancel, power failure, crash,   )
+(     or prior user tray load without retract from GUI                                   )
+(  This is an unwanted state - get to known position - wipe the slate clean              )
+(  Open draw bar                                                                         )
+(  Eject the tool                                                                        )
+(  Set old tool to 0, and slot to -1 to suppress stow                                    )
+(----------------------------------------------------------------------------------------)
+
+o<atc_hal_comms>  call  [#<_query_sensor> ] [#<_tray_in_sensor>]    ( tray sensor ?)
+o<traycheck> if [#<_atc_return> EQ #<_activate>]       (tray is in)
+    o<quiesce_spindle> call
+    o<atc_airop> call [#<_draw_bar>][#<_activate>] (fire draw bar)
+    G0 G53 Z0                         (just head to top)
+    M61 Q0                            (spindle is now T0)
+    #<_old_tool> = 0
+    #<_old_slot> = -1.0               (this will prevent fetch of old tool)
+o<traycheck> endif
+
+(-------------------------------------------------------------------------------------)
+( Spindle orientation for BT30 stuff - bounces back for TTS                           )
+(                                                                                     )
+( Skip the orient for the special case of go to tray load position button with        )
+( no tool in the spindle                                                              )
+(-------------------------------------------------------------------------------------)
+
+o<orient_spindle> call  [0] [0]       (get spindle to 0 degrees, no wait)
+
+(------------------------------------------------------------------------------------------)
+( If it has an ATC slot - return old tool to the tray -                                    )
+(------------------------------------------------------------------------------------------)
+o<stowcheck> if [#<_old_slot> NE -1.0]     (stow to ATC)
+   o<stow_tool>  call
+o<stowcheck> elseif [#<_old_tool> NE  0.0] (or prompt user to remove old tool, if there is one)
+(------------------------------------------------------------)
+( Old Tool not in ATC - Prompt user instead of stowing       )
+(------------------------------------------------------------)
+    G0 G53 Z0                           (get tool reachable by user)
+    o<orient_check> call                (no user touchy until M19 locked, ignored for TTS)
+    o<prompt> call [11] [#<_old_tool>]  (code 11 = prompt to remove old tool)
+    M61 Q0      (clear out linuxcnc variables and synch)
+    (NOTE : BT30 spindle is temporarily unlocked due to manual draw bar operation    )
+    (  M19 VFD PID is still keeping it oriented, fetch will relock when PDB fires    )
+o<stowcheck> endif
+
+
+#<_old_tool> = 0     (just to be tidy )
+#<_old_slot> = -1.0
+
+(-------------------------------------------------------------)
+(  New Tool not in ATC - Prompt user instead of fetching      )
+(-------------------------------------------------------------)
+o<fetch_check> if [[#<_new_tool> NE 0.0]  and  [#<_new_slot> EQ -1.0]] (non tray tool exists)
+    o<atc_airop> call  [#<_solenoid>] [#<_tray_out>] (tray solenoid out so user can access spindle )
+    o<prompt> call [12] [#<_new_tool>]                (12 = insert message)
+o<fetch_check> elseif [#<_new_slot> GT -1]          (fetch from ATC)
+   o<fetch_tool>  call
+o<fetch_check> endif
+
+(-------------------------------------------------------------)
+( Synch  LinuxCNC tool state, also an implicit Retis update   )
+(-------------------------------------------------------------)
+M61 Q #<_new_tool>       (let lcnc do it's thing - could be second time for this )
+
+(-------------------------------------------------------------------)
+(Tray/Carousel/PDB/Spindle final disposition:                       )
+(  No tool in spindle - leave collet open for TTS, don't M5         )
+(  Normal tool change - get it tray out, collet is closed already   )
+(  Tray load - keep it in, or get it in                             )
+(  It's possible tray was never brought in for tray load - ie prior )
+(   actions just prompted because old tool was not in tray          )
+(   We fix that here - send Z to top and bring tray in, open PDB    )
+(-------------------------------------------------------------------)
+
+o<leave_collet_open> if [[#<_new_tool> GT 0] or [#<_spindle_orient_needed> EQ 1.0]]
+     (workaround in situations where go to tray load initiates orient and then falls)
+     (through quickly to here and it faults spindle comp by canceling it right away)
+     o<orient_wait> if [#<_go_to_tray_load> NE 0.0]
+         G4 P0.6
+     o<orient_wait> endif
+     M5         (let VFD start resetting itself to cut mode, if not reset by fetch)
+o<leave_collet_open> endif
+
+o<tray_load_position> if [#<_go_to_tray_load> EQ 0.0]
+    o<atc_airop> call  [#<_solenoid>] [#<_tray_out>]     (tray solenoid out)
+o<tray_load_position> else
+    G0 G53 Z0                         (just head to top)
+    o<atc_airop> call  [#<_solenoid>] [#<_tray_in>]      (get tray in, if out)
+    o<atc_airop> call [#<_draw_bar>] [#<_activate>]      (should be open to accept tool)
+o<tray_load_position> endif
+
+(------------------------------------------------------------)
+( ATC exit - Restore user's modals                           )
+(------------------------------------------------------------)
+M81             (restore user's modal state exiting subroutine)
+M65 P#<_is_changing>          (not in tool change code anymore)
+
+o<tormach_tool_change> endsub [1]
+
+M30

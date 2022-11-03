@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="363.088" height="322" viewBox="0, 0, 363.088, 322">
+  <g id="lathe_profile_draw_area" transform="translate(0, 0)">
+    <path d="M-0,0 L363,0 L363,322 L-0,322 L-0,0 z" fill="#696969"/>
+    <g id="Diameter_Arrow">
+      <path d="M21.883,152.261 L21.883,66" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M19,152.261 L21.883,159.949 L24.766,152.261 M21.883,152.261 L21.883,159.949" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.5"/>
+    </g>
+    <g id="Start_Z_Arrow">
+      <path d="M342.1,152.333 L344.983,160.022 L347.866,152.333 M344.983,152.333 L344.983,160.022" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5"/>
+      <path d="M345.042,152.333 L345.042,80.466" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M344.042,80.466 L289.5,80.466" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5" stroke-linecap="square"/>
+    </g>
+    <g id="Safe_X_arrow">
+      <path d="M283.867,145.784 L283.867,122.25" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M280.984,144.294 L283.867,151.983 L286.75,144.294 M283.867,144.294 L283.867,151.983" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5"/>
+      <path d="M318.375,154.25 L183.25,154.25" fill-opacity="0" stroke="#ACFF8A" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="4.5,6" stroke-linecap="square"/>
+    </g>
+    <g id="Safe_Z">
+      <path d="M338.812,37.617 L278,37.617" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M336.2,40.625 L343.888,37.742 L336.2,34.859 M336.2,37.742 L343.888,37.742" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5"/>
+      <path d="M353.5,266.125 L353.5,32" fill-opacity="0" stroke="#ACFF8A" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="4.5,6" stroke-linecap="square"/>
+      <path d="M362.088,34.734 L354.4,37.617 L362.088,40.5 M362.088,37.617 L354.4,37.617" fill-opacity="0" stroke="#8EFB61" stroke-width="1.5"/>
+      <path d="M345.125,266.125 L345.125,32" fill-opacity="0" stroke="#ACFF8A" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="4.5,6" stroke-linecap="square"/>
+    </g>
+  </g>
+</svg>

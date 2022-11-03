@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="378" height="310" viewBox="0, 0, 378, 310">
+  <g id="Layer_1">
+    <g>
+      <g>
+        <path d="M0,0 L378,0 L378,310 L0,310 z" fill="#696969"/>
+        <path d="M0,0 L378,0 L378,310 L0,310 z" fill-opacity="0" stroke="#696969" stroke-width="0.25"/>
+      </g>
+      <path d="M0.375,0.076 L377.626,0.076 L377.626,309.924 L0.375,309.924 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.503"/>
+    </g>
+    <path d="M47.053,224.414 L346.884,224.414" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.066,232.462 L149.25,232.462" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M244.785,232.21 L346.968,232.21" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M249.299,236.486 L346.969,236.486" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M253.876,240.51 L346.969,240.51" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M258.131,244.534 L346.968,244.534" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M262.008,248.558 L346.968,248.558" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M268.07,252.582 L346.969,252.582" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,236.486 L140.056,236.486" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,240.51 L135.54,240.51" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,244.534 L131.78,244.534" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,248.558 L126.784,248.558" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,252.582 L121.775,252.582" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,256.606 L117.84,256.606" fill-opacity="0" stroke="#00FF00" stroke-width="1.011" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,260.63 L112.855,260.63" fill-opacity="0" stroke="#00FF00" stroke-width="1.005" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,264.654 L104.963,264.654" fill-opacity="0" stroke="#00FF00" stroke-width="1.007" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.053,268.678 L91.206,268.678" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M47.066,228.438 L346.897,228.438" fill-opacity="0" stroke="#00FF00" stroke-width="1.006" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    <path d="M10.437,220.426 L347.006,220.426 L347.006,309.227 L10.437,309.227 z" fill="#2B71FF" fill-opacity="0.154"/>
+    <path d="M41.288,221.396 L41.288,275.185 C41.288,275.185 67.139,275.04 87.223,274.928 C102.094,274.844 116.346,268.967 126.952,258.544 C129.983,255.565 133.129,252.474 136.108,249.546 C145.652,240.166 158.5,234.91 171.883,234.91 C189.244,234.91 213.244,234.91 226.899,234.91 C233.711,234.91 240.244,237.616 245.061,242.433 C249.175,246.548 254.122,251.494 257.576,254.947 C260.308,257.679 264.013,259.215 267.877,259.215 C286.167,259.215 339.735,259.215 339.735,259.215 L346.532,266.012" fill-opacity="0" stroke="#F3EF00" stroke-width="1.006" stroke-miterlimit="1"/>
+    <path d="M45.602,222.127 L45.586,271.244 C45.586,271.244 65.1,271.139 85.889,271.026 C100.397,270.948 114.333,265.353 124.868,255.377 C128.342,252.087 131.99,248.632 135.4,245.404 C144.879,236.427 157.439,231.424 170.495,231.424 C188.642,231.424 214.481,231.424 228.692,231.424 C235.338,231.424 241.727,234.001 246.514,238.613 C250.851,242.793 256.16,247.908 259.786,251.402 C262.501,254.019 266.125,255.48 269.895,255.48 C288.367,255.48 342.083,255.48 342.083,255.48 L346.694,259.838" fill-opacity="0" stroke="#959500" stroke-width="1.023" stroke-dasharray="3.074,3.074,1.023,0" stroke-miterlimit="1"/>
+    <g id="down_arrow">
+      <path d="M88.965,213.141 L91.875,223.667" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.049" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <path d="M92.378,223.666 L95.277,213.04" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.886" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <path d="M92.091,223.75 L92.091,165.298" fill="#FFFFFF"/>
+      <path d="M92.091,223.75 L92.091,118" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+    </g>
+    <g id="up_arrow">
+      <path d="M95.33,239.749 L92.427,229.222" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.049" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <path d="M91.925,229.223 L89.02,239.847" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.886" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <g>
+        <path d="M92.211,229.139 L92.203,244.142" fill="#FFFFFF"/>
+        <path d="M92.211,229.139 L92.203,244.142" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.308" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

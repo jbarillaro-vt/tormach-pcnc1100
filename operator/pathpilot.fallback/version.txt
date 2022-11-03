@@ -1,0 +1,6 @@
+v2.3.6
+
+NOTE: this is a legacy file that exists solely for older versions to check
+      tarball compatibility.  Do not try to parse verion files directly.
+      Use versioning.VersionMgr singleton instead.
+

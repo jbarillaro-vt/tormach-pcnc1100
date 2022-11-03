@@ -1,0 +1,11 @@
+{
+    "branch": "release2...origin/release2", 
+    "build": 1, 
+    "commit": "3a597fee37c709e9651d14108428f5be8d98908d", 
+    "kernels": [
+        "4.11.9-rt7"
+    ], 
+    "status": "", 
+    "tag": "v2.3.6-c1", 
+    "version": "v2.3.6"
+}

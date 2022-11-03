@@ -1,0 +1,219 @@
+o<probe_circ_boss> sub
+
+;(PRINT,begin o<probe_circ_boss> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+#<feed_rapid> = #1        (current units)
+#<feed_ruff> = #2         (current units)
+#<feed_fine> = #3         (current units)
+#<x_axis_limit_min> = #4  (current units)
+#<x_axis_limit_max> = #5  (current units)
+#<y_axis_limit_min> = #6  (current units)
+#<y_axis_limit_max> = #7  (current units)
+#<x_wcs_offset> = #8      (current units)
+#<y_wcs_offset> = #9      (current units)
+#<tip_diameter> = #10     (current units)
+#<y_stepover> = #11       (current units)
+
+(PRINT,feed_rapid: #<feed_rapid>)
+(PRINT,feed_ruff: #<feed_ruff>, feed_fine: #<feed_fine>)
+(PRINT,x_axis_limit_min: #<x_axis_limit_min>, x_axis_limit_max: #<x_axis_limit_max>)
+(PRINT,y_axis_limit_min: #<y_axis_limit_min>, y_axis_limit_max: #<y_axis_limit_max>)
+(PRINT,x_wcs_offset: #<x_wcs_offset>, y_wcs_offset: #<y_wcs_offset>)
+(PRINT,tip_diameter: #<tip_diameter>)
+
+o<probe_prep> call
+
+#<tip_radius> = [#<tip_diameter> / 2.0]
+;(PRINT,tip_radius: #<tip_radius>))
+
+#<abs_retract> = ABS[#<tip_diameter> / 1.5]
+o105 if [#<abs_retract> EQ 0.0]
+  #<abs_retract> = 0.050
+  o106 if [#<_metric> NE 0]
+    #<abs_retract> = [#<abs_retract> * 25.4]
+  o106 endif
+o105 endif
+
+(current position including WCS offsets in current program units)
+(return here after probe)
+#<x_axis_start> = #<_x>
+#<y_axis_start> = #<_y>
+(PRINT,starting point #<x_axis_start>,#<y_axis_start>)
+
+(find point A, it never moves)
+#<y_a> = [#<y_axis_start>]
+o<probe_g1_by_index> call [1] [#<y_a>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<x_a> = #<_value>
+(PRINT,----- point A at #<x_a>, #<y_a>)
+
+(find first point B, C will become B as C iterates)
+#<y_b> = [#<y_axis_start> + [#<y_stepover> * 1]]
+o<probe_g1_by_index> call [1] [#<y_b>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<x_b> = #<_value>
+(PRINT,----- point B at #<x_b>, #<y_b>)
+
+#<slope_delta_angle> = 0
+
+#<y_c> = [#<y_axis_start> + [#<y_stepover> * 2]]
+
+o200 do
+
+(find point C)
+o<probe_g1_by_index> call [1] [#<y_c>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<x_c> = #<_value>
+(PRINT,----- point C at #<x_c>, #<y_c>)
+
+(points a, b, c determine circumference of circle including accounting for tip radius)
+(perpendicular bisectors of lines ab and bc intersect at center of cicle)
+
+(PRINT,A [#<x_a>, #<y_a>])
+(PRINT,B [#<x_b>, #<y_b>])
+(PRINT,C [#<x_c>, #<y_c>])
+
+o<probe_perp_slope_intercept> call [#<x_a>] [#<x_b>] [#<y_a>] [#<y_b>]
+#<ab_radial_slope> = #<_probe_value_1>
+#<ab_radial_intercept> = #<_probe_value_2>
+(PRINT,AB radial slope: #<ab_radial_slope>, intercept: #<ab_radial_intercept>)
+
+o<probe_perp_slope_intercept> call [#<x_b>] [#<x_c>] [#<y_b>] [#<y_c>]
+#<bc_radial_slope> = #<_probe_value_1>
+#<bc_radial_intercept> = #<_probe_value_2>
+(PRINT,BC radial slope: #<bc_radial_slope>, intercept: #<bc_radial_intercept>)
+
+#<slope_delta> = [#<bc_radial_slope> - #<ab_radial_slope>]
+#<slope_product> = [#<ab_radial_slope> * #<bc_radial_slope>]
+#<slope_delta_angle> = ATAN[#<slope_delta>]/[1 + #<slope_product>]
+(PRINT,angle between radial lines: #<slope_delta_angle> degrees)
+
+o<probe_find_intersection> call [#<ab_radial_slope>] [#<ab_radial_intercept>] [#<bc_radial_slope>] [#<bc_radial_intercept>]
+#<x_center> = #<_probe_value_1>
+#<y_center> = #<_probe_value_2>
+(PRINT,approximate boss center: #<x_center>, #<y_center>)
+
+(distance between center and point a)
+#<boss_radius> = sqrt[[#<x_center> - #<x_a>]**2 + [#<y_center> - #<y_a>]**2]
+(PRINT,approximate boss radius: #<boss_radius>)
+
+(when angle is large enough we have a good enough coordinate for the center and radius)
+o300 if [ABS[#<slope_delta_angle>] GE 6]
+  (PRINT,good enough center and radius)
+  o200 break
+o300 endif
+
+(make next B from current C)
+#<x_b> = #<x_c>
+#<y_b> = #<y_c>
+
+(next y_c)
+#<y_c> = [#<y_a> - [[#<y_a> - #<y_c>] * 1.7]]
+
+o200 while [1]
+
+(PRINT,finish probe noon)
+#<y_noon> = [#<y_center> + #<boss_radius> + [#<tip_diameter> * 2]]
+o<probe_g1_by_index> call [1] [#<y_noon>] [#<feed_rapid>]
+#<x_noon> = #<x_center>
+o<probe_g1_by_index> call [0] [#<x_noon>] [#<feed_rapid>]
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_min>] [#<y_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [1]
+#<y_noon> = #<_value>
+(PRINT,noon point: #<x_noon>, #<y_noon>)
+
+(PRINT,finish probe three oclock)
+#<x_three> = [#<x_center> + #<boss_radius> + [#<tip_diameter> * 2]]
+o<probe_g1_by_index> call [0] [#<x_three>] [#<feed_rapid>]
+#<y_three> = #<y_center>
+o<probe_g1_by_index> call [1] [#<y_three>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_min>] [#<x_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [1]
+#<x_three> = #<_value>
+(PRINT,three oclock point: #<x_three>, #<y_three>)
+
+(PRINT,finish probe six oclock)
+#<y_six> = [#<y_center> - #<boss_radius> - [#<tip_diameter> * 2]]
+o<probe_g1_by_index> call [1] [#<y_six>] [#<feed_rapid>]
+#<x_six> = #<x_center>
+o<probe_g1_by_index> call [0] [#<x_six>] [#<feed_rapid>]
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_max>] [#<y_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [1]
+#<y_six> = #<_value>
+(PRINT,six oclock point: #<x_six>, #<y_six>)
+
+(PRINT,finish probe nine oclock)
+#<x_nine> = [#<x_center> - #<boss_radius> - [#<tip_diameter> * 2]]
+o<probe_g1_by_index> call [0] [#<x_nine>] [#<feed_rapid>]
+#<y_nine> = #<y_center>
+o<probe_g1_by_index> call [1] [#<y_nine>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [1]
+#<x_nine> = #<_value>
+(PRINT,nine oclock point: #<x_nine>, #<y_nine>)
+
+(PRINT,fine centers)
+#<x_center> = [[#<x_nine> + #<x_three>] / 2]
+#<y_center> = [[#<y_six>  + #<y_noon>]  / 2]
+(PRINT,center: #<x_center>, #<y_center>)
+
+#<x_axis_origin> = [#<x_center> + #<x_wcs_offset>]
+#<y_axis_origin> = [#<y_center> + #<y_wcs_offset>]
+
+(PRINT,setting origin with G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>)
+G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>
+
+o<probe_circ_boss> endsub
+
+
+o<probe_perp_slope_intercept> sub
+(computes slope and intercept of perpendicular line that bisects two points)
+(#1 is X_1, #2 is X_2, #3 is Y_1, #4 is Y_2)
+
+#<x_middle> = [[#1 + #2] / 2.0]
+#<y_middle> = [[#3 + #4] / 2.0]
+(PRINT,bisect point: #<x_middle>, #<y_middle>)
+
+o100 if [#1 EQ #2]
+  (vertical line)
+  #<bi_slope> = 0
+  #<bi_intercept> = #<y_middle>
+o100 else
+  (rise/run [Y_2 - Y_1] / [X_2 - X_1])
+  #<yx_slope> = [[#4 - #3] / [#2 - #1]]
+  #<bi_slope> = [-1.0 / #<yx_slope>]
+  #<bi_intercept> = [#<y_middle> - [#<bi_slope> * #<x_middle>]]
+o100 endif
+
+(return results via globals)
+#<_probe_value_1> = #<bi_slope>
+#<_probe_value_2> = #<bi_intercept>
+
+o<probe_perp_slope_intercept> endsub
+
+
+o<probe_find_intersection> sub
+(computer intersection point of two lines)
+(#1 is slope1, #2 is intercept1, #3 is slope2, #4 is intercept2)
+
+#<m1> = #1
+#<b1> = #2
+#<m2> = #3
+#<b2> = #4
+
+o100 if [#<m1> EQ #<m2>]
+  (slopes are the same)
+  (how close is too close?)
+  (ABORT,curve is too shallow, slopes equal, or probing error)
+  M02
+o100 endif
+
+(x = delta b / delta m)
+#<x_center> = [[#<b2> - #<b1>] / [#<m1> - #<m2>]]
+(y = mx + b)
+#<y_center> = [[#<m1> * #<x_center>] + #<b1>]
+
+(return results via globals)
+#<_probe_value_1> = #<x_center>
+#<_probe_value_2> = #<y_center>
+
+o<probe_find_intersection> endsub
+
+M02

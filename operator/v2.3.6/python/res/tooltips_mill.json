@@ -1,0 +1,767 @@
+{
+    "mill"   : {
+         "chip_load_evtbox": {
+            "shorttext_id" : "msg_chip_load_label_text",
+            "longtext_id" : "msg_chip_load_tooltip",
+            "dynamic" : ["ui:get_chip_load_type"]
+        },
+        "material_type": {
+            "shorttext_id" : "material_text",
+            "longtext_id" : "msg_material_text_tooltip",
+            "dynamic" : ["ui:material_data:get_material_description"],
+            "long_width": 300
+        },
+        "material_subtype": {
+            "shorttext_id" : "material_text",
+            "longtext_id" : "msg_material_text_tooltip",
+            "dynamic" : ["ui:material_data:get_material_description"],
+            "long_width": 300
+        },
+        "machine_ok_text_evtbox": {
+            "label_id" : "machine_ok_text",
+            "longtext_id" : "machine_ok_led_tooltip"
+        },
+        "door_sw_led_evtbox": {
+            "shorttext_id" : "msg_door_open_led",
+            "longtext_id" : "msg_door_sw_led_tooltip"
+        },
+        "door_lock_led_evtbox": {
+            "shorttext_id" : "msg_door_locked_led",
+            "longtext_id" : "msg_door_locked_led_tooltip"
+        },
+        "x_dro": {
+            "shorttext_id" : "x_dro_text",
+            "longtext_id" : "xyza_dro_tooltip",
+            "long_width": 320
+        },
+        "y_dro": {
+            "shorttext_id" : "y_dro_text",
+            "longtext_id" : "xyza_dro_tooltip",
+            "long_width": 320
+        },
+        "z_dro": {
+            "shorttext_id" : "z_dro_text",
+            "longtext_id" : "xyza_dro_tooltip",
+            "long_width": 320
+        },
+        "a_dro": {
+            "shorttext_id" : "a_dro_text",
+            "longtext_id" : "xyza_dro_tooltip",
+            "long_width": 320
+        },
+        "zero_x": {
+            "shorttext_id" : "zero_x_text",
+            "longtext_id" : "zero_x_tooltip"
+        },
+        "zero_y": {
+            "shorttext_id" : "zero_y_text",
+            "longtext_id" : "zero_y_tooltip"
+        },
+        "zero_z": {
+            "shorttext_id" : "zero_z_text",
+            "longtext_id" : "zero_z_tooltip"
+        },
+        "zero_a": {
+            "shorttext_id" : "zero_a_text",
+            "longtext_id" : "zero_a_tooltip"
+        },
+        "x_dtg_label_evtbox": {
+            "shorttext_id" : "x_dtg_label_evtbox_text",
+            "longtext_id" : "x_dtg_label_evtbox_tooltip"
+        },
+        "goto_g30": {
+            "shorttext_id" : "goto_g30_text",
+            "longtext_id" : "goto_g30_mill_tooltip"
+        },
+        "chip_load_at_stepover_evtbox": {
+           "shorttext_id" : "msg_chip_load_stepover_label_text",
+           "longtext_id" : "msg_chip_load_stepover_tooltip",
+           "long_width": 320,
+           "dynamic" : ["ui:get_chip_load_type"]
+        },
+        "sfm_mrr_hint_evtbox": {
+           "shorttext_id" : "sfm_mrr_hint_text",
+           "longtext_id" : "sfm_mrr_hint_tooltip",
+           "long_width": 320,
+           "dynamic" : ["ui:get_sfm_type"]
+        },
+        "work_offset_label_evtbox": {
+            "shorttext_id" : "msg_work_offset_label_text",
+            "longtext_id" : "msg_mill_work_offset_label_tooltip"
+        },
+        "cycle_start": {
+            "shorttext_id" : "msg_cycle_start_text",
+            "longtext_id" : "msg_cycle_start_tooltip",
+            "long_width": 275
+        },
+        "tool_dro": {
+            "label_id" : "tool_number_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_panel_tip_tool_description"]
+        },
+        "spindle_rpm_dro": {
+            "label_id" : "rpm_text",
+            "longtext_id" : "spindle_rpm_dro_tooltip",
+            "dynamic" : ["ui:get_current_spindle_range_numbers"]
+        },
+        "spindle_override_scale": {
+            "shorttext_id" : "msg_spindle_override_text",
+            "longtext_id" : "msg_mill_spindle_override_tooltip",
+            "long_width": 275
+        },
+        "rpm_override_100": {
+            "shorttext_id" : "msg_spindle_override_text",
+            "longtext_id" : "msg_mill_spindle_override_tooltip",
+            "long_width": 275
+        },
+        "conv_rpm_dro": {
+            "shorttext_id" : "conv_rpm_dro_text",
+            "longtext_id" : "msg_conv_rpm_dro_tooltip",
+            "dynamic" : ["ui:get_current_spindle_range_numbers"]
+        },
+        "conv_feed_dro": {
+            "shorttext_id" : "conv_feed_dro_text",
+            "longtext_id" : "msg_conv_feed_dro_tooltip",
+            "dynamic" : ["ui:get_feed_rate_units"]
+        },
+        "conv_z_feed_dro": {
+            "shorttext_id" : "conv_z_feed_dro_text",
+            "longtext_id" : "msg_conv_z_feed_dro_tooltip",
+            "dynamic" : ["ui:get_feed_rate_units"]
+        },
+        "conv_tool_number_dro": {
+            "label_id" : "tool_number_text",
+            "longtext_id" : "msg_tool_number",
+            "dynamic" : ["ui:get_tool_tip_tool_description"]
+        },
+        "spindle_range": {
+            "shorttext_id" : "msg_spindle_range_text",
+            "longtext_id" : "msg_spindle_range_tooltip",
+            "dynamic" : ["ui:get_current_spindle_range"]
+        },
+        "conv_work_offset_dro": {
+            "shorttext_id" : "conv_work_offset_text",
+            "longtext_id" : "conv_work_offset_mill_tooltip"
+        },
+        "face_stepover_dro": {
+            "label_id" : "face_stepover_text",
+            "longtext_id" : "msg_face_stepover",
+            "images"      : ["TT.stepover-face.png","TT.stepover-face-zero.png"]
+        },
+        "face_z_doc_dro": {
+            "label_id" : "face_z_doc_text",
+            "longtext_id" : "msg_face_prof_pock_z_doc",
+            "images"      : ["TT.face-depth-of-cut.png"]
+        },
+        "conv_z_clear_dro": {
+            "label_id" : "z_clear_text",
+            "longtext_id" : "msg_z_clear"
+        },
+        "profile_stepover_dro": {
+            "label_id" : "profile_stepover_text",
+            "longtext_id" : "msg_prof_stepover_tooltip",
+            "images"      : ["TT.stepover.png","TT.stepover-zero.png"]
+        },
+        "profile_circ_stepover_dro": {
+            "label_id" : "profile_stepover_text",
+            "longtext_id" : "msg_prof_stepover_tooltip",
+            "images"      : ["TT.stepover-profile-circ.png","TT.stepover-profile-circ-zero.png"]
+        },
+        "profile_z_doc_dro": {
+            "label_id" : "profile_z_doc_text",
+            "longtext_id" : "msg_face_prof_pock_z_doc",
+            "images"      : ["TT.depth-of-cut.png"]
+        },
+        "pocket_rect_z_doc_dro": {
+            "label_id" : "pocket_z_doc_text",
+           "longtext_id" : "msg_face_prof_pock_z_doc",
+            "images"      : ["TT.depth-of-cut.png"]
+        },
+        "pocket_rect_stepover_dro": {
+            "label_id" : "pocket_stepover_text",
+            "longtext_id" : "msg_pocket_stepover_tooltip",
+            "images"      : ["TT.stepover-pocket.png","TT.stepover-pocket-zero.png"]
+        },
+        "pocket_circ_z_doc_dro": {
+            "label_id" : "pocket_z_doc_text",
+            "longtext_id" : "msg_face_prof_pock_z_doc",
+            "images"      : ["TT.depth-of-cut.png"]
+        },
+        "pocket_circ_stepover_dro": {
+            "label_id" : "pocket_stepover_text",
+            "longtext_id" : "msg_pocket_stepover_tooltip",
+            "images"      : ["TT.stepover-pocket-circ.png","TT.stepover-pocket-circ-zero.png"]
+        },
+        "drill_spot_tool_number_dro": {
+            "label_id" : "drill_spot_tool_number_text",
+            "longtext_id" : "msg_drill_spot_tool"
+        },
+        "drill_spot_tool_doc_dro": {
+            "label_id" : "drill_spot_tool_doc_text",
+            "longtext_id" : "msg_drill_spot_doc"
+        },
+        "drill_tap_pattern_circular_start_angle_dro": {
+            "label_id" : "drill_tap_pattern_circular_start_angle_text",
+            "longtext_id" : "msg_drill_circ_angle_start"
+        },
+        "drill_tap_pattern_circular_diameter_dro": {
+            "label_id" : "drill_tap_pattern_circular_diameter_text",
+            "longtext_id" : "msg_drill_circ_diameter"
+        },
+        "drill_z_start_dro": {
+            "label_id" : "drill_z_start_text",
+            "longtext_id" : "drill_z_start_dro_tooltip",
+            "images"      : ["TT.drill-z-start.png"]
+        },
+        "drill_z_end_dro": {
+            "label_id" : "drill_tap_z_end_text",
+            "longtext_id" : "drill_z_end_dro_tooltip"
+        },
+        "drill_peck_dro": {
+            "label_id" : "drill_peck_text",
+            "longtext_id" : "drill_peck_dro_tooltip",
+            "images"      : ["TT.drill-peck.png"],
+            "long_width": 320
+        },
+       "drill_through_hole_hint_text_evtbox": {
+            "shorttext_id" : "drill_through_hole_hint_text_text",
+            "longtext_id" : "drill_through_hole_hint_text_tooltip",
+            "images"      : ["TT.drill-full-hole-hint.png"],
+            "long_width": 320
+        },
+        "tap_pitch_dro": {
+            "label_id" : "tap_pitch_text",
+            "longtext_id" : "msg_tap_pitch_dro_tooltip",
+            "images" : ["TT.pitch.vert.svg"]
+        },
+        "tap_tpu_dro": {
+            "label_id" : "tap_tpu_text",
+            "longtext_id" : "thread_mill_tpu_dro_tooltip"
+        },
+        "tap_dwell_dro": {
+            "label_id" : "tap_dwell_sec_text",
+            "longtext_id" : "tap_dwell_dro_tooltip",
+            "long_width": 320
+        },
+        "drill_tap_pattern_circular_holes_dro": {
+            "label_id" : "drill_tap_pattern_circular_holes_text",
+            "longtext_id" : "msg_drill_circ_pattern"
+        },
+        "thread_mill_x_evt_box": {
+            "shorttext_id" : "thread_mill_use_of_drill_table_short",
+            "longtext_id" : "thread_mill_use_of_drill_table_long"
+        },
+        "thread_mill_y_evt_box": {
+            "shorttext_id" : "thread_mill_use_of_drill_table_short",
+            "longtext_id" : "thread_mill_use_of_drill_table_long"
+        },
+        "thread_mill_combobox_evtbox": {
+            "shorttext_id" : "thread_chart_text",
+            "longtext_id" : "thread_mill_combobox_evtbox_tooltip"
+        },
+        "ref_x": {
+            "shorttext_id": "msg_mill_ref_x",
+            "longtext_id" : "msg_mill_ref_x_y_z_a_tooltip"
+        },
+        "ref_y": {
+            "shorttext_id": "msg_mill_ref_y",
+            "longtext_id" : "msg_mill_ref_x_y_z_a_tooltip"
+        },
+        "ref_z": {
+            "shorttext_id": "msg_mill_ref_z",
+            "longtext_id" : "msg_mill_ref_x_y_z_a_tooltip"
+        },
+        "ref_a": {
+            "shorttext_id": "msg_mill_ref_a",
+            "longtext_id" : "msg_mill_ref_x_y_z_a_tooltip"
+        },
+        "jog_inc_cont": {
+            "shorttext_id" : "jog_inc_cont_text",
+            "longtext_id" : "jog_inc_cont_tooltip",
+            "long_width": 320
+        },
+        "jog_x_active_led_evtbox": {
+            "shorttext_id": "msg_jog_x_active",
+            "longtext_id" : "msg_mill_jog_x_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "jog_y_active_led_evtbox": {
+            "shorttext_id": "msg_jog_y_active",
+            "longtext_id" : "msg_mill_jog_y_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "jog_z_active_led_evtbox": {
+            "shorttext_id": "msg_jog_z_active",
+            "longtext_id" : "msg_mill_jog_z_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "jog_a_active_led_evtbox": {
+            "shorttext_id": "msg_jog_a_active",
+            "longtext_id" : "msg_mill_jog_a_active_tooltip",
+            "images" : ["TT.JogShuttle.jpg"]
+        },
+        "thread_mill_drill_table": {
+            "shorttext_id" : "thread_mill_use_of_drill_table_short",
+            "longtext_id" : "thread_mill_use_of_drill_table_long"
+        },
+        "thread_mill_minimal_retract_checkbutton": {
+            "label_id" : "thread_mill_minimal_retract_text",
+            "longtext_id" : "thread_mill_minimal_retract_checkbutton_tooltip",
+            "images"   : ["TT.mill-int-thread-retract.png","TT.mill-int-thread-retract-centered.png"]
+        },
+        "use_atc_checkbutton": {
+            "shorttext_id" : "use_atc_short",
+            "longtext_id" : "use_atc_tooltip"
+        },
+        "use_manual_toolchange_checkbutton": {
+            "shorttext_id" : "use_manual_tool_change_short",
+            "longtext_id" : "use_manual_tool_change_tooltip"
+        },
+        "enable_door_sw_checkbutton": {
+            "shorttext_id" : "enable_door_sw_short",
+            "longtext_id" : "enable_door_sw_tooltip",
+            "long_width": 300
+        },
+        "fourth_axis_homing_checkbutton": {
+            "shorttext_id" : "enable_4th_axis_short",
+            "longtext_id" : "enable_4th_axis_tooltip",
+            "images" : ["TT.4thaxishomingkit.jpg"]
+        },
+        "enable_injector_checkbutton": {
+            "shorttext_id" : "enable_injector_short",
+            "longtext_id" : "enable_injector_tooltip"
+        },
+        "active_probe_radiobutton": {
+            "shorttext_id" : "active_probe_short",
+            "longtext_id" : "active_probe_tooltip",
+            "images": ["TT.digitizing-probe.jpg", "TT.tool-setter.jpg"]
+        },
+        "passive_probe_radiobutton": {
+            "shorttext_id" : "passive_probe_short",
+            "longtext_id" : "passive_probe_tooltip",
+            "images": ["TT.passive-probe.jpg"]
+        },
+        "atc_manual_insert_dro": {
+            "shorttext_id" : "atc_manual_insert_short",
+            "longtext_id" : "atc_manual_insert_tooltip"
+        },
+        "atc_insert": {
+            "shorttext_id" : "atc_insert_btn_short",
+            "longtext_id" : "atc_insert_btn_tooltip"
+        },
+        "atc_delete": {
+            "shorttext_id" : "atc_delete_btn_short",
+            "longtext_id" : "atc_delete_btn_tooltip"
+        },
+        "atc_delete_all": {
+            "shorttext_id" : "atc_delete_all_btn_short",
+            "longtext_id" : "atc_delete_all_btn_tooltip"
+        },
+        "atc_tray_forward": {
+            "shorttext_id" : "atc_tray_forward_btn_short",
+            "longtext_id" : "atc_tray_forward_btn_tooltip"
+        },
+        "atc_tray_reverse": {
+            "shorttext_id" : "atc_tray_reverse_btn_short",
+            "longtext_id" : "atc_tray_reverse_btn_tooltip"
+        },
+        "atc_goto_tray_load": {
+            "shorttext_id" : "atc_goto_tray_load_btn_short",
+            "longtext_id" : "atc_goto_tray_load_btn_tooltip"
+        },
+        "atc_retract": {
+            "shorttext_id" : "atc_retract_btn_short",
+            "longtext_id" : "atc_retract_btn_tooltip"
+        },
+        "atc_drawbar": {
+            "shorttext_id" : "atc_drawbar_btn_short",
+            "longtext_id" : "atc_drawbar_btn_tooltip"
+        },
+        "atc_blast": {
+            "shorttext_id" : "atc_blast_btn_short",
+            "longtext_id" : "atc_blast_btn_tooltip"
+        },
+        "atc_ref_tray": {
+            "shorttext_id" : "atc_ref_tray_btn_short",
+            "longtext_id" : "atc_ref_tray_btn_tooltip"
+        },
+        "atc_set_tool_change_z": {
+            "shorttext_id" : "atc_set_tool_change_z_btn_short",
+            "longtext_id" : "atc_set_tool_change_z_btn_tooltip"
+        },
+        "atc_plus_plus": {
+            "shorttext_id" : "atc_plus_plus_btn_short",
+            "longtext_id" : "atc_plus_plus_btn_tooltip"
+        },
+        "atc_minus_minus": {
+            "shorttext_id" : "atc_minus_minus_btn_short",
+            "longtext_id" : "atc_plus_plus_btn_tooltip"
+        },
+        "atc_remove": {
+            "shorttext_id" : "atc_remove_btn_short",
+            "longtext_id" : "atc_remove_btn_tooltip"
+        },
+        "atc_auto_dro": {
+            "shorttext_id" : "atc_auto_dro_short",
+            "longtext_id" : "atc_auto_dro_tooltip"
+        },
+        "atc_rev": {
+            "shorttext_id" : "atc_rev_btn_short",
+            "longtext_id" : "atc_rev_btn_tooltip"
+        },
+        "atc_fw": {
+            "shorttext_id" : "atc_fw_btn_short",
+            "longtext_id" : "atc_fw_btn_tooltip"
+        },
+        "atc_touch_entire_tray": {
+            "shorttext_id" : "atc_touch_entire_tray_short",
+            "longtext_id" : "atc_touch_entire_tray_tooltip",
+            "long_width": 325
+        },
+        "atc_store": {
+            "shorttext_id" : "atc_store_short",
+            "longtext_id" : "atc_store_tooltip"
+        },
+        "engrave_sn_start_dro": {
+            "label_id" : "engrave_sn_start_text",
+            "longtext_id" : "engrave_sn_start_dro_tooltip",
+            "dynamic" : ["ui:get_current_serial_number"]
+        },
+        "tap_2x_checkbutton": {
+            "shorttext_id" : "tap_2x_checkbutton_text",
+            "longtext_id" : "tap_2x_checkbutton_tooltip"
+        },
+        "switch_to_lathe": {
+            "shorttext_id" : "switch_to_rapidturn_button_text",
+            "longtext_id" : "switch_to_rapidturn_button_tooltip",
+            "images" : ["TT.RapidTurn.jpg"]
+        },
+        "m6_g43": {
+            "shorttext_id" : "m6_g43_text",
+            "longtext_id" : "m6_g43_tooltip"
+        },
+        "g30m998_move_z_only_checkbutton": {
+            "shorttext_id" : "G30_Z_move_only_short",
+            "longtext_id" : "G30_Z_move_only_tooltip",
+            "long_width": 300
+        },
+        "feed_per_min_dro": {
+            "label_id" : "rpm_text1",
+            "longtext_id" : "feed_per_min_dro_tooltip"
+        },
+        "thread_mill_ext_z_start_dro": {
+            "label_id" : "thread_mill_z_start_text",
+            "longtext_id" : "thread_mill_z_start_dro_tooltip"
+        },
+        "thread_mill_int_z_start_dro": {
+            "label_id" : "thread_mill_z_start_text",
+            "longtext_id" : "thread_mill_z_start_dro_tooltip"
+        },
+        "thread_mill_ext_z_end_dro": {
+            "label_id" : "thread_mill_z_end_text",
+            "longtext_id" : "thread_mill_z_end_dro_tooltip"
+        },
+        "thread_mill_int_z_end_dro": {
+            "label_id" : "thread_mill_z_end_text",
+            "longtext_id" : "thread_mill_z_end_dro_tooltip",
+            "images"   : ["TT.mill-minor-thread.png"]
+        },
+        "thread_mill_ext_major_dia_dro": {
+            "label_id" : "thread_mill_major_dia_text",
+            "longtext_id" : "thread_mill_major_dia_dro_tooltip",
+            "images"   : ["TT.mill-major-thread.png"]
+        },
+        "thread_mill_int_major_dia_dro": {
+            "label_id" : "thread_mill_major_dia_text",
+            "longtext_id" : "thread_mill_major_dia_dro_tooltip",
+            "images"   : ["TT.mill-int-major-thread.png"]
+        },
+        "thread_mill_ext_minor_dia_dro": {
+            "label_id" : "thread_mill_minor_dia_text",
+            "longtext_id" : "thread_mill_minor_dia_dro_tooltip",
+            "images"   : ["TT.mill-minor-thread.png"]
+        },
+        "thread_mill_int_minor_dia_dro": {
+            "label_id" : "thread_mill_minor_dia_text",
+            "longtext_id" : "thread_mill_minor_dia_dro_tooltip",
+            "images"   : ["TT.mill-int-minor-thread.png"]
+        },
+        "thread_mill_ext_pitch_dro": {
+            "label_id" : "thread_mill_pitch_text",
+            "longtext_id" : "thread_mill_pitch_dro_tooltip",
+            "images" : ["TT.pitch-vertical.png"]
+        },
+        "thread_mill_int_pitch_dro": {
+            "label_id" : "thread_mill_pitch_text",
+            "longtext_id" : "thread_mill_pitch_dro_tooltip"
+        },
+        "thread_mill_ext_tpu_dro": {
+            "label_id" : "thread_mill_tpu_text",
+            "longtext_id" : "thread_mill_tpu_dro_tooltip"
+        },
+        "thread_mill_int_tpu_dro": {
+            "label_id" : "thread_mill_tpu_text",
+            "longtext_id" : "thread_mill_tpu_dro_tooltip"
+        },
+        "thread_mill_ext_passes_dro": {
+            "label_id" : "thread_mill_passes_text",
+            "longtext_id" : "thread_mill_passes_dro_tooltip"
+        },
+        "thread_mill_int_passes_dro": {
+            "label_id" : "thread_mill_passes_text",
+            "longtext_id" : "thread_mill_passes_dro_tooltip"
+        },
+        "thread_mill_ext_doc_dro": {
+            "label_id" : "thread_mill_doc_text",
+            "longtext_id" : "thread_mill_doc_dro_tooltip"
+        },
+        "thread_mill_int_doc_dro": {
+            "label_id" : "thread_mill_doc_text",
+            "longtext_id" : "thread_mill_doc_dro_tooltip"
+        },
+        "engrave_x_base_dro": {
+            "label_id" : "engrave_x_base_text",
+            "longtext_id" : "engrave_x_base_dro_tooltip"
+        },
+        "engrave_y_base_dro": {
+            "label_id" : "engrave_y_base_text",
+            "longtext_id" : "engrave_y_base_dro_tooltip"
+        },
+        "engrave_height_dro": {
+            "label_id" : "engrave_height_text",
+            "longtext_id" : "engrave_height_dro_tooltip",
+            "long_width": 325
+        },
+        "engrave_text_dro": {
+            "label_id" : "engrave_text",
+            "longtext_id" : "engrave_text_dro_tooltip"
+        },
+        "engrave_z_start_dro": {
+            "label_id" : "engrave_z_start_text",
+            "longtext_id" : "engrave_z_start_dro_tooltip"
+        },
+        "engrave_z_doc_dro": {
+            "label_id" : "engrave_z_doc_text",
+            "longtext_id" : "engrave_z_doc_dro_tooltip",
+            "images"   : ["TT.engrave-depth-of-cut.png"]
+        },
+        "probe_change_corner": {
+            "shorttext_id" : "probe_change_corner_text",
+            "longtext_id" : "probe_change_corner_tooltip"
+        },
+        "probe_change_inner_corner": {
+            "shorttext_id" : "probe_change_corner_text",
+            "longtext_id" : "probe_change_corner_tooltip"
+        },
+        "probe_find_corner": {
+            "shorttext_id" : "probe_find_corner_text",
+            "longtext_id" : "probe_find_corner_tooltip",
+            "long_width": 325
+        },
+        "probe_find_inner_corner": {
+            "shorttext_id" : "probe_find_corner_text",
+            "longtext_id" : "probe_find_corner_tooltip",
+            "long_width": 325
+        },
+        "probe_origin_x_plus": {
+            "shorttext_id" : "probe_origin_x_plus_text",
+            "longtext_id" : "probe_origin_x_plus_tooltip"
+        },
+        "probe_origin_x_minus": {
+            "shorttext_id" : "probe_origin_x_minus_text",
+            "longtext_id" : "probe_origin_x_minus_tooltip"
+        },
+        "probe_origin_y_plus": {
+            "shorttext_id" : "probe_origin_y_plus_text",
+            "longtext_id" : "probe_origin_y_plus_tooltip"
+        },
+        "probe_origin_y_minus": {
+            "shorttext_id" : "probe_origin_y_minus_text",
+            "longtext_id" : "probe_origin_y_minus_tooltip"
+        },
+        "probe_x_plus": {
+            "shorttext_id" : "probe_origin_x_plus_text",
+            "longtext_id" : "probe_x_plus_tooltip"
+        },
+        "probe_x_minus": {
+            "shorttext_id" : "probe_origin_x_minus_text",
+            "longtext_id" : "probe_x_minus_tooltip"
+        },
+        "probe_y_plus": {
+            "shorttext_id" : "probe_origin_y_plus_text",
+            "longtext_id" : "probe_y_plus_tooltip"
+        },
+        "probe_y_minus": {
+            "shorttext_id" : "probe_origin_y_minus_text",
+            "longtext_id" : "probe_y_minus_tooltip"
+        },
+        "probe_origin_z_minus": {
+            "shorttext_id" : "probe_origin_z_minus_text",
+            "longtext_id" : "probe_origin_z_minus_tooltip"
+        },
+        "probe_z_minus": {
+            "shorttext_id" : "probe_origin_z_minus_text",
+            "longtext_id" : "probe_z_minus_tooltip"
+        },
+        "acc_input_text_evtbox": {
+            "label_id" : "acc_input_text",
+            "longtext_id" : "acc_input_tooltip"
+        },
+        "acc_input_evtbox_1": {
+            "label_id" : "acc_input_text1",
+            "longtext_id" : "acc_input_tooltip"
+        },
+        "acc_input_evtbox_2": {
+            "label_id" : "acc_input_text1",
+            "longtext_id" : "acc_input_tooltip"
+        },
+        "acc_input_evtbox_3": {
+            "label_id" : "acc_input_text1",
+            "longtext_id" : "acc_input_tooltip"
+        },
+        "acc_input_evtbox_4": {
+            "label_id" : "acc_input_text4",
+            "longtext_id" : "acc_input_tooltip"
+        },
+        "probe_find_pocket_center": {
+            "shorttext_id" : "probe_find_pocket_center_text",
+            "longtext_id" : "probe_find_pocket_center_tooltip"
+        },
+        "probe_find_pocket_x_center": {
+            "shorttext_id" : "probe_find_pocket_x_center_text",
+            "longtext_id" : "probe_find_pocket_x_center_tooltip"
+        },
+        "probe_find_pocket_y_center": {
+            "shorttext_id" : "probe_find_pocket_y_center_text",
+            "longtext_id" : "probe_find_pocket_y_center_tooltip"
+        },
+        "probe_find_rect_boss_center": {
+            "shorttext_id" : "probe_find_rect_boss_center_text",
+            "longtext_id" : "probe_find_rect_boss_center_tooltip"
+        },
+        "probe_find_circ_boss_center": {
+            "shorttext_id" : "probe_find_circ_boss_center_text",
+            "longtext_id" : "probe_find_circ_boss_center_tooltip"
+        },
+        "probe_a_axis_center": {
+            "shorttext_id" : "probe_a_axis_center_text",
+            "longtext_id" : "probe_a_axis_center_tooltip"
+        },
+        "set_g30": {
+            "shorttext_id" : "set_g30_text",
+            "longtext_id" : "set_g30_tooltip"
+        },
+        "touch_z_dro": {
+            "shorttext_id" : "touch_z_dro_text",
+            "longtext_id" : "touch_z_dro_tooltip"
+        },
+        "touch_z": {
+            "shorttext_id" : "touch_z_text",
+            "longtext_id" : "touch_z_tooltip",
+            "long_width": 325
+        },
+        "move_and_set_tool_length": {
+            "shorttext_id" : "move_and_set_tool_length_text",
+            "longtext_id" : "move_and_set_tool_length_tooltip",
+            "long_width": 325
+        },
+        "spindle_type_combobox": {
+            "shorttext_id" : "spindle_type_text",
+            "longtext_id" : "spindle_type_tooltip",
+            "images" : ["TT.speeder.jpg", "TT.hispeedspindle.jpg"]
+        },
+        "G17_tooltip": {
+            "shorttext_id" : "G17_mill_tooltip_text",
+            "longtext_id" : "G17_mill_tooltip_tooltip",
+            "images" : ["TT.G17-mill.png", "TT.v-space-3.png"]
+        },
+        "G18_tooltip": {
+            "shorttext_id" : "G18_mill_tooltip_text",
+            "longtext_id" : "G18_mill_tooltip_tooltip",
+            "images" : ["TT.G18-mill.png", "TT.v-space-3.png"]
+        },
+        "G19_tooltip": {
+            "shorttext_id" : "G19_mill_tooltip_text",
+            "longtext_id" : "G19_mill_tooltip_tooltip",
+            "images" : ["TT.G19-mill.png", "TT.v-space-3.png"]
+        },
+        "G81_tooltip": {
+            "shorttext_id" : "G81_mill_tooltip_text",
+            "longtext_id" : "G81_mill_tooltip_tooltip",
+            "images" : ["TT.G81-mill.png", "TT.v-space-3.png"],
+            "long_width": 350
+        },
+        "G82_tooltip": {
+            "shorttext_id" : "G82_mill_tooltip_text",
+            "longtext_id" : "G82_mill_tooltip_tooltip",
+            "images" : ["TT.G82-mill.png", "TT.v-space-3.png"],
+            "long_width": 350
+        },
+        "G83_tooltip": {
+            "shorttext_id" : "G83_mill_tooltip_text",
+            "longtext_id" : "G83_mill_tooltip_tooltip",
+            "images" : ["TT.G83-mill.png", "TT.v-space-3.png"],
+            "long_width": 350
+        },
+        "G86_tooltip": {
+            "shorttext_id" : "G86_mill_tooltip_text",
+            "longtext_id" : "G86_mill_tooltip_tooltip",
+            "images" : ["TT.G86-mill.png", "TT.v-space-3.png"],
+            "long_width": 350
+        },
+        "G89_tooltip": {
+            "shorttext_id" : "G89_mill_tooltip_text",
+            "longtext_id" : "G89_mill_tooltip_tooltip",
+            "images" : ["TT.G89-mill.png", "TT.v-space-3.png"],
+            "long_width": 350
+        },
+        "G90_tooltip": {
+            "shorttext_id" : "G90_tooltip_text",
+            "longtext_id" : "G90_mill_tooltip_tooltip",
+            "images" : ["TT.G90-mill.png", "TT.v-space-3.png"],
+            "long_width": 300
+        },
+        "G91_tooltip": {
+            "shorttext_id" : "G91_tooltip_text",
+            "longtext_id" : "G91_mill_tooltip_tooltip",
+            "images" : ["TT.G91-mill.png", "TT.v-space-3.png"],
+            "long_width": 300
+        },
+        "G90.1_tooltip" : {
+            "shorttext_id" : "G90.1_tooltip_text",
+            "longtext_id" : "G90.1_mill_tooltip",
+            "images" : ["TT.G90.1-mill.png", "TT.v-space-3.png"]
+        },
+        "G91.1_tooltip" : {
+            "shorttext_id" : "G91.1_tooltip_text",
+            "longtext_id" : "G91.1_mill_tooltip",
+            "images" : ["TT.G91.1-mill.png", "TT.v-space-3.png"]
+        },
+        "G98_tooltip" : {
+            "shorttext_id" : "G98_tooltip_text",
+            "longtext_id" : "G98_tooltip_tooltip",
+            "images" : ["TT.G98-mill.png","TT.v-space-3.png"]
+        },
+        "G99_tooltip" : {
+            "shorttext_id" : "G99_tooltip_text",
+            "longtext_id" : "G99_tooltip_tooltip",
+            "images" : ["TT.G99-mill.png","TT.v-space-3.png"]
+        },
+        "tool_search_entry" : {
+            "shorttext_id" : "msg_tool_search_entry_shorttip",
+            "longtext_id" : "msg_tool_search_entry_longtip"
+        },
+        "filter_tool_table_combobox" : {
+            "shorttext_id" : "msg_filter_tool_table_shorttip",
+            "longtext_id" : "msg_filter_tool_table_longtip"
+        },
+        "workoffset_search_entry" : {
+            "shorttext_id" : "msg_workoffset_search_entry_shorttip",
+            "longtext_id" : "msg_workoffset_search_entry_longtip"
+        },
+        "filter_work_offsets_combobox" : {
+            "shorttext_id" : "msg_filter_work_offsets_shorttip",
+            "longtext_id" : "msg_filter_work_offsets_longtip"
+        }
+    }
+}

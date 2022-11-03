@@ -1,0 +1,47 @@
+o<probe_move_and_set_tool_length> sub
+(for use with the ETS, tool feeds in -Z until probe trips, retracts, sets tool table for current tool)
+(also used for setting the probe length)
+
+;(PRINT,begin o<probe_move_and_set_tool_length> sub ----------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6)
+
+o<probe_prep> call
+
+#<feed_rapid> = #1       (current units)
+#<feed_ruff> = #2        (current units)
+#<feed_fine> = #3        (current units)
+#<axis_limit> = #4       (current units)
+#<wcs_offset> = #5       (current units)
+#<ref_height> = #6       (current units)
+
+o<probe_prep> call
+
+(cancel tool length offset to get actual distance between spindle nose and probe/ETS trip point)
+(PRINT,G49)
+G49
+
+(probe in Z minus, no set origin, no analog pin, retract to start)
+o<probe_xyz> call [2] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<axis_limit>] [#<wcs_offset>] [0] [-1] [0.0] [-1] [1]
+
+#<z_minus> = #<_value>
+(PRINT,z_minus: #<z_minus>)
+
+(subtract the reference height offset from the probe trip position)
+(this is the distance between the spindle nose and the tool tip)
+#<tool_length> = [#<z_minus> - #<ref_height>]
+(PRINT,tool_length: #<tool_length>)
+
+(PRINT,setting tool length: G10 L1 P #<_current_tool> Z #<tool_length>)
+G10 L1 P #<_current_tool> Z #<tool_length>
+
+(PRINT,G43)
+G43  (enable tool length offset)
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_move_and_set_tool_length> sub --------------------------------------------------)
+
+o<probe_move_and_set_tool_length> endsub
+
+M02 (end program)
+

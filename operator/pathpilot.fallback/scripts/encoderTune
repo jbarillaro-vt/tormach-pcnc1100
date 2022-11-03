@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+
+cd ~/tmc
+. scripts/rip-environment.sh
+
+while [ 1 ]
+    do
+
+    halcmd show | grep deadband | grep m200
+
+    read -p "Enter new encoder window " USER_INPUT
+
+    if [ -z $USER_INPUT ] ; then
+        echo "done"
+        exit 0
+    fi
+
+    halcmd setp tormachspindlem200.deadband-in $USER_INPUT
+
+done
+

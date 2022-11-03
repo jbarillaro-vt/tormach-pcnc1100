@@ -1,0 +1,24 @@
+# Please enter your custom metric thread data in this file.  
+# Tormach updates will not overwrite this file.
+
+# Entries in this file will show up in the thread selector at the top
+# under the label of "USER"
+
+# Lines starting with a # are comment lines and that line is ignored by PathPilot.
+# Blank lines are also ignored.
+# Use comma as field delimiter.  
+# All whitespace after commas is ignored. That is spaces, tabs, and columns spacing do not matter
+# except for human readability.
+# Column order DOES matter.
+
+# Remove the leading # symbols below to enable the two example custom "user" thread
+# entries for a test.  Otherwise, use the examples as templates to create your own entries
+
+# column format is:
+# size/description, threads per unit, external major diameter, external minor diameter, internal major diameter, internal minor diameter
+# descr , pitch   , e maj  , e min  , i maj  , i min
+
+
+#M2x0.4  , 2.5    ,  1.886 ,  1.408 ,  2.000 ,  1.679
+#M3x0.5  , 2      ,  2.874 ,  2.272 ,  3.000 ,  2.599
+

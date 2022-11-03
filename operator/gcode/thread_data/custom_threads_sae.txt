@@ -1,0 +1,35 @@
+# Please enter your custom English or "SAE" thread data in this file.  
+# Tormach updates will not overwrite this file.
+
+# Entries in this file will show up in the thread selector at the top,
+# under the label of "USER"
+
+# Lines starting with a # are comments and that line is ignored by PathPilot
+# Blank lines are also ignored
+# Use comma as field delimiter.
+# All whitespace after commas is ignored.  That is spaces, tabs, and columns spacing do not matter
+# except for human readability. 
+# Column order DOES matter.
+
+# Remove the leading # symbols below to enable the example custom "user" thread
+# entries for a test.  Otherwise, use the examples as templates to create your own entries
+
+#column format is:
+# size/description, threads per unit, external major diameter, external minor diameter, internal major diameter, internal minor diameter
+# diameter, and mean thread height, effective thread length
+#description,  tpi, e maj ,  e min, i maj , i min
+
+#5/16-24,        24, 0.3114, 0.2603, 0.3125, 0.2670
+#3/8-16,         16, 0.3737, 0.2970, 0.3750, 0.3070
+
+#NPT entries are only available on Tomach lathe machines  
+#NPT entries are ignored for Tormach mill machines  
+#NPT entries are: threads per unit, external pitch diameter, internal pitch
+
+#NPT examples.  (Only for Tormach Lathes)
+#       , TPI , Ext PD , Int PD , TH max , TH min , Eff TL, Pipe OD, Hole ID
+#1/16npt , 27  , 0.27118, 0.28118, 0.02963, 0.02496, 0.2611, 0.3125,  0.26424
+#1/8NPT  , 27  , 0.36351, 0.37360, 0.02963, 0.02496, 0.2639, 0.405 ,  0.35656
+
+
+

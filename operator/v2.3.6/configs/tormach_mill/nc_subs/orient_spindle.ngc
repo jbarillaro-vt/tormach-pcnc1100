@@ -1,0 +1,48 @@
+(-----------------------------------------------------------------------------------------)
+(                       ORIENT SPINDLE                                                    )
+(                                                                                         )
+(      Args #1 = angle,  #2 = 0 or 1 , synch or asynch                                    )
+(-----------------------------------------------------------------------------------------)
+o<orient_spindle> sub
+  o<bounce> if [#<_spindle_orient_needed> NE 1.0]    
+    o<orient_spindle> return       (bounce out)
+  o<bounce> endif 
+        (---------------------------------------------------------------------------------)
+        (Spindle orientation - via M19                                                    )
+        ( Make sure spindle is stopped, draw bar is free, ready the  brake                )
+        ( Orient the spindle                                                              )
+        (---------------------------------------------------------------------------------) 
+        o<quiesce_spindle> call     (wait on spindle wind down)
+        
+        (----------------------------------------------------------------------------------)
+        (                Pneumatic housekeeping                                            )
+        ( Unlock DB if it's down  -  ATC HAL only fires this if needed, else bounces back  )
+        ( Preset the pressure solenoid for the lock to save tc time                        )
+        (----------------------------------------------------------------------------------)
+        o<atc_airop> call [#<_draw_bar>][#<_deactivate>]    (release draw bar)
+        o<atc_airop> call [#<_solenoid>] [#<_draw_low_pressure>] (get a head start)
+        
+        (---------------------------------------------------------------------------------------------)
+        ( If doable , move the Z axis up 10 thou in case user just touched off a tool                 )
+        ( before rotating for an orientation  Gets tool tip clear of touch block or work              )
+        ( Moves are done in user's coordinate system and units to avoid DRO's switching to inch       )
+        ( Distance to move is set in REMAP and passed down                                            )
+        (---------------------------------------------------------------------------------------------)
+         G28.1       (retrieve machine coordinates in setup units - inches)
+         o<check_for_headroom> if [#5163 LT #<_tool_change_Z_setup>]    (are we below ATC plane)
+            G0 Z[#5422 + #<_up_a_bit>]   (punch it up a skosh ,variable is scaled in remap )
+         o<check_for_headroom> endif
+         
+        (---------------------------------------------------------------------------------------------)
+        ( Do orientation                                                                              )
+        (---------------------------------------------------------------------------------------------)
+         M19 R[#1] (orient drive lugs to requested angle ) 
+
+     (-------------------------------------------------------------------------------------)
+     (   sych vs asynch processing   #2 determines wait request for                        )
+     (-------------------------------------------------------------------------------------)
+     o<do_we_wait>  if [#2 EQ 1.0]    (second argument for wait flag)
+        M66 P[#<_spindle_is_locked>] L3 Q15.0  (wait 15 seconds for this to light)
+     o<do_we_wait> endif 
+        
+o<orient_spindle> endsub [0]

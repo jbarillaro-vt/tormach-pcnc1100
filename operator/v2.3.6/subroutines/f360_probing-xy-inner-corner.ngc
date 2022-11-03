@@ -1,0 +1,67 @@
+o<f360_probing-xy-inner-corner> sub
+(SG, probe inner corner)
+
+(fetch our parameters into named variables)
+#<x> = #1
+#<y> = #2
+#<z> = #3
+#<nominaldiameter> = #4
+#<feed> = #5
+#<depth> = #6
+#<xapproach> = #7
+#<yapproach> = #8
+#<clearance> = #9
+#<overtravel> = #10
+#<retract> = #11
+#<targetwcs> = #12
+
+(we will need to know the accurate - tool table - tip radius)
+o<f360_tip_radius> call
+#<tip_radius> = #<_value>
+
+G90 (set to absolute position mode)
+G92.1  (Cancel G92 offset, maybe some day it should be allowed)
+
+(rapid down to retract height)
+G0 Z#<retract>
+
+(safe move down to probe height)
+o<f360_safe_move_z> call [-#<depth>] [#<feed>]
+
+(do the x-probe)
+o<f360_probe_x> call [#<xapproach>] [#<clearance> + #<overtravel>]
+
+(where did the hit occur)
+#<hit> = [#5061 + #<xapproach> * #<tip_radius>]
+
+(where should it have been)
+#<expected> = [#<x> + #<xapproach> * [#<clearance> + #<nominaldiameter>/2.0]]
+
+(modify the target WCS)
+o<f360_update_x> call [#<targetwcs>] [#<hit>] [#<expected>]
+
+(return to the starting position)
+G90
+G0 X#<x>
+
+(then do the y-probe)
+o<f360_probe_y> call [#<yapproach>] [#<clearance> + #<overtravel>]
+
+(where did the hit occur)
+#<hit> = [#5062 + #<yapproach> * #<tip_radius>]
+
+(where should it have been)
+#<expected> = [#<y> + #<yapproach> * [#<clearance> + #<nominaldiameter>/2.0]]
+
+(modify the target WCS)
+o<f360_update_y> call [#<targetwcs>] [#<hit>] [#<expected>]
+
+(return to the starting position)
+G90
+G0 Y#<y>
+Z#<retract>
+
+o<f360_probing-xy-inner-corner> endsub
+
+M02 (end program)
+

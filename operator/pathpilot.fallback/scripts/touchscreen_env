@@ -1,0 +1,30 @@
+#-----------------------------------------------------------------------
+# coding=utf-8
+#
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+#
+# sourced by touchscreen calibration scripts
+#
+TMC_DIR="$HOME/tmc"
+GCODE_DIR="$HOME/gcode"
+
+TSCAL_BINARY="$TMC_DIR/bin/xinput_calibrator"
+
+# this file path must match in calibration script called from PathPilot UI
+TSCALFILE="$GCODE_DIR/pointercal.xinput"
+
+TSLOGFILE="$GCODE_DIR/logfiles/xinput_calibrator.pointercal.log"
+
+echo "list of xinput devices:"
+xinput --list
+
+TS_DEVICE=`$HOME/tmc/scripts/detect_touchscreen.py`
+if [ $? != 0 ]; then
+    echo "could not find any touchscreen device"
+    TS_DEVICE=''
+fi
+
+echo "Touchscreen device = \"$TS_DEVICE\""

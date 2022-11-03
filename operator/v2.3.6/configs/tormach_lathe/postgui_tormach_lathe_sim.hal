@@ -1,0 +1,155 @@
+# Include your customized HAL commands here
+# The commands in this file are run after the GUI starts and has the opportunity to create the needed pins
+
+net coolant-flood tormach.coolant
+net coolant-flood-io iocontrol.0.coolant-flood => tormach.coolant-iocontrol
+
+# this connects the GUI to the signals from the milljogtranslator/shuttlexpress
+net sxp.xen-button            => tormach.jog-axis-x-enabled
+net sxp.yen-button            => tormach.jog-axis-y-enabled
+net sxp.zen-button            => tormach.jog-axis-z-enabled
+net sxp.aen-button            => tormach.jog-axis-a-enabled
+net sxp.step-button           => tormach.jog-step-button
+net sxp.jog-ring-speed-signed => tormach.jog-ring-speed-signed
+net sxp.selected-axis         => tormach.jog-ring-selected-axis
+net sxp.counts-smoothed       => tormach.jog-counts
+net sxp.gui_step_index        <= tormach.jog-gui-step-index
+net sxp.is_metric             <= tormach.jog-is-metric
+
+#spindle RPM during program execution comes from encoder
+net spindle-rps-raw => tormach.spindle-speed-out
+
+# GUI sets tool changer type in lathe tool changer comp
+net gui-tool-changer-type tormachltc.0.tool-changer-type => tormach.tool-changer-type
+
+# GUI tells tool changer comp when operator has completed tool change
+net gui-manual-tool-changed tormachltc.0.manual-tool-changed => tormach.manual-tool-changed
+
+# GUI needs to know when tool change is in progress for managing manual tool changer
+net tool-change-start => tormach.tool-change
+
+# GUI needs tool_prepare number to display to operator on manual tool change
+net tool-prep-number-to-comp => tormach.tool-prep-number
+
+
+# GUI status LEDs
+#net door-switch => tormach.door-switch
+#net spindle-pos => tormach.encoder-counts
+net spindle-phase-A => tormach.encoder-a
+net spindle-phase-B => tormach.encoder-b
+net spindle-phase-Z => tormach.encoder-z
+setp tormach.machine-ok 1
+
+# gui sets whether we are using a high speed pulley (5c) or low speed (D1-4)
+net spindle-range => tormach.spindle-range
+
+# door switch status
+# say door is always closed
+setp tormach.door-switch 0
+
+
+#######################################################################
+# Collet Closer
+#######################################################################
+
+# Hook up the pins the UI button uses to control the collet
+net nosigname1 tormach.collet-closer-manual-request tormachcolletcontrol.0.manual-request
+net nosigname2 tormach.collet-closer-manual-output tormachcolletcontrol.0.manual-collet-output
+
+# Hook up the pins the g-code interpreter uses to control the collet - it does this through
+# motion digital pins
+net nosigname3 motion.digital-out-62 tormachcolletcontrol.0.interp-request
+net nosigname4 motion.digital-out-63 tormachcolletcontrol.0.interp-collet-output
+
+# Give the UI a status pin that it can read for the button LED
+net colletoutputsig tormach.collet-closer-status
+
+# connect the status signal to digital input 21 so it can be read
+# by M3 and M4 remap using M66 which is a queue buster.
+net colletoutputsig motion.digital-in-21
+
+
+
+# raw count from spindle encoder
+setp tormach.encoder-count -12345
+
+# Mesa card watchdog
+setp tormach.mesa-watchdog-has-bit 0
+
+loadrt time
+addf time.0 servo-thread
+net prog-running prog-not-idle.in <= halui.program.is-idle
+net cycle-timer time.0.start <= prog-not-idle.out
+net cycle-seconds tormach.cycle-time-seconds <= time.0.seconds
+net cycle-minutes tormach.cycle-time-minutes <= time.0.minutes
+net cycle-hours tormach.cycle-time-hours <= time.0.hours
+
+loadrt stopwatch
+addf stopwatch.0 servo-thread
+net cycle-timer stopwatch.0.start
+net run-pause stopwatch.0.pause <= halui.program.is-paused
+net run-seconds tormach.run-time-seconds <= stopwatch.0.seconds
+net run-minutes tormach.run-time-minutes <= stopwatch.0.minutes
+net run-hours tormach.run-time-hours <= stopwatch.0.hours
+
+
+# HAL pins for GUI access to IO and motion for reading line numbers
+
+net motion-program-line   tormach.motion-program-line      <= motion.program-line
+net motion-next-program-line   tormach.motion-next-program-line      <= motion.next-program-line
+net motion-completed-program-line   tormach.motion-completed-program-line      <= motion.completed-program-line
+
+# for detecting current motion type: rapid, feed, probe, etc
+net motion-motion-type     tormach.motion-motion-type       motion.motion-type
+
+# USBIO
+net usbio-enabled tormach.usbio-enabled => usbio.enabled
+net dig-out-5 tormach.usbio-output-0
+net dig-out-6 tormach.usbio-output-1
+net dig-out-7 tormach.usbio-output-2
+net dig-out-8 tormach.usbio-output-3
+net dig-out-9 tormach.usbio-output-4
+net dig-out-10 tormach.usbio-output-5
+net dig-out-11 tormach.usbio-output-6
+net dig-out-12 tormach.usbio-output-7
+net dig-out-13 tormach.usbio-output-8
+net dig-out-14 tormach.usbio-output-9
+net dig-out-15 tormach.usbio-output-10
+net dig-out-16 tormach.usbio-output-11
+net dig-out-17 tormach.usbio-output-12
+net dig-out-18 tormach.usbio-output-13
+net dig-out-19 tormach.usbio-output-14
+net dig-out-20 tormach.usbio-output-15
+
+net dig-in-5 tormach.usbio-input-0
+net dig-in-6 tormach.usbio-input-1
+net dig-in-7 tormach.usbio-input-2
+net dig-in-8 tormach.usbio-input-3
+net dig-in-9 tormach.usbio-input-4
+net dig-in-10 tormach.usbio-input-5
+net dig-in-11 tormach.usbio-input-6
+net dig-in-12 tormach.usbio-input-7
+net dig-in-13 tormach.usbio-input-8
+net dig-in-14 tormach.usbio-input-9
+net dig-in-15 tormach.usbio-input-10
+net dig-in-16 tormach.usbio-input-11
+net dig-in-17 tormach.usbio-input-12
+net dig-in-18 tormach.usbio-input-13
+net dig-in-19 tormach.usbio-input-14
+net dig-in-20 tormach.usbio-input-15
+
+# IOB notification for errors
+net iob-status usbio.IOB-OK => tormach.usbio-status
+
+net board0present usbio.board-0-present => tormach.usbio-board-0-present
+net board1present usbio.board-1-present => tormach.usbio-board-1-present
+net board2present usbio.board-2-present => tormach.usbio-board-2-present
+net board3present usbio.board-3-present => tormach.usbio-board-3-present
+
+#
+# Pins to allow for monitoring of axis homing
+#
+net homing-x tormach.axis-0-homing
+net homing-y tormach.axis-1-homing
+net homing-z tormach.axis-2-homing
+

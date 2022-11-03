@@ -1,0 +1,27 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+
+EDITOR_PROGRAM=gedit
+
+# the custom GTK library doesn't need LD_PRELOAD because we put it in the
+# LD_LIBRARY_PATH but if we ever move it we will need LD_PRELOAD here
+PRELOAD_GTK_LIB=""$HOME"/tmc/lib/libgtk-x11-2.0.so.0"
+
+# set current directory to $HOME/gcode
+# if user does a "file-save" on a "new" file the GTK file chooser dialog
+# starts here where we can keep it captive
+cd "$HOME"/gcode
+
+# run editor with LD_PRELOAD and arguments
+#LD_PRELOAD="$PRELOAD_GTK_LIB" "$EDITOR_PROGRAM" "$@"
+# run via 'exec' to stay in the same process as this script
+export LD_PRELOAD="$PRELOAD_GTK_LIB"
+exec "$EDITOR_PROGRAM" "$@"
+
+
+

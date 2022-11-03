@@ -1,0 +1,177 @@
+# Include your customized HAL commands here
+# The commands in this file are run after the GUI starts and has the opportunity to create the needed pins
+
+# connect spindle range button to hal gearchange pin
+net spindle-range                tormach.spindle-range
+net spindle-range-alarm          tormach.spindle-range-alarm
+
+# Spindle
+# tormach.spindle is written to with tormach.spindle-iocontrol via the UI to control door open spindle stop/run
+net spindle-on                tormach.spindle
+net spindle-io-control        tormach.spindle-iocontrol     motion.spindle-on
+
+# spindle RPM derived from spindle comp
+net spindle-raw-velocity         tormach.spindle-speed-out
+
+# mill spindle disable for Duality
+net spindle-disable              tormach.spindle-disable
+
+net spindle-fault           tormach.spindle-fault
+net pp-estop-fault          tormach.pp-estop-fault
+
+# coolant
+net coolant-flood                tormach.coolant
+net coolant-flood-io             tormach.coolant-iocontrol
+
+net x-motor-state           tormach.x-motor-state
+net x-status-code           tormach.x-status-code
+net x-motor-command         tormach.x-motor-command
+
+net z-motor-state           tormach.z-motor-state
+net z-status-code           tormach.z-status-code
+net z-motor-command         tormach.z-motor-command
+
+net y-motor-state           tormach.y-motor-state
+net y-status-code           tormach.y-status-code
+net y-motor-command         tormach.y-motor-command
+
+# this connects the GUI to the signals from the milljogtranslator/shuttlexpress
+net sxp.xen-button            => tormach.jog-axis-x-enabled
+net sxp.yen-button            => tormach.jog-axis-y-enabled
+net sxp.zen-button            => tormach.jog-axis-z-enabled
+net sxp.aen-button            => tormach.jog-axis-a-enabled
+net sxp.step-button           => tormach.jog-step-button
+net sxp.jog-ring-speed-signed => tormach.jog-ring-speed-signed
+net sxp.selected-axis         => tormach.jog-ring-selected-axis
+net sxp.counts-smoothed       => tormach.jog-counts
+net sxp.gui_step_index        <= tormach.jog-gui-step-index
+net sxp.is_metric             <= tormach.jog-is-metric
+
+#--------------------------------------------------------------------------------
+# new enclosure door sensor+lock assembly needs lock pins
+net enc-door-lock-drive          tormach.enc-door-lock-drive
+# for locked-status, 1 = door is locked, 0 = door is unlocked
+net enc-door-locked-status       tormach.enc-door-locked-status
+#--------------------------------------------------------------------------------
+
+# door switch status (not present on mill, lathe UI expects it)
+net door-switch-in            tormach.door-switch
+
+# enclosure door switch is optional with mill
+net enc-door-switch-enabled      tormach.rapidturn-door-switch-enabled
+
+# enclosure door lock is optional with 770M and 1100M
+net enc-door-lock-drive          tormach.enc-door-lock-drive
+net enc-door-locked-status       tormach.enc-door-locked-status
+
+# raw count from spindle encoder (which is not present on mill)
+setp tormach.encoder-count 0
+
+# limit switch status and enable
+net home-limit-raw      => tormach.home-switch
+net limit-switch-enable => tormach.home-switch-enable
+
+# probe function disable/enable. Used for switching between probe and use as "encoder" input for new accessories
+net probe-enable             tormach.probe-enable
+
+# Mesa card watchdog
+net hm2_5i25.0.watchdog.has-bit => tormach.mesa-watchdog-has-bit
+
+# program running elapsed time display
+loadrt time
+addf time.0 servo-thread
+net prog-running prog-not-idle.in <= halui.program.is-idle
+net cycle-timer time.0.start <= prog-not-idle.out
+net cycle-seconds tormach.cycle-time-seconds <= time.0.seconds
+net cycle-minutes tormach.cycle-time-minutes <= time.0.minutes
+net cycle-hours tormach.cycle-time-hours <= time.0.hours
+
+loadrt stopwatch
+addf stopwatch.0 servo-thread
+net cycle-timer stopwatch.0.start
+net run-pause stopwatch.0.pause <= halui.program.is-paused
+net run-seconds tormach.run-time-seconds <= stopwatch.0.seconds
+net run-minutes tormach.run-time-minutes <= stopwatch.0.minutes
+net run-hours tormach.run-time-hours <= stopwatch.0.hours
+
+
+# GUI status LEDs
+net spindle-phase-Z => tormach.encoder-z
+net machine-ok => tormach.machine-ok
+
+# HAL pins for GUI access to IO and motion for reading line numbers
+net motion-program-line   tormach.motion-program-line      <= motion.program-line
+net motion-next-program-line   tormach.motion-next-program-line      <= motion.next-program-line
+net motion-completed-program-line   tormach.motion-completed-program-line     <= motion.completed-program-line
+
+# for detecting current motion type: rapid, feed, probe, etc
+net motion-motion-type     tormach.motion-motion-type       motion.motion-type
+
+# GUI sets tool changer type in lathe tool changer comp
+net gui-tool-changer-type tormachltc.0.tool-changer-type => tormach.tool-changer-type
+
+# GUI tells tool changer comp when operator has completed tool change
+net gui-manual-tool-changed tormachltc.0.manual-tool-changed => tormach.manual-tool-changed
+
+# GUI needs to know when tool change is in progress for managing manual tool changer
+net tool-change-start => tormach.tool-change
+
+# GUI needs tool_prepare number to display to operator on manual tool change
+net tool-prep-number-to-comp => tormach.tool-prep-number
+
+# RapidTurn modes have automatic collet closer forced to be 'OD' clamping.
+# And therefore digital input 21 with a value of 0 always means that the collet is 'clamped'
+# That way M3 and M4 remaps will never abort.
+setp motion.digital-in-21 0
+
+# USBIO
+net usbio-enabled tormach.usbio-enabled => usbio.enabled
+net dig-out-5 tormach.usbio-output-0
+net dig-out-6 tormach.usbio-output-1
+net dig-out-7 tormach.usbio-output-2
+net dig-out-8 tormach.usbio-output-3
+net dig-out-9 tormach.usbio-output-4
+net dig-out-10 tormach.usbio-output-5
+net dig-out-11 tormach.usbio-output-6
+net dig-out-12 tormach.usbio-output-7
+net dig-out-13 tormach.usbio-output-8
+net dig-out-14 tormach.usbio-output-9
+net dig-out-15 tormach.usbio-output-10
+net dig-out-16 tormach.usbio-output-11
+net dig-out-17 tormach.usbio-output-12
+net dig-out-18 tormach.usbio-output-13
+net dig-out-19 tormach.usbio-output-14
+net dig-out-20 tormach.usbio-output-15
+
+net dig-in-5 tormach.usbio-input-0
+net dig-in-6 tormach.usbio-input-1
+net dig-in-7 tormach.usbio-input-2
+net dig-in-8 tormach.usbio-input-3
+net dig-in-9 tormach.usbio-input-4
+net dig-in-10 tormach.usbio-input-5
+net dig-in-11 tormach.usbio-input-6
+net dig-in-12 tormach.usbio-input-7
+net dig-in-13 tormach.usbio-input-8
+net dig-in-14 tormach.usbio-input-9
+net dig-in-15 tormach.usbio-input-10
+net dig-in-16 tormach.usbio-input-11
+net dig-in-17 tormach.usbio-input-12
+net dig-in-18 tormach.usbio-input-13
+net dig-in-19 tormach.usbio-input-14
+net dig-in-20 tormach.usbio-input-15
+
+# IOB notification for errors
+net iob-status usbio.IOB-OK => tormach.usbio-status
+
+net board0present usbio.board-0-present => tormach.usbio-board-0-present
+net board1present usbio.board-1-present => tormach.usbio-board-1-present
+net board2present usbio.board-2-present => tormach.usbio-board-2-present
+net board3present usbio.board-3-present => tormach.usbio-board-3-present
+
+#
+# Pins to allow for monitoring of axis homing
+#
+net z-is-homing tormach.axis-0-homing
+net y-is-homing tormach.axis-1-homing
+net x-is-homing tormach.axis-2-homing
+

@@ -1,0 +1,334 @@
+# Tormach Lathe Hal file - originally created by Step Conf March 15 2012.
+# changed to new unified tool change HAL comp - JFP 17 December 2012
+# This is theDEF part - JAP 13 October 2012
+# Cleaned up, added estop-latch 3/28/12
+# changed tool change to match gang tool style 4/23/12
+
+# loads of changes from parallel port HAL to port to 5i25 Mesa card 7/2012
+# Change of charge pump from 12kHz to 500Hz 8/23/2012
+#   8/27/2012 rev 2 lathe control board
+#             charge pump driven by 500 Hz PWM
+#             removed commented out left over parallel port HAL configurations
+#             added table of pins vs. function for 5i25
+#             spindle speed now controlled by stepgen 1Hz == 1 RPM
+#   9/7/2012 ATC mostly working
+################################################################
+
+# All the coms loaded and threaded in _DEC
+
+###############################################################
+# 5i25 watchdog timeout
+# 10 milliseconds (~10 times the servo loop period)
+setp hm2_5i25.0.watchdog.timeout_ns 10000000
+
+###############################################################
+# 5i25
+# Configuration pin-out: 
+#
+#                    IO Connections for P3
+#    Lathe Function  Pin#    I/O     Pri. func    Sec. func    Chan      Pin func        Pin Dir
+#
+#    Spindle Speed    1        0     IOPort       StepGen       2        Step/Table1     (Out)
+#    Coolant         14        1     IOPort       None
+#    X Direction      2        2     IOPort       StepGen       0        Dir/Table2      (Out)
+#                    15        3     IOPort       None
+#    X Step           3        4     IOPort       StepGen       0        Step/Table1     (Out)
+#    Spindle Reverse 16        5     IOPort       None
+#    Z Direction      4        6     IOPort       StepGen       1        Dir/Table2      (Out)
+#    ChrgPump/Tool#  17        7     IOPort       PWM           0        PWM             (Out)
+#    Z Step           5        8     IOPort       StepGen       1        Step/Table1     (Out)
+#    Spindle Forward  6        9     IOPort       None
+#    ATC Reference    7       10     IOPort       None
+#    ATC Forward      8       11     IOPort       None
+#    Collet Closer    9       12     IOPort       None
+#    Spindle Enc Z   10       13     IOPort       QCount        0        Quad-IDX        (In)
+#    Spindle Enc A   11       14     IOPort       QCount        0        Quad-A          (In)
+#    Spindle Enc B   12       15     IOPort       QCount        0        Quad-B          (In)
+#    SPARE SPARE     13       16     IOPort       None
+#
+
+########################################################################
+# DPLL configuration
+setp hm2_[HOSTMOT2](BOARD).0.dpll.01.timer-us [HOSTMOT2](DPLL_TIMER_US)
+
+# default is -1 which means don't use the DPLL timer and simply sample on read()
+# set to 1 for Ethernet boards to use DPLL timer 1 and sample 100 micro seconds
+# before the nominal servo thread read() time
+setp hm2_[HOSTMOT2](BOARD).0.stepgen.timer-number  [HOSTMOT2](DPLL_TIMER_NUMBER)
+setp hm2_[HOSTMOT2](BOARD).0.encoder.timer-number  [HOSTMOT2](DPLL_TIMER_NUMBER)
+
+###############################################################
+# Spindle speed controlled by frequency
+net spindle-cmd motion.spindle-speed-out => abs.0.in
+
+# type 1 velocity control mode
+setp hm2_5i25.0.stepgen.02.control-type 1
+
+# step/dir
+# type 2 quadrature output for 50% duty cycle
+setp hm2_5i25.0.stepgen.02.step_type 2
+
+# position = counts / position_scale
+setp hm2_5i25.0.stepgen.02.position-scale 1.906
+
+# no limit on acceleration
+setp hm2_5i25.0.stepgen.02.maxaccel 0
+
+# 5000 Hz maximum frequency, position units / second
+setp hm2_5i25.0.stepgen.02.maxvel 5000
+
+# stepspace in nanoseconds
+setp hm2_5i25.0.stepgen.02.stepspace 0
+
+# steplen in nanoseconds
+setp hm2_5i25.0.stepgen.02.steplen 10000
+# reduced by JAP from 100000
+
+net spindle-speed-abs abs.0.out => hm2_5i25.0.stepgen.02.velocity-cmd
+net spindle-on motion.spindle-on hm2_5i25.0.stepgen.02.enable
+
+# spindle forward
+setp hm2_5i25.0.gpio.009.is_output 1
+setp hm2_5i25.0.gpio.009.is_opendrain 0
+net spindle-forward motion.spindle-forward => hm2_5i25.0.gpio.009.out
+
+# spindle reverse
+setp hm2_5i25.0.gpio.005.is_output 1
+setp hm2_5i25.0.gpio.005.is_opendrain 0
+net spindle-reverse motion.spindle-reverse => hm2_5i25.0.gpio.005.out
+
+
+########################################################################
+# Coolant
+# iocontrol.0.coolant-flood assigned in the the POSTGUI_HALFILE
+
+
+########################################################################
+# Spindle Encoder
+setp hm2_5i25.0.encoder.00.counter-mode 0
+
+# setting scale negative makes spindle position increase in CW
+# and decrease in CCW - if this not done threading and rigid tapping stall
+# perhaps swapping the A-B encoder inputs would have the same effect
+setp hm2_5i25.0.encoder.00.scale 2880.0
+setp hm2_5i25.0.encoder.00.filter 1
+
+# see 'man hostmot2' for descriptions
+setp hm2_5i25.0.encoder.00.index-mask 0
+
+net spindle-position hm2_5i25.0.encoder.00.position => motion.spindle-revs
+net spindle-raw-velocity hm2_5i25.0.encoder.00.velocity => motion.spindle-speed-in lowpass.0.in
+net spindle-velocity lowpass.0.out
+net spindle-index-enable hm2_5i25.0.encoder.00.index-enable <=> motion.spindle-index-enable
+
+########################################################################
+# Charge pump
+# pin set by 5i25 configuration
+# P3 pin 17 gpio 007
+# duty cycle for tool #1 is 10%, 2 is 20, 8 is 80% 90% Non-atc tool
+# UI sends tool number to pwmgen.00.value, so scale is 10, offset is .05
+# dc = (value/scale) + offset.
+
+setp hm2_5i25.0.pwmgen.00.output-type 1
+setp hm2_5i25.0.pwmgen.pwm_frequency 500
+setp hm2_5i25.0.pwmgen.00.scale 100
+# start with no ATC tool requested
+setp hm2_5i25.0.pwmgen.00.value 90
+
+net estop-out <= iocontrol.0.user-enable-out
+
+########################################################################
+# E stop
+
+# P3 pin 15 gpio 003
+
+#setp estop-latch.0.ok-in 1
+
+# with machine attached
+setp debounce.0.delay 50
+net machine-ok hm2_5i25.0.gpio.003.in_not => debounce.0.0.in
+net machine-ok-debounced debounce.0.0.out => estop-latch.0.ok-in
+#was like this- net machine-ok hm2_5i25.0.gpio.003.in_not => estop-latch.0.ok-in
+
+# without machine attached
+# net machine-ok hm2_5i25.0.gpio.003.in => estop-latch.0.ok-in
+
+net estop estop-latch.0.ok-out => iocontrol.0.emc-enable-in  => hm2_5i25.0.pwmgen.00.enable
+net estop-reset iocontrol.0.user-request-enable => estop-latch.0.reset
+
+########################################################################
+# Digital outputs
+
+# P3 pin 8 gpio 011
+# ATC_FWD
+setp hm2_5i25.0.gpio.011.is_output 1
+setp hm2_5i25.0.gpio.011.is_opendrain 0
+setp hm2_5i25.0.gpio.011.out 1
+#net dout-01 motion.digital-out-01 => hm2_5i25.0.gpio.011.out
+
+########################################################################
+# Digital inputs
+# P3 pin 7 gpio 010
+# ATC_REF - tool change complete
+setp hm2_5i25.0.gpio.010.is_output 0
+
+########################################################################
+# Tool Changer
+
+# type of tool changer is set by the UI via tormachltc.0.tool-changer-type
+# 0 - manual
+# 1 - gang
+# 3 - 8 position ATC
+
+# tool-prepare
+# loopback - not needed
+net tool-prepare-loopback iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
+
+# tool number
+net tool-prep-number-to-comp iocontrol.0.tool-prep-number => tormachltc.0.tool-prep-number
+
+# ATC tool number PWM duty cycle computed by tormachltc from tool-prep-number
+net tool-number-as-pwm tormachltc.0.pwm-duty-cycle => hm2_5i25.0.pwmgen.00.value
+
+# feedback that tool change is complete
+# iocontrol.0.tool-changed needs to go high when tool change is complete
+net tool-change-done-from-changer tormachltc.0.tool-changed-out => iocontrol.0.tool-changed
+
+# this connects the lathe control board tool-changed signal to the HAL comp
+# this pin from the lathe control board is active low so invert
+net tool-change-done-from-atc hm2_5i25.0.gpio.010.in_not <=> tormachltc.0.atc-tool-changed
+
+# 0 -> 1 iocontrol.0.tool-change begins ATC tool change process
+# connect real ATC signal to the HAL comp
+# lathe control board ignores it if the tool number is out of range of the ATC
+net tool-change-start iocontrol.0.tool-change => hm2_5i25.0.gpio.011.out
+# and connect iocontrol.0.tool-change to the tool changer comp
+net tool-change-start tormachltc.0.tool-change-in
+
+########################################################################
+# collet closer
+#
+#net dout-02 motion.digital-out-02 => parport.0.pin-09-out
+# P3 pin 9 gpio 012
+setp hm2_5i25.0.gpio.012.is_output 1
+setp hm2_5i25.0.gpio.012.is_opendrain 0
+setp hm2_5i25.0.gpio.012.out 0
+net dout-02 motion.digital-out-02 => hm2_5i25.0.gpio.012.out
+
+########################################################################
+# Probe
+# P3 pin 13 gpio 016
+setp hm2_5i25.0.gpio.016.is_output 0
+
+setp debounce.1.delay 10
+net probe-in        hm2_5i25.0.gpio.016.in   debounce.1.0.in
+
+# use this should this ever need UI control
+#net probe-active-high probe-active-hi-lo.in0
+# '1' for active probe/tool setter
+setp probe-active-hi-lo.in0 1
+net probe-debounced   debounce.1.0.out       probe-active-hi-lo.in1
+
+# probe active hi-low output signal to AND input with probe-enable signal
+net probe-hi-lo       probe-active-hi-lo.out probe-enable-input.in1
+
+# in case we need to enable/disable the probe input
+setp probe-enable-input.in0   1
+
+net probe-input    probe-enable-input.out motion.probe-input   motion.digital-in-00
+
+########################################################################
+
+
+#######################################################################
+# IO Board
+#######################################################################
+
+net dig-out-5 motion.digital-out-05 => usbio.relay-0
+net dig-out-6 motion.digital-out-06 => usbio.relay-1
+net dig-out-7 motion.digital-out-07 => usbio.relay-2
+net dig-out-8 motion.digital-out-08 => usbio.relay-3
+
+net dig-in-5 motion.digital-in-05 => usbio.input-0
+net dig-in-6 motion.digital-in-06 => usbio.input-1
+net dig-in-7 motion.digital-in-07 => usbio.input-2
+net dig-in-8 motion.digital-in-08 => usbio.input-3
+
+########################################################################
+# X axis
+# step/dir
+setp hm2_5i25.0.stepgen.00.step_type 0
+# position control
+setp hm2_5i25.0.stepgen.00.control-type 0
+
+# scaling for position feedback, position command, and velocity command, in steps per length unit.
+# converts from counts to position units. position = counts / position_scale
+setp hm2_5i25.0.stepgen.00.position-scale [AXIS_0]SCALE
+# create alias to be able to change the stepgen scale by axis name
+alias param hm2_5i25.0.stepgen.00.position-scale   x_axis_scale
+
+# > 2.5 us according to datasheet, 8.0 us is better according to Greg
+setp hm2_5i25.0.stepgen.00.steplen 8000
+
+# 200 kHz / 5 us
+setp hm2_5i25.0.stepgen.00.stepspace 5000
+
+# > 5.0 us according to datasheet
+setp hm2_5i25.0.stepgen.00.dirhold 10000
+setp hm2_5i25.0.stepgen.00.dirsetup 10000
+setp hm2_5i25.0.stepgen.00.maxvel [AXIS_0]STEPGEN_MAX_VEL
+
+# acceleration/deceleration limit, in length units per second squared
+# maximum acceleration, in position units per second per second
+setp hm2_5i25.0.stepgen.00.maxaccel [AXIS_0]STEPGEN_MAX_ACCEL
+
+net xpos-cmd axis.0.motor-pos-cmd => hm2_5i25.0.stepgen.00.position-cmd
+
+net xpos-fb hm2_5i25.0.stepgen.00.position-fb => axis.0.motor-pos-fb
+
+# P3 pin 3 gpio 004
+setp hm2_5i25.0.gpio.004.invert_output 1
+
+net xenable axis.0.amp-enable-out => hm2_5i25.0.stepgen.00.enable
+
+########################################################################
+# Z axis
+# step/dir
+setp hm2_5i25.0.stepgen.01.step_type 0
+# position control
+setp hm2_5i25.0.stepgen.01.control-type 0
+
+# scaling for position feedback, position command, and velocity command, in steps per length unit.
+# converts from counts to position units. position = counts / position_scale
+setp hm2_5i25.0.stepgen.01.position-scale [AXIS_2]SCALE
+# create alias to be able to change the stepgen scale by axis name
+alias param hm2_5i25.0.stepgen.01.position-scale   z_axis_scale
+
+# > 2.5 us according to datasheet, 8.0 us is better according to Greg
+setp hm2_5i25.0.stepgen.01.steplen 8000
+
+# 200 kHz / 5 us
+setp hm2_5i25.0.stepgen.01.stepspace 5000
+
+# > 5.0 us according to datasheet
+setp hm2_5i25.0.stepgen.01.dirhold 10000
+setp hm2_5i25.0.stepgen.01.dirsetup 10000
+setp hm2_5i25.0.stepgen.01.maxvel [AXIS_2]STEPGEN_MAX_VEL
+
+# acceleration/deceleration limit, in length units per second squared
+# maximum acceleration, in position units per second per second
+setp hm2_5i25.0.stepgen.01.maxaccel [AXIS_2]STEPGEN_MAX_ACCEL
+
+net zpos-cmd axis.2.motor-pos-cmd => hm2_5i25.0.stepgen.01.position-cmd
+net zpos-fb hm2_5i25.0.stepgen.01.position-fb => axis.2.motor-pos-fb
+
+# P3 pin 5 gpio 008
+setp hm2_5i25.0.gpio.008.invert_output 1
+
+net zenable axis.2.amp-enable-out => hm2_5i25.0.stepgen.01.enable
+
+
+
+
+
+

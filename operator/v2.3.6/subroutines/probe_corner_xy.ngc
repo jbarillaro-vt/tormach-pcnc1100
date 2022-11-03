@@ -1,0 +1,85 @@
+o<probe_corner_xy> sub
+
+;(PRINT,begin o<probe_corner_xy> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+#<outside_corner> = #1    (0 inside, 1 outside)
+#<feed_rapid> = #2        (machine units)
+#<feed_ruff> = #3         (machine units)
+#<feed_fine> = #4         (machine units)
+#<x_axis_limit> = #5      (machine units)
+#<y_axis_limit> = #6      (machine units)
+#<x_wcs_offset> = #7      (machine units)
+#<y_wcs_offset> = #8      (machine units)
+#<x_direction> = #9       (x direction to probe)
+#<y_direction> = #10      (y direction to probe)
+#<tip_diameter> = #11     (machine units)
+
+(PRINT,outside_corner: <#outside_corner>, feed_ruf: #<feed_ruff>, feed_fine: #<feed_fine>)
+(PRINT,x_axis_limit: #<x_axis_limit>, y_axis_limit: #<y_axis_limit>)
+(PRINT,x_wcs_offset: #<x_wcs_offset>, y_wcs_offset: #<y_wcs_offset>)
+(PRINT,x_direction:  #<x_direction>, y_direction: #<y_direction>)
+(PRINT,tip_diameter: #<tip_diameter>)
+
+o<probe_prep> call
+
+#<tip_radius> = [#<tip_diameter> / 2.0]
+;(PRINT,tip_radius: #<tip_radius>)
+
+#<corner_distance> = 0.750
+#<unit_conv> = 1.0
+o105 if [#<_metric> NE 0]
+  #<unit_conv> = 25.4
+o105 endif
+#<corner_distance> = [#<corner_distance> * #<unit_conv>]
+
+(current position including WCS offsets in current program units)
+(return here after probe)
+#<x_axis_start> = #<_x>
+#<y_axis_start> = #<_y>
+(PRINT,starting point #<x_axis_start>,#<y_axis_start>)
+
+(if outside corner move in Y)
+o110 if [#<outside_corner> NE 0]
+  (PRINT,move in Y toward workpiece)
+  o<probe_g1_by_index> call [1] [#<y_axis_start> + [#<corner_distance> * #<y_direction>]] [#<feed_rapid>]
+o110 endif
+
+(probe in X)
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit>] [#<x_wcs_offset>] [0] [#<x_direction>] [#<tip_diameter>] [-1] [1]
+#<x_axis_fine> = #<_value>
+(PRINT,x_axis_fine: #<x_axis_fine>)
+
+(if outside corner move back to Y start, then toward workpiece in X)
+o120 if [#<outside_corner> NE 0]
+  (PRINT,move in Y back to start)
+  o<probe_g1_by_index> call [1] [#<y_axis_start>] [#<feed_rapid>]
+
+  (PRINT,move in X toward workpiece one tip diameter past X edge)
+  o<probe_g1_by_index> call [0] [#<x_axis_fine> + [#<tip_diameter> * #<x_direction>]] [#<feed_rapid>]
+o120 endif
+
+(probe in Y)
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit>] [#<y_wcs_offset>] [0] [#<y_direction>] [#<tip_diameter>] [-1] [1]
+#<y_axis_fine> = #<_value>
+(PRINT,y_axis_fine: #<y_axis_fine>)
+
+(PRINT,move in X back to start)
+o<probe_g1_by_index> call [0] [#<x_axis_start>] [#<feed_rapid>]
+
+(set origin, probe_xyz already accounted for tip radius)
+#<x_axis_origin> = [#<x_axis_fine> + #<x_wcs_offset>]
+(PRINT,#<x_axis_origin> = [#<x_axis_fine> + #<x_wcs_offset>])
+
+#<y_axis_origin> = [#<y_axis_fine> + #<y_wcs_offset>]
+(PRINT,#<y_axis_origin> = [#<y_axis_fine> + #<y_wcs_offset>])
+(PRINT,setting origin with G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>)
+G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_corner_xy> sub --------------------------------------------------)
+
+o<probe_corner_xy> endsub
+
+M02

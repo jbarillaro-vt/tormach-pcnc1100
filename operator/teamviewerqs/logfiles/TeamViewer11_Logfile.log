@@ -1,0 +1,1078 @@
+2017/07/20 13:31:22.257  5132 4149217024 NX0   Logger started.
+2017/07/20 13:31:22.259  5132 4149217024 NX0   Found 0 core dump files ...
+2017/07/20 13:31:22.259  5132 4149217024 NX0+  Thread: IOServiceWorker_0_0
+2017/07/20 13:31:22.260  5132 4149217024 NX0+  Thread: IOServiceWorker_0_1
+2017/07/20 13:31:22.260  5132 4149217024 NX0+  Thread: IOServiceWorker_0_2
+2017/07/20 13:31:22.260  5132 4149217024 NX0+  Thread: IOServiceWorker_0_3
+2017/07/20 13:31:22.262  5132 4149217024 NX0   systemd: logind service available
+2017/07/20 13:31:22.263  5132 4149217024 NX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:31:22.266  5132 4149217024 NX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:31:22.266  5132 4149217024 NX0   Session Information provided by systemd
+2017/07/20 13:31:22.266  5132 4149217024 NX0+  LateBinding [libX11.so.6]: Loaded library
+2017/07/20 13:31:22.267  5132 4149217024 NX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:31:22.267  5132 4149217024 NX0   XSocket observer: adding XSession: 0
+2017/07/20 13:31:22.268  5132 4149217024 NX0   Starting as network
+2017/07/20 13:31:22.273  5132 4149217024 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:31:22.275  5132 4149217024 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:22.275  5132 4149217024 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:31:22.278  5132 4149217024 NX0   Generating new RSA private/public key pair
+2017/07/20 13:31:22.361  5132 4149217024 NX0   System uptime: 3036 seconds
+2017/07/20 13:31:22.362  5132 4149217024 NX0   MachineID m=1 - 0
+
+
+
+Start:              2017/07/20 13:31:22.363  (UTC-5:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           Info (100)
+License:            0
+Server:             master2.teamviewer.com
+IC:                 -1853343658
+CPU:                Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+CPU extensions:     p8
+OS:                 Lx Mint 17.3 Rosa n  (32-bit)
+IP:                 10.10.10.9
+MID:                -1853343658_b1d38cff_6ee1dabc75a43bb0
+MIDv:               0
+Proxy-Settings:     Type=0 IP= User=
+
+2017/07/20 13:31:22.365  5132 4149217024 NX0   Using IPC-Port 5939
+2017/07/20 13:31:22.365  5132 4149217024 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:22.365  5132 4149217024 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:22.366  5132 4149217024 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:22.366  5132 4149217024 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:22.366  5132 4149217024 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:22.366  5132 4087102272 NX0   TeamViewer is going online!
+2017/07/20 13:31:22.366  5132 4128242496 NX0   CKeepAliveClientClient::DoReconnectInternal: doing nothing, state = 0
+2017/07/20 13:31:22.366  5132 4149217024 NX0   UpdateResponseLinux: success 1 updated 0 rev 0
+2017/07/20 13:31:22.367  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:22.369  5132 4117756736 NX0!!!CTcpConnectionBase[1]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:22.369  5132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:31:22.370  5132 4078709568 NX0   Using systemd-logind for suspend/resume monitoring
+2017/07/20 13:31:22.373  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:22.373  5132 4147084096 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:22.375  5132 4147084096 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:22.375  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:22.378  5132 4128242496 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com, Errorcode=2
+2017/07/20 13:31:22.378  5132 4128242496 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found., Errorcode=2
+2017/07/20 13:31:22.378  5132 4128242496 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:22.381  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:22.381  5132 4128242496 NX0   CProcessCommandHandlerMasterConnect[4]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 4, proxy=''
+2017/07/20 13:31:22.384  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:22.384  5132 4117756736 NX0!  CProcessCommandHandlerMasterConnect[4]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:22.384  5132 4117756736 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:23.547  5166 4147668736 gX0   Logger started.
+2017/07/20 13:31:23.548  5166 4147668736 gX0   Found 0 core dump files ...
+2017/07/20 13:31:23.551  5166 4147668736 gX0   systemd: logind service available
+2017/07/20 13:31:23.552  5166 4147668736 gX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:31:23.554  5166 4147668736 gX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:31:23.554  5166 4147668736 gX0   Session Information provided by systemd
+2017/07/20 13:31:23.555  5166 4147668736 gX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:31:23.555  5166 4147668736 gX0   XSocket observer: adding XSession: 0
+2017/07/20 13:31:23.569  5166 4147668736 gX0   Initialised XFixes extension (base=87 error=140)
+2017/07/20 13:31:23.569  5166 4147668736 gX0   TVGuiSlave.32: Running
+2017/07/20 13:31:24.013  5132 4138691392 NX0   CAcceptServer::HandleAccept: new connection from 127.0.0.1:34797
+2017/07/20 13:31:24.053  5132 4138691392 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:24.053  5132 4138691392 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:24.053  5132 4138691392 NX0   TerminalServer: ProcessConnected type 2 PID 3988
+2017/07/20 13:31:24.056  5132 4138691392 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:24.104  5166 4142943040 gX0   Audio: PulseAudio enabled
+2017/07/20 13:31:24.106  5166 4133485376 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:24.106  5166 4133485376 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:24.106  5166 4142943040 gX0!! Audio: Unable to initialise PulseAudio
+2017/07/20 13:31:22.849    31    41 GX0   Logger started.
+2017/07/20 13:31:22.883    31    41 GX0   StringCompare locale: English_United States.1252
+2017/07/20 13:31:22.918    31    41 GX0!! SetProcessStartupOptions(): SetProcessDEPPolicy() failed! LE=120, Errorcode=12180
+2017/07/20 13:31:23.535    31    41 GX0   TVW X ErrorHandler org 7e63bb17, def 7e4eb8b0 cur 7dbe626b
+2017/07/20 13:31:23.541    31    41 GX0   Wine: Wine DLL initialized
+2017/07/20 13:31:23.542    31    41 GX0   Wine: wine-1.6
+
+2017/07/20 13:31:23.543    31    41 GX0   TVW SID0: SpawnSlave: pid 0
+2017/07/20 13:31:23.543    31    41 GX0   TVW SID0: SpawnSlave: loading TVGuiSlave.32
+2017/07/20 13:31:23.548    31    41 GX0   TVW ObserveFork: OK
+2017/07/20 13:31:23.548    31    41 GX0   Wine: Spawned slave process with type 0
+2017/07/20 13:31:23.548    31    41 GX0   TVW SpawnSlave(type = 1): not available
+2017/07/20 13:31:23.548    31    41 GX0!!!Wine: Unable to spawn slave process of type 1, Errorcode=12180
+2017/07/20 13:31:23.549    31    41 GX0   Starting GUI master for slave type 0
+2017/07/20 13:31:23.550    31    41 GX0   InterProcessBase::SecureNetwork created
+2017/07/20 13:31:23.570    31    41 GX0   Slave connected to GUI master
+2017/07/20 13:31:23.610    31    41 GX0   Monitors: X11 Windowing System, \\.\DISPLAY1, 1024x768 (0,0), flags=21, dpi=96
+
+
+
+Start:              2017/07/20 13:31:23.642 (UTC-6:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           LogAll (0)
+License:            0
+Server:             master10.teamviewer.com
+IC:                 0
+CPU:                x86 Family 6 Model 55 Stepping 8, GenuineIntel
+CPU extensions:     p8
+OS:                 Lx Ubuntu 14.04.5 LT (32-bit)
+IP:                 10.10.10.9
+Proxy-Settings:     Type=0 IP= User=
+AppPath:            C:\TeamViewer\TeamViewer.exe
+UserAccount:        operator
+
+2017/07/20 13:31:23.991    31    41 GX0   CMain::LoadResourceDLLs(): No custom resource dll found
+2017/07/20 13:31:23.993    31    41 GX0   Win32_GUI::FontReallyExists: 'Segoe UI' found 0 matches.
+2017/07/20 13:31:23.993    31    41 GX0   Win32_GUI::FontReallyExists: 'Liberation Sans' found 0 matches.
+2017/07/20 13:31:24.012    31    41 GX0   InterProcessBase::StartTcpCommunicationInternal(): setting m_NetworkConnector to new TCP connector
+2017/07/20 13:31:24.012    31    41 GX0   Opening local TCP connection to 127.0.0.1:5939
+2017/07/20 13:31:24.013    31    41 GX0   Local TCP connection established
+2017/07/20 13:31:24.015    31    41 GX0   Process ID:  L 3988 /  W 31
+2017/07/20 13:31:24.101    31    41 GX0   Received Control_InitIPC_Response processtype=1
+2017/07/20 13:31:24.101    31    41 GX0   Received Control_InitIPC_Response runningProcesses=3
+2017/07/20 13:31:24.101    31    41 GX0   Control_InitIPC_Response: all processes 3 completely initialized
+2017/07/20 13:31:24.116    31    41 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:31:24.116    31    32 GX0!! GetSimpleDisplayCertNameFromFile: File 'C:\TeamViewer\tv_w32.dll' does not exist., Errorcode=2
+2017/07/20 13:31:24.117    31    41 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:31:24.117    31    32 GX0!! VerifyTeamViewerSignature() : WinVerifyTrust failed, result=2, Errorcode=2
+2017/07/20 13:31:24.117    31    32 GX0!! MachineHooks: Library not found, Errorcode=2
+2017/07/20 13:31:24.125    31    32 GX0   MachineID m=1 - 0
+2017/07/20 13:31:24.130    31    32 GX0   TVUpdate::Init() Version-URL: download.teamviewer.com/download/update/ Update-URL: download.teamviewer.com/download/update/
+2017/07/20 13:31:24.130    31    32 GX0   TVUpdate::Init() Preview Channel Number : 1
+2017/07/20 13:31:24.166    31    32 GX0   CMainWindow::ShouldShowDynamicPassword(): dynPw=1 allowIncoming=1 id=0 ka=0 lanAllowed=0 lanOnly=0 networkState=1 showDynPwd=0
+2017/07/20 13:31:24.210  5166 4122999616 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:24.210  5166 4122999616 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:24.214    31    39 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:24.215    31    39 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:24.216  5166 4142943040 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:31:24.217  5166 4142943040 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:31:24.219  5166 4142943040 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:31:24.220  5166 4142943040 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:31:25.386  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:25.386  5132 4138691392 NX0!!!CTcpConnectionBase[5]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later, Errorcode=11
+2017/07/20 13:31:25.387  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:25.389  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:25.389  5132 4138691392 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:25.390  5132 4138691392 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:25.390  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:25.392  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com, Errorcode=11
+2017/07/20 13:31:25.392  5132 4117756736 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found., Errorcode=11
+2017/07/20 13:31:25.392  5132 4117756736 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:25.393  5132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:31:25.393  5132 4117756736 NX0   CProcessCommandHandlerMasterConnect[8]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 8, proxy=''
+2017/07/20 13:31:25.396  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:25.396  5132 4117756736 NX0!  CProcessCommandHandlerMasterConnect[8]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:25.396  5132 4117756736 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:28.397  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:28.398  5132 4128242496 NX0!!!CTcpConnectionBase[9]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later, Errorcode=11
+2017/07/20 13:31:28.398  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:28.401  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:28.401  5132 4147084096 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:28.401  5132 4147084096 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:28.401  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:28.404  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:28.404  5132 4138691392 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found. -- next log entries will be omitted --
+2017/07/20 13:31:28.404  5132 4138691392 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:28.405  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:28.405  5132 4138691392 NX0   CProcessCommandHandlerMasterConnect[12]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 12, proxy=''
+2017/07/20 13:31:28.408  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:28.408  5132 4138691392 NX0!  CProcessCommandHandlerMasterConnect[12]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:28.408  5132 4138691392 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:31.225  5166 4112513856 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:31.226  5166 4112513856 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:31.228    31    39 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:31.228    31    39 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:31.295    31    32 GX0!  Direct3D 9 not available.
+2017/07/20 13:31:31.295    31    32 GX0!! RenderDeviceWrapper: Failed to activate DirectX rendering.
+2017/07/20 13:31:31.295    31    32 GX0   RenderDeviceWrapper: GDI rendering activated.
+2017/07/20 13:31:31.300    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window, Errorcode=120
+2017/07/20 13:31:31.408  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:31.409  5132 4128242496 NX0!!!CTcpConnectionBase[13]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:31.409  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:31.412  5132 4128242496 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:31.412  5132 4128242496 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:31.412  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:31.415  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:31.415  5132 4117756736 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:31.415  5132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:31:31.416  5132 4117756736 NX0   CProcessCommandHandlerMasterConnect[16]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 16, proxy=''
+2017/07/20 13:31:31.418  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:31.418  5132 4117756736 NX0!  CProcessCommandHandlerMasterConnect[16]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:31.418  5132 4117756736 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:32.226    31    46 GX0   MM: Number of Audio Devices changed
+2017/07/20 13:31:32.227  5166 4142943040 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:31:32.227  5166 4142943040 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:31:32.230  5166 4142943040 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:31:32.230  5166 4142943040 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:31:32.230  5166 4142943040 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:31:32.231  5166 4142943040 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:31:33.233  5166 4142943040 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:31:33.234  5166 4142943040 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:31:33.235  5166 4142943040 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:31:33.235  5166 4142943040 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:31:34.420  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:34.421  5132 4147084096 NX0!!!CTcpConnectionBase[17]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:34.421  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:34.424  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:34.424  5132 4147084096 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:34.424  5132 4147084096 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found. -- 2 previous log entries omitted --
+2017/07/20 13:31:34.424  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:34.427  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:34.427  5132 4138691392 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found.
+2017/07/20 13:31:34.427  5132 4138691392 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:34.428  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:34.428  5132 4138691392 NX0   CProcessCommandHandlerMasterConnect[20]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 20, proxy=''
+2017/07/20 13:31:34.430  5132 4128242496 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:34.431  5132 4128242496 NX0!  CProcessCommandHandlerMasterConnect[20]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:34.431  5132 4128242496 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:35.745    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:35.750    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window, Errorcode=120
+2017/07/20 13:31:35.751    31    32 GX0   VoIP: using pipeline factory async = 1
+2017/07/20 13:31:35.752    31    47 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Building pipeline started
+2017/07/20 13:31:35.752    31    47 GX0   VoIP: Sender: Voice capturer used: Generic capturer
+2017/07/20 13:31:35.753    31    47 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Building pipeline finished
+2017/07/20 13:31:35.754  5166 4112513856 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:35.754  5166 4112513856 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:35.754    31    47 GX0   CAudCodecSpeex:: fpp is 4 
+2017/07/20 13:31:35.754    31    47 GX0   VoIP: Sender: Initialzed
+2017/07/20 13:31:35.755    31    48 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Start
+2017/07/20 13:31:35.772  5166 4142943040 gX0   ALSA C [default]: Buffer size is 1365, period size is 341
+2017/07/20 13:31:36.881    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:36.882    31    48 GX0   VoIP: Sender: Terminate
+2017/07/20 13:31:36.883    31    48 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Stop
+2017/07/20 13:31:36.884    31    48 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Destroyed
+2017/07/20 13:31:36.885    31    35 GX0   VoIP: Sender: ThreadPool:StopThreads
+2017/07/20 13:31:36.887    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window, Errorcode=120
+2017/07/20 13:31:36.888    31    32 GX0   Camera: No Source
+2017/07/20 13:31:37.431  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:37.432  5132 4128242496 NX0!!!CTcpConnectionBase[21]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:37.432  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:37.435  5132 4128242496 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:37.435  5132 4128242496 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:37.435  5132 4128242496 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:37.435  5132 4128242496 NX0   Activating Router carrier
+2017/07/20 13:31:37.438  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:37.438  5132 4147084096 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found.
+2017/07/20 13:31:37.438  5132 4147084096 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:37.439  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:37.439  5132 4147084096 NX0   CProcessCommandHandlerMasterConnect[24]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 24, proxy=''
+2017/07/20 13:31:37.441  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:37.441  5132 4138691392 NX0!  CProcessCommandHandlerMasterConnect[24]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:37.442  5132 4138691392 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:38.993    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:38.996    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:38.997    31    32 GX0   VoIP: using pipeline factory async = 1
+2017/07/20 13:31:38.997    31    49 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Building pipeline started
+2017/07/20 13:31:38.998    31    49 GX0   VoIP: Sender: Voice capturer used: Generic capturer
+2017/07/20 13:31:38.998    31    49 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Building pipeline finished
+2017/07/20 13:31:38.999    31    49 GX0   CAudCodecSpeex:: fpp is 4 
+2017/07/20 13:31:38.999    31    49 GX0   VoIP: Sender: Initialzed
+2017/07/20 13:31:39.000    31    50 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Start
+2017/07/20 13:31:39.001  5166 4112513856 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:39.002  5166 4112513856 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:39.005  5166 4142943040 gX0   ALSA C [default]: Buffer size is 1365, period size is 341
+2017/07/20 13:31:40.443  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:40.444  5132 4138691392 NX0!!!CTcpConnectionBase[25]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:40.444  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:40.447  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:40.447  5132 4147084096 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:40.447  5132 4147084096 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:40.447  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:40.450  5132 4147084096 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:40.450  5132 4147084096 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found. -- next log entries will be omitted --
+2017/07/20 13:31:40.450  5132 4147084096 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:40.451  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:40.451  5132 4147084096 NX0   CProcessCommandHandlerMasterConnect[28]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 28, proxy=''
+2017/07/20 13:31:40.453  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:40.453  5132 4117756736 NX0!  CProcessCommandHandlerMasterConnect[28]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:40.454  5132 4117756736 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:40.962    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:40.962    31    49 GX0   VoIP: Sender: Terminate
+2017/07/20 13:31:40.962    31    49 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Stop
+2017/07/20 13:31:40.963    31    49 GX0   VoIP: Sender: VoiceSenderAudioPipeline: Destroyed
+2017/07/20 13:31:40.964    31    35 GX0   VoIP: Sender: ThreadPool:StopThreads
+2017/07/20 13:31:40.965    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:42.018    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:42.020    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:43.455  5132 4147084096 NX0   Activating Router carrier
+2017/07/20 13:31:43.456  5132 4117756736 NX0!!!CTcpConnectionBase[29]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:43.456  5132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:31:43.459  5132 4117756736 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:43.459  5132 4117756736 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:43.459  5132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:31:43.462  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:43.462  5132 4138691392 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:43.462  5132 4138691392 NX0   Activating Router carrier
+2017/07/20 13:31:43.462  5132 4138691392 NX0   CProcessCommandHandlerMasterConnect[32]::CreateMasterConnect(): master2.teamviewer.com:80, Connection 32, proxy=''
+2017/07/20 13:31:43.465  5132 4138691392 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master2.teamviewer.com
+2017/07/20 13:31:43.465  5132 4138691392 NX0!  CProcessCommandHandlerMasterConnect[32]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:43.465  5132 4138691392 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:43.500    31    32 GX0!! TVW Wine: SetWindowManagerClassHint: No such window
+2017/07/20 13:31:45.026    31    32 GX0   CMainWindow::InitCloseTV(): Prepare to close TeamViewer
+2017/07/20 13:31:45.027    31    34 GX0   Camera: Terminated
+2017/07/20 13:31:45.027    31    32 GX0!! MainWindow.OnDestroy: WTSUnRegisterSessionNotification failed with error 87, Errorcode=87
+2017/07/20 13:31:45.027  5166 4142943040 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:31:45.027  5166 4142943040 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:31:45.031    31    32 GX0   CMainWindow::OnDestroy(): Closing TeamViewer
+2017/07/20 13:31:45.054  5166 4133485376 gX0   XClipboard: Shutting down event loop
+2017/07/20 13:31:45.055    31    32 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:31:45.056    31    32 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:31:45.057  5132 4138691392 NX0   CInterProcessNetwork: Received DisconnectIPC from processID 3988 (ProcessType: 2 in Session 0) with reason 1
+2017/07/20 13:31:45.057  5132 4138691392 NX0   Process 3988 in session 0 has terminated
+2017/07/20 13:31:45.057  5132 4138691392 NX0   TerminalServer::ProcessTerminated_Finalize: process 3988 terminated
+2017/07/20 13:31:45.057    31    35 GX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=5132)
+2017/07/20 13:31:45.058    31    35 GX0   CTcpProcessConnector::CloseConnection(): PID=5132
+2017/07/20 13:31:45.058    31    35 GX0!  InterProcessBase::EventFunctionInternal(): IPC-Connection Closed
+2017/07/20 13:31:45.058    31    35 GX0   CTcpProcessConnector::CloseConnection(): PID=5132
+2017/07/20 13:31:45.058    31    35 GX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10058: Unknown error
+2017/07/20 13:31:45.059  5132 4147084096 NX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=3988)
+2017/07/20 13:31:45.059  5132 4147084096 NX0   CTcpProcessConnector::CloseConnection(): PID=3988
+2017/07/20 13:31:45.059  5132 4147084096 NX0   CInterProcessNetwork::NewInterProcessDataAvailable(): ConnectionClosed session=0 ptype=2
+2017/07/20 13:31:45.059    31    35 GX0!! CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10009: Unknown error, Errorcode=317
+2017/07/20 13:31:45.059  5132 4147084096 NX0   UpdateOnlineState m_ManualStop
+2017/07/20 13:31:45.059  5132 4147084096 NX0   IPCNet: Shutting down network process
+2017/07/20 13:31:45.059  5132 4103887680 NX0   TeamViewer is going offline!
+2017/07/20 13:31:45.059  5132 4147084096 NX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 107: Transport endpoint is not connected
+2017/07/20 13:31:45.059  5132 4103887680 NX0   RemoteSessionManager::ClearAllRemoteSessions(): RemoteSession Count: 0
+2017/07/20 13:31:45.062    31    32 GX0   interprocessbase::SecureNetwork destroyed
+2017/07/20 13:31:45.064    31    32 GX0   TVW Terminating GUI slave
+2017/07/20 13:31:45.064  5166 4147668736 gX0   TVGuiSlave.32: Terminated
+2017/07/20 13:31:45.064    31    32 GX0   Wine: Wine DLL freed
+2017/07/20 13:31:45.371  5132 4149217024 NX0   ShutdownDynGate
+2017/07/20 13:31:45.393  5132 4147084096 NX0   CAcceptServer::HandleAccept: socket closed
+2017/07/20 13:31:45.393  5132 4066376512 NX0   Shutdown complete
+2017/07/20 13:31:45.394  5132 4149217024 NX0   TeamViewer_Service Stop
+
+
+2017/07/20 13:31:57.561  5360 4149303040 NX0   Logger started.
+2017/07/20 13:31:57.563  5360 4149303040 NX0   Found 0 core dump files ...
+2017/07/20 13:31:57.564  5360 4149303040 NX0+  Thread: IOServiceWorker_0_0
+2017/07/20 13:31:57.564  5360 4149303040 NX0+  Thread: IOServiceWorker_0_1
+2017/07/20 13:31:57.564  5360 4149303040 NX0+  Thread: IOServiceWorker_0_3
+2017/07/20 13:31:57.565  5360 4149303040 NX0+  Thread: IOServiceWorker_0_2
+2017/07/20 13:31:57.566  5360 4149303040 NX0   systemd: logind service available
+2017/07/20 13:31:57.568  5360 4149303040 NX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:31:57.570  5360 4149303040 NX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:31:57.570  5360 4149303040 NX0   Session Information provided by systemd
+2017/07/20 13:31:57.571  5360 4149303040 NX0+  LateBinding [libX11.so.6]: Loaded library
+2017/07/20 13:31:57.571  5360 4149303040 NX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:31:57.571  5360 4149303040 NX0   XSocket observer: adding XSession: 0
+2017/07/20 13:31:57.572  5360 4149303040 NX0   Starting as network
+2017/07/20 13:31:57.577  5360 4149303040 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:31:57.581  5360 4149303040 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:57.581  5360 4149303040 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:31:57.585  5360 4149303040 NX0   System uptime: 3071 seconds
+2017/07/20 13:31:57.587  5360 4149303040 NX0   MachineID m=1 - 0
+
+
+
+Start:              2017/07/20 13:31:57.587  (UTC-5:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           Info (100)
+License:            0
+Server:             master13.teamviewer.com
+IC:                 -1853343658
+CPU:                Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+CPU extensions:     p8
+OS:                 Lx Mint 17.3 Rosa n  (32-bit)
+IP:                 10.10.10.9
+MID:                -1853343658_b1d38cff_6ee1dabc75a43bb0
+MIDv:               0
+Proxy-Settings:     Type=0 IP= User=
+
+2017/07/20 13:31:57.589  5360 4149303040 NX0!! CInterProcessNetwork::Start(): Port 5939 is in use. Trying next port
+2017/07/20 13:31:57.589  5360 4149303040 NX0   Using IPC-Port 5940
+2017/07/20 13:31:57.590  5360 4149303040 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:57.590  5360 4149303040 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:57.591  5360 4149303040 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:57.591  5360 4149303040 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:57.591  5360 4149303040 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:57.591  5360 4088150848 NX0   TeamViewer is going online!
+2017/07/20 13:31:57.591  5360 4129291072 NX0   CKeepAliveClientClient::DoReconnectInternal: doing nothing, state = 0
+2017/07/20 13:31:57.591  5360 4149303040 NX0   UpdateResponseLinux: success 1 updated 0 rev 0
+2017/07/20 13:31:57.592  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:31:57.593  5360 4138777408 NX0!!!CTcpConnectionBase[1]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:31:57.594  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:31:57.595  5360 4079758144 NX0   Using systemd-logind for suspend/resume monitoring
+2017/07/20 13:31:57.597  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:31:57.597  5360 4138777408 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:31:57.599  5360 4138777408 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:31:57.599  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:31:57.602  5360 4118805312 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com, Errorcode=2
+2017/07/20 13:31:57.602  5360 4118805312 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found., Errorcode=2
+2017/07/20 13:31:57.602  5360 4118805312 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:31:57.603  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:31:57.603  5360 4118805312 NX0   CProcessCommandHandlerMasterConnect[4]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 4, proxy=''
+2017/07/20 13:31:57.606  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:31:57.606  5360 4147170112 NX0!  CProcessCommandHandlerMasterConnect[4]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:31:57.606  5360 4147170112 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:31:59.054  5405 4148426496 gX0   Logger started.
+2017/07/20 13:31:59.055  5405 4148426496 gX0   Found 0 core dump files ...
+2017/07/20 13:31:59.058  5405 4148426496 gX0   systemd: logind service available
+2017/07/20 13:31:59.060  5405 4148426496 gX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:31:59.062  5405 4148426496 gX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:31:59.062  5405 4148426496 gX0   Session Information provided by systemd
+2017/07/20 13:31:59.063  5405 4148426496 gX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:31:59.063  5405 4148426496 gX0   XSocket observer: adding XSession: 0
+2017/07/20 13:31:59.077  5405 4148426496 gX0   Initialised XFixes extension (base=87 error=140)
+2017/07/20 13:31:59.077  5405 4148426496 gX0   TVGuiSlave.32: Running
+2017/07/20 13:31:59.513  5360 4118805312 NX0   CAcceptServer::HandleAccept: new connection from 127.0.0.1:34738
+2017/07/20 13:31:59.553  5360 4138777408 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:31:59.553  5360 4138777408 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:59.553  5360 4138777408 NX0   TerminalServer: ProcessConnected type 2 PID 5235
+2017/07/20 13:31:59.556  5360 4138777408 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:31:59.603  5405 4143700800 gX0   Audio: PulseAudio enabled
+2017/07/20 13:31:59.604  5405 4133485376 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:59.604  5405 4133485376 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:59.605  5405 4143700800 gX0!! Audio: Unable to initialise PulseAudio
+2017/07/20 13:31:58.260     8     9 GX0   Logger started.
+2017/07/20 13:31:58.290     8     9 GX0   StringCompare locale: English_United States.1252
+2017/07/20 13:31:58.439     8     9 GX0!! SetProcessStartupOptions(): SetProcessDEPPolicy() failed! LE=120, Errorcode=2
+2017/07/20 13:31:59.042     8     9 GX0   TVW X ErrorHandler org 7e630b17, def 7e4e08b0 cur 7dbdd26b
+2017/07/20 13:31:59.049     8     9 GX0   Wine: Wine DLL initialized
+2017/07/20 13:31:59.049     8     9 GX0   Wine: wine-1.6
+
+2017/07/20 13:31:59.050     8     9 GX0   TVW SID0: SpawnSlave: pid 0
+2017/07/20 13:31:59.050     8     9 GX0   TVW SID0: SpawnSlave: loading TVGuiSlave.32
+2017/07/20 13:31:59.055     8     9 GX0   TVW ObserveFork: OK
+2017/07/20 13:31:59.056     8     9 GX0   Wine: Spawned slave process with type 0
+2017/07/20 13:31:59.056     8     9 GX0   TVW SpawnSlave(type = 1): not available
+2017/07/20 13:31:59.056     8     9 GX0!!!Wine: Unable to spawn slave process of type 1, Errorcode=2
+2017/07/20 13:31:59.057     8     9 GX0   Starting GUI master for slave type 0
+2017/07/20 13:31:59.058     8     9 GX0   InterProcessBase::SecureNetwork created
+2017/07/20 13:31:59.077     8     9 GX0   Slave connected to GUI master
+2017/07/20 13:31:59.116     8     9 GX0   Monitors: X11 Windowing System, \\.\DISPLAY1, 1024x768 (0,0), flags=21, dpi=96
+
+
+
+Start:              2017/07/20 13:31:59.147 (UTC-6:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           LogAll (0)
+License:            0
+Server:             master10.teamviewer.com
+IC:                 0
+CPU:                x86 Family 6 Model 55 Stepping 8, GenuineIntel
+CPU extensions:     p8
+OS:                 Lx Ubuntu 14.04.5 LT (32-bit)
+IP:                 10.10.10.9
+Proxy-Settings:     Type=0 IP= User=
+AppPath:            C:\TeamViewer\TeamViewer.exe
+UserAccount:        operator
+
+2017/07/20 13:31:59.487     8     9 GX0   CMain::LoadResourceDLLs(): No custom resource dll found
+2017/07/20 13:31:59.490     8     9 GX0   Win32_GUI::FontReallyExists: 'Segoe UI' found 0 matches.
+2017/07/20 13:31:59.490     8     9 GX0   Win32_GUI::FontReallyExists: 'Liberation Sans' found 0 matches.
+2017/07/20 13:31:59.513     8     9 GX0   InterProcessBase::StartTcpCommunicationInternal(): setting m_NetworkConnector to new TCP connector
+2017/07/20 13:31:59.513     8     9 GX0   Opening local TCP connection to 127.0.0.1:5940
+2017/07/20 13:31:59.513     8     9 GX0   Local TCP connection established
+2017/07/20 13:31:59.514     8     9 GX0   Process ID:  L 5235 /  W 8
+2017/07/20 13:31:59.601     8     9 GX0   Received Control_InitIPC_Response processtype=1
+2017/07/20 13:31:59.601     8     9 GX0   Received Control_InitIPC_Response runningProcesses=3
+2017/07/20 13:31:59.601     8     9 GX0   Control_InitIPC_Response: all processes 3 completely initialized
+2017/07/20 13:31:59.614     8     9 GX0!! GetSimpleDisplayCertNameFromFile: File 'C:\TeamViewer\tv_w32.dll' does not exist., Errorcode=2
+2017/07/20 13:31:59.614     8    29 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:31:59.615     8     9 GX0!! VerifyTeamViewerSignature() : WinVerifyTrust failed, result=2, Errorcode=2
+2017/07/20 13:31:59.615     8    29 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:31:59.615     8     9 GX0!! MachineHooks: Library not found, Errorcode=2
+2017/07/20 13:31:59.624     8     9 GX0   MachineID m=1 - 1
+2017/07/20 13:31:59.628     8     9 GX0   TVUpdate::Init() Version-URL: download.teamviewer.com/download/update/ Update-URL: download.teamviewer.com/download/update/
+2017/07/20 13:31:59.629     8     9 GX0   TVUpdate::Init() Preview Channel Number : 1
+2017/07/20 13:31:59.663     8     9 GX0   CMainWindow::ShouldShowDynamicPassword(): dynPw=1 allowIncoming=1 id=0 ka=0 lanAllowed=0 lanOnly=0 networkState=1 showDynPwd=0
+2017/07/20 13:31:59.706  5405 4122999616 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:31:59.706  5405 4122999616 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:31:59.712     8    27 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:59.713     8    27 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:31:59.717  5405 4143700800 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:31:59.718  5405 4143700800 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:31:59.721  5405 4143700800 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:31:59.722  5405 4143700800 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:32:00.607  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:32:00.608  5360 4147170112 NX0!!!CTcpConnectionBase[5]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later, Errorcode=11
+2017/07/20 13:32:00.608  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:00.611  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:00.611  5360 4147170112 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:00.611  5360 4147170112 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:32:00.611  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:00.614  5360 4118805312 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:00.614  5360 4118805312 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found.
+2017/07/20 13:32:00.614  5360 4118805312 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:00.614  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:00.615  5360 4118805312 NX0   CProcessCommandHandlerMasterConnect[8]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 8, proxy=''
+2017/07/20 13:32:00.617  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:00.617  5360 4129291072 NX0!  CProcessCommandHandlerMasterConnect[8]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:00.617  5360 4129291072 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:03.620  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:03.621  5360 4118805312 NX0!!!CTcpConnectionBase[9]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:03.621  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:03.623  5360 4118805312 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:03.624  5360 4118805312 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:03.624  5360 4118805312 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:32:03.624  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:03.627  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:03.627  5360 4129291072 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found. -- next log entries will be omitted --
+2017/07/20 13:32:03.627  5360 4129291072 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:03.627  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:32:03.627  5360 4129291072 NX0   CProcessCommandHandlerMasterConnect[12]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 12, proxy=''
+2017/07/20 13:32:03.630  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:03.630  5360 4129291072 NX0!  CProcessCommandHandlerMasterConnect[12]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:03.630  5360 4129291072 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:06.632  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:06.633  5360 4138777408 NX0!!!CTcpConnectionBase[13]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:06.633  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:06.636  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:06.636  5360 4138777408 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:06.636  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:06.639  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:06.639  5360 4138777408 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:06.639  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:06.640  5360 4138777408 NX0   CProcessCommandHandlerMasterConnect[16]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 16, proxy=''
+2017/07/20 13:32:06.642  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:06.642  5360 4147170112 NX0!  CProcessCommandHandlerMasterConnect[16]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:06.642  5360 4147170112 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:09.644  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:09.645  5360 4118805312 NX0!!!CTcpConnectionBase[17]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:09.645  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:09.648  5360 4118805312 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:09.648  5360 4118805312 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:09.648  5360 4118805312 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found. -- 2 previous log entries omitted --
+2017/07/20 13:32:09.648  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:09.651  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:09.651  5360 4147170112 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found.
+2017/07/20 13:32:09.651  5360 4147170112 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:09.652  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:09.652  5360 4147170112 NX0   CProcessCommandHandlerMasterConnect[20]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 20, proxy=''
+2017/07/20 13:32:09.654  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:09.655  5360 4129291072 NX0!  CProcessCommandHandlerMasterConnect[20]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:09.655  5360 4129291072 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:12.656  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:12.657  5360 4138777408 NX0!!!CTcpConnectionBase[21]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:12.657  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:12.660  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:12.660  5360 4138777408 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:12.660  5360 4138777408 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:32:12.660  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:12.663  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:12.663  5360 4147170112 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found.
+2017/07/20 13:32:12.663  5360 4147170112 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:12.663  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:12.664  5360 4147170112 NX0   CProcessCommandHandlerMasterConnect[24]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 24, proxy=''
+2017/07/20 13:32:12.666  5360 4147170112 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:12.666  5360 4147170112 NX0!  CProcessCommandHandlerMasterConnect[24]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:12.666  5360 4147170112 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:15.668  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:15.669  5360 4129291072 NX0!!!CTcpConnectionBase[25]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:15.669  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:32:15.672  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:15.672  5360 4129291072 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:15.672  5360 4129291072 NX0!! NetWatchdog: Port 443 proxy search failed! No working setting found.
+2017/07/20 13:32:15.672  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:32:15.675  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:15.675  5360 4138777408 NX0!! NetWatchdog: Port 80 proxy search failed! No working setting found. -- next log entries will be omitted --
+2017/07/20 13:32:15.675  5360 4138777408 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:15.676  5360 4138777408 NX0   Activating Router carrier
+2017/07/20 13:32:15.676  5360 4138777408 NX0   CProcessCommandHandlerMasterConnect[28]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 28, proxy=''
+2017/07/20 13:32:15.678  5360 4138777408 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:15.678  5360 4138777408 NX0!  CProcessCommandHandlerMasterConnect[28]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:15.679  5360 4138777408 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:18.680  5360 4147170112 NX0   Activating Router carrier
+2017/07/20 13:32:18.681  5360 4118805312 NX0!!!CTcpConnectionBase[29]::HandleResolve(): Resolve failed, ping3.teamviewer.com, Error: Host not found (non-authoritative), try again later
+2017/07/20 13:32:18.681  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:18.684  5360 4118805312 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:18.684  5360 4118805312 NX0!! Port443Connection::ConnectInternal: failed with HTTP status code = 0
+2017/07/20 13:32:18.684  5360 4118805312 NX0   Activating Router carrier
+2017/07/20 13:32:18.687  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve host name (6), Could not resolve host: ping3.teamviewer.com
+2017/07/20 13:32:18.687  5360 4129291072 NX0!  CKeepAliveClientClient::HandlePing(): ping failed
+2017/07/20 13:32:18.687  5360 4129291072 NX0   Activating Router carrier
+2017/07/20 13:32:18.688  5360 4129291072 NX0   CProcessCommandHandlerMasterConnect[32]::CreateMasterConnect(): master13.teamviewer.com:80, Connection 32, proxy=''
+2017/07/20 13:32:18.690  5360 4129291072 NX0!! HttpRequestImpl::CurlFinished(): curl request failed: Couldn't resolve proxy name (5), Could not resolve proxy: master13.teamviewer.com
+2017/07/20 13:32:18.690  5360 4129291072 NX0!  CProcessCommandHandlerMasterConnect[32]::HandleMasterConnect(): MasterConnect to 0.0.0.0 failed
+2017/07/20 13:32:18.690  5360 4129291072 NX0!! CMasterConnectorAsio::HandleMasterResponseRegister(): MasterConnect failed. ErrorCode=10
+2017/07/20 13:32:19.322     8     9 GX0   CMainWindow::InitCloseTV(): Prepare to close TeamViewer
+2017/07/20 13:32:19.323     8     9 GX0!! MainWindow.OnDestroy: WTSUnRegisterSessionNotification failed with error 87, Errorcode=87
+2017/07/20 13:32:19.327     8     9 GX0   CMainWindow::OnDestroy(): Closing TeamViewer
+2017/07/20 13:32:19.342  5405 4133485376 gX0   XClipboard: Shutting down event loop
+2017/07/20 13:32:19.343     8     9 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:19.343     8     9 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:19.344  5360 4147170112 NX0   CInterProcessNetwork: Received DisconnectIPC from processID 5235 (ProcessType: 2 in Session 0) with reason 1
+2017/07/20 13:32:19.345  5360 4147170112 NX0   Process 5235 in session 0 has terminated
+2017/07/20 13:32:19.345  5360 4147170112 NX0   TerminalServer::ProcessTerminated_Finalize: process 5235 terminated
+2017/07/20 13:32:19.345     8    24 GX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=5360)
+2017/07/20 13:32:19.345     8    24 GX0   CTcpProcessConnector::CloseConnection(): PID=5360
+2017/07/20 13:32:19.345     8    24 GX0!  InterProcessBase::EventFunctionInternal(): IPC-Connection Closed
+2017/07/20 13:32:19.346     8    24 GX0   CTcpProcessConnector::CloseConnection(): PID=5360
+2017/07/20 13:32:19.346     8    24 GX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10058: Unknown error
+2017/07/20 13:32:19.346  5360 4129291072 NX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=5235)
+2017/07/20 13:32:19.346  5360 4129291072 NX0   CTcpProcessConnector::CloseConnection(): PID=5235
+2017/07/20 13:32:19.346  5360 4129291072 NX0   CInterProcessNetwork::NewInterProcessDataAvailable(): ConnectionClosed session=0 ptype=2
+2017/07/20 13:32:19.346  5360 4129291072 NX0   UpdateOnlineState m_ManualStop
+2017/07/20 13:32:19.347  5360 4129291072 NX0   IPCNet: Shutting down network process
+2017/07/20 13:32:19.347  5360 4129291072 NX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 107: Transport endpoint is not connected
+2017/07/20 13:32:19.347     8    24 GX0!! CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10009: Unknown error, Errorcode=317
+2017/07/20 13:32:19.347  5360 4104936256 NX0   TeamViewer is going offline!
+2017/07/20 13:32:19.348  5360 4104936256 NX0   RemoteSessionManager::ClearAllRemoteSessions(): RemoteSession Count: 0
+2017/07/20 13:32:19.351     8     9 GX0   interprocessbase::SecureNetwork destroyed
+2017/07/20 13:32:19.353     8     9 GX0   TVW Terminating GUI slave
+2017/07/20 13:32:19.353     8     9 GX0   Wine: Wine DLL freed
+2017/07/20 13:32:19.353  5405 4148426496 gX0   TVGuiSlave.32: Terminated
+2017/07/20 13:32:19.596  5360 4149303040 NX0   ShutdownDynGate
+2017/07/20 13:32:19.618  5360 4138777408 NX0   CAcceptServer::HandleAccept: socket closed
+2017/07/20 13:32:19.618  5360 4067425088 NX0   Shutdown complete
+2017/07/20 13:32:19.619  5360 4149303040 NX0   TeamViewer_Service Stop
+
+
+2017/07/20 13:33:04.423  5905 4149466880 NX0   Logger started.
+2017/07/20 13:33:04.424  5905 4149466880 NX0   Found 0 core dump files ...
+2017/07/20 13:33:04.425  5905 4149466880 NX0+  Thread: IOServiceWorker_0_0
+2017/07/20 13:33:04.426  5905 4149466880 NX0+  Thread: IOServiceWorker_0_1
+2017/07/20 13:33:04.426  5905 4149466880 NX0+  Thread: IOServiceWorker_0_2
+2017/07/20 13:33:04.427  5905 4149466880 NX0+  Thread: IOServiceWorker_0_3
+2017/07/20 13:33:04.428  5905 4149466880 NX0   systemd: logind service available
+2017/07/20 13:33:04.430  5905 4149466880 NX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:33:04.432  5905 4149466880 NX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:33:04.432  5905 4149466880 NX0   Session Information provided by systemd
+2017/07/20 13:33:04.433  5905 4149466880 NX0+  LateBinding [libX11.so.6]: Loaded library
+2017/07/20 13:33:04.433  5905 4149466880 NX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:33:04.433  5905 4149466880 NX0   XSocket observer: adding XSession: 0
+2017/07/20 13:33:04.435  5905 4149466880 NX0   Starting as network
+2017/07/20 13:33:04.439  5905 4149466880 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:33:04.443  5905 4149466880 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:04.444  5905 4149466880 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:33:04.447  5905 4149466880 NX0   System uptime: 3138 seconds
+2017/07/20 13:33:04.449  5905 4149466880 NX0   MachineID m=1 - 0
+
+
+
+Start:              2017/07/20 13:33:04.450  (UTC-5:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           Info (100)
+License:            0
+Server:             master10.teamviewer.com
+IC:                 -1853343658
+CPU:                Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+CPU extensions:     p8
+OS:                 Lx Mint 17.3 Rosa n  (32-bit)
+IP:                 192.168.126.150
+MID:                -1853343658_b1d38cff_6ee1dabc75a43bb0
+MIDv:               0
+Proxy-Settings:     Type=0 IP= User=
+
+2017/07/20 13:33:04.451  5905 4149466880 NX0!! CInterProcessNetwork::Start(): Port 5940 is in use. Trying next port
+2017/07/20 13:33:04.451  5905 4149466880 NX0   Using IPC-Port 5941
+2017/07/20 13:33:04.452  5905 4149466880 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:33:04.453  5905 4149466880 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:04.453  5905 4149466880 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:33:04.453  5905 4149466880 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:04.453  5905 4149466880 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:04.453  5905 4088150848 NX0   TeamViewer is going online!
+2017/07/20 13:33:04.454  5905 4118805312 NX0   CKeepAliveClientClient::DoReconnectInternal: doing nothing, state = 0
+2017/07/20 13:33:04.454  5905 4129291072 NX0   Activating Router carrier
+2017/07/20 13:33:04.454  5905 4149466880 NX0   UpdateResponseLinux: success 1 updated 0 rev 0
+2017/07/20 13:33:04.456  5905 4079758144 NX0   Using systemd-logind for suspend/resume monitoring
+2017/07/20 13:33:04.811  5905 4138941248 NX0   NetWatchdog: Ping successful! Port: 5938
+2017/07/20 13:33:04.811  5905 4138941248 NX0   NetWatchdog: Internet is now connected
+2017/07/20 13:33:04.811  5905 4138941248 NX0   CKeepAliveClientClient::HandlePing(): success
+2017/07/20 13:33:04.812  5905 4138941248 NX0   Activating Router carrier
+2017/07/20 13:33:04.812  5905 4138941248 NX0   CProcessCommandHandlerMasterConnect[2]::CreateMasterConnect(): master10.teamviewer.com:5938, Connection 2, proxy=''
+2017/07/20 13:33:04.965  5905 4118805312 NX0   CProcessCommandHandlerMasterConnect[2]::HandleMasterConnect(): Sending MasterCommand f=Reg&ic=-1853343658&id=0&iguid={5fe522cc-e776-4577-9059-fc8f78f7e74b}&mac=-1853343658_b1d38cff_6ee1dabc75a43bb0&mid=-1853343658_b1d38cff_6ee1dabc75a43bb0&midf=16&midfup=0&midhistory=-1853343658_b1d38cff_6ee1dabc75a43bb0|l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=0&os=Lx Mint 17.3 Rosa n &rhash={2a447139-9ad2-9d8d-9814-dd5305abe188}&smidv=1&sro=1&v=11.0.57095 QS
+2017/07/20 13:33:05.089  5905 4147333952 NX0   CProcessCommandHandlerMasterConnect[2]::ReceivedMasterResponse(): Received MasterCommand 699191702+1
+2017/07/20 13:33:05.089  5905 4147333952 NX0!  TcpCarrierBase[2]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:33:05.089  5905 4147333952 NX0   CKeepAliveClient::HandleRegisterUserAnswer(): Register successful: ClientID 699191702, ClientIC 0
+2017/07/20 13:33:05.090  5905 4147333952 NX0   Generating new RSA private/public key pair
+2017/07/20 13:33:05.167  5905 4147333952 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:33:05.167  5905 4147333952 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:05.167  5905 4147333952 NX0   Activating Router carrier
+2017/07/20 13:33:05.167  5905 4147333952 NX0   Carrier[2]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:33:05.429  5905 4138941248 NX0   CKeepAliveClientClient::HandlePing(): success
+2017/07/20 13:33:05.429  5905 4138941248 NX0   Activating Router carrier
+2017/07/20 13:33:05.429  5905 4138941248 NX0   CProcessCommandHandlerMasterConnect[4]::CreateMasterConnect(): master10.teamviewer.com:5938, Connection 4, proxy=''
+2017/07/20 13:33:05.544  5905 4118805312 NX0   CProcessCommandHandlerMasterConnect[4]::HandleMasterConnect(): Sending MasterCommand f=SetPublicKey&ic=-1853343658&id=699191702&mid=l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=1&v=11.0.57095 QS
+2017/07/20 13:33:05.659  5905 4118805312 NX0   CProcessCommandHandlerMasterConnect[4]::ReceivedMasterResponse(): Received MasterCommand OK
+2017/07/20 13:33:05.660  5905 4118805312 NX0!  TcpCarrierBase[4]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:33:05.660  5905 4118805312 NX0   Activating Router carrier
+2017/07/20 13:33:05.660  5905 4118805312 NX0   CProcessCommandHandlerMasterConnect[5]::CreateMasterConnect(): master10.teamviewer.com:5938, Connection 5, proxy=''
+2017/07/20 13:33:05.660  5905 4118805312 NX0   Carrier[4]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:33:05.781  5905 4138941248 NX0   CProcessCommandHandlerMasterConnect[5]::HandleMasterConnect(): Sending MasterCommand f=SetSignatureKey&ic=-1853343658&id=699191702&mid=l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=1&v=11.0.57095 QS
+2017/07/20 13:33:05.895  5905 4129291072 NX0   CProcessCommandHandlerMasterConnect[5]::ReceivedMasterResponse(): Received MasterCommand OK
+2017/07/20 13:33:05.895  5905 4129291072 NX0!  TcpCarrierBase[5]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:33:05.895  5905 4129291072 NX0   Activating Router carrier
+2017/07/20 13:33:05.896  5905 4129291072 NX0   CProcessCommandHandlerMasterConnect[6]::CreateMasterConnect(): master10.teamviewer.com:5938, Connection 6, proxy=''
+2017/07/20 13:33:05.896  5905 4129291072 NX0   Carrier[5]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:33:05.929  5948 4148258560 gX0   Logger started.
+2017/07/20 13:33:05.930  5948 4148258560 gX0   Found 0 core dump files ...
+2017/07/20 13:33:05.933  5948 4148258560 gX0   systemd: logind service available
+2017/07/20 13:33:05.934  5948 4148258560 gX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:33:05.936  5948 4148258560 gX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:33:05.936  5948 4148258560 gX0   Session Information provided by systemd
+2017/07/20 13:33:05.937  5948 4148258560 gX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:33:05.937  5948 4148258560 gX0   XSocket observer: adding XSession: 0
+2017/07/20 13:33:05.951  5948 4148258560 gX0   Initialised XFixes extension (base=87 error=140)
+2017/07/20 13:33:05.951  5948 4148258560 gX0   TVGuiSlave.32: Running
+2017/07/20 13:33:06.015  5905 4147333952 NX0   CProcessCommandHandlerMasterConnect[6]::HandleMasterConnect(): Sending MasterCommand addonchannels=0&client=TVQS&f=Login&gw=0&gwlevel=400&hideonlinestatus=0&httpout=1&ic=-1853343658&id=699191702&iguid={5fe522cc-e776-4577-9059-fc8f78f7e74b}&language=&licensetype=0&mid=l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midf=16&midhistory=-1853343658_b1d38cff_6ee1dabc75a43bb0|l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=1&noofactivekeepalive=0&os=Lx Mint 17.3 Rosa n &port443out=0&rhash={2a447139-9ad2-9d8d-9814-dd5305abe188}&runtime=1&smidv=1&sro=1&supportedfeatures=552500189&tcpout=1&usednsnames=1&v=11.0.57095 QS
+2017/07/20 13:33:06.132  5905 4147333952 NX0   CProcessCommandHandlerMasterConnect[6]::ReceivedMasterResponse(): Received MasterCommand OK_10000_-_2__server21005.teamviewer.com:5938_35039_1_-1_0.0.0.0__185.188.32.14_185.188.32.4_0_699191702_1_0_0_0_64749433__server26305.teamviewer.com,server21106.teamviewer.com,server21005.teamviewer.com,server25205.teamviewer.com,server18108.teamviewer.com,server18209.teamviewer.com,server18301.teamviewer.com,server18410.teamviewer.com,server18407.teamviewer.com_ef/bAwgAAA==_
+2017/07/20 13:33:06.133  5905 4147333952 NX0!  TcpCarrierBase[6]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:33:06.133  5905 4147333952 NX0   local license differs from master license
+2017/07/20 13:33:06.134  5905 4147333952 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:33:06.134  5905 4147333952 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:06.134  5905 4147333952 NX0!  CKeepAliveClient::HandleLoginUserAnswer(): KeepAliveServer server21005.teamviewer.com:5938
+2017/07/20 13:33:06.134  5905 4147333952 NX0   Activating Router carrier
+2017/07/20 13:33:06.134  5905 4147333952 NX0   Carrier[6]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:33:06.217  5905 4138941248 NX0   KeepAliveSessionOutgoing::ConnectSuccessHandler(): KeepAliveConnect to server21005.teamviewer.com successful
+2017/07/20 13:33:06.312  5905 4147333952 NX0   KeepAliveSessionOutgoing::KeepAliveChannelInitialized(): KeepAliveConnection to server21005.teamviewer.com initialized
+2017/07/20 13:33:06.313  5905 4147333952 NX0!! KeepAliveSession::KeepAliveChannelInitialized(): KeepAlive-Connection initialized with ID 731249447 (IP: 162.220.221.6), SendQueue 0 (0 Bytes), SendIndex 0, AckIndex 0, RemoteSessionID 7
+2017/07/20 13:33:06.313  5905 4147333952 NX0!  KeepAliveSession::SendCompleteQueue(): SendQueue: 0 (0 Bytes), RemoteSession 7 (ClientID 731249447)
+2017/07/20 13:33:06.360  5905 4147333952 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=35
+2017/07/20 13:33:06.360  5905 4147333952 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:33:06.360  5905 4147333952 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:33:06.385  5905 4118805312 NX0   CAcceptServer::HandleAccept: new connection from 127.0.0.1:54797
+2017/07/20 13:33:06.409  5905 4129291072 NX0   TVRouterClock: received router time: 20170720T183202.466035
+2017/07/20 13:33:06.425  5905 4138941248 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:33:06.425  5905 4138941248 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:06.425  5905 4138941248 NX0   TerminalServer: ProcessConnected type 2 PID 5780
+2017/07/20 13:33:06.428  5905 4138941248 NX0   CInterProcessNetwork::SetDyngateIDforSession() id=699191702 session=0 ptype=2
+2017/07/20 13:33:06.428  5905 4138941248 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:33:06.477  5948 4143532864 gX0   Audio: PulseAudio enabled
+2017/07/20 13:33:05.124     8    21 GX0   Logger started.
+2017/07/20 13:33:05.155     8    21 GX0   StringCompare locale: English_United States.1252
+2017/07/20 13:33:05.301     8    21 GX0!! SetProcessStartupOptions(): SetProcessDEPPolicy() failed! LE=120
+2017/07/20 13:33:05.917     8    21 GX0   TVW X ErrorHandler org 7e63bb17, def 7e4eb8b0 cur 7dbe826b
+2017/07/20 13:33:05.924     8    21 GX0   Wine: Wine DLL initialized
+2017/07/20 13:33:05.924     8    21 GX0   Wine: wine-1.6
+
+2017/07/20 13:33:05.925     8    21 GX0   TVW SID0: SpawnSlave: pid 0
+2017/07/20 13:33:05.925     8    21 GX0   TVW SID0: SpawnSlave: loading TVGuiSlave.32
+2017/07/20 13:33:05.930     8    21 GX0   TVW ObserveFork: OK
+2017/07/20 13:33:05.930     8    21 GX0   Wine: Spawned slave process with type 0
+2017/07/20 13:33:05.930     8    21 GX0   TVW SpawnSlave(type = 1): not available
+2017/07/20 13:33:05.930     8    21 GX0!!!Wine: Unable to spawn slave process of type 1
+2017/07/20 13:33:05.932     8    21 GX0   Starting GUI master for slave type 0
+2017/07/20 13:33:05.933     8    21 GX0   InterProcessBase::SecureNetwork created
+2017/07/20 13:33:05.951     8    21 GX0   Slave connected to GUI master
+2017/07/20 13:33:05.991     8    21 GX0   Monitors: X11 Windowing System, \\.\DISPLAY1, 1024x768 (0,0), flags=21, dpi=96
+
+
+
+Start:              2017/07/20 13:33:06.023 (UTC-6:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           LogAll (0)
+License:            0
+Server:             master4.teamviewer.com
+IC:                 0
+CPU:                x86 Family 6 Model 55 Stepping 8, GenuineIntel
+CPU extensions:     p8
+OS:                 Lx Ubuntu 14.04.5 LT (32-bit)
+IP:                 192.168.126.150
+Proxy-Settings:     Type=0 IP= User=
+AppPath:            C:\TeamViewer\TeamViewer.exe
+UserAccount:        operator
+
+2017/07/20 13:33:06.363     8    21 GX0   CMain::LoadResourceDLLs(): No custom resource dll found
+2017/07/20 13:33:06.366     8    21 GX0   Win32_GUI::FontReallyExists: 'Segoe UI' found 0 matches.
+2017/07/20 13:33:06.366     8    21 GX0   Win32_GUI::FontReallyExists: 'Liberation Sans' found 0 matches.
+2017/07/20 13:33:06.482  5948 4133485376 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:33:06.482  5948 4133485376 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:33:06.384     8    21 GX0   InterProcessBase::StartTcpCommunicationInternal(): setting m_NetworkConnector to new TCP connector
+2017/07/20 13:33:06.482  5948 4143532864 gX0!! Audio: Unable to initialise PulseAudio
+2017/07/20 13:33:06.384     8    21 GX0   Opening local TCP connection to 127.0.0.1:5941
+2017/07/20 13:33:06.385     8    21 GX0   Local TCP connection established
+2017/07/20 13:33:06.386     8    21 GX0   Process ID:  L 5780 /  W 8
+2017/07/20 13:33:06.474     8    21 GX0   Received Control_InitIPC_Response processtype=1
+2017/07/20 13:33:06.474     8    21 GX0   Received Control_InitIPC_Response runningProcesses=3
+2017/07/20 13:33:06.474     8    21 GX0   Control_InitIPC_Response: all processes 3 completely initialized
+2017/07/20 13:33:06.483     8    21 GX0   Account::UpdateState: KA = 1, active = 1
+2017/07/20 13:33:06.489     8     9 GX0!! GetSimpleDisplayCertNameFromFile: File 'C:\TeamViewer\tv_w32.dll' does not exist., Errorcode=2
+2017/07/20 13:33:06.489     8     9 GX0!! VerifyTeamViewerSignature() : WinVerifyTrust failed, result=2, Errorcode=2
+2017/07/20 13:33:06.489     8     9 GX0!! MachineHooks: Library not found, Errorcode=2
+2017/07/20 13:33:06.491     8    24 GX0   InterProcessBase::SecureNetworkCallbackHandle created (RegistrationID: cc3d104e-194e-435f-accf-7f1312416665)
+2017/07/20 13:33:06.495     8    29 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:33:06.497     8    29 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:33:06.499     8     9 GX0   MachineID m=1 - 1
+2017/07/20 13:33:06.503     8     9 GX0   TVUpdate::Init() Version-URL: download.teamviewer.com/download/update/ Update-URL: download.teamviewer.com/download/update/
+2017/07/20 13:33:06.504     8     9 GX0   TVUpdate::Init() Preview Channel Number : 1
+2017/07/20 13:33:06.512  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.513  5905 4118805312 NX0   SecureNetworkIPCAdapter::RegisterSharedBCmdCallback(): CC: 30, RegistrationID: cc3d104e-194e-435f-accf-7f1312416665, DyngateID: 699191702, ProcessType: 2, SessionID: 0
+2017/07/20 13:33:06.537     8     9 GX0   CMainWindow::ShouldShowDynamicPassword(): dynPw=1 allowIncoming=1 id=699191702 ka=1 lanAllowed=0 lanOnly=0 networkState=1 showDynPwd=1
+2017/07/20 13:33:06.540     8    21 GX0   IDLabelContent::UpdateImpl() IDs changed: SessionID "699191702", TSUserID "0", ServerID "0"
+2017/07/20 13:33:06.542     8    23 GX0   IpcRouterClock: received router time: 20170720T183202.570035
+2017/07/20 13:33:06.561  5905 4118805312 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:06.588  5948 4122999616 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:33:06.588  5948 4122999616 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:33:06.592     8    27 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:33:06.593     8    27 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:33:06.595  5948 4143532864 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:33:06.595  5948 4143532864 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:33:06.597  5948 4143532864 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:33:06.597  5948 4143532864 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:33:06.611     8     9 GX0   Account::SetLoginState: new state: 2
+2017/07/20 13:33:06.621  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.621  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.621  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.621  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.621  5905 4118805312 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:33:06.669  5905 4138941248 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:06.714  5905 4129291072 NX0   TVRouterClock Schedule next request in 43200 seconds
+2017/07/20 13:33:06.715     8    24 GX0   IpcRouterClock: received router time: 20170720T183202.466035
+2017/07/20 13:33:06.717  5905 4118805312 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:06.717  5905 4138941248 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:06.717  5905 4138941248 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:06.718  5905 4138941248 NX0   CProcessCommandHandlerKeepAliveClient[7]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:33:07.461     8    24 GX0!! GraphicsStatistics::GetGraphicsAdapter(): D3D9 object could not be created. Errorcode: 0
+2017/07/20 13:32:08.780     8     9 GX0   CMainWindow::InitCloseTV(): Prepare to close TeamViewer
+2017/07/20 13:32:08.781     8     9 GX0!! MainWindow.OnDestroy: WTSUnRegisterSessionNotification failed with error 0
+2017/07/20 13:32:08.785     8     9 GX0   CMainWindow::OnDestroy(): Closing TeamViewer
+2017/07/20 13:32:08.790  5905 4118805312 NX0   SecureNetworkIPCAdapter::UnregisterSharedBCmdCallback(): RegistrationID: cc3d104e-194e-435f-accf-7f1312416665
+2017/07/20 13:32:08.790     8     9 GX0   InterProcessBase::SecureNetworkCallbackHandle destroyed (RegistrationID: cc3d104e-194e-435f-accf-7f1312416665)
+2017/07/20 13:32:08.818  5948 4133485376 gX0   XClipboard: Shutting down event loop
+2017/07/20 13:32:08.819     8     9 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:08.820     8     9 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:08.821  5905 4147333952 NX0   CInterProcessNetwork: Received DisconnectIPC from processID 5780 (ProcessType: 2 in Session 0) with reason 1
+2017/07/20 13:32:08.821  5905 4147333952 NX0   Process 5780 in session 0 has terminated
+2017/07/20 13:32:08.821  5905 4147333952 NX0   TerminalServer::ProcessTerminated_Finalize: process 5780 terminated
+2017/07/20 13:32:08.822     8    22 GX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=5905)
+2017/07/20 13:32:08.822     8    22 GX0   CTcpProcessConnector::CloseConnection(): PID=5905
+2017/07/20 13:32:08.822     8    22 GX0!  InterProcessBase::EventFunctionInternal(): IPC-Connection Closed
+2017/07/20 13:32:08.822     8    22 GX0   CTcpProcessConnector::CloseConnection(): PID=5905
+2017/07/20 13:32:08.823     8    22 GX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10058: Unknown error
+2017/07/20 13:32:08.823  5905 4147333952 NX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=5780)
+2017/07/20 13:32:08.823  5905 4147333952 NX0   CTcpProcessConnector::CloseConnection(): PID=5780
+2017/07/20 13:32:08.823  5905 4147333952 NX0   CInterProcessNetwork::NewInterProcessDataAvailable(): ConnectionClosed session=0 ptype=2
+2017/07/20 13:32:08.823  5905 4147333952 NX0   UpdateOnlineState m_ManualStop
+2017/07/20 13:32:08.823  5905 4147333952 NX0   IPCNet: Shutting down network process
+2017/07/20 13:32:08.823  5905 4104936256 NX0   TeamViewer is going offline!
+2017/07/20 13:32:08.824  5905 4147333952 NX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 107: Transport endpoint is not connected
+2017/07/20 13:32:08.824  5905 4104936256 NX0   RemoteSessionManager::ClearAllRemoteSessions(): RemoteSession Count: 1
+2017/07/20 13:32:08.824     8    22 GX0!! CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10009: Unknown error, Errorcode=317
+2017/07/20 13:32:08.827     8     9 GX0   interprocessbase::SecureNetwork destroyed
+2017/07/20 13:32:08.829     8     9 GX0   TVW Terminating GUI slave
+2017/07/20 13:32:08.829     8     9 GX0   Wine: Wine DLL freed
+2017/07/20 13:32:08.830  5948 4148258560 gX0   TVGuiSlave.32: Terminated
+2017/07/20 13:32:08.867  5905 4118805312 NX0!! SecureNetworkConnection::Handle_SecureResponse: Coult not handle Response: [ remoteID: 731249447 connection: 2289911005 remoteConnection: 0 ] exception: SecureNetworkConnection:: Not Connected!, Errorcode=11
+2017/07/20 13:32:08.868  5905 4118805312 NX0   RetryHandle::HandleRetry: Trying Resend to 28 failed with error SecureNetwork: Invalid response Not retrying (2 retries would remain) Bcmd: CC=35 CT=1
+2017/07/20 13:32:08.915  5905 4118805312 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:32:08.915  5905 4118805312 NX0!  KeepAliveSessionOutgoing::ConnectEndedHandler(): KeepAliveConnection with server21005.teamviewer.com ended
+2017/07/20 13:32:08.971  5905 4149466880 NX0   ShutdownDynGate
+2017/07/20 13:32:08.977  5905 4118805312 NX0   CAcceptServer::HandleAccept: socket closed
+2017/07/20 13:32:08.978  5905 4067425088 NX0   Shutdown complete
+2017/07/20 13:32:08.978  5905 4149466880 NX0   TeamViewer_Service Stop
+
+
+2017/07/20 13:32:11.584  6132 4149053184 NX0   Logger started.
+2017/07/20 13:32:11.585  6132 4149053184 NX0   Found 0 core dump files ...
+2017/07/20 13:32:11.586  6132 4149053184 NX0+  Thread: IOServiceWorker_0_0
+2017/07/20 13:32:11.586  6132 4149053184 NX0+  Thread: IOServiceWorker_0_1
+2017/07/20 13:32:11.586  6132 4149053184 NX0+  Thread: IOServiceWorker_0_2
+2017/07/20 13:32:11.586  6132 4149053184 NX0+  Thread: IOServiceWorker_0_3
+2017/07/20 13:32:11.588  6132 4149053184 NX0   systemd: logind service available
+2017/07/20 13:32:11.590  6132 4149053184 NX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:32:11.592  6132 4149053184 NX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:32:11.592  6132 4149053184 NX0   Session Information provided by systemd
+2017/07/20 13:32:11.593  6132 4149053184 NX0+  LateBinding [libX11.so.6]: Loaded library
+2017/07/20 13:32:11.593  6132 4149053184 NX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:32:11.593  6132 4149053184 NX0   XSocket observer: adding XSession: 0
+2017/07/20 13:32:11.594  6132 4149053184 NX0   Starting as network
+2017/07/20 13:32:11.599  6132 4149053184 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:32:11.605  6132 4149053184 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:11.605  6132 4149053184 NX0!  AsioSettings::FindExternalIP: found 0 external IPs instead of 1!
+2017/07/20 13:32:11.776  6132 4149053184 NX0   System uptime: 3149 seconds
+2017/07/20 13:32:11.778  6132 4149053184 NX0   MachineID m=1 - 0
+
+
+
+Start:              2017/07/20 13:32:11.778  (UTC-5:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           Info (100)
+License:            10000
+Server:             master5.teamviewer.com
+IC:                 -1853343658
+CPU:                Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+CPU extensions:     p8
+OS:                 Lx Mint 17.3 Rosa n  (32-bit)
+IP:                 192.168.126.150
+MID:                l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f
+MIDv:               1
+Proxy-Settings:     Type=0 IP= User=
+
+2017/07/20 13:32:11.780  6132 4149053184 NX0!! CInterProcessNetwork::Start(): Port 5941 is in use. Trying next port
+2017/07/20 13:32:11.780  6132 4149053184 NX0   Using IPC-Port 5942
+2017/07/20 13:32:11.781  6132 4149053184 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:32:11.781  6132 4149053184 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:11.782  6132 4149053184 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:32:11.782  6132 4149053184 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:11.782  6132 4149053184 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:11.782  6132 4087102272 NX0   TeamViewer is going online!
+2017/07/20 13:32:11.782  6132 4117756736 NX0   CKeepAliveClientClient::DoReconnectInternal: doing nothing, state = 0
+2017/07/20 13:32:11.783  6132 4149053184 NX0   UpdateResponseLinux: success 1 updated 0 rev 0
+2017/07/20 13:32:11.783  6132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:32:11.785  6132 4078709568 NX0   Using systemd-logind for suspend/resume monitoring
+2017/07/20 13:32:11.847  6132 4117756736 NX0   NetWatchdog: Ping successful! Port: 5938
+2017/07/20 13:32:11.847  6132 4117756736 NX0   NetWatchdog: Internet is now connected
+2017/07/20 13:32:11.847  6132 4117756736 NX0   CKeepAliveClientClient::HandlePing(): success
+2017/07/20 13:32:11.848  6132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:32:11.848  6132 4117756736 NX0   CProcessCommandHandlerMasterConnect[2]::CreateMasterConnect(): master5.teamviewer.com:5938, Connection 2, proxy=''
+2017/07/20 13:32:11.993  6132 4117756736 NX0   CProcessCommandHandlerMasterConnect[2]::HandleMasterConnect(): Sending MasterCommand f=Reg&ic=-1853343658&id=0&iguid={5fe522cc-e776-4577-9059-fc8f78f7e74b}&mac=-1853343658_b1d38cff_6ee1dabc75a43bb0&mid=l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midf=16&midfup=0&midhistory=-1853343658_b1d38cff_6ee1dabc75a43bb0|l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=1&os=Lx Mint 17.3 Rosa n &rhash={a2c7a2ba-2485-04f9-fd9e-cfbdd1306f63}&smidv=1&sro=1&v=11.0.57095 QS
+2017/07/20 13:32:12.109  6132 4146920256 NX0   CProcessCommandHandlerMasterConnect[2]::ReceivedMasterResponse(): Received MasterCommand 699191702:-1853343658+1
+2017/07/20 13:32:12.109  6132 4146920256 NX0!  TcpCarrierBase[2]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:32:12.109  6132 4146920256 NX0   CKeepAliveClient::HandleRegisterUserAnswer(): Register successful: ClientID 699191702, ClientIC 2441623638
+2017/07/20 13:32:12.110  6132 4146920256 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:32:12.110  6132 4146920256 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:12.110  6132 4146920256 NX0   Activating Router carrier
+2017/07/20 13:32:12.110  6132 4146920256 NX0   Carrier[2]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:32:12.339  6132 4117756736 NX0   CKeepAliveClientClient::HandlePing(): success
+2017/07/20 13:32:12.339  6132 4117756736 NX0   Activating Router carrier
+2017/07/20 13:32:12.339  6132 4117756736 NX0   CProcessCommandHandlerMasterConnect[4]::CreateMasterConnect(): master5.teamviewer.com:5938, Connection 4, proxy=''
+2017/07/20 13:32:12.458  6132 4117756736 NX0   CProcessCommandHandlerMasterConnect[4]::HandleMasterConnect(): Sending MasterCommand addonchannels=0&client=TVQS&f=Login&gw=0&gwlevel=400&hideonlinestatus=0&httpout=1&ic=-1853343658&id=699191702&iguid={5fe522cc-e776-4577-9059-fc8f78f7e74b}&language=&licensetype=10000&mid=l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midf=16&midhistory=-1853343658_b1d38cff_6ee1dabc75a43bb0|l07cfb817143d15e29ca251bf58b0af5d:408d5cf0a2ee:1f6e8a67e515437d9a78e473d756715f&midv=1&noofactivekeepalive=0&os=Lx Mint 17.3 Rosa n &port443out=0&rhash={a2c7a2ba-2485-04f9-fd9e-cfbdd1306f63}&runtime=1&smidv=1&sro=1&supportedfeatures=552500189&tcpout=1&usednsnames=1&v=11.0.57095 QS
+2017/07/20 13:32:12.579  6132 4146920256 NX0   CProcessCommandHandlerMasterConnect[4]::ReceivedMasterResponse(): Received MasterCommand OK_10000_-_2__server18304.teamviewer.com:5938_35039_1_-1_0.0.0.0__185.188.32.15_185.188.32.5_0_699191702_1_0_0_0_64749433__server25303.teamviewer.com,server26304.teamviewer.com,server21109.teamviewer.com,server24701.teamviewer.com,server18109.teamviewer.com,server18208.teamviewer.com,server18301.teamviewer.com,server18408.teamviewer.com,server18407.teamviewer.com_ef/bAwgAAA==_
+2017/07/20 13:32:12.579  6132 4146920256 NX0!  TcpCarrierBase[4]::SendCompleteQueue(): No Connections, Type_Tcp, Dir_Outgoing, Ending 0, SendQueue 1, CurrentSendQueue 0, SendCache 0
+2017/07/20 13:32:12.580  6132 4146920256 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:32:12.580  6132 4146920256 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:12.580  6132 4146920256 NX0!  CKeepAliveClient::HandleLoginUserAnswer(): KeepAliveServer server18304.teamviewer.com:5938
+2017/07/20 13:32:12.580  6132 4146920256 NX0   Activating Router carrier
+2017/07/20 13:32:12.580  6132 4146920256 NX0   Carrier[4]::EndCarrierInternal(): ClientID: 0 SupportsEndSession: 0, SupportsCCmd2: 0, SessionType_MasterConnect, SendQueue: 0 (4 Bytes), CurrentSendQueue: 0 (0 Bytes), SendCache: 0 (0 Bytes)
+2017/07/20 13:32:12.700  6132 4128037696 NX0   KeepAliveSessionOutgoing::ConnectSuccessHandler(): KeepAliveConnect to server18304.teamviewer.com successful
+2017/07/20 13:32:12.823  6132 4138527552 NX0   KeepAliveSessionOutgoing::KeepAliveChannelInitialized(): KeepAliveConnection to server18304.teamviewer.com initialized
+2017/07/20 13:32:12.823  6132 4138527552 NX0!! KeepAliveSession::KeepAliveChannelInitialized(): KeepAlive-Connection initialized with ID 942268557 (IP: 50.22.136.101), SendQueue 0 (0 Bytes), SendIndex 0, AckIndex 0, RemoteSessionID 5
+2017/07/20 13:32:12.823  6132 4138527552 NX0!  KeepAliveSession::SendCompleteQueue(): SendQueue: 0 (0 Bytes), RemoteSession 5 (ClientID 942268557)
+2017/07/20 13:32:12.883  6132 4138527552 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=35
+2017/07/20 13:32:12.883  6132 4138527552 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:32:12.883  6132 4138527552 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:32:12.883  6132 4146920256 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:32:12.943  6132 4117756736 NX0   TVRouterClock: received router time: 20170720T183212.931893
+2017/07/20 13:32:12.943  6132 4117756736 NX0   TVRouterClock Schedule next request in 43200 seconds
+2017/07/20 13:32:12.967  6168 4148324096 gX0   Logger started.
+2017/07/20 13:32:12.968  6168 4148324096 gX0   Found 0 core dump files ...
+2017/07/20 13:32:12.970  6168 4148324096 gX0   systemd: logind service available
+2017/07/20 13:32:12.972  6168 4148324096 gX0   systemd: New seat seat0 [path=/org/freedesktop/login1/seat/seat0, activeSession='c1', canGraphical=1, canTTY=1, canMultiSession=1]
+2017/07/20 13:32:12.974  6168 4148324096 gX0   SystemdSessionInfo: New session SystemdSessionInfo [id=c1 user=operator state=user active=1 reliable=1 infoId=0] [path=/org/freedesktop/login1/session/c1 TTY= seat=seat0 display=:0 vtnr=8 owner=[SysUser_Lin: operator [uid=1001, gid=1001 home=/home/operator gecos=operator,,,, shell=/bin/bash]] idle=0(1500574913058914) active=1 type=x11 class=user state=active timestamp=1500572455864732 service=mdm-autologin defaultCG=systemd:/user/1001.user/c1.session leader=1343 audit=0 remote=0 rHost= rUser= killProc=0]
+2017/07/20 13:32:12.974  6168 4148324096 gX0   Session Information provided by systemd
+2017/07/20 13:32:12.975  6168 4148324096 gX0   XSocket observer: watching /tmp/.X11-unix
+2017/07/20 13:32:12.975  6168 4148324096 gX0   XSocket observer: adding XSession: 0
+2017/07/20 13:32:12.989  6168 4148324096 gX0   Initialised XFixes extension (base=87 error=140)
+2017/07/20 13:32:12.989  6168 4148324096 gX0   TVGuiSlave.32: Running
+2017/07/20 13:32:13.423  6132 4117756736 NX0   CAcceptServer::HandleAccept: new connection from 127.0.0.1:39796
+2017/07/20 13:32:13.462  6132 4146920256 NX0   Updated sessions: [ 0 C  operator ]  
+2017/07/20 13:32:13.462  6132 4146920256 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:13.463  6132 4146920256 NX0   TerminalServer: ProcessConnected type 2 PID 6007
+2017/07/20 13:32:13.466  6132 4146920256 NX0   CInterProcessNetwork::SetDyngateIDforSession() id=699191702 session=0 ptype=2
+2017/07/20 13:32:13.466  6132 4146920256 NX0   UpdateOnlineState newOnlineValue 1
+2017/07/20 13:32:13.513  6168 4143598400 gX0   Audio: PulseAudio enabled
+2017/07/20 13:32:13.515  6168 4133485376 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:32:13.515  6168 4133485376 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:32:13.515  6168 4143598400 gX0!! Audio: Unable to initialise PulseAudio
+2017/07/20 13:32:12.176    34    40 GX0   Logger started.
+2017/07/20 13:32:12.207    34    40 GX0   StringCompare locale: English_United States.1252
+2017/07/20 13:32:12.353    34    40 GX0!! SetProcessStartupOptions(): SetProcessDEPPolicy() failed! LE=120
+2017/07/20 13:32:12.954    34    40 GX0   TVW X ErrorHandler org 7e63bb17, def 7e4eb8b0 cur 7dbe826b
+2017/07/20 13:32:12.961    34    40 GX0   Wine: Wine DLL initialized
+2017/07/20 13:32:12.961    34    40 GX0   Wine: wine-1.6
+
+2017/07/20 13:32:12.963    34    40 GX0   TVW SID0: SpawnSlave: pid 0
+2017/07/20 13:32:12.963    34    40 GX0   TVW SID0: SpawnSlave: loading TVGuiSlave.32
+2017/07/20 13:32:12.968    34    40 GX0   TVW ObserveFork: OK
+2017/07/20 13:32:12.968    34    40 GX0   Wine: Spawned slave process with type 0
+2017/07/20 13:32:12.968    34    40 GX0   TVW SpawnSlave(type = 1): not available
+2017/07/20 13:32:12.968    34    40 GX0!!!Wine: Unable to spawn slave process of type 1
+2017/07/20 13:32:12.969    34    40 GX0   Starting GUI master for slave type 0
+2017/07/20 13:32:12.970    34    40 GX0   InterProcessBase::SecureNetwork created
+2017/07/20 13:32:12.989    34    40 GX0   Slave connected to GUI master
+2017/07/20 13:32:13.028    34    40 GX0   Monitors: X11 Windowing System, \\.\DISPLAY1, 1024x768 (0,0), flags=21, dpi=96
+
+
+
+Start:              2017/07/20 13:32:13.059 (UTC-6:00)
+Version:            11.0.57095 QS
+ID:                 0
+Loglevel:           LogAll (0)
+License:            0
+Server:             master1.teamviewer.com
+IC:                 0
+CPU:                x86 Family 6 Model 55 Stepping 8, GenuineIntel
+CPU extensions:     p8
+OS:                 Lx Ubuntu 14.04.5 LT (32-bit)
+IP:                 192.168.126.150
+Proxy-Settings:     Type=0 IP= User=
+AppPath:            C:\TeamViewer\TeamViewer.exe
+UserAccount:        operator
+
+2017/07/20 13:32:13.402    34    40 GX0   CMain::LoadResourceDLLs(): No custom resource dll found
+2017/07/20 13:32:13.404    34    40 GX0   Win32_GUI::FontReallyExists: 'Segoe UI' found 0 matches.
+2017/07/20 13:32:13.404    34    40 GX0   Win32_GUI::FontReallyExists: 'Liberation Sans' found 0 matches.
+2017/07/20 13:32:13.422    34    40 GX0   InterProcessBase::StartTcpCommunicationInternal(): setting m_NetworkConnector to new TCP connector
+2017/07/20 13:32:13.422    34    40 GX0   Opening local TCP connection to 127.0.0.1:5942
+2017/07/20 13:32:13.423    34    40 GX0   Local TCP connection established
+2017/07/20 13:32:13.424    34    40 GX0   Process ID:  L 6007 /  W 34
+2017/07/20 13:32:13.511    34    40 GX0   Received Control_InitIPC_Response processtype=1
+2017/07/20 13:32:13.511    34    40 GX0   Received Control_InitIPC_Response runningProcesses=3
+2017/07/20 13:32:13.512    34    40 GX0   Control_InitIPC_Response: all processes 3 completely initialized
+2017/07/20 13:32:13.527    34    40 GX0   Account::UpdateState: KA = 1, active = 1
+2017/07/20 13:32:13.527    34    35 GX0!! GetSimpleDisplayCertNameFromFile: File 'C:\TeamViewer\tv_w32.dll' does not exist., Errorcode=2
+2017/07/20 13:32:13.527    34    42 GX0   InterProcessBase::SecureNetworkCallbackHandle created (RegistrationID: b9c339ff-ee8d-4b68-bde7-600d3d4d63ec)
+2017/07/20 13:32:13.527    34    47 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:32:13.528    34    35 GX0!! VerifyTeamViewerSignature() : WinVerifyTrust failed, result=2, Errorcode=2
+2017/07/20 13:32:13.528    34    35 GX0!! MachineHooks: Library not found, Errorcode=2
+2017/07/20 13:32:13.528    34    47 GX0   ProxySearch: no PAC script detected via WPAD
+2017/07/20 13:32:13.536    34    35 GX0   MachineID m=1 - 1
+2017/07/20 13:32:13.540    34    35 GX0   TVUpdate::Init() Version-URL: download.teamviewer.com/download/update/ Update-URL: download.teamviewer.com/download/update/
+2017/07/20 13:32:13.541    34    35 GX0   TVUpdate::Init() Preview Channel Number : 1
+2017/07/20 13:32:13.550  6132 4128037696 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.550  6132 4128037696 NX0   SecureNetworkIPCAdapter::RegisterSharedBCmdCallback(): CC: 30, RegistrationID: b9c339ff-ee8d-4b68-bde7-600d3d4d63ec, DyngateID: 699191702, ProcessType: 2, SessionID: 0
+2017/07/20 13:32:13.576    34    35 GX0   CMainWindow::ShouldShowDynamicPassword(): dynPw=1 allowIncoming=1 id=699191702 ka=1 lanAllowed=0 lanOnly=0 networkState=1 showDynPwd=1
+2017/07/20 13:32:13.578    34    42 GX0   IDLabelContent::UpdateImpl() IDs changed: SessionID "699191702", TSUserID "0", ServerID "0"
+2017/07/20 13:32:13.582    34    40 GX0   IpcRouterClock: received router time: 20170720T183213.538893
+2017/07/20 13:32:13.589    34    39 GX0!! GraphicsStatistics::GetGraphicsAdapter(): D3D9 object could not be created. Errorcode: 0
+2017/07/20 13:32:13.610  6132 4117756736 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:13.625  6168 4122999616 gX0!! PulseAudio: Context failed: Connection refused, Errorcode=2
+2017/07/20 13:32:13.625  6168 4122999616 gX0!! PulseAudio: Unable to connect to server, no server running?, Errorcode=2
+2017/07/20 13:32:13.629    34    45 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:32:13.632    34    45 GX0   Mixer: Device added: hw:0,0, HDA Intel PCH - ALC283 Analog {4c253561-71ec-51e7-9d0f-db842a2f01dc}
+2017/07/20 13:32:13.633  6168 4143598400 gX0   ALSAMixer: Opened mixer Master,0 on device default
+2017/07/20 13:32:13.636  6168 4143598400 gX0   ALSAMixer: Opened mixer Capture,0 on device default
+2017/07/20 13:32:13.637  6168 4143598400 gX0   ALSAMixer: Closing mixer Master on device default
+2017/07/20 13:32:13.637  6168 4143598400 gX0   ALSAMixer: Closing mixer Capture on device default
+2017/07/20 13:32:13.651    34    35 GX0   Account::SetLoginState: new state: 2
+2017/07/20 13:32:13.654  6132 4146920256 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.654  6132 4146920256 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.654  6132 4146920256 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.655  6132 4146920256 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.655  6132 4146920256 NX0   CSendCommandToMaster::SendBCommandToMaster: CC=3 CT=38
+2017/07/20 13:32:13.714  6132 4146920256 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:13.775  6132 4138527552 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:13.775  6132 4138527552 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:13.775  6132 4138527552 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:13.775  6132 4138527552 NX0   CProcessCommandHandlerKeepAliveClient[5]::ReceivedCmdBuddy(): CC=3 CT=38
+2017/07/20 13:32:16.060    34    35 GX0   CMainWindow::InitCloseTV(): Prepare to close TeamViewer
+2017/07/20 13:32:16.061    34    35 GX0!! MainWindow.OnDestroy: WTSUnRegisterSessionNotification failed with error 183, Errorcode=183
+2017/07/20 13:32:16.066    34    35 GX0   CMainWindow::OnDestroy(): Closing TeamViewer
+2017/07/20 13:32:16.073  6132 4146920256 NX0   SecureNetworkIPCAdapter::UnregisterSharedBCmdCallback(): RegistrationID: b9c339ff-ee8d-4b68-bde7-600d3d4d63ec
+2017/07/20 13:32:16.074    34    35 GX0   InterProcessBase::SecureNetworkCallbackHandle destroyed (RegistrationID: b9c339ff-ee8d-4b68-bde7-600d3d4d63ec)
+2017/07/20 13:32:16.140  6168 4133485376 gX0   XClipboard: Shutting down event loop
+2017/07/20 13:32:16.142    34    35 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:16.142    34    35 GX0!! ConfigurationHub::HandleRegistrationResponse(): registering for feature 1 failed with error 2
+2017/07/20 13:32:16.143  6132 4128037696 NX0   CInterProcessNetwork: Received DisconnectIPC from processID 6007 (ProcessType: 2 in Session 0) with reason 1
+2017/07/20 13:32:16.143  6132 4128037696 NX0   Process 6007 in session 0 has terminated
+2017/07/20 13:32:16.143  6132 4128037696 NX0   TerminalServer::ProcessTerminated_Finalize: process 6007 terminated
+2017/07/20 13:32:16.143    34    40 GX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=6132)
+2017/07/20 13:32:16.144    34    40 GX0   CTcpProcessConnector::CloseConnection(): PID=6132
+2017/07/20 13:32:16.144    34    40 GX0!  InterProcessBase::EventFunctionInternal(): IPC-Connection Closed
+2017/07/20 13:32:16.144    34    40 GX0   CTcpProcessConnector::CloseConnection(): PID=6132
+2017/07/20 13:32:16.144    34    40 GX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10058: Unknown error
+2017/07/20 13:32:16.145  6132 4138527552 NX0   CTcpProcessConnector::HandleRead(): Socket gracefully closed (PID=6007)
+2017/07/20 13:32:16.145  6132 4138527552 NX0   CTcpProcessConnector::CloseConnection(): PID=6007
+2017/07/20 13:32:16.145  6132 4138527552 NX0   CInterProcessNetwork::NewInterProcessDataAvailable(): ConnectionClosed session=0 ptype=2
+2017/07/20 13:32:16.145  6132 4138527552 NX0   UpdateOnlineState m_ManualStop
+2017/07/20 13:32:16.145    34    40 GX0!! CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 10009: Unknown error, Errorcode=317
+2017/07/20 13:32:16.145  6132 4138527552 NX0   IPCNet: Shutting down network process
+2017/07/20 13:32:16.145  6132 4103887680 NX0   TeamViewer is going offline!
+2017/07/20 13:32:16.145  6132 4138527552 NX0   CTcpProcessConnector::CloseConnection(): Shutdown socket returned error 107: Transport endpoint is not connected
+2017/07/20 13:32:16.145  6132 4103887680 NX0   RemoteSessionManager::ClearAllRemoteSessions(): RemoteSession Count: 1
+2017/07/20 13:32:16.148    34    35 GX0   interprocessbase::SecureNetwork destroyed
+2017/07/20 13:32:16.150    34    35 GX0   TVW Terminating GUI slave
+2017/07/20 13:32:16.151    34    35 GX0   Wine: Wine DLL freed
+2017/07/20 13:32:16.151  6168 4148324096 gX0   TVGuiSlave.32: Terminated
+2017/07/20 13:32:16.203  6132 4117756736 NX0!! SecureNetworkConnection::Handle_SecureResponse: Coult not handle Response: [ remoteID: 942268557 connection: 4147847444 remoteConnection: 0 ] exception: SecureNetworkConnection:: Not Connected!
+2017/07/20 13:32:16.203  6132 4117756736 NX0   RetryHandle::HandleRetry: Trying Resend to 28 failed with error SecureNetwork: Invalid response Not retrying (2 retries would remain) Bcmd: CC=35 CT=1
+2017/07/20 13:32:16.264  6132 4117756736 NX0   TVRouterClock Schedule next request in 0 seconds
+2017/07/20 13:32:16.264  6132 4117756736 NX0!  KeepAliveSessionOutgoing::ConnectEndedHandler(): KeepAliveConnection with server18304.teamviewer.com ended
+2017/07/20 13:32:16.786  6132 4149053184 NX0   ShutdownDynGate
+2017/07/20 13:32:16.790  6132 4146920256 NX0   CAcceptServer::HandleAccept: socket closed
+2017/07/20 13:32:16.791  6132 4066376512 NX0   Shutdown complete
+2017/07/20 13:32:16.791  6132 4149053184 NX0   TeamViewer_Service Stop
+
+

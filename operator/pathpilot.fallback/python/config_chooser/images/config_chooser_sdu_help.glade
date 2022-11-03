@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="config_chooser_sdu_help">
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="help_fixed">
+        <property name="width_request">680</property>
+        <property name="height_request">510</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkImage" id="background">
+            <property name="visible">True</property>
+            <property name="pixbuf">MenuBackgroundMain.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="where_is_sn">
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <signal name="leave_notify_event" handler="on_leave_notify_event"/>
+            <signal name="button_release_event" handler="on_where_is_sn_button_release_event"/>
+            <signal name="enter_notify_event" handler="on_help_enter_notify_event"/>
+            <child>
+              <object class="GtkLabel" id="sn_help_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Where is the serial number?&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">385</property>
+            <property name="y">438</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="info_text">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 11" foreground="black" &gt;The analog VFD spindle drive that came on
+machines serial numbers 1 - 1325 is shown
+in the above photo.  These units required
+regular calibration and had reduced low
+speed torque&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">310</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="how_to_tell_sdu">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 16" foreground="black" &gt;How To Tell If The Spindle Drive Has Been Upgraded&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">79</property>
+            <property name="y">52</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="analog_vfd_image">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">ANALOG VFD.jpg</property>
+          </object>
+          <packing>
+            <property name="x">80</property>
+            <property name="y">90</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEventBox" id="sdu_help_eturn">
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="visible_window">False</property>
+            <signal name="leave_notify_event" handler="on_leave_notify_event"/>
+            <signal name="button_release_event" handler="on_return_button_release_event"/>
+            <signal name="enter_notify_event" handler="on_help_enter_notify_event"/>
+            <child>
+              <object class="GtkLabel" id="return_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Return to main menu&lt;/span&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">385</property>
+            <property name="y">476</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="digital_vfd_image">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">emmerson.jpg</property>
+          </object>
+          <packing>
+            <property name="x">405</property>
+            <property name="y">90</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="info_text_2">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 11" foreground="black" &gt;The digital spindle drive (standard on machines
+serial numbers 1326 and higher) is available
+as an upgrade (PN 31090).  These drives have
+better torque throughout the speed range and
+much faster accel/decel times.&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">355</property>
+            <property name="y">310</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

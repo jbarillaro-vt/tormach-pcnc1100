@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="378" height="310" viewBox="0, 0, 378, 310">
+  <g id="Layer_1">
+    <g id="background">
+      <g>
+        <path d="M-0,0 L378,0 L378,310 L-0,310 z" fill="#696969"/>
+        <path d="M-0,0 L378,0 L378,310 L-0,310 z" fill-opacity="0" stroke="#696969" stroke-width="0.25"/>
+      </g>
+      <path d="M0,0 L377.251,0 L377.251,309.848 L0,309.848 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.503"/>
+    </g>
+    <g id="CROSS">
+      <path d="M117.333,131.438 L309.562,131.438" fill-opacity="0" stroke="#9C7BEB" stroke-width="1.25" stroke-opacity="0.501" stroke-dasharray="6.25,5" id="H-cross"/>
+      <path d="M189.562,253.438 L189.562,9.437" fill-opacity="0" stroke="#9C7BEB" stroke-width="1.25" stroke-opacity="0.499" stroke-dasharray="6.25,5" id="V-cross"/>
+      <g>
+        <path d="M170.651,43.165 L189.036,120.175 C188.343,126.767 182.438,131.548 175.847,130.855 L103,106.44 z" fill="#FCFC00" fill-opacity="0.644"/>
+        <path d="M170.651,43.165 L189.036,120.175 C188.343,126.767 182.438,131.548 175.847,130.855 L103,106.44 z" fill-opacity="0" stroke="#696969" stroke-width="0.25"/>
+      </g>
+      <g>
+        <path d="M123.148,102.112 C136.046,72.931 166.94,55.165 199.358,59.61 C235.24,64.531 262,95.157 262.062,131.375" fill-opacity="0" stroke="#FFFF00" stroke-width="1.75" stroke-dasharray="5.25,3.5"/>
+        <path d="M119.901,100.945 L120.037,110.77 L126.395,103.279 M123.148,102.112 L120.037,110.77" fill-opacity="0" stroke="#FFFF00" stroke-width="1.75" stroke-opacity="1"/>
+      </g>
+      <g>
+        <path d="M191.255,85.216 C201.339,85.572 211.135,89.229 219.057,95.78 C229.669,104.554 235.812,117.606 235.812,131.375" fill-opacity="0" stroke="#00FF00" stroke-width="1.75" stroke-dasharray="5.25,3.5"/>
+        <path d="M190.99,81.776 L182.082,85.922 L191.52,88.656 M191.255,85.216 L182.082,85.922" fill-opacity="0" stroke="#00FF00" stroke-width="1.75" stroke-opacity="1"/>
+      </g>
+    </g>
+    <g id="FA_Arrow">
+      <g>
+        <path d="M214.745,108.558 L182.094,165.664" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+        <path d="M217.748,110.275 L219.324,100.549 L211.741,106.84 M214.745,108.558 L219.324,100.549" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-opacity="1"/>
+      </g>
+      <path d="M182.375,166 L73.667,166" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.77"/>
+    </g>
+    <g id="BA_Arrow">
+      <path d="M151.656,234 L73.667,234" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.77"/>
+      <g>
+        <path d="M252.703,133.049 L151.656,233.664" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+        <path d="M255.144,135.5 L259.24,126.539 L250.261,130.597 M252.703,133.049 L259.24,126.539" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-opacity="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

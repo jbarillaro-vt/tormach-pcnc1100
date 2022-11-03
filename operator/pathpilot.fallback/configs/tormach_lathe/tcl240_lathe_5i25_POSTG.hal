@@ -1,0 +1,160 @@
+# Include your customized HAL commands here
+# The commands in this file are run after the GUI starts and has the opportunity to create the needed pins
+
+# P3 pin 14 gpio 001
+setp hm2_5i25.0.gpio.001.is_output 1
+setp hm2_5i25.0.gpio.001.is_opendrain 0
+net coolant-flood tormach.coolant => hm2_5i25.0.gpio.001.out
+net coolant-flood-io iocontrol.0.coolant-flood => tormach.coolant-iocontrol
+
+# this connects the GUI to the jog axis enabled signals from the shuttlexpress
+setp tormach.jog-axis-x-enabled 1
+setp tormach.jog-axis-z-enabled 1
+net sxp.step-button-0 => tormach.jog-step-button
+net sxp.counts-smoothed0 => tormach.jog-counts
+#net wk-speedcarry-1 jogtranslator.1.vec-spd-sq-out => tormach.jog-speed
+#net sxp.shuttle_step_index => tormach.jog-shuttle-step-index
+net sxp.gui_step_index => tormach.jog-gui-step-index
+net sxp.is_metric => tormach.jog-is-metric
+net sxp.ring-speed-1 => tormach.jog-ring-speed-1
+net sxp.ring-speed-2 => tormach.jog-ring-speed-2
+net sxp.ring-speed-3 => tormach.jog-ring-speed-3
+net sxp.ring-speed-4 => tormach.jog-ring-speed-4
+net sxp.ring-speed-5 => tormach.jog-ring-speed-5
+net sxp.ring-speed-6 => tormach.jog-ring-speed-6
+net sxp.ring-speed-7 => tormach.jog-ring-speed-7
+
+# spindle RPM during program execution comes from encoder
+net spindle-velocity => tormach.spindle-speed-out
+
+#TODO: Add CPM pins for othe axes as they are installed
+net z-motor-state               tormach.z-motor-state
+
+net z-motor-command              tormach.z-motor-command
+
+# GUI sets tool changer type in lathe tool changer comp
+net gui-tool-changer-type      tormach.tool-changer-type
+
+# GUI tells tool changer comp when operator has completed tool change
+net gui-manual-tool-changed    tormach.manual-tool-changed
+
+# GUI needs to know when tool change is in progress for managing manual tool changer
+net tool-change-start => tormach.tool-change
+
+# GUI needs tool_prepare number to display to operator on manual tool change
+net tool-prep-number-to-comp => tormach.tool-prep-number
+
+# gui sets whether we are using a high speed pulley (5c) or low speed (D1-4)
+# connect spindle range button to hal gearchange pin
+net spindle-range                tormach.spindle-range
+net spindle-range-alarm          tormach.spindle-range-alarm
+
+# door switch status
+# say door is always closed
+setp tormach.door-switch 0
+#net door-switch-in => tormach.door-switch
+
+# limit switch status
+#setp tormach.limit-switch 1
+net limit-switch-in => tormach.home-switch
+net limit-switch-enable => tormach.home-switch-enable
+
+net z-status-code           tormach.z-status-code
+
+#######################################################################
+# Collet Closer
+#######################################################################
+
+# gui pin controlled by PP collet clamped button when g-code interpreter is paused
+net nosigname2 tormach.collet-closer-input-override => lut5.1.in-1
+
+# gui pin which tells the lut which of the other 2 pins to use (normally g-code, but when paused, its the other)
+net nosigname3 tormach.collet-closer-input-select => lut5.1.in-2
+
+# final control over collet closer is hooked up to gpio
+net collet-control-out => tormach.collet-closer-status
+
+# connect the status signal to a digital in so that we can read the value
+# using M66 P21 in remap code of M3 and M4 to prevent spindle from starting if the collet is 'unclamped'
+# maybe someday if we can ever remap M3 and M4
+#net collet-control-out => motion.digital-in-21
+
+
+# raw count from spindle encoder
+net spindle-encoder-count tormach.encoder-count
+net spindle-phase-A => tormach.encoder-a
+net spindle-phase-B => tormach.encoder-b
+net spindle-phase-Z => tormach.encoder-z
+net machine-ok-debounced tormach.machine-ok
+
+# Mesa card watchdog
+net hm2_5i25.0.watchdog.has-bit => tormach.mesa-watchdog-has-bit
+
+
+loadrt time
+addf time.0 servo-thread
+net prog-running prog-not-idle.in <= halui.program.is-idle
+net cycle-timer time.0.start <= prog-not-idle.out
+net cycle-seconds tormach.cycle-time-seconds <= time.0.seconds
+net cycle-minutes tormach.cycle-time-minutes <= time.0.minutes
+net cycle-hours tormach.cycle-time-hours <= time.0.hours
+
+loadrt stopwatch
+addf stopwatch.0 servo-thread
+net cycle-timer stopwatch.0.start
+net run-pause stopwatch.0.pause <= halui.program.is-paused
+net run-seconds tormach.run-time-seconds <= stopwatch.0.seconds
+net run-minutes tormach.run-time-minutes <= stopwatch.0.minutes
+net run-hours tormach.run-time-hours <= stopwatch.0.hours
+
+
+net motion-program-line   tormach.motion-program-line      <= motion.program-line
+net motion-next-program-line   tormach.motion-next-program-line      <= motion.next-program-line
+net motion-completed-program-line   tormach.motion-completed-program-line      <= motion.completed-program-line
+
+# USBIO
+net usbio-enabled tormach.usbio-enabled => usbio.enabled
+net dig-out-5 tormach.usbio-output-0
+net dig-out-6 tormach.usbio-output-1
+net dig-out-7 tormach.usbio-output-2
+net dig-out-8 tormach.usbio-output-3
+net dig-out-9 tormach.usbio-output-4
+net dig-out-10 tormach.usbio-output-5
+net dig-out-11 tormach.usbio-output-6
+net dig-out-12 tormach.usbio-output-7
+net dig-out-13 tormach.usbio-output-8
+net dig-out-14 tormach.usbio-output-9
+net dig-out-15 tormach.usbio-output-10
+net dig-out-16 tormach.usbio-output-11
+net dig-out-17 tormach.usbio-output-12
+net dig-out-18 tormach.usbio-output-13
+net dig-out-19 tormach.usbio-output-14
+net dig-out-20 tormach.usbio-output-15
+
+net dig-in-5 tormach.usbio-input-0
+net dig-in-6 tormach.usbio-input-1
+net dig-in-7 tormach.usbio-input-2
+net dig-in-8 tormach.usbio-input-3
+net dig-in-9 tormach.usbio-input-4
+net dig-in-10 tormach.usbio-input-5
+net dig-in-11 tormach.usbio-input-6
+net dig-in-12 tormach.usbio-input-7
+net dig-in-13 tormach.usbio-input-8
+net dig-in-14 tormach.usbio-input-9
+net dig-in-15 tormach.usbio-input-10
+net dig-in-16 tormach.usbio-input-11
+net dig-in-17 tormach.usbio-input-12
+net dig-in-18 tormach.usbio-input-13
+net dig-in-19 tormach.usbio-input-14
+net dig-in-20 tormach.usbio-input-15
+
+# IOB notification for errors
+net iob-status usbio.IOB-OK => tormach.usbio-status
+
+net board0present usbio.board-0-present => tormach.usbio-board-0-present
+net board1present usbio.board-1-present => tormach.usbio-board-1-present
+net board2present usbio.board-2-present => tormach.usbio-board-2-present
+net board3present usbio.board-3-present => tormach.usbio-board-3-present
+
+
+

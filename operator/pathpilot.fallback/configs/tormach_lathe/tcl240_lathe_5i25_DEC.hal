@@ -1,0 +1,79 @@
+# Tormach Lathe Hal file - originally created by Step Conf March 15 2012.
+# changed to new unified tool change HAL comp - JFP 17 December 2012
+# DEClares the comps - JAP 13 October 2012
+# Cleaned up, added estop-latch 3/28/12
+# changed tool change to match gang tool style 4/23/12
+
+# loads of changes from parallel port HAL to port to 5i25 Mesa card 7/2012
+# Change of charge pump from 12kHz to 500Hz 8/23/2012
+#   8/27/2012 rev 2 lathe control board
+#             charge pump driven by 500 Hz PWM
+#             removed commented out left over parallel port HAL configurations
+#             added table of pins vs. function for 5i25
+#             spindle speed now controlled by stepgen 1Hz == 1 RPM
+#   9/7/2012 ATC mostly working
+
+# load RT components
+loadrt trivkins
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES num_dio=9
+loadrt hostmot2
+loadrt hm2_pci config=" num_encoders=1 num_pwmgens=1 num_3pwmgens=0 num_stepgens=3  "
+loadrt estop_latch
+loadrt tormachltc
+loadrt and2 names=probe-enable-input
+loadusr -Wn usbio usbio.py -n usbio
+
+# stabilizes spindle RPM display
+loadrt lowpass
+setp lowpass.0.gain 0.01
+
+# absolute value component - used by spindle speed
+loadrt abs count=0
+
+loadrt debounce cfg=1,1
+
+loadrt not names=prog-not-idle
+
+loadrt xor2 names=probe-active-hi-lo
+
+#############################################################################
+# servo thread
+
+# mesa card .read should be the first thing added to the servo-thread
+# where .write should be the last thing added. that way everything
+# gets the freshest data from .read and .write sets all the new output data
+#
+addf hm2_5i25.0.read servo-thread
+
+addf lowpass.0 servo-thread
+
+# always needed
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+
+addf estop-latch.0 servo-thread
+
+# used by spindle speed
+addf abs.0 servo-thread
+
+addf debounce.0 servo-thread
+addf debounce.1 servo-thread
+addf probe-active-hi-lo servo-thread
+addf probe-enable-input servo-thread
+
+addf tormachltc.0 servo-thread
+
+addf prog-not-idle servo-thread
+
+# .write should be last after new outputs are computed
+# in servo-thread
+addf hm2_5i25.0.write servo-thread
+
+###############################################################
+
+
+## Here ends the DEClarations
+
+
+
+

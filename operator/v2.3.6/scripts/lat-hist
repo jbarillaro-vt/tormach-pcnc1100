@@ -1,0 +1,19 @@
+#!/bin/bash
+# coding=utf-8
+#-----------------------------------------------------------------------
+# Copyright © 2014-2018 Tormach® Inc. All rights reserved.
+# License: GPL Version 2
+#-----------------------------------------------------------------------
+
+# wrapper for latency-history
+SCRIPT_LOCATION=$(dirname $(readlink -f $0));
+if [ -f $SCRIPT_LOCATION/rip-environment.sh ] && [ -z "$EMC2_HOME" ]; then
+    pushd . > /dev/null
+    cd ~/tmc
+    echo ". $SCRIPT_LOCATION/rip-environment.sh"
+    . $SCRIPT_LOCATION/rip-environment.sh
+    popd > /dev/null
+fi
+
+~/tmc/scripts/latency-histogram --nobase
+

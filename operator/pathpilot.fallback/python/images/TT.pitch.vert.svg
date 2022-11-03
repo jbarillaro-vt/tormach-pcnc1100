@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="100" height="70" viewBox="0, 0, 100, 70">
+  <defs>
+    <pattern id="Pattern_1" patternUnits="userSpaceOnUse" x="-7.793" y="-44.222" width="48" height="48" patternTransform="matrix(-0.177, 0.177, -0.177, -0.177, 0, 0)">
+      <g transform="translate(0, -0)">
+        <path d="M12,0 L16,0 L16,48 L12,48 L12,0 z" fill="#000000"/>
+        <path d="M28,0 L32,0 L32,48 L28,48 L28,0 z" fill="#000000"/>
+        <path d="M44,0 L48,0 L48,48 L44,48 L44,0 z" fill="#000000"/>
+      </g>
+    </pattern>
+  </defs>
+  <g id="Layer_1">
+    <path d="M0,0 L100,0 L100,70 L0,70 L0,0 z" fill="#4F4F51" fill-opacity="0.828"/>
+    <g>
+      <g id="thread">
+        <path d="M44.222,107.335 L23.036,95.103 L23.036,92.433 L44.222,80.201 L44.222,77.75 L23.036,65.518 L23.036,62.849 L44.222,50.617 L44.222,48.924 L23.036,36.692 L23.036,34.024 L44.222,21.792 L44.222,19.34 L23.036,7.108 L23.036,4.439 L44.222,-7.793 L-5.216,-7.793 L-5.216,107.335 L44.222,107.335 z" fill="#D4D4D4"/>
+        <path d="M44.222,107.335 L23.036,95.103 L23.036,92.433 L44.222,80.201 L44.222,77.75 L23.036,65.518 L23.036,62.849 L44.222,50.617 L44.222,48.924 L23.036,36.692 L23.036,34.024 L44.222,21.792 L44.222,19.34 L23.036,7.108 L23.036,4.439 L44.222,-7.793 L-5.216,-7.793 L-5.216,107.335 L44.222,107.335 z" fill="url(#Pattern_1)"/>
+        <path d="M44.222,107.335 L23.036,95.103 L23.036,92.433 L44.222,80.201 L44.222,77.75 L23.036,65.518 L23.036,62.849 L44.222,50.617 L44.222,48.924 L23.036,36.692 L23.036,34.024 L44.222,21.792 L44.222,19.34 L23.036,7.108 L23.036,4.439 L44.222,-7.793 L-5.216,-7.793 L-5.216,107.335 L44.222,107.335 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+      <path d="M25.142,21.051 L65.409,21.051" fill-opacity="0" stroke="#00FF00" stroke-width="1" stroke-dasharray="3,2"/>
+      <path d="M25.142,50.271 L65.409,50.271" fill-opacity="0" stroke="#00FF00" stroke-width="1" stroke-dasharray="3,2"/>
+      <g>
+        <path d="M55.969,30.051 L55.969,41.271" fill-opacity="0" stroke="#FFFFFF" stroke-width="1"/>
+        <path d="M58.969,30.051 L55.969,22.051 L52.969,30.051 z" fill="#FFFFFF" fill-opacity="1" stroke="#FFFFFF" stroke-width="1" stroke-opacity="1"/>
+        <path d="M52.969,41.271 L55.969,49.271 L58.969,41.271 z" fill="#FFFFFF" fill-opacity="1" stroke="#FFFFFF" stroke-width="1" stroke-opacity="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

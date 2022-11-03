@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.24"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkDialog" id="main_dialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Software Update</property>
+    <property name="resizable">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="has_separator">True</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="spacing">14</property>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="close_button">
+                <property name="label" translatable="yes">Close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="released" handler="on_close_button_released" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="main_fixed">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="browse_button">
+                <property name="label" translatable="yes">Browse</property>
+                <property name="width_request">100</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="released" handler="on_browse_button_released" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">520</property>
+                <property name="y">234</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="checkonline_button">
+                <property name="label" translatable="yes">Check Online</property>
+                <property name="width_request">100</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="released" handler="on_checkonline_button_released" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">520</property>
+                <property name="y">8</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="width_request">493</property>
+                <property name="height_request">40</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Check online for latest updates</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="x">9</property>
+                <property name="y">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label2">
+                <property name="width_request">480</property>
+                <property name="height_request">54</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Update using file on USB drive or revert to a previous version</property>
+                <property name="single_line_mode">True</property>
+              </object>
+              <packing>
+                <property name="x">9</property>
+                <property name="y">222</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="periodic_checkbox">
+                <property name="label" translatable="yes">Check online daily for updates; confirmation required for download and installation</property>
+                <property name="width_request">507</property>
+                <property name="height_request">43</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_action_appearance">False</property>
+                <property name="yalign">0.43000000715255737</property>
+                <property name="draw_indicator">True</property>
+                <signal name="toggled" handler="on_periodic_checkbox_toggled" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">17</property>
+                <property name="y">164</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="install_button">
+                <property name="label" translatable="yes">Install</property>
+                <property name="width_request">100</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <property name="yalign">0.46000000834465027</property>
+                <signal name="released" handler="on_install_button_released" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">520</property>
+                <property name="y">50</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolledwindow1">
+                <property name="width_request">481</property>
+                <property name="height_request">120</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">automatic</property>
+                <property name="vscrollbar_policy">automatic</property>
+                <child>
+                  <object class="GtkTextView" id="description_textview">
+                    <property name="width_request">488</property>
+                    <property name="height_request">112</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="editable">False</property>
+                    <property name="wrap_mode">word</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="x">20</property>
+                <property name="y">50</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">close_button</action-widget>
+    </action-widgets>
+  </object>
+</interface>

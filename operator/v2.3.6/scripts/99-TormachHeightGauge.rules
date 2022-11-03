@@ -1,0 +1,1 @@
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="04d9", ATTRS{idProduct}=="e002", MODE=="0666", SYMLINK+="tormachheightgauge"

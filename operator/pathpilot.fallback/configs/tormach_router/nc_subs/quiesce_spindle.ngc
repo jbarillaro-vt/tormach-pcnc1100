@@ -1,0 +1,41 @@
+(---------------------------------------------------------------------------------------------)
+(Wait for spindle to stop turning                                                             )
+(Work is actually done in the ATC hal component via query sensor USB command.                 )
+(   If it is a legacy ATC board the ATC hal component will always check the 24V signal wire   )
+(   If it is a newer board, it will check signal wires only for S1-3 machines as above, but   )
+(     checks the internal linuxcnc hal pins for M machines.                                   )
+(---------------------------------------------------------------------------------------------)
+o<quiesce_spindle> sub
+
+      o<not_you_again> if [#<_spindle_quiesced> EQ 0.0]  (deja va?)
+            (-------------------------------------------------------)
+            (  only one actual check per customer                   )
+            (-------------------------------------------------------)
+
+            o<wuz_it_stopped> if [#<_spindle_quiesced> EQ 1.0]
+                  o<quiesce_spindle> return [0]
+            o<wuz_it_stopped> endif
+
+            (check for spindle wind down - M5 is issued at entry to tormach_tool_change)
+            (end in error if S1-3 have spindle manually on              )
+
+            #<counter> = 0                     (loop control)
+
+            o<wind_down> while [#<counter> LT 80]           (wait it out)
+                     (do this for a few seconds max)
+               o<atc_hal_comms> call [#<_query_sensor> ] [#<_vfd_sensor>]   (vfd signal?)
+               o<it_stopped> if [#<_atc_return> EQ 0.0] (stopped ?)
+                     #<_spindle_quiesced> = 1.0            (yes set flag )
+                     o<wind_down> break             (exit while loop)
+               o<it_stopped> endif
+                     g4 p.050                      (no wait a while)
+                     #<counter> = [#<counter> + 1]
+
+            o<wind_down>  endwhile                              (done waiting now check)
+
+            o<it_didnt> if [#<_spindle_quiesced> NE 1.0  ]
+              o<atc_errors> call [#<_atc_spindle_running>]   (ABORT!)
+            o<it_didnt> endif
+            #<_spindle_quiesced> = 1.0      (dead as a door nail )
+      o<not_you_again> endif
+o<quiesce_spindle> endsub [0]  (return ok)

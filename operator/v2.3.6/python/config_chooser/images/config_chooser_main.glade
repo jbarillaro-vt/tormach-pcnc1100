@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="config_chooser_main">
+    <property name="can_focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <property name="decorated">False</property>
+    <child>
+      <object class="GtkFixed" id="main_fixed_container">
+        <property name="width_request">800</property>
+        <property name="height_request">600</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <signal name="key-press-event" handler="on_main_key_press_event" swapped="no"/>
+        <child>
+          <object class="GtkImage" id="background">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">MenuBackgroundMain800x600.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="title">
+            <property name="width_request">480</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 20" foreground="black" &gt;TORMACH MACHINE CONFIGURATION&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">12</property>
+            <property name="y">16</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="machinery_label">
+            <property name="width_request">300</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 15" foreground="black" &gt;Current Machine Models&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">74</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="machine_description">
+            <property name="width_request">320</property>
+            <property name="height_request">140</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="yalign">0</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 12" foreground="black" &gt;Select the machine connected to this controller.&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="wrap">True</property>
+          </object>
+          <packing>
+            <property name="x">460</property>
+            <property name="y">104</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="machine_image">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">Small_1100M.png</property>
+          </object>
+          <packing>
+            <property name="x">490</property>
+            <property name="y">200</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="update_button">
+            <property name="label" translatable="yes">Update</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_update_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">130</property>
+            <property name="y">556</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="logdata_button">
+            <property name="label" translatable="yes">Log Data</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_logdata_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">13</property>
+            <property name="y">556</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="cancel_button">
+            <property name="label" translatable="yes">Cancel</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_cancel_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">574</property>
+            <property name="y">556</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="tormach_image">
+            <property name="width_request">280</property>
+            <property name="height_request">79</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="pixbuf">logo.png</property>
+          </object>
+          <packing>
+            <property name="x">510</property>
+            <property name="y">-10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="save_button">
+            <property name="label" translatable="yes">Save and Start</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_save_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">686</property>
+            <property name="y">556</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="legacy_label">
+            <property name="width_request">300</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 15" foreground="black" &gt;Previous Machine Models&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">440</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="legacy_button">
+            <property name="label" translatable="yes">Find Machine...</property>
+            <property name="width_request">160</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <signal name="clicked" handler="on_legacy_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">26</property>
+            <property name="y">474</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="sim_label">
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="xalign">1</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;span weight="bold" font_desc="Roboto Condensed 14" foreground="red" &gt;Sim Mode&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">334</property>
+            <property name="y">74</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="version_label">
+            <property name="width_request">180</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">1.0</property>
+            <property name="label" translatable="yes">&lt;span font_desc="Roboto Condensed 11" foreground="black" &gt;???&lt;/span&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="x">600</property>
+            <property name="y">510</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHSeparator" id="wizard_rule">
+            <property name="width_request">800</property>
+            <property name="height_request">4</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">0</property>
+            <property name="y">540</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

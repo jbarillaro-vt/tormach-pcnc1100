@@ -1,0 +1,19 @@
+o<on_abort> sub
+
+(==========================================================)
+(Add any user state recovery for interpreter aborts here   )
+(==========================================================)
+
+ (print,on_abort.ngc called)
+
+(===========================================================)
+(ATC - restores saved modals, and changing beacon pin       )
+(  If user's modal state was not previously save with M80   )
+(   M81 will be a NOOP                                      )
+(===========================================================)
+  M5     (free up spindle)
+  M81    (restore modals)
+  M65 P#<_is_changing> (we're not in Kansas anymore Toto)
+  M65 P56  (release pdb bit)
+
+o<on_abort> endsub

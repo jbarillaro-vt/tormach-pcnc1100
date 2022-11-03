@@ -1,0 +1,11 @@
+{
+    "description": "PathPilot v2.0.2 - includes new feeds and speeds suggestions for conversational and dxf to g-code generation for mills. Many other maintenance fixes, see the ReleaseNotes folder after installation for further details.", 
+    "fileVersion": 2, 
+    "newestVersion": "2.0.2", 
+    "newestVersionBuild": 24, 
+    "newestVersionFilename": "v2.0.2.tgp", 
+    "newestVersionSizeInBytes": 23927169, 
+    "newestVersionStatus": "", 
+    "newestVersionUrl": "http://pathpilotapi.com/v2.0.2.tgp", 
+    "releaseNotesUrl": "release notes url"
+}

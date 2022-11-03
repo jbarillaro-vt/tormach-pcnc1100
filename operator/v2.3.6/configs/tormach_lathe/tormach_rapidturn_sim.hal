@@ -1,0 +1,214 @@
+# Tormach RapidTurn Simulation HAL file
+
+# load RT components
+loadrt trivkins
+loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES num_dio=64
+loadrt abs count=0
+loadrt pwmgen output_type=0
+loadrt tormachltc
+loadrt not names=prog-not-idle
+loadrt comp count=3
+loadusr -Wn usbio usbio.py -n usbio
+
+# Add RT components to threads
+addf pwmgen.make-pulses      base-thread
+
+addf motion-command-handler  servo-thread
+addf motion-controller       servo-thread
+addf abs.0                   servo-thread
+addf pwmgen.update           servo-thread
+addf tormachltc.0            servo-thread
+addf comp.0 servo-thread
+addf comp.1 servo-thread
+addf comp.2 servo-thread
+
+# Spindle set up
+net machine-ok   pwmgen.0.enable
+net spindle-pwm  pwmgen.0.pwm
+setp pwmgen.0.pwm-freq   10000.0
+setp pwmgen.0.scale      3000.0
+setp pwmgen.0.offset     0.0
+setp pwmgen.0.dither-pwm true
+net spindle-on   motion.spindle-on
+net spindle-dir  motion.spindle-reverse
+
+# Coolant
+# iocontrol.0.coolant-flood now assigned in the the POSTGUI_HALFILE
+# net coolant-flood iocontrol.0.coolant-flood => parport.0.pin-14-out
+
+# counting the spindle encoder in software
+loadrt encoder num_chan=1
+# simulate the encoder
+loadrt sim_encoder num_chan=1
+loadrt limit2 count=1
+
+addf limit2.0        servo-thread
+addf prog-not-idle   servo-thread
+
+
+#######################################################
+# Beginning of threading related stuff
+#######################################################
+
+# spindle speed control
+net spindle-speed-cmd  motion.spindle-speed-out => limit2.0.in
+net spindle-speed-limited limit2.0.out   sim-encoder.0.speed
+
+# simulate spindle mass
+setp limit2.0.maxv 500.0 # rpm/second
+
+# spindle encoder
+# connect encoder signals to encoder counter
+net spindle-phase-A sim-encoder.0.phase-A   encoder.0.phase-A
+net spindle-phase-B sim-encoder.0.phase-B   encoder.0.phase-B
+net spindle-phase-Z sim-encoder.0.phase-Z   encoder.0.phase-Z
+
+# assume 120 ppr = 480 counts/rev for the spindle
+setp sim-encoder.0.ppr 120
+# iocontrol output is in rpm, but sim-encoder speed is rps
+setp sim-encoder.0.scale 60
+# scale encoder output to read in revolutions
+# (that way thread pitches can be straightforward,
+#  a 20 tpi thread would multiply the encoder output
+#  by 1/20, etc)
+setp encoder.0.position-scale 480
+
+# encoder reset control
+# hook up motion controller's sync output
+net spindle-index-enable motion.spindle-index-enable <=> encoder.0.index-enable
+
+# report our revolution count to the motion controller
+net spindle-pos encoder.0.position   motion.spindle-revs
+
+# for spindle velocity estimate
+loadrt lowpass count=1
+loadrt scale count=1
+net spindle-rps-raw        encoder.0.velocity   lowpass.0.in
+net spindle-rps-filtered   lowpass.0.out        scale.0.in motion.spindle-speed-in
+net spindle-rpm-filtered   scale.0.out
+setp scale.0.gain    60
+setp lowpass.0.gain .07
+addf lowpass.0 servo-thread
+addf scale.0   servo-thread
+
+# for at-speed detection
+loadrt near
+addf near.0 servo-thread
+setp near.0.scale 1.1
+setp near.0.difference 10
+net spindle-speed-cmd      near.0.in1
+net spindle-rpm-filtered   near.0.in2
+net spindle-at-speed       near.0.out   motion.spindle-at-speed
+
+net spindle-fwd            motion.spindle-forward
+
+addf encoder.capture-position   servo-thread
+addf sim-encoder.update-speed   servo-thread
+
+addf sim-encoder.make-pulses    base-thread
+addf encoder.update-counters    base-thread
+
+
+#######################################################################
+# IO Board
+#######################################################################
+
+net dig-out-5 motion.digital-out-05   usbio.relay-0
+net dig-out-6 motion.digital-out-06   usbio.relay-1
+net dig-out-7 motion.digital-out-07   usbio.relay-2
+net dig-out-8 motion.digital-out-08   usbio.relay-3
+
+net dig-in-5  motion.digital-in-05    usbio.input-0
+net dig-in-6  motion.digital-in-06    usbio.input-1
+net dig-in-7  motion.digital-in-07    usbio.input-2
+net dig-in-8  motion.digital-in-08    usbio.input-3
+
+
+
+
+# Axes
+# X axis
+# loopback
+net axisXpos axis.0.motor-pos-cmd   axis.0.motor-pos-fb
+
+# RapidTurn has a Y axis
+# Y axis
+# loopback
+net axisYpos axis.1.motor-pos-cmd   axis.1.motor-pos-fb
+
+# Z axis
+# loopback
+net axisZpos axis.2.motor-pos-cmd   axis.2.motor-pos-fb
+
+# estop loopback
+net estop-loop iocontrol.0.user-enable-out   iocontrol.0.emc-enable-in
+
+
+# Tool Changer
+
+# type of tool changer is set by the UI via tormachltc.0.tool-changer-type
+# 0 - manual
+# 1 - gang
+# 3 - 8 position ATC
+
+# tool-prepare
+# loopback - not needed
+net tool-prepare-loopback iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
+
+# tool number
+net tool-prep-number-to-comp iocontrol.0.tool-prep-number => tormachltc.0.tool-prep-number
+
+# feedback that tool change is complete
+# iocontrol.0.tool-changed needs to go high when tool change is complete
+net tool-change-done-from-changer tormachltc.0.tool-changed-out => iocontrol.0.tool-changed
+
+# 0 -> 1 iocontrol.0.tool-change begins ATC tool change process
+# connect real ATC signal to the HAL comp
+# lathe control board ignores it if the tool number is out of range of the ATC
+net tool-change-start iocontrol.0.tool-change
+
+# and connect iocontrol.0.tool-change to the tool changer comp
+net tool-change-start tormachltc.0.tool-change-in
+
+# this connects the lathe control board tool-changed signal to the HAL comp
+# for sim ATC 'tool-changed' is looped back to 'tool-change'
+net tool-change-start tormachltc.0.atc-tool-changed
+
+
+#######################################################################
+# Fake limit switches
+
+# Joint 0 = Z physical axis, home switch is on negative end
+# Joint 1 = Y axis, home switch is on positive end
+# Joint 2 = X physical axis, home switch is on positive end
+# Joint 3 = A axis, home switch is on positive end
+
+net J0homeswpos comp.0.in0
+net J1homeswpos comp.1.in0
+net J2homeswpos comp.2.in0
+
+sets J0homeswpos 0.1
+sets J1homeswpos 0.1
+sets J2homeswpos 0.1
+
+net axisXpos comp.0.in1
+net axisYpos comp.1.in1
+net axisZpos comp.2.in1
+
+setp comp.0.hyst .02
+setp comp.1.hyst .02
+setp comp.2.hyst .02
+
+net J0homesw comp.0.out => axis.0.home-sw-in axis.0.neg-lim-sw-in axis.0.pos-lim-sw-in
+net J1homesw comp.1.out => axis.1.home-sw-in axis.1.neg-lim-sw-in axis.1.pos-lim-sw-in
+net J2homesw comp.2.out => axis.2.home-sw-in axis.2.neg-lim-sw-in axis.2.pos-lim-sw-in
+
+net z-is-homing     axis.0.homing
+net y-is-homing     axis.1.homing
+net x-is-homing     axis.2.homing
+
+
+# Dummy signal for spindle-fault for non-ecm1 m200 machines so postgui can
+# connect to it.
+newsig spindle-fault u32
+sets spindle-fault 0

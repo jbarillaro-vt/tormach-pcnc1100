@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="378" height="310" viewBox="0, 0, 378, 310">
+  <g id="Layer_1">
+    <g id="background">
+      <g>
+        <path d="M-0,0 L378,0 L378,310 L-0,310 z" fill="#696969"/>
+        <path d="M-0,0 L378,0 L378,310 L-0,310 z" fill-opacity="0" stroke="#696969" stroke-width="0.25"/>
+      </g>
+      <path d="M0,0 L377.251,0 L377.251,309.848 L0,309.848 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.503"/>
+    </g>
+    <g id="small_arrow">
+      <path d="M188.166,134.094 L177.64,137.004" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.049" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <path d="M177.641,137.507 L188.267,140.407" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.886" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <g id="arrowhead">
+        <path d="M177.558,137.22 L236.009,137.22" fill="#FFFFFF"/>
+        <path d="M177.558,137.22 L269.667,137.22" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      </g>
+    </g>
+    <g id="Circles">
+      <g>
+        <g>
+          <path d="M122,263 C80.579,263 47,229.421 47,188 C47,146.579 80.579,113 122,113 C163.421,113 197,146.579 197,188 C197,229.421 163.421,263 122,263 z" fill="#696969"/>
+          <path d="M122,263 C80.579,263 47,229.421 47,188 C47,146.579 80.579,113 122,113 C163.421,113 197,146.579 197,188 C197,229.421 163.421,263 122,263 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.25" stroke-dasharray="3.75,2.5"/>
+        </g>
+        <g>
+          <path d="M144.5,127 L144.976,95.156 L150.929,57.5 L204.5,98.695 L172.595,115.842 z" fill="#FFF800"/>
+          <path d="M144.5,127 L144.976,95.156 L150.929,57.5 L204.5,98.695 L172.595,115.842 z" fill-opacity="0" stroke="#FFFF00" stroke-width="0.25"/>
+        </g>
+        <path d="M124.966,272.948 C78.051,274.587 38.69,237.882 37.052,190.966 C35.413,144.051 72.118,104.69 119.034,103.052 C165.949,101.413 205.31,138.118 206.948,185.034 C208.587,231.949 171.882,271.31 124.966,272.948 z" fill-opacity="0" stroke="#4800FA" stroke-width="1.25" stroke-dasharray="3.75,2.5"/>
+      </g>
+      <path d="M144.858,106.13 L153.38,112.758" fill-opacity="0" stroke="#4800FA" stroke-width="1.25" stroke-linecap="square"/>
+      <path d="M144.858,106.13 L155.705,106.576" fill-opacity="0" stroke="#4800FA" stroke-width="1.25" stroke-linecap="square"/>
+    </g>
+    <g id="ARROW_HEAD">
+      <path d="M158.353,122.344 L165.166,130.719" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.25" stroke-linecap="square"/>
+      <path d="M158.353,122.344 L168.822,125.219" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.25" stroke-linecap="square"/>
+    </g>
+    <path d="M12.5,215.501 L24.75,114.001 L144.25,65.501 L144.25,183.251 L231.5,182.001 L198.5,242.001 L168.822,285 L81.667,289 z" fill="#696969"/>
+    <g id="CROSS">
+      <path d="M17.083,184 L262.583,184" fill-opacity="0" stroke="#9C7BEB" stroke-width="1.25" stroke-opacity="0.501" stroke-dasharray="6.25,5"/>
+      <path d="M143.25,306.75 L143.25,61.25" fill-opacity="0" stroke="#9C7BEB" stroke-width="1.25" stroke-opacity="0.499" stroke-dasharray="6.25,5"/>
+    </g>
+    <g id="small_arrow">
+      <path d="M132.795,109.656 L143.32,106.747" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.049" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <path d="M143.319,106.244 L132.693,103.344" fill-opacity="0" stroke="#FFFFFF" stroke-width="0.886" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      <g id="arrowhead">
+        <path d="M143.403,106.53 L84.951,106.53" fill="#FFFFFF"/>
+        <path d="M95.854,106.53 L143.403,106.53" fill-opacity="0" stroke="#FFFFFF" stroke-width="1.766" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

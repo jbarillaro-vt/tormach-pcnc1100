@@ -1,0 +1,23 @@
+o<f360_update_y> sub
+
+(first extract our parameters to more friendly variables)
+#<wcs> = #1
+#<hitfound> = #2
+#<expected> = #3
+
+(workspaces are stored in inches, so we need a conversion factor for mm)
+o100 if [#<_metric> EQ 1]
+    #<unit_conv> = 25.4
+o100 else
+    #<unit_conv> = 1
+o100 endif
+
+(now update the target wcs)
+#<newValue> = [#<_work_offset_y> * #<unit_conv> + [#<hitfound> - #<expected>]]
+G10 L2 P#<wcs> Y#<newValue>
+
+(EBUG, y offset updated to #<newValue>)
+
+o<f360_update_y> endsub
+
+M02

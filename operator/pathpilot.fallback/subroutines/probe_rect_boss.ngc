@@ -1,0 +1,210 @@
+o<probe_rect_boss> sub
+
+;(PRINT,begin o<probe_rect_boss> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10)
+
+#<feed_rapid> = #1        (machine units)
+#<feed_ruff> = #2         (machine units)
+#<feed_fine> = #3         (machine units)
+#<x_axis_limit_min> = #4  (machine units)
+#<x_axis_limit_max> = #5  (machine units)
+#<y_axis_limit_min> = #6  (machine units)
+#<y_axis_limit_max> = #7  (machine units)
+#<x_wcs_offset> = #8      (machine units)
+#<y_wcs_offset> = #9      (machine units)
+#<tip_diameter> = #10     (machine units)
+
+(PRINT,feed_rapid: #<feed_rapid>)
+(PRINT,feed_ruff: #<feed_ruff>, feed_fine: #<feed_fine>)
+(PRINT,x_axis_limit_min: #<x_axis_limit_min>, x_axis_limit_max: #<x_axis_limit_max>)
+(PRINT,y_axis_limit_min: #<y_axis_limit_min>, y_axis_limit_max: #<y_axis_limit_max>)
+(PRINT,x_wcs_offset: #<x_wcs_offset>, y_wcs_offset: #<y_wcs_offset>)
+(PRINT,tip_diameter: #<tip_diameter>)
+
+o<probe_prep> call
+
+#<unit_conv> = 1.0
+o110 if [#<_metric> NE 0]
+  #<unit_conv> = 25.4
+o110 endif
+#<hunt_length>        = [0.400 * #<unit_conv>]
+#<max_probe_distance> = [0.400 * #<unit_conv>]
+#<abs_past_corner>    = [0.250 * #<unit_conv>]
+
+#<tip_radius> = [#<tip_diameter> / 2.0]
+;(PRINT,tip_radius: #<tip_radius>)
+
+#<abs_retract> = ABS[#<tip_diameter> / 1.5]
+
+o<probe_hunt_edge> call [#<feed_rapid>] [#<feed_ruff>] [0] [#<x_axis_limit_max>] [#<max_probe_distance>] [1] [#<abs_retract>] [1] [1] [#<_y>] [#<hunt_length>] [#<x_wcs_offset>]
+#<x_west> =  #<_value>
+(PRINT,x_west: #<x_west>)
+
+o<probe_hunt_edge> call [#<feed_rapid>] [#<feed_ruff>] [1] [#<y_axis_limit_min>] [#<max_probe_distance>] [-1] [#<abs_retract>] [0] [1] [#<_x>] [#<hunt_length>] [#<y_wcs_offset>]
+#<y_north> =  #<_value>
+(PRINT,y_north: #<y_north>)
+
+o<probe_hunt_edge> call [#<feed_rapid>] [#<feed_ruff>] [0] [#<x_axis_limit_min>] [#<max_probe_distance>] [-1] [#<abs_retract>] [1] [-1] [#<_y>] [#<hunt_length>] [#<x_wcs_offset>]
+#<x_east> =  #<_value>
+(PRINT,x_east: #<x_east>)
+
+(probe SOUTH face in Y positive -- no hunting required)
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_max>] [#<y_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+
+o<probe_get_probe_result_by_index> call [1]
+#<y_south> = #<_value>
+(PRINT,y_south: #<y_south>)
+(PRINT,retract)
+o<probe_g38n_by_index> call [1] [#<y_south> - #<abs_retract>] [#<feed_ruff>] [6]
+(PRINT,move clear of face)
+o<probe_g1_by_index> call [1] [#<y_south> - [#<tip_radius>]] [#<feed_rapid>]
+
+(at this point we have rough probe locations for each face)
+(do fine probes at center of each face)
+
+(PRINT,compute rough centers)
+#<x_center> = [[#<x_west> + #<x_east>] / 2]
+#<y_center> = [[#<y_south> + #<y_north>] / 2]
+
+(PRINT,fine SOUTH)
+o<probe_g1_by_index> call [0] [#<x_center>] [#<feed_rapid>]
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_max>] [#<y_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [1]
+
+#<y_south> = #<_value>
+(PRINT,y_south: #<y_south>)
+
+(probe fine EAST)
+o<probe_g1_by_index> call [0] [#<x_east> + [#<tip_diameter>]] [#<feed_rapid>]
+o<probe_g1_by_index> call [1] [#<y_center>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_min>] [#<x_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [1]
+
+#<x_east> = #<_value>
+(PRINT,x_east: #<x_east>)
+
+(probe fine NORTH)
+o<probe_g1_by_index> call [1] [#<y_north> + [#<tip_diameter>]] [#<feed_rapid>]
+o<probe_g1_by_index> call [0] [#<x_center>] [#<feed_rapid>]
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_min>] [#<y_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [1]
+
+#<y_north> = #<_value>
+(PRINT,y_north: #<y_north>)
+
+(probe fine WEST)
+o<probe_g1_by_index> call [0] [#<x_west> - [#<tip_diameter>]] [#<feed_rapid>]
+o<probe_g1_by_index> call [1] [#<y_center>] [#<feed_rapid>]
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [1]
+
+#<x_west> = #<_value>
+(PRINT,x_west: #<x_west>)
+
+(fine centers)
+#<x_center> = [[#<x_west> + #<x_east>] / 2]
+#<y_center> = [[#<y_south> + #<y_north>] / 2]
+
+#<x_axis_origin> = [#<x_center> + #<x_wcs_offset>]
+#<y_axis_origin> = [#<y_center> + #<y_wcs_offset>]
+
+(PRINT,setting origin with G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>)
+G10 L2 P0 X #<x_axis_origin> Y #<y_axis_origin>
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_rect_boss> sub --------------------------------------------------)
+
+o<probe_rect_boss> endsub
+
+o<probe_hunt_edge> sub
+;(PRINT,begin o<probe_hunt_edge> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+o200 if [[#3 LT 0] OR [#3 GT 3]]
+  (DEBUG,o<probe_hunt_edge> probe axis index argument 3 is #3, must be 0-3)
+  (DEBUG,Ending program.)
+  M2
+o200 endif
+
+o210 if [[#8 LT 0] OR [#8 GT 3]]
+  (DEBUG,o<probe_hunt_edge> hunt axis index argument 8 is #8, must be 0-3)
+  (DEBUG,Ending program.)
+  M2
+o210 endif
+
+(everything in current units in current WCS)
+#<feed_rapid> = #1
+#<feed_ruff> = #2
+#<probe_axis_index> = #3
+#<probe_axis_limit> = #4
+#<probe_abs_distance> = #5
+#<probe_direction> = #6
+#<abs_retract> = #7
+#<hunt_axis_index> = #8
+#<hunt_direction> = #9
+#<hunt_start> = #10
+#<hunt_length> = #11
+#<wcs_offset> = #12
+
+;(PRINT,feed_rapid: #<feed_rapid>)
+;(PRINT,feed_ruff: #<feed_ruff>)
+;(PRINT,probe_axis_index: #<probe_axis_index>, probe_axis_limit: #<probe_axis_limit>)
+;(PRINT,probe_abs_distance: #<probe_abs_distance>, probe_direction: #<probe_direction>)
+;(PRINT,abs_retract: #<abs_retract>)
+;(PRINT,hunt_axis_index: #<hunt_axis_index>, hunt_direction: #<hunt_direction>, )
+;(PRINT,hunt_start: #<hunt_start>, hunt_length: #<hunt_length>)
+
+(probe along hunt axis until the end of the edge, i.e. the corner, is found)
+(return the position of the edge)
+(the current hunt position is just past the edge enough to not trip the probe)
+
+(in current WCS and units as far as possible yet within soft limit)
+#<axis_end> = [#<probe_axis_limit> - #<wcs_offset> - 0.001 * #<probe_direction>]
+
+(first probe)
+o<probe_g38n_by_index> call [#<probe_axis_index>] [#<axis_end>] [#<feed_ruff>] [2]
+
+o<probe_get_probe_result_by_index> call [#<probe_axis_index>]
+#<probe_edge> = #<_value>
+(PRINT,probe_edge: #<probe_edge>)
+
+(retract)
+o<probe_g38n_by_index> call [#<probe_axis_index>] [#<probe_edge> - [#<abs_retract> * #<probe_direction>]] [#<feed_ruff>] [6]
+
+(hunt loop)
+#<hunt_count> = 1
+o120 do
+  o<probe_g1_by_index> call [#<hunt_axis_index>] [#<hunt_start> + [#<hunt_length> * #<hunt_count> * #<hunt_direction>]] [#<feed_rapid>]
+  #<probe_coord> = [#<probe_edge> + [#<probe_abs_distance> * #<probe_direction>]]
+  o<probe_g38n_by_index> call [#<probe_axis_index>] [#<probe_coord>] [#<feed_ruff>] [3]
+
+  o<probe_get_probe_result_by_index> call [#<probe_axis_index>]
+  #<probe_result> = #<_value>
+  (PRINT,probe_result: #<probe_result>)
+
+  ;(PRINT,[#<probe_edge> + [#<abs_retract> * #<probe_direction>]])
+  o130 if [#<probe_direction> GT 0]
+    o140 if [#<probe_result> GT [#<probe_edge> + [#<abs_retract> * #<probe_direction>]]]
+      (PRINT,probed past edge positive)
+      (exit hunt loop)
+      o120 break
+    o140 endif
+  o130 else
+    o150 if [#<probe_result> LT [#<probe_edge> + [#<abs_retract> * #<probe_direction>]]]
+      (PRINT,probed past edge negative)
+      (exit hunt loop)
+      o120 break
+    o150 endif
+  o130 endif
+
+  (continue the hunt)
+  (retract)
+  o<probe_g38n_by_index> call [#<probe_axis_index>] [#<probe_edge> - [#<abs_retract> * #<probe_direction>]] [#<feed_ruff>] [6]
+  #<hunt_count> = [#<hunt_count> + 1]
+o120 while [#<hunt_count> LT 100]
+
+(move hunt axis enough to be well clear of next face)
+o<probe_g1_by_index> call [#<hunt_axis_index>] [#<hunt_start> + [#<hunt_length> * #<hunt_count> * #<hunt_direction>] + [#<abs_retract> * #<hunt_direction>]] [#<feed_rapid>]
+
+;(PRINT,end o<probe_hunt_edge> endsub --------------------------------------------------------)
+(return coord of probed edge, coord past edge is current hunt position)
+o<probe_hunt_edge> endsub [#<probe_edge>]
+
+M02

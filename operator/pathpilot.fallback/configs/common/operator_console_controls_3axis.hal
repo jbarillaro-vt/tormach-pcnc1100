@@ -1,0 +1,46 @@
+
+#
+# This HAL file hooks up the Tormach VMC console controls.
+#
+#  Author P Den Hartog
+#
+
+loadusr -Wn tormach_console tormach_console.py -n tormach_console
+
+# jog wheel setup
+net console-mpgcounts tormach-console.0.jog-wheel-counts-adjusted axis.0.jog-counts axis.1.jog-counts axis.2.jog-counts tormach.console-jog-counts
+
+# step size setup
+net console-jogscale tormach-console.0.step-select-value axis.0.jog-scale axis.1.jog-scale axis.2.jog-scale
+
+setp axis.0.jog-vel-mode 1
+setp axis.1.jog-vel-mode 1
+setp axis.2.jog-vel-mode 1
+
+net console-axis-0-enable tormach-console.0.axis.0.enabled axis.0.jog-enable
+net console-axis-1-enable tormach-console.0.axis.1.enabled axis.1.jog-enable
+net console-axis-2-enable tormach-console.0.axis.2.enabled axis.2.jog-enable
+
+#Overrides
+net console-feed-override tormach.console-feed-override tormach-console.0.feed-override-position
+net console-rpm-override tormach.console-rpm-override tormach-console.0.rpm-override-position
+net console-rapid-override tormach.console-rapid-override tormach-console.0.rapid-override-position
+setp tormach-console.0.rapid-override-center 0.5
+setp tormach-console.0.rapid-override-scale 960
+
+#Buttons
+net console-feedhold tormach.console-feedhold tormach-console.0.button.feedhold-latch
+net console-cycle-start tormach.console-cycle-start tormach-console.0.button.cycle-start-latch
+
+#Console LEDs
+net console-led-green tormach.console-led-green tormach-console.0.led.green
+net console-led-blue tormach.console-led-blue tormach-console.0.led.blue
+net console-led-red tormach.console-led-red tormach-console.0.led.red
+net console-led-ready tormach.console-led-ready tormach-console.0.led.ready
+
+# Is any USB console device connected at all?
+net console-device-connected tormach.console-device-connected tormach-console.device-connected
+
+# mode and defeatured switches
+net modeswitchsig tormach-console.0.switch.mode-select tormach.console-mode-select
+net defeaturedmodesig tormach-console.0.switch.defeatured-mode tormach.console-defeatured-mode

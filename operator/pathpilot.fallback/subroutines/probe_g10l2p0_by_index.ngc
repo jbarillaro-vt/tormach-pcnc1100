@@ -1,0 +1,24 @@
+o<probe_g10l2p0_by_index> sub
+;(PRINT,o<probe_g10l2p0_by_index> start ---------------------------------------------------)
+;(PRINT,args: #1, #2)
+
+(#1 is the axis index where 0 means X, 1 means Y, and 2 means Z)
+(#2 is the destination coordinate)
+
+o100 if [#1 EQ 0]
+  (PRINT,G10 L2 P0 X #2)
+  G10 L2 P0 X #2
+o100 elseif [#1 EQ 1]
+  (PRINT,G10 L2 P0 Y #2)
+  G10 L2 P0 Y #2
+o100 elseif [#1 EQ 2]
+  (PRINT,G10 L2 P0 Z #2)
+  G10 L2 P0 Z #2
+o100 else
+  (PRINT,ERROR! o<probe_g10l2p0_by_index> axis index arg1 ^#1^ not 0, 1, or 2. arg2 is #2 )
+o100 endif
+
+;(PRINT,o<probe_g10l2p0_by_index> end -------------------------------------------------)
+o<probe_g10l2p0_by_index> endsub
+
+M02

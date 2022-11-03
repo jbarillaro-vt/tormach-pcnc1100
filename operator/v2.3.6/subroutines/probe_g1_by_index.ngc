@@ -1,0 +1,48 @@
+o<probe_g1_by_index> sub
+;(PRINT,o<probe_g1_by_index> start ---------------------------------------------------)
+;(PRINT,args: #1, #2, #3)
+
+(#1 is the axis index where 0 means X, 1 means Y, 2 means Z, 3 means A)
+(#2 is the destination coordinate)
+(#3 is the feedrate)
+
+o140 if [[#1 LT 0] OR [#1 GT 3]]
+  (ABORT,o<probe_g1_by_index> axis index argument 1 is #1, must be 0-3)
+  M2
+o140 endif
+
+
+#<save_feedrate> = #<_feed>
+o170 if [#3 NE #<_feed>]
+  (PRINT,F #3)
+  F #3
+;o170 else
+;  (PRINT,F word is already #3 -- skip setting it)
+o170 endif
+
+
+o100 if [#1 EQ 0]
+  (PRINT,G1 X #2)
+  G1 X #2
+o100 elseif [#1 EQ 1]
+  (PRINT,G1 Y #2)
+  G1 Y #2
+o100 elseif [#1 EQ 2]
+  (PRINT,G1 Z #2)
+  G1 Z #2
+o100 elseif [#1 EQ 3]
+  (PRINT,G1 A #2)
+  G1 A #2
+o100 endif
+
+o180 if [#<save_feedrate> NE #<_feed>]
+  (PRINT,F #<save_feedrate>)
+  F #<save_feedrate>
+;o180 else
+;  (PRINT,F word is unchanged)
+o180 endif
+
+;(PRINT,o<probe_g1_by_index> end -------------------------------------------------)
+o<probe_g1_by_index> endsub
+
+M02

@@ -1,0 +1,11 @@
+# This is to define the pins early on
+# J A Prentice
+
+loadusr -W shuttlexpress4 
+
+loadrt jogtranslator count=2
+
+addf jogtranslator.0 servo-thread
+addf jogtranslator.1 servo-thread
+
+

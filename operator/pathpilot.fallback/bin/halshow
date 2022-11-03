@@ -1,0 +1,2 @@
+#!/usr/bin/tclsh8.6
+source /home/operator/repos/pathpilot3/linuxcnc/tcl/bin/halshow.tcl

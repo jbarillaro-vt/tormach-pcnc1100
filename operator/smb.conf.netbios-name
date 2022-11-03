@@ -1,0 +1,6 @@
+[global]
+
+# NetBIOS name
+    netbios name = TORMACHPCNC
+
+

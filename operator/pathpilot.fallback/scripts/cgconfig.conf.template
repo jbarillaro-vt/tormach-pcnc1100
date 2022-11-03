@@ -1,0 +1,25 @@
+
+group utilityjail {
+
+    perm {
+        admin {
+            uid = root;
+            gid = root;
+        }
+
+        task {
+            uid = 1001;
+            gid = 1001;
+        }
+    }
+
+    cpu {
+        cpu.shares = 100;
+    }
+
+    memory {
+        memory.swappiness = 80;
+        memory.limit_in_bytes = "%JAILSIZE_MB%M";
+        memory.memsw.limit_in_bytes = "%JAILSIZE_VM_MB%M";
+    }
+}

@@ -1,0 +1,15 @@
+Init...
+TeamViewer:        11.0.57095 - TAR_QS
+Profile:           /home/operator (operator)
+Desktop:           DS: 'mate' 	XDG: 'MATE'
+XServer TTY:       8
+
+ok (info)
+
+Updating binaries...
+Already up to date
+XRandRWait: No value set. Using default.
+XRandRWait: Started by user.
+FONTCONFIG_FILE: /home/operator/teamviewerqs/tv_bin/script/fonts_quick.conf
+SetupWine: ok
+ok (profile)

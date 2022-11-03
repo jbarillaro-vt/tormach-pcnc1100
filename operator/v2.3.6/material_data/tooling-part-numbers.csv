@@ -1,0 +1,777 @@
+PN,Gen. Type,Material,Coating,Flutes,Tool diam.,Helix,End Style Radius,Chamfer,Length of cut,Insert,Insert-angle,Width,FA,BA,Min-Bore,RA-type(radial-axial),Machine-specific
+31252,Indexable endmill,Carbide,,2,0.63",,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+31255,Indexable endmill,Carbide,,3,0.98",,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+31256,Indexable endmill,Carbide,,2,0.67",,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+31258,Indexable endmill,Carbide,,2,.98",,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+31261,Indexable endmill,Carbide,,2,0.83",,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+31280,Indexable endmill,Carbide,,4,1.5”,,.032”,,0.06,APMT1135PDER,,,,,,A,mill
+32428,SuperFly flycutter,Carbide,uncoated,1,2.5",,,,,,,,,,,A,mill
+32440,Drag knife,HSS,uncoated,1,0.005,,,,0.01,,,,,,,A,mill
+32447,Diamond Drag Engraver,Diamond,,1,0.025,,,,0.01,,,,,,,A,mill
+33096,Slitting Saw [3/32],HSS,uncoated,30,3",,,,,,,,,,,A,mill
+33097,Slitting Saw [1/8],HSS,uncoated,30,3",,,,,,,,,,,A,mill
+33378,endmill [1/8],Micrograin Carbide,TICN,3,1/8",45°,,,3/8",,,,,,,A,lathemill
+33379,endmill [3/16],Micrograin Carbide,TICN,3,3/16",45°,,,5/16",,,,,,,A,lathemill
+33380,endmill [1/4],Micrograin Carbide,TICN,3,1/4",45°,,,5/8",,,,,,,A,lathemill
+33381,endmill [3/8],Micrograin Carbide,TICN,3,3/8",45°,,,1",,,,,,,A,lathemill
+33382,endmill [1/2],Micrograin Carbide,TICN,3,1/2",45°,,,1-1/4",,,,,,,A,lathemill
+33383,Tap [#4-40] spiral bottom,HSS-3%V,Oxide,3,0.11,45°,,,,,,,,,,A,lathemill
+33384,Tap [#5-40] spiral bottom,HSS-3%V,Oxide,3,0.12,45°,,,,,,,,,,A,lathemill
+33385,Tap [#6-32] spiral bottom,HSS-3%V,Oxide,3,0.13,45°,,,,,,,,,,A,lathemill
+33386,Tap [#8-32] spiral bottom,HSS-3%V,Oxide,3,0.16,45°,,,,,,,,,,A,lathemill
+33387,Tap [#10-24] spiral bottom,HSS-3%V,Oxide,3,0.19,45°,,,,,,,,,,A,lathemill
+33388,Tap [#10-32] spiral bottom,HSS-3%V,Oxide,3,0.19,45°,,,,,,,,,,A,lathemill
+33389,Tap [1/4-20] spiral bottom,HSS-3%V,Oxide,3,1/4",45°,,,,,,,,,,A,lathemill
+33390,Tap [1/4-28] spiral bottom,HSS-3%V,Oxide,3,1/4",45°,,,,,,,,,,A,lathemill
+33391,Tap [5/16-18] spiral bottom,HSS-3%V,Oxide,3,5/16",45°,,,,,,,,,,A,lathemill
+33392,Tap [5/16-24] spiral bottom,HSS-3%V,Oxide,3,5/16",45°,,,,,,,,,,A,lathemill
+33393,Tap [3/8-16] spiral bottom,HSS-3%V,Oxide,3,3/8",45°,,,,,,,,,,A,lathemill
+33394,Tap [3/8-24] spiral bottom,HSS-3%V,Oxide,3,3/8",45°,,,,,,,,,,A,lathemill
+33395,Tap [7/16-14] spiral bottom,HSS-3%V,Oxide,3,7/16",45°,,,,,,,,,,A,lathemill
+33396,Tap [7/16-20] spiral bottom,HSS-3%V,Oxide,3,7/16",45°,,,,,,,,,,A,lathemill
+33397,Tap [1/2-13] spiral bottom,HSS-3%V,Oxide,3,1/2",45°,,,,,,,,,,A,lathemill
+33398,Tap [1/2-20] spiral bottom,HSS-3%V,Oxide,3,1/2",45°,,,,,,,,,,A,lathemill
+33399,Tap [5-40] spiral bottom,High Vanadium HSS,TICN,3,0.12,40°,,,,,,,,,,A,lathemill
+33400,Tap [5-44] spiral bottom,High Vanadium HSS,TICN,3,0.12,40°,,,,,,,,,,A,lathemill
+33401,Tap [6-32] spiral bottom,High Vanadium HSS,TICN,3,0.13,40°,,,,,,,,,,A,lathemill
+33402,Tap [6-40] spiral bottom,High Vanadium HSS,TICN,3,0.13,40°,,,,,,,,,,A,lathemill
+33403,Tap [8-32] spiral bottom,High Vanadium HSS,TICN,3,0.16,40°,,,,,,,,,,A,lathemill
+33404,Tap [8-36] spiral bottom,High Vanadium HSS,TICN,3,0.16,40°,,,,,,,,,,A,lathemill
+33405,Tap [10-24] spiral bottom,High Vanadium HSS,TICN,3,0.19,40°,,,,,,,,,,A,lathemill
+33406,Tap [10-32] spiral bottom,High Vanadium HSS,TICN,3,0.19,40°,,,,,,,,,,A,lathemill
+33407,Tap [12-24] spiral bottom,High Vanadium HSS,TICN,3,0.21,40°,,,,,,,,,,A,lathemill
+33408,Tap [12-28] spiral bottom,High Vanadium HSS,TICN,3,0.21,40°,,,,,,,,,,A,lathemill
+33409,Tap [1/4-20] spiral bottom,High Vanadium HSS,TICN,3,1/4",40°,,,,,,,,,,A,lathemill
+33410,Tap [1/4-28] spiral bottom,High Vanadium HSS,TICN,3,1/4",40°,,,,,,,,,,A,lathemill
+33411,Tap [5/16-18] spiral bottom,High Vanadium HSS,TICN,3,5/16",40°,,,,,,,,,,A,lathemill
+33412,Tap [5/16-24] spiral bottom,High Vanadium HSS,TICN,3,5/16",40°,,,,,,,,,,A,lathemill
+33413,Tap [3/8-16] spiral bottom,High Vanadium HSS,TICN,3,3/8",40°,,,,,,,,,,A,lathemill
+33414,Tap [3/8-24] spiral bottom,High Vanadium HSS,TICN,3,3/8",40°,,,,,,,,,,A,lathemill
+33415,Tap [7/16-14] spiral bottom,High Vanadium HSS,TICN,3,7/16",40°,,,,,,,,,,A,lathemill
+33416,Tap [7/16-20] spiral bottom,High Vanadium HSS,TICN,3,7/16",40°,,,,,,,,,,A,lathemill
+33417,Tap [M3x0.5],High Vanadium HSS,TICN,3,M3,40°,,,,,,,,,,A,lathemill
+33418,Tap [M3.5x0.6],High Vanadium HSS,TICN,3,M3.5,40°,,,,,,,,,,A,lathemill
+33419,Tap [M4x0.7],High Vanadium HSS,TICN,3,M4,40°,,,,,,,,,,A,lathemill
+33420,Tap [M5x0.8],High Vanadium HSS,TICN,3,M5,40°,,,,,,,,,,A,lathemill
+33421,Tap [M6x1.0],High Vanadium HSS,TICN,3,M6,40°,,,,,,,,,,A,lathemill
+33422,Tap [M7x1.0],High Vanadium HSS,TICN,3,M7,40°,,,,,,,,,,A,lathemill
+33423,Tap [M8x1.25],High Vanadium HSS,TICN,3,M8,40°,,,,,,,,,,A,lathemill
+33424,Tap [M8x1.0],High Vanadium HSS,TICN,3,M8,40°,,,,,,,,,,A,lathemill
+33425,Tap [M10x1.5],High Vanadium HSS,TICN,3,M10,40°,,,,,,,,,,A,lathemill
+33426,Tap [M10x1.25],High Vanadium HSS,TICN,3,M10,40°,,,,,,,,,,A,lathemill
+33427,Tap [M12x1.75],High Vanadium HSS,TICN,3,M12,40°,,,,,,,,,,A,lathemill
+33428,Tap [M12x1.25],High Vanadium HSS,TICN,3,M12,40°,,,,,,,,,,A,lathemill
+33429,endmill [1/8],Micrograin Carbide,TICN,3,1/8",45°,,,1/4",,,,,,,A,lathemill
+33430,endmill [3/16],Micrograin Carbide,TICN,3,3/16",45°,,,9/16",,,,,,,A,lathemill
+33431,endmill [1/4],Micrograin Carbide,TICN,3,1/4",45°,,,3/8",,,,,,,A,lathemill
+33432,endmill [3/8],Micrograin Carbide,TICN,3,3/8",45°,,,1",,,,,,,A,lathemill
+33433,endmill [1/2],Micrograin Carbide,TICN,3,1/2",45°,,,5/8",,,,,,,A,lathemill
+33434,endmill [1/16],Micrograin Carbide,TICN,2,1/16",42°,,,1/8",,,,,,,A,lathemill
+33435,endmill [3/16],Micrograin Carbide,TICN,2,3/16",42°,,,9/16",,,,,,,A,lathemill
+33436,endmill [1/4],Micrograin Carbide,TICN,2,1/4",42°,,,3/4",,,,,,,A,lathemill
+33437,endmill [3/8],Micrograin Carbide,TICN,2,3/8",42°,,,1/2",,,,,,,A,lathemill
+33438,endmill [1/2],Micrograin Carbide,TICN,2,1/2",42°,,,1",,,,,,,A,lathemill
+33439,endmill [1/8],Micrograin Carbide,TICN,2,1/8",42°,,,7/32",,,,,,,A,lathemill
+33440,endmill [1/4],Micrograin Carbide,TICN,2,1/4",45°,,,3/8",,,,,,,A,lathemill
+33441,endmill [3/8],Micrograin Carbide,TICN,2,3/8",45°,,,7/8",,,,,,,A,lathemill
+33442,endmill [1/2],Micrograin Carbide,TICN,2,1/2",45°,,,13/32",,,,,,,A,lathemill
+33444,endmill [1/8],HSS,Uncoated,4,1/8",30°,,,3/8",,,,,,,A,lathemill
+33445,endmill [3/16],HSS,Uncoated,4,3/16",30°,,,7/16",,,,,,,A,lathemill
+33446,endmill [1/4],HSS,Uncoated,4,1/4",30°,,,5/8",,,,,,,A,lathemill
+33447,endmill [3/8],HSS,Uncoated,4,3/8",30°,,,3/4",,,,,,,A,lathemill
+33448,endmill [1/2],HSS,Uncoated,4,1/2",30°,,,1",,,,,,,A,lathemill
+33449,endmill [1/2],HSS,Uncoated,4,1/2",30°,,,1-1/4",,,,,,,A,lathemill
+33450,endmill [1/4],Micrograin Carbide,Nano AlTiN,4,1/4",Variable,,,5/8",,,,,,,A,lathemill
+33451,endmill [3/8],Micrograin Carbide,Nano AlTiN,4,3/8",Variable,,,7/8",,,,,,,A,lathemill
+33452,endmill [1/2],Micrograin Carbide,Nano AlTiN,4,1/2",Variable,,,1",,,,,,,A,lathemill
+33453,endmill [1/8],HSS,Uncoated,4,1/8",30°,,,3/8",,,,,,,A,lathemill
+33454,endmill [1/4],HSS,Uncoated,4,1/4",30°,,,5/8",,,,,,,A,lathemill
+33455,endmill [3/8],HSS,Uncoated,4,3/8",30°,,,9/16",,,,,,,A,lathemill
+33456,endmill [1/2],HSS,Uncoated,4,1/2",30°,,,1",,,,,,,A,lathemill
+33457,endmill [1/8],HSS,Uncoated,2,1/8",30°,,,3/8",,,,,,,A,lathemill
+33458,endmill [3/16],HSS,Uncoated,2,3/16",30°,,,7/16",,,,,,,A,lathemill
+33459,endmill [1/4],HSS,Uncoated,2,1/4",30°,,,1/2",,,,,,,A,lathemill
+33460,endmill [3/8],HSS,Uncoated,2,3/8",30°,,,9/16",,,,,,,A,lathemill
+33461,endmill [1/2],HSS,Uncoated,2,1/2",30°,,,13/16",,,,,,,A,lathemill
+33462,endmill [1/4],HSS,Uncoated,2,1/4",42°,,,5/8",,,,,,,A,lathemill
+33463,endmill [3/8],HSS,Uncoated,2,3/8",42°,,,1",,,,,,,A,lathemill
+33464,endmill [1/2],HSS,Uncoated,2,1/2",42°,,,1-1/4",,,,,,,A,lathemill
+33466,endmill [1/8],HSS,Uncoated,2,1/8",30°,,,3/8",,,,,,,A,lathemill
+33467,endmill [3/16],HSS,Uncoated,2,3/16",30°,,,5/8",,,,,,,A,lathemill
+33468,endmill [1/4],HSS,Uncoated,2,1/4",30°,,,1/2",,,,,,,A,lathemill
+33469,endmill [3/8],HSS,Uncoated,2,3/8",30°,,,7/8",,,,,,,A,lathemill
+33470,endmill [1/2],HSS,Uncoated,2,1/2",30°,,,13/16",,,,,,,A,lathemill
+33471,endmill [1/32],Micrograin Carbide,TiAlN,2,1/32",30°,,,5/64",,,,,,,A,lathemill
+33472,Tap [4-40] spiral,High Vanadium HSS,TICN,4,0.11,40°,,,,,,,,,,A,lathemill
+33473,Tap [4-48] spiral,High Vanadium HSS,TICN,4,0.11,40°,,,,,,,,,,A,lathemill
+33474,endmill [1/4],Micrograin Carbide,Nano AlTiN,4,1/4",Variable,,,3/8",,,,,,,A,lathemill
+33475,endmill [3/8],Micrograin Carbide,Nano AlTiN,4,3/8",Variable,,,3/8",,,,,,,A,lathemill
+33476,endmill [1/2],Micrograin Carbide,Nano AlTiN,4,1/2",Variable,,,5/8",,,,,,,A,lathemill
+33477,Spot Drill [1/8],HSS-8%Co,Uncoated,2,1/8”,,,,,,,,,,,A,lathemill
+33478,Spot Drill [3/16],HSS-8%Co,Uncoated,2,3/16”,,,,,,,,,,,A,lathemill
+33479,Spot Drill [1/4],HSS-8%Co,Uncoated,2,1/4”,,,,,,,,,,,A,lathemill
+33480,Spot Drill [5/16],HSS-8%Co,Uncoated,2,5/16”,,,,,,,,,,,A,lathemill
+33481,Spot Drill [3/8],HSS-8%Co,Uncoated,2,3/8”,,,,,,,,,,,A,lathemill
+33482,Spot Drill [1/2],HSS-8%Co,Uncoated,2,1/2”,,,,,,,,,,,A,lathemill
+33483,endmill [1/4],Micrograin Carbide,Uncoated,3,1/4",30°,,,3/4",,,,,,,A,lathemill
+33484,endmill [3/8],Micrograin Carbide,Uncoated,3,3/8",30°,,,7/8",,,,,,,A,lathemill
+33485,endmill [1/2],Micrograin Carbide,Uncoated,3,1/2",30°,,,1",,,,,,,A,lathemill
+33486,endmill [1/4],Micrograin Carbide,Uncoated,3,1/4",30°,,,3/4",,,,,,,A,lathemill
+33487,endmill [3/8],Micrograin Carbide,Uncoated,3,3/8",30°,,,1",,,,,,,A,lathemill
+33491,Centerdrill [#1],HSS,Uncoated,2,1/8”,,,,,,,,,,,A,lathemill
+33492,Centerdrill [#2],HSS,Uncoated,2,3/16”,,,,,,,,,,,A,lathemill
+33493,Centerdrill [#3],HSS,Uncoated,2,1/4”,,,,,,,,,,,A,lathemill
+33494,Centerdrill [#4],HSS,Uncoated,2,5/16”,,,,,,,,,,,A,lathemill
+33495,Centerdrill [#5],HSS,Uncoated,2,7/16",,,,,,,,,,,A,lathemill
+33496,Centerdrill [#6],HSS,Uncoated,2,1/2”,,,,,,,,,,,A,lathemill
+33497,Drill [3/64],HSS,TIN,2,3/64",,,,,,,,,,,A,lathemill
+33498,Drill [#56],HSS,TIN,2,0.0465,,,,3/4",,,,,,,A,lathemill
+33499,Drill [#55],HSS,TIN,2,0.052,,,,7/8",,,,,,,A,lathemill
+33500,Drill [#54],HSS,TIN,2,0.055,,,,7/8",,,,,,,A,lathemill
+33501,Drill [#53],HSS,TIN,2,0.0595,,,,7/8",,,,,,,A,lathemill
+33502,Drill [#52],HSS,TIN,2,0.0635,,,,7/8",,,,,,,A,lathemill
+33503,Drill [#51],HSS,TIN,2,0.067,,,,1",,,,,,,A,lathemill
+33504,Drill [#50],HSS,TIN,2,0.07,,,,1",,,,,,,A,lathemill
+33505,Drill [#49],HSS,TIN,2,0.073,,,,1",,,,,,,A,lathemill
+33506,Drill [#48],HSS,TIN,2,0.076,,,,1",,,,,,,A,lathemill
+33507,Drill [#47],HSS,TIN,2,0.0785,,,,1",,,,,,,A,lathemill
+33508,Drill [#46],HSS,TIN,2,0.081,,,,1-1/8",,,,,,,A,lathemill
+33509,Drill [#45],HSS,TIN,2,0.082,,,,1-1/8",,,,,,,A,lathemill
+33510,Drill [#44],HSS,TIN,2,0.086,,,,1-1/8",,,,,,,A,lathemill
+33511,Drill [#43],HSS,TIN,2,0.089,,,,1-1/4",,,,,,,A,lathemill
+33512,Drill [#42],HSS,TIN,2,0.0935,,,,1-1/4",,,,,,,A,lathemill
+33513,Drill [#41],HSS,TIN,2,0.096,,,,1-3/8",,,,,,,A,lathemill
+33514,Drill [#40],HSS,TIN,2,0.098,,,,1-3/8",,,,,,,A,lathemill
+33515,Drill [#39],HSS,TIN,2,0.0995,,,,1-3/16",,,,,,,A,lathemill
+33516,Drill [#38],HSS,TIN,2,0.1015,,,,1-3/16",,,,,,,A,lathemill
+33517,Drill [#37],HSS,TIN,2,0.104,,,,1-7/16",,,,,,,A,lathemill
+33518,Drill [#36],HSS,TIN,2,0.1065,,,,1-7/16",,,,,,,A,lathemill
+33519,Drill [#35],HSS,TIN,2,0.11,,,,1-1/2",,,,,,,A,lathemill
+33520,Drill [#34],HSS,TIN,2,0.111,,,,1-1/2",,,,,,,A,lathemill
+33521,Drill [#33],HSS,TIN,2,0.113,,,,1-1/2",,,,,,,A,lathemill
+33522,Drill [#32],HSS,TIN,2,0.116,,,,1-5/8",,,,,,,A,lathemill
+33523,Drill [#31],HSS,TIN,2,0.12,,,,1-5/8",,,,,,,A,lathemill
+33524,Drill [#30],HSS,TIN,2,0.1285,,,,1-5/8",,,,,,,A,lathemill
+33525,Drill [#29],HSS,TIN,2,0.136,,,,1-3/4",,,,,,,A,lathemill
+33526,Drill [#28],HSS,TIN,2,0.1405,,,,1-3/4",,,,,,,A,lathemill
+33527,Drill [#27],HSS,TIN,2,0.144,,,,1-7/8",,,,,,,A,lathemill
+33528,Drill [#26],HSS,TIN,2,0.147,,,,1-7/8",,,,,,,A,lathemill
+33529,Drill [#25],HSS,TIN,2,0.1495,,,,1-7/8",,,,,,,A,lathemill
+33530,Drill [#24],HSS,TIN,2,0.152,,,,2",,,,,,,A,lathemill
+33531,Drill [#23],HSS,TIN,2,0.154,,,,2",,,,,,,A,lathemill
+33532,Drill [#22],HSS,TIN,2,0.157,,,,2",,,,,,,A,lathemill
+33533,Drill [#21],HSS,TIN,2,0.159,,,,2-1/8",,,,,,,A,lathemill
+33534,Drill [#20],HSS,TIN,2,0.161,,,,2-1/8",,,,,,,A,lathemill
+33535,Drill [#19],HSS,TIN,2,0.166,,,,2-1/8",,,,,,,A,lathemill
+33536,Drill [#18],HSS,TIN,2,0.1695,,,,2-1/8",,,,,,,A,lathemill
+33537,Drill [#17],HSS,TIN,2,0.173,,,,2-3/16",,,,,,,A,lathemill
+33538,Drill [#16],HSS,TIN,2,0.177,,,,2-3/16",,,,,,,A,lathemill
+33539,Drill [#15],HSS,TIN,2,0.18,,,,2-3/16",,,,,,,A,lathemill
+33540,Drill [#14],HSS,TIN,2,0.182,,,,2-3/16",,,,,,,A,lathemill
+33541,Drill [#13],HSS,TIN,2,0.185,,,,2-5/16",,,,,,,A,lathemill
+33542,Drill [#12],HSS,TIN,2,0.189,,,,2-5/16",,,,,,,A,lathemill
+33543,Drill [#11],HSS,TIN,2,0.191,,,,2-5/16",,,,,,,A,lathemill
+33544,Drill [#10],HSS,TIN,2,0.1935,,,,,,,,,,,A,lathemill
+33545,Drill [#9],HSS,TIN,2,0.196,,,,2-7/16",,,,,,,A,lathemill
+33546,Drill [#8],HSS,TIN,2,0.199,,,,2-7/16",,,,,,,A,lathemill
+33547,Drill [#7],HSS,TIN,2,0.201,,,,2-7/16",,,,,,,A,lathemill
+33548,Drill [#6],HSS,TIN,2,0.204,,,,2-1/2",,,,,,,A,lathemill
+33549,Drill [#5],HSS,TIN,2,0.2055,,,,2-1/2",,,,,,,A,lathemill
+33550,Drill [#4],HSS,TIN,2,0.209,,,,2-1/2",,,,,,,A,lathemill
+33551,Drill [#3],HSS,TIN,2,0.213,,,,2-1/2",,,,,,,A,lathemill
+33552,Drill [#2],HSS,TIN,2,0.211,,,,2-5/8",,,,,,,A,lathemill
+33553,Drill [#1],HSS,TIN,2,0.228,,,,2-5/8",,,,,,,A,lathemill
+33554,Drill [#A],HSS,TIN,2,0.234,,,,2-5/8",,,,,,,A,lathemill
+33555,Drill [#B],HSS,TIN,2,0.238,,,,2-3/4",,,,,,,A,lathemill
+33556,Drill [#C],HSS,TIN,2,0.242,,,,2-3/4",,,,,,,A,lathemill
+33557,Drill [#D],HSS,TIN,2,0.246,,,,2-3/4",,,,,,,A,lathemill
+33558,Drill [#E],HSS,TIN,2,0.25,,,,2-3/4",,,,,,,A,lathemill
+33559,Drill [#F],HSS,TIN,2,0.257,,,,2-7/8",,,,,,,A,lathemill
+33560,Drill [#G],HSS,TIN,2,0.261,,,,2-7/8",,,,,,,A,lathemill
+33561,Drill [#H],HSS,TIN,2,0.266,,,,2-7/8",,,,,,,A,lathemill
+33562,Drill [#I],HSS,TIN,2,0.272,,,,2-7/8",,,,,,,A,lathemill
+33563,Drill [#J],HSS,TIN,2,0.277,,,,2-7/8",,,,,,,A,lathemill
+33564,Drill [#K],HSS,TIN,2,0.281,,,,2-15/16",,,,,,,A,lathemill
+33565,Drill [#L],HSS,TIN,2,0.29,,,,2-15/16",,,,,,,A,lathemill
+33566,Drill [#M],HSS,TIN,2,0.295,,,,3-1/16",,,,,,,A,lathemill
+33567,Drill [#N],HSS,TIN,2,0.302,,,,3-1/16",,,,,,,A,lathemill
+33568,Drill [#O],HSS,TIN,2,0.316,,,,3-3/16",,,,,,,A,lathemill
+33569,Drill [#P],HSS,TIN,2,0.323,,,,3-5/16",,,,,,,A,lathemill
+33570,Drill [1/16],HSS,TIN,2,1/16",,,,7/8",,,,,,,A,lathemill
+33571,Drill [5/64],HSS,TIN,2,5/64",,,,1",,,,,,,A,lathemill
+33572,Drill [3/32],HSS,TIN,2,3/32",,,,1-1/4",,,,,,,A,lathemill
+33573,Drill [7/64],HSS,TIN,2,7/64",,,,1-1/2",,,,,,,A,lathemill
+33574,Drill [1/8],HSS,TIN,2,1/8",,,,1-5/8",,,,,,,A,lathemill
+33575,Drill [9/64],HSS,TIN,2,9/64",,,,1-3/4",,,,,,,A,lathemill
+33576,Drill [5/32],HSS,TIN,2,5/32",,,,2",,,,,,,A,lathemill
+33577,Drill [11/64],HSS,TIN,2,11/64",,,,2-1/8",,,,,,,A,lathemill
+33578,Drill [3/16],HSS,TIN,2,3/16",,,,2-5/16",,,,,,,A,lathemill
+33579,Drill [13/64],HSS,TIN,2,13/64",,,,2-7/16",,,,,,,A,lathemill
+33580,Drill [7/32],HSS,TIN,2,7/32",,,,2-1/2",,,,,,,A,lathemill
+33581,Drill [15/64],HSS,TIN,2,15/64",,,,2-5/8",,,,,,,A,lathemill
+33582,Drill [1/4],HSS,TIN,2,1/4",,,,2-3/4",,,,,,,A,lathemill
+33583,Drill [17/64],HSS,TIN,2,17/64",,,,2-7/8",,,,,,,A,lathemill
+33584,Drill [9/32],HSS,TIN,2,9/32",,,,2-15/16",,,,,,,A,lathemill
+33585,Drill [19/64],HSS,TIN,2,19/64",,,,3-1/16",,,,,,,A,lathemill
+33586,Drill [5/16],HSS,TIN,2,5/16",,,,3-3/16",,,,,,,A,lathemill
+33587,Drill [#Q],HSS,TIN,2,0.332,,,,3-7/16",,,,,,,A,lathemill
+33588,Drill [#R],HSS,TIN,2,0.339,,,,3-7/16",,,,,,,A,lathemill
+33589,Drill [#S],HSS,TIN,2,0.348,,,,3-1/2",,,,,,,A,lathemill
+33590,Drill [#T],HSS,TIN,2,0.358,,,,3-1/2",,,,,,,A,lathemill
+33591,Drill [#U],HSS,TIN,2,0.368,,,,3-5/8",,,,,,,A,lathemill
+33592,Drill [#V],HSS,TIN,2,0.377,,,,3-5/8",,,,,,,A,lathemill
+33593,Drill [#W],HSS,TIN,2,0.386,,,,3-3/4",,,,,,,A,lathemill
+33594,Drill [#X],HSS,TIN,2,0.397,,,,3-3/4",,,,,,,A,lathemill
+33595,Drill [#Y],HSS,TIN,2,0.404,,,,3-7/8",,,,,,,A,lathemill
+33596,Drill [#Z],HSS,TIN,2,0.413,,,,3-7/8",,,,,,,A,lathemill
+33597,Drill [21/64],HSS,TIN,2,21/64",,,,3-5/16",,,,,,,A,lathemill
+33598,Drill [11/32],HSS,TIN,2,11/32",,,,3-7/16",,,,,,,A,lathemill
+33599,Drill [23/64],HSS,TIN,2,23/64",,,,3-1/2",,,,,,,A,lathemill
+33600,Drill [3/8],HSS,TIN,2,3/8",,,,3-5/8",,,,,,,A,lathemill
+33601,Drill [25/64],HSS,TIN,2,25/64",,,,3-3/4",,,,,,,A,lathemill
+33602,Drill [13/32],HSS,TIN,2,13/32",,,,3-7/8",,,,,,,A,lathemill
+33603,Drill [27/64],HSS,TIN,2,27/64",,,,3-5/16",,,,,,,A,lathemill
+33604,Drill [7/16],HSS,TIN,2,7/16",,,,4-1/16",,,,,,,A,lathemill
+33605,Drill [29/64],HSS,TIN,2,29/64",,,,4-3/16",,,,,,,A,lathemill
+33606,Drill [15/32],HSS,TIN,2,15/32",,,,4-5/16",,,,,,,A,lathemill
+33607,Drill [31/64],HSS,TIN,2,31/64",,,,4-3/8",,,,,,,A,lathemill
+33608,Drill [1/2],HSS,TIN,2,1/2",,,,4-1/2",,,,,,,A,lathemill
+33609,Drill [1.0mm],HSS-5%Co,TIN,2,1.0 mm,,,,12 mm,,,,,,,A,lathemill
+33610,Drill [1.1mm],HSS-5%Co,TIN,2,1.1 mm,,,,12 mm,,,,,,,A,lathemill
+33611,Drill [1.2mm],HSS-5%Co,TIN,2,1.2 mm,,,,16mm,,,,,,,A,lathemill
+33612,Drill [1.3mm],HSS-5%Co,TIN,2,1.3 mm,,,,16mm,,,,,,,A,lathemill
+33613,Drill [1.4mm],HSS-5%Co,TIN,2,1.4 mm,,,,18mm,,,,,,,A,lathemill
+33614,Drill [1.5mm],HSS-5%Co,TIN,2,1.5 mm,,,,18mm,,,,,,,A,lathemill
+33615,Drill [1.6mm],HSS-5%Co,TIN,2,1.6 mm,,,,20mm,,,,,,,A,lathemill
+33616,Drill [1.7mm],HSS-5%Co,TIN,2,1.7 mm,,,,20mm,,,,,,,A,lathemill
+33617,Drill [1.8mm],HSS-5%Co,TIN,2,1.8 mm,,,,22mm,,,,,,,A,lathemill
+33618,Drill [1.9mm],HSS-5%Co,TIN,2,1.9 mm,,,,22mm,,,,,,,A,lathemill
+33619,Drill [2.0mm],HSS-5%Co,TIN,2,2.0 mm,,,,24mm,,,,,,,A,lathemill
+33620,Drill [2.1mm],HSS-5%Co,TIN,2,2.1 mm,,,,24mm,,,,,,,A,lathemill
+33621,Drill [2.2mm],HSS-5%Co,TIN,2,2.2 mm,,,,27mm,,,,,,,A,lathemill
+33622,Drill [2.3mm],HSS-5%Co,TIN,2,2.3 mm,,,,27mm,,,,,,,A,lathemill
+33623,Drill [2.4mm],HSS-5%Co,TIN,2,2.4 mm,,,,30mm,,,,,,,A,lathemill
+33624,Drill [2.5mm],HSS-5%Co,TIN,2,2.5 mm,,,,30mm,,,,,,,A,lathemill
+33625,Drill [2.6mm],HSS-5%Co,TIN,2,2.6 mm,,,,30mm,,,,,,,A,lathemill
+33626,Drill [2.7mm],HSS-5%Co,TIN,2,2.7 mm,,,,33mm,,,,,,,A,lathemill
+33627,Drill [2.8mm],HSS-5%Co,TIN,2,2.8 mm,,,,33mm,,,,,,,A,lathemill
+33628,Drill [2.9mm],HSS-5%Co,TIN,2,2.9 mm,,,,33mm,,,,,,,A,lathemill
+33629,Drill [3.0mm],HSS-5%Co,TIN,2,3.0 mm,,,,33mm,,,,,,,A,lathemill
+33630,Drill [3.1mm],HSS-5%Co,TIN,2,3.1 mm,,,,36mm,,,,,,,A,lathemill
+33631,Drill [3.2mm],HSS-5%Co,TIN,2,3.2 mm,,,,36mm,,,,,,,A,lathemill
+33632,Drill [3.3mm],HSS-5%Co,TIN,2,3.3 mm,,,,36mm,,,,,,,A,lathemill
+33633,Drill [3.4mm],HSS-5%Co,TIN,2,3.4 mm,,,,39mm,,,,,,,A,lathemill
+33634,Drill [3.5mm],HSS-5%Co,TIN,2,3.5 mm,,,,39mm,,,,,,,A,lathemill
+33635,Drill [3.6mm],HSS-5%Co,TIN,2,3.6 mm,,,,39mm,,,,,,,A,lathemill
+33636,Drill [3.7mm],HSS-5%Co,TIN,2,3.7 mm,,,,39mm,,,,,,,A,lathemill
+33637,Drill [3.8mm],HSS-5%Co,TIN,2,3.8 mm,,,,43mm,,,,,,,A,lathemill
+33638,Drill [3.9mm],HSS-5%Co,TIN,2,3.9 mm,,,,43mm,,,,,,,A,lathemill
+33639,Drill [4.0mm],HSS-5%Co,TIN,2,4.0 mm,,,,43mm,,,,,,,A,lathemill
+33640,Drill [4.1mm],HSS-5%Co,TIN,2,4.1 mm,,,,43mm,,,,,,,A,lathemill
+33641,Drill [4.2mm],HSS-5%Co,TIN,2,4.2 mm,,,,43mm,,,,,,,A,lathemill
+33642,Drill [4.3mm],HSS-5%Co,TIN,2,4.3 mm,,,,47mm,,,,,,,A,lathemill
+33643,Drill [4.4mm],HSS-5%Co,TIN,2,4.4 mm,,,,47mm,,,,,,,A,lathemill
+33644,Drill [4.5mm],HSS-5%Co,TIN,2,4.5 mm,,,,47mm,,,,,,,A,lathemill
+33645,Drill [4.6mm],HSS-5%Co,TIN,2,4.6 mm,,,,47mm,,,,,,,A,lathemill
+33646,Drill [4.7mm],HSS-5%Co,TIN,2,4.7 mm,,,,47mm,,,,,,,A,lathemill
+33647,Drill [4.8mm],HSS-5%Co,TIN,2,4.8 mm,,,,52mm,,,,,,,A,lathemill
+33648,Drill [4.9mm],HSS-5%Co,TIN,2,4.9 mm,,,,52mm,,,,,,,A,lathemill
+33649,Drill [5.0mm],HSS-5%Co,TIN,2,5.0 mm,,,,52mm,,,,,,,A,lathemill
+33650,Drill [5.1mm],HSS-5%Co,TIN,2,5.1 mm,,,,52mm,,,,,,,A,lathemill
+33651,Drill [5.2mm],HSS-5%Co,TIN,2,5.2 mm,,,,52mm,,,,,,,A,lathemill
+33652,Drill [5.3mm],HSS-5%Co,TIN,2,5.3 mm,,,,52mm,,,,,,,A,lathemill
+33653,Drill [5.4mm],HSS-5%Co,TIN,2,5.4 mm,,,,57mm,,,,,,,A,lathemill
+33654,Drill [5.5mm],HSS-5%Co,TIN,2,5.5 mm,,,,57mm,,,,,,,A,lathemill
+33655,Drill [5.6mm],HSS-5%Co,TIN,2,5.6 mm,,,,57mm,,,,,,,A,lathemill
+33656,Drill [5.7mm],HSS-5%Co,TIN,2,5.7 mm,,,,57mm,,,,,,,A,lathemill
+33657,Drill [5.8mm],HSS-5%Co,TIN,2,5.8 mm,,,,57mm,,,,,,,A,lathemill
+33658,Drill [5.9mm],HSS-5%Co,TIN,2,5.9 mm,,,,57mm,,,,,,,A,lathemill
+33659,Drill [6.0mm],HSS-5%Co,TIN,2,6.0 mm,,,,57mm,,,,,,,A,lathemill
+33660,Drill [6.1mm],HSS-5%Co,TIN,2,6.1 mm,,,,63mm,,,,,,,A,lathemill
+33661,Drill [6.2mm],HSS-5%Co,TIN,2,6.2 mm,,,,63mm,,,,,,,A,lathemill
+33662,Drill [6.3mm],HSS-5%Co,TIN,2,6.3 mm,,,,63mm,,,,,,,A,lathemill
+33663,Drill [6.4mm],HSS-5%Co,TIN,2,6.4 mm,,,,63mm,,,,,,,A,lathemill
+33664,Drill [6.5mm],HSS-5%Co,TIN,2,6.5 mm,,,,63mm,,,,,,,A,lathemill
+33665,Drill [6.6mm],HSS-5%Co,TIN,2,6.6 mm,,,,63mm,,,,,,,A,lathemill
+33666,Drill [6.7mm],HSS-5%Co,TIN,2,6.7 mm,,,,63mm,,,,,,,A,lathemill
+33667,Drill [6.8mm],HSS-5%Co,TIN,2,6.8 mm,,,,69mm,,,,,,,A,lathemill
+33668,Drill [6.9mm],HSS-5%Co,TIN,2,6.9 mm,,,,69mm,,,,,,,A,lathemill
+33669,Drill [7.0mm],HSS-5%Co,TIN,2,7.0 mm,,,,69mm,,,,,,,A,lathemill
+33670,Drill [7.1mm],HSS-5%Co,TIN,2,7.1 mm,,,,69mm,,,,,,,A,lathemill
+33671,Drill [7.2mm],HSS-5%Co,TIN,2,7.2 mm,,,,69mm,,,,,,,A,lathemill
+33672,Drill [7.3mm],HSS-5%Co,TIN,2,7.3 mm,,,,69mm,,,,,,,A,lathemill
+33673,Drill [7.4mm],HSS-5%Co,TIN,2,7.4 mm,,,,69mm,,,,,,,A,lathemill
+33674,Drill [7.5mm],HSS-5%Co,TIN,2,7.5 mm,,,,69mm,,,,,,,A,lathemill
+33675,Drill [7.6mm],HSS-5%Co,TIN,2,7.6 mm,,,,75mm,,,,,,,A,lathemill
+33676,Drill [7.7mm],HSS-5%Co,TIN,2,7.7 mm,,,,75mm,,,,,,,A,lathemill
+33677,Drill [7.8mm],HSS-5%Co,TIN,2,7.8 mm,,,,75mm,,,,,,,A,lathemill
+33678,Drill [7.9mm],HSS-5%Co,TIN,2,7.9 mm,,,,75mm,,,,,,,A,lathemill
+33679,Drill [8.0mm],HSS-5%Co,TIN,2,8.0 mm,,,,75mm,,,,,,,A,lathemill
+33680,Drill [8.1mm],HSS-5%Co,TIN,2,8.1 mm,,,,75mm,,,,,,,A,lathemill
+33681,Drill [8.2mm],HSS-5%Co,TIN,2,8.2 mm,,,,75mm,,,,,,,A,lathemill
+33682,Drill [8.3mm],HSS-5%Co,TIN,2,8.3 mm,,,,75mm,,,,,,,A,lathemill
+33683,Drill [8.4mm],HSS-5%Co,TIN,2,8.4 mm,,,,75mm,,,,,,,A,lathemill
+33684,Drill [8.5mm],HSS-5%Co,TIN,2,8.5 mm,,,,75mm,,,,,,,A,lathemill
+33685,Drill [8.6mm],HSS-5%Co,TIN,2,8.6 mm,,,,81mm,,,,,,,A,lathemill
+33686,Drill [8.7mm],HSS-5%Co,TIN,2,8.7 mm,,,,81mm,,,,,,,A,lathemill
+33687,Drill [8.8mm],HSS-5%Co,TIN,2,8.8 mm,,,,81mm,,,,,,,A,lathemill
+33688,Drill [8.9mm],HSS-5%Co,TIN,2,8.9 mm,,,,81mm,,,,,,,A,lathemill
+33689,Drill [9.0mm],HSS-5%Co,TIN,2,9.0 mm,,,,81mm,,,,,,,A,lathemill
+33690,Drill [9.1mm],HSS-5%Co,TIN,2,9.1 mm,,,,81mm,,,,,,,A,lathemill
+33691,Drill [9.2mm],HSS-5%Co,TIN,2,9.2 mm,,,,81mm,,,,,,,A,lathemill
+33692,Drill [9.3mm],HSS-5%Co,TIN,2,9.3 mm,,,,81mm,,,,,,,A,lathemill
+33693,Drill [9.4mm],HSS-5%Co,TIN,2,9.4 mm,,,,81mm,,,,,,,A,lathemill
+33694,Drill [9.5mm],HSS-5%Co,TIN,2,9.5 mm,,,,81mm,,,,,,,A,lathemill
+33695,Drill [9.6mm],HSS-5%Co,TIN,2,9.6 mm,,,,87mm,,,,,,,A,lathemill
+33696,Drill [9.7mm],HSS-5%Co,TIN,2,9.7 mm,,,,87mm,,,,,,,A,lathemill
+33697,Drill [9.8mm],HSS-5%Co,TIN,2,9.8 mm,,,,87mm,,,,,,,A,lathemill
+33698,Drill [9.9mm],HSS-5%Co,TIN,2,9.9 mm,,,,87mm,,,,,,,A,lathemill
+33699,Drill [10.0mm],HSS-5%Co,TIN,2,10.0 mm,,,,87mm,,,,,,,A,lathemill
+33700,Drill [10.1mm],HSS-5%Co,TIN,2,10.1 mm,,,,87mm,,,,,,,A,lathemill
+33701,Drill [10.2mm],HSS-5%Co,TIN,2,10.2 mm,,,,87mm,,,,,,,A,lathemill
+33702,Drill [10.3mm],HSS-5%Co,TIN,2,10.3 mm,,,,87mm,,,,,,,A,lathemill
+33703,Drill [10.4mm],HSS-5%Co,TIN,2,10.4 mm,,,,87mm,,,,,,,A,lathemill
+33704,Drill [10.5mm],HSS-5%Co,TIN,2,10.5 mm,,,,87mm,,,,,,,A,lathemill
+33705,Drill [10.6mm],HSS-5%Co,TIN,2,10.6 mm,,,,87mm,,,,,,,A,lathemill
+33706,Drill [10.7mm],HSS-5%Co,TIN,2,10.7 mm,,,,94mm,,,,,,,A,lathemill
+33707,Drill [10.8mm],HSS-5%Co,TIN,2,10.8 mm,,,,94mm,,,,,,,A,lathemill
+33708,Drill [10.9mm],HSS-5%Co,TIN,2,10.9 mm,,,,94mm,,,,,,,A,lathemill
+33709,Drill [11.0mm],HSS-5%Co,TIN,2,11.0 mm,,,,94mm,,,,,,,A,lathemill
+33710,Drill [11.1mm],HSS-5%Co,TIN,2,11.1 mm,,,,94mm,,,,,,,A,lathemill
+33711,Drill [11.2mm],HSS-5%Co,TIN,2,11.2 mm,,,,94mm,,,,,,,A,lathemill
+33712,Drill [11.3mm],HSS-5%Co,TIN,2,11.3 mm,,,,94mm,,,,,,,A,lathemill
+33713,Drill [11.4mm],HSS-5%Co,TIN,2,11.4 mm,,,,94mm,,,,,,,A,lathemill
+33714,Drill [11.5mm],HSS-5%Co,TIN,2,11.5 mm,,,,94mm,,,,,,,A,lathemill
+33715,Drill [11.6mm],HSS-5%Co,TIN,2,11.6 mm,,,,94mm,,,,,,,A,lathemill
+33716,Drill [11.7mm],HSS-5%Co,TIN,2,11.7 mm,,,,94mm,,,,,,,A,lathemill
+33717,Drill [11.8mm],HSS-5%Co,TIN,2,11.8 mm,,,,94mm,,,,,,,A,lathemill
+33718,Drill [11.9mm],HSS-5%Co,TIN,2,11.9 mm,,,,101mm,,,,,,,A,lathemill
+33719,Drill [12.0mm],HSS-5%Co,TIN,2,12.0 mm,,,,101mm,,,,,,,A,lathemill
+33720,Drill [12.1mm],HSS-5%Co,TIN,2,12.1 mm,,,,101mm,,,,,,,A,lathemill
+33721,Drill [12.2mm],HSS-5%Co,TIN,2,12.2 mm,,,,101mm,,,,,,,A,lathemill
+33722,Drill [12.3mm],HSS-5%Co,TIN,2,12.3 mm,,,,101mm,,,,,,,A,lathemill
+33723,Drill [12.4mm],HSS-5%Co,TIN,2,12.4 mm,,,,101mm,,,,,,,A,lathemill
+33724,Drill [12.5mm],HSS-5%Co,TIN,2,12.5 mm,,,,101mm,,,,,,,A,lathemill
+33725,Drill [12.6mm],HSS-5%Co,TIN,2,12.6 mm,,,,101mm,,,,,,,A,lathemill
+33726,Drill [12.7mm],HSS-5%Co,TIN,2,12.7 mm,,,,101mm,,,,,,,A,lathemill
+33727,Drill [12.8mm],HSS-5%Co,TIN,2,12.8 mm,,,,101mm,,,,,,,A,lathemill
+33728,Drill [12.9mm],HSS-5%Co,TIN,2,12.9 mm,,,,101mm,,,,,,,A,lathemill
+33729,Drill [13.0mm],HSS-5%Co,TIN,2,13.0 mm,,,,101mm,,,,,,,A,lathemill
+33730,endmill [1/8],Micrograin Carbide,Nano AlTiN,4,1/8",Variable,,,1/8",,,,,,,A,lathemill
+33731,endmill [3/16],Micrograin Carbide,Nano AlTiN,4,3/16",Variable,,,3/16",,,,,,,A,lathemill
+33732,endmill [1/4],Micrograin Carbide,Nano AlTiN,4,1/4",Variable,,,1/2",,,,,,,A,lathemill
+33733,endmill [3/8],Micrograin Carbide,Nano AlTiN,4,3/8",Variable,,,2",,,,,,,A,lathemill
+33734,endmill [1/2],Micrograin Carbide,Nano AlTiN,4,1/2",Variable,,,1",,,,,,,A,lathemill
+33735,endmill [1/8],Micrograin Carbide,Nano AlTiN,4,1/8",Variable,,,13/16",,,,,,,A,lathemill
+33736,endmill [3/16],Micrograin Carbide,Nano AlTiN,4,3/16",Variable,,,1",,,,,,,A,lathemill
+33737,endmill [1/4],Micrograin Carbide,Nano AlTiN,4,1/4",Variable,,,1/4",,,,,,,A,lathemill
+33738,endmill [3/8],Micrograin Carbide,Nano AlTiN,4,3/8",Variable,,,5/8",,,,,,,A,lathemill
+33739,endmill [1/2],Micrograin Carbide,Nano AlTiN,4,1/2",Variable,,,1/2",,,,,,,A,lathemill
+33740,endmill [1/8],Micrograin Carbide,TiAlN,2,1/8",30°,,,1/2",,,,,,,A,lathemill
+33741,endmill [3/16],Micrograin Carbide,TiAlN,2,3/16",30°,,,5/8",,,,,,,A,lathemill
+33742,endmill [1/4],Micrograin Carbide,TiAlN,2,1/4",30°,,,3/4",,,,,,,A,lathemill
+33743,endmill [3/8],Micrograin Carbide,TiAlN,2,3/8",30°,,,1",,,,,,,A,lathemill
+33744,endmill [1/2],Micrograin Carbide,TiAlN,2,1/2",30°,,,1",,,,,,,A,lathemill
+33745,endmill [1/8],Micrograin Carbide,TiAlN,4,1/8",30°,,,1/2",,,,,,,A,lathemill
+33746,endmill [3/16],Micrograin Carbide,TiAlN,4,3/16",30°,,,3/8",,,,,,,A,lathemill
+33747,endmill [1/4],Micrograin Carbide,TiAlN,4,1/4",30°,,,3/4",,,,,,,A,lathemill
+33748,endmill [3/8],Micrograin Carbide,TiAlN,4,3/8",30°,,,9/16",,,,,,,A,lathemill
+33749,endmill [1/2],Micrograin Carbide,TiAlN,4,1/2",30°,,,1",,,,,,,A,lathemill
+33750,endmill [1/8],Micrograin Carbide,TiAlN,2,1/8",30°,,,1/4",,,,,,,A,lathemill
+33751,endmill [3/16],Micrograin Carbide,TiAlN,2,3/16",30°,,,3/8",,,,,,,A,lathemill
+33752,endmill [1/4],Micrograin Carbide,TiAlN,2,1/4",30°,,,1/2",,,,,,,A,lathemill
+33753,endmill [3/8],Micrograin Carbide,TiAlN,2,3/8",30°,,,9/16",,,,,,,A,lathemill
+33754,endmill [1/2],Micrograin Carbide,TiAlN,2,1/2",30°,,,5/8",,,,,,,A,lathemill
+33755,endmill [1/8],Micrograin Carbide,TiAlN,4,1/8",30°,,,1/4",,,,,,,A,lathemill
+33756,endmill [3/16],Micrograin Carbide,TiAlN,4,3/16",30°,,,1/2",,,,,,,A,lathemill
+33757,endmill [1/4],Micrograin Carbide,TiAlN,4,1/4",30°,,,1/2",,,,,,,A,lathemill
+33758,endmill [3/8],Micrograin Carbide,TiAlN,4,3/8",30°,,,3/4",,,,,,,A,lathemill
+33759,endmill [1/2],Micrograin Carbide,TiAlN,4,1/2",30°,,,5/8",,,,,,,A,lathemill
+33760,endmill [1/8],Micrograin Carbide,TiAlN,4,1/8",30°,,,3/8",,,,,,,A,lathemill
+33761,endmill [3/16],Micrograin Carbide,TiAlN,4,3/16",30°,,,1/2",,,,,,,A,lathemill
+33762,endmill [1/4],Micrograin Carbide,TiAlN,4,1/4",30°,,,5/8",,,,,,,A,lathemill
+33763,endmill [3/8],Micrograin Carbide,TiAlN,4,3/8",30°,,,3/4",,,,,,,A,lathemill
+33764,endmill [1/2],Micrograin Carbide,TiAlN,4,1/2",30°,,,1",,,,,,,A,lathemill
+33765,endmill [1/8],Micrograin Carbide,TiAlN,2,1/8",30°,,,3/16",,,,,,,A,lathemill
+33766,endmill [3/16],Micrograin Carbide,TiAlN,2,3/16",30°,,,5/8",,,,,,,A,lathemill
+33767,endmill [1/4],Micrograin Carbide,TiAlN,2,1/4",30°,,,5/8",,,,,,,A,lathemill
+33768,endmill [3/8],Micrograin Carbide,TiAlN,2,3/8",30°,,,1",,,,,,,A,lathemill
+33769,endmill [1/2],Micrograin Carbide,TiAlN,2,1/2",30°,,,1",,,,,,,A,lathemill
+33770,endmill [1/8],Micrograin Carbide,TiAlN,2,1/8",30°,,,1/2",,,,,,,A,lathemill
+33771,endmill [3/16],Micrograin Carbide,TiAlN,2,3/16",30°,,,5/8",,,,,,,A,lathemill
+33772,endmill [1/4],Micrograin Carbide,TiAlN,2,1/4",30°,,,3/4",,,,,,,A,lathemill
+33773,endmill [3/8],Micrograin Carbide,TiAlN,2,3/8",30°,,,3/4",,,,,,,A,lathemill
+33774,endmill [1/2],Micrograin Carbide,TiAlN,2,1/2",30°,,,1",,,,,,,A,lathemill
+33775,endmill [1/8],Micrograin Carbide,TiAlN,4,1/8",30°,,,1/2",,,,,,,A,lathemill
+33776,endmill [3/16],Micrograin Carbide,TiAlN,4,3/16",30°,,,7/16",,,,,,,A,lathemill
+33777,endmill [1/4],Micrograin Carbide,TiAlN,4,1/4",30°,,,3/4",,,,,,,A,lathemill
+33778,endmill [3/8],Micrograin Carbide,TiAlN,4,3/8",30°,,,1",,,,,,,A,lathemill
+33779,endmill [1/2],Micrograin Carbide,TiAlN,4,1/2",30°,,,1",,,,,,,A,lathemill
+34394,Slitting Saw [1/16],HSS,uncoated,28,2",,,,1/16”,,,,,,,A,mill
+34395,Slitting Saw  [1/32],HSS,uncoated,28,2",,,,1/32”,,,,,,,A,mill
+34445,Drill [#A],HSS,uncoated,2,0.234,,,,1-11/16",,,,,,,A,lathemill
+34446,Drill [#B],HSS,uncoated,2,0.238,,,,1-11/16",,,,,,,A,lathemill
+34447,Drill [#C],HSS,uncoated,2,0.242,,,,1-11/16",,,,,,,A,lathemill
+34448,Drill [#D],HSS,uncoated,2,0.246,,,,1-11/16",,,,,,,A,lathemill
+34449,Drill [#E],HSS,uncoated,2,0.25,,,,1-3/4",,,,,,,A,lathemill
+34450,Drill [#F],HSS,uncoated,2,0.257,,,,1-3/4",,,,,,,A,lathemill
+34451,Drill [#G],HSS,uncoated,2,0.261,,,,1-13/16",,,,,,,A,lathemill
+34452,Drill [#H],HSS,uncoated,2,0.266,,,,1-7/8",,,,,,,A,lathemill
+34453,Drill [#I],HSS,uncoated,2,0.272,,,,1-7/8",,,,,,,A,lathemill
+34454,Drill [#J],HSS,uncoated,2,0.277,,,,1-15/16",,,,,,,A,lathemill
+34455,Drill [#K],HSS,uncoated,2,0.281,,,,1-15/16",,,,,,,A,lathemill
+34456,Drill [#L],HSS,uncoated,2,0.29,,,,2",,,,,,,A,lathemill
+34457,Drill [#M],HSS,uncoated,2,0.295,,,,1-9/16",,,,,,,A,lathemill
+34458,Drill [#N],HSS,uncoated,2,0.302,,,,1-5/8",,,,,,,A,lathemill
+34459,Drill [#O],HSS,uncoated,2,0.316,,,,1-11/16",,,,,,,A,lathemill
+34460,Drill [#P],HSS,uncoated,2,0.323,,,,1-11/16",,,,,,,A,lathemill
+34461,Drill [#Q],HSS,uncoated,2,0.332,,,,1-11/16",,,,,,,A,lathemill
+34462,Drill [#R],HSS,uncoated,2,0.339,,,,1-11/16",,,,,,,A,lathemill
+34463,Drill [#S],HSS,uncoated,2,0.348,,,,1-3/4",,,,,,,A,lathemill
+34464,Drill [#T],HSS,uncoated,2,0.358,,,,1-3/4",,,,,,,A,lathemill
+34465,Drill [#U],HSS,uncoated,2,0.368,,,,1-13/16",,,,,,,A,lathemill
+34466,Drill [#V],HSS,uncoated,2,0.377,,,,1-7/8",,,,,,,A,lathemill
+34467,Drill [#W],HSS,uncoated,2,0.386,,,,1-7/8",,,,,,,A,lathemill
+34468,Drill [#X],HSS,uncoated,2,0.397,,,,1-15/16",,,,,,,A,lathemill
+34469,Drill [#Y],HSS,uncoated,2,0.404,,,,1-15/16",,,,,,,A,lathemill
+34470,Drill [#Z],HSS,uncoated,2,0.413,,,,2",,,,,,,A,lathemill
+34471,Drill [3/64],HSS,uncoated,2,3/64",,,,1/2",,,,,,,A,lathemill
+34472,Drill [1/16],HSS,uncoated,2,1/16",,,,5/8",,,,,,,A,lathemill
+34473,Drill [5/64],HSS,uncoated,2,5/64",,,,11/16",,,,,,,A,lathemill
+34474,Drill [3/32],HSS,uncoated,2,3/32",,,,3/4",,,,,,,A,lathemill
+34475,Drill [7/64],HSS,uncoated,2,7/64",,,,13/16",,,,,,,A,lathemill
+34476,Drill [1/8],HSS,uncoated,2,1/8",,,,7/8",,,,,,,A,lathemill
+34477,Drill [9/64],HSS,uncoated,2,9/64",,,,15/16",,,,,,,A,lathemill
+34478,Drill [5/32],HSS,uncoated,2,5/32",,,,1",,,,,,,A,lathemill
+34479,Drill [11/64],HSS,uncoated,2,11/64",,,,1-1/16",,,,,,,A,lathemill
+34480,Drill [3/16],HSS,uncoated,2,3/16",,,,1-1/8",,,,,,,A,lathemill
+34481,Drill [13/64],HSS,uncoated,2,13/64",,,,1-3/16",,,,,,,A,lathemill
+34482,Drill [7/32],HSS,uncoated,2,7/32",,,,1-1/4",,,,,,,A,lathemill
+34483,Drill [15/64],HSS,uncoated,2,15/64",,,,1-5/16",,,,,,,A,lathemill
+34484,Drill [1/4],HSS,uncoated,2,1/4",,,,1-3/8",,,,,,,A,lathemill
+34485,Drill [17/64],HSS,uncoated,2,17/64",,,,1-7/16",,,,,,,A,lathemill
+34486,Drill [9/32],HSS,uncoated,2,9/32",,,,1-1/2",,,,,,,A,lathemill
+34487,Drill [19/64],HSS,uncoated,2,19/64",,,,1-9/16",,,,,,,A,lathemill
+34488,Drill [5/16],HSS,uncoated,2,5/16",,,,1-5/8",,,,,,,A,lathemill
+34489,Drill [21/64],HSS,uncoated,2,21/64",,,,1-11/16",,,,,,,A,lathemill
+34490,Drill [11/32],HSS,uncoated,2,11/32",,,,1-11/16",,,,,,,A,lathemill
+34491,Drill [23/64],HSS,uncoated,2,23/64",,,,1-3/4",,,,,,,A,lathemill
+34492,Drill [3/8],HSS,uncoated,2,3/8",,,,1-13/16",,,,,,,A,lathemill
+34493,Drill [25/64],HSS,uncoated,2,25/64",,,,1-7/8",,,,,,,A,lathemill
+34494,Drill [13/32],HSS,uncoated,2,13/32",,,,1-15/6",,,,,,,A,lathemill
+34495,Drill [27/64],HSS,uncoated,2,27/64",,,,2",,,,,,,A,lathemill
+34496,Drill [7/16],HSS,uncoated,2,7/16",,,,2-1/16",,,,,,,A,lathemill
+34497,Drill [29/64],HSS,uncoated,2,29/64",,,,2-1/8",,,,,,,A,lathemill
+34498,Drill [15/32],HSS,uncoated,2,15/32",,,,2-1/8",,,,,,,A,lathemill
+34499,Drill [31/64],HSS,uncoated,2,31/64",,,,2-3/16",,,,,,,A,lathemill
+34500,Drill [1/2],HSS,uncoated,2,1/2",,,,2-1/4",,,,,,,A,lathemill
+34501,Drill [#1],HSS,uncoated,2,0.228,,,,1-5/16",,,,,,,A,lathemill
+34502,Drill [#2],HSS,uncoated,2,0.213,,,,1-5/16",,,,,,,A,lathemill
+34503,Drill [#3],HSS,uncoated,2,0.211,,,,1-1/4",,,,,,,A,lathemill
+34504,Drill [#4],HSS,uncoated,2,0.209,,,,1-1/4",,,,,,,A,lathemill
+34505,Drill [#5],HSS,uncoated,2,0.2055,,,,1-1/4",,,,,,,A,lathemill
+34506,Drill [#6],HSS,uncoated,2,0.204,,,,1-1/4",,,,,,,A,lathemill
+34507,Drill [#7],HSS,uncoated,2,0.201,,,,1-3/16",,,,,,,A,lathemill
+34508,Drill [#8],HSS,uncoated,2,0.199,,,,1-3/16",,,,,,,A,lathemill
+34509,Drill [#9],HSS,uncoated,2,0.196,,,,1-3/16",,,,,,,A,lathemill
+34510,Drill [#10],HSS,uncoated,2,0.1935,,,,1-3/16",,,,,,,A,lathemill
+34511,Drill [#11],HSS,uncoated,2,0.191,,,,1-3/16",,,,,,,A,lathemill
+34512,Drill [#12],HSS,uncoated,2,0.189,,,,1-3/16",,,,,,,A,lathemill
+34513,Drill [#13],HSS,uncoated,2,0.185,,,,1-1/8",,,,,,,A,lathemill
+34514,Drill [#14],HSS,uncoated,2,0.182,,,,1-1/8",,,,,,,A,lathemill
+34515,Drill [#15],HSS,uncoated,2,0.18,,,,1-1/8",,,,,,,A,lathemill
+34516,Drill [#16],HSS,uncoated,2,0.177,,,,1-1/8",,,,,,,A,lathemill
+34517,Drill [#17],HSS,uncoated,2,0.173,,,,1-1/8",,,,,,,A,lathemill
+34518,Drill [#18],HSS,uncoated,2,0.1695,,,,1-1/16",,,,,,,A,lathemill
+34519,Drill [#19],HSS,uncoated,2,0.166,,,,1-1/16",,,,,,,A,lathemill
+34520,Drill [#20],HSS,uncoated,2,0.161,,,,1-1/16",,,,,,,A,lathemill
+34521,Drill [#21],HSS,uncoated,2,0.159,,,,1-1/16",,,,,,,A,lathemill
+34522,Drill [#22],HSS,uncoated,2,0.157,,,,1-1/16",,,,,,,A,lathemill
+34523,Drill [#23],HSS,uncoated,2,0.154,,,,1",,,,,,,A,lathemill
+34524,Drill [#24],HSS,uncoated,2,0.152,,,,1",,,,,,,A,lathemill
+34525,Drill [#25],HSS,uncoated,2,0.1495,,,,1",,,,,,,A,lathemill
+34526,Drill [#26],HSS,uncoated,2,0.147,,,,1",,,,,,,A,lathemill
+34527,Drill [#27],HSS,uncoated,2,0.144,,,,1",,,,,,,A,lathemill
+34528,Drill [#28],HSS,uncoated,2,0.1405,,,,15/16",,,,,,,A,lathemill
+34529,Drill [#29],HSS,uncoated,2,0.136,,,,15/16",,,,,,,A,lathemill
+34530,Drill [#30],HSS,uncoated,2,0.1285,,,,15/16",,,,,,,A,lathemill
+34531,Drill [#31],HSS,uncoated,2,0.12,,,,7/8",,,,,,,A,lathemill
+34532,Drill [#32],HSS,uncoated,2,0.116,,,,7/8",,,,,,,A,lathemill
+34533,Drill [#33],HSS,uncoated,2,0.113,,,,7/8",,,,,,,A,lathemill
+34534,Drill [#34],HSS,uncoated,2,0.111,,,,7/8",,,,,,,A,lathemill
+34535,Drill [#35],HSS,uncoated,2,0.11,,,,7/8",,,,,,,A,lathemill
+34536,Drill [#36],HSS,uncoated,2,0.1065,,,,13/16",,,,,,,A,lathemill
+34537,Drill [#37],HSS,uncoated,2,0.104,,,,13/16",,,,,,,A,lathemill
+34538,Drill [#38],HSS,uncoated,2,0.1015,,,,13/16",,,,,,,A,lathemill
+34539,Drill [#39],HSS,uncoated,2,0.0995,,,,13/16",,,,,,,A,lathemill
+34540,Drill [#40],HSS,uncoated,2,0.098,,,,13/16",,,,,,,A,lathemill
+34541,Drill [#41],HSS,uncoated,2,0.096,,,,13/16",,,,,,,A,lathemill
+34542,Drill [#42],HSS,uncoated,2,0.0935,,,,3/4",,,,,,,A,lathemill
+34543,Drill [#43],HSS,uncoated,2,0.089,,,,3/4",,,,,,,A,lathemill
+34544,Drill [#44],HSS,uncoated,2,0.086,,,,3/4",,,,,,,A,lathemill
+34545,Drill [#45],HSS,uncoated,2,0.082,,,,3/4",,,,,,,A,lathemill
+34546,Drill [#46],HSS,uncoated,2,0.081,,,,3/4",,,,,,,A,lathemill
+34547,Drill [#47],HSS,uncoated,2,0.0785,,,,11/16",,,,,,,A,lathemill
+34548,Drill [#48],HSS,uncoated,2,0.076,,,,11/16",,,,,,,A,lathemill
+34549,Drill [#49],HSS,uncoated,2,0.073,,,,11/16",,,,,,,A,lathemill
+34550,Drill [#50],HSS,uncoated,2,0.07,,,,11/16",,,,,,,A,lathemill
+34551,Drill [#51],HSS,uncoated,2,0.067,,,,11/16",,,,,,,A,lathemill
+34552,Drill [#52],HSS,uncoated,2,0.0635,,,,11/16",,,,,,,A,lathemill
+34553,Drill [#53],HSS,uncoated,2,0.0595,,,,5/8",,,,,,,A,lathemill
+34554,Drill [#54],HSS,uncoated,2,0.055,,,,5/8",,,,,,,A,lathemill
+34555,Drill [#55],HSS,uncoated,2,0.052,,,,5/8",,,,,,,A,lathemill
+34556,Drill [#56],HSS,uncoated,2,0.0465,,,,1/2",,,,,,,A,lathemill
+34557,Drill [#57],HSS,uncoated,2,0.043,,,,1/2",,,,,,,A,lathemill
+34558,Drill [#58],HSS,uncoated,2,0.042,,,,1/2",,,,,,,A,lathemill
+34559,Drill [#59],HSS,uncoated,2,0.041,,,,1/2",,,,,,,A,lathemill
+34560,Drill [#60],HSS,uncoated,2,0.04,,,,1/2",,,,,,,A,lathemill
+34561,Tap [#0-80],HSS-3%V,Oxide,,0.06,,,,,,,,,,,A,lathemill
+34562,Tap [#1-64],HSS-3%V,Oxide,,0.07,,,,,,,,,,,A,lathemill
+34563,Tap [#2-56],HSS-3%V,Oxide,,0.08,,,,,,,,,,,A,lathemill
+34564,Tap [#4-40],HSS-3%V,Oxide,,0.11,,,,,,,,,,,A,lathemill
+34565,Tap [#5-40],HSS-3%V,Oxide,,0.12,,,,,,,,,,,A,lathemill
+34566,Tap [#6-32],HSS-3%V,Oxide,,0.13,,,,,,,,,,,A,lathemill
+34567,Tap [#8-32],HSS-3%V,Oxide,,0.15,,,,,,,,,,,A,lathemill
+34568,Tap [#10-24],HSS-3%V,Oxide,,0.19,,,,,,,,,,,A,lathemill
+34569,Tap [#10-32],HSS-3%V,Oxide,,0.19,,,,,,,,,,,A,lathemill
+34570,Tap [1/4-20 H3],HSS-3%V,Oxide,,1/4",,,,,,,,,,,A,lathemill
+34571,Tap [1/4-28 H3],HSS-3%V,Oxide,,1/4",,,,,,,,,,,A,lathemill
+34572,Tap [5/16-18 H3],HSS-3%V,Oxide,,5/16",,,,,,,,,,,A,lathemill
+34573,Tap [5/16-24 H3],HSS-3%V,Oxide,,5/16",,,,,,,,,,,A,lathemill
+34574,Tap [3/8-16 H3],HSS-3%V,Oxide,,3/8",,,,,,,,,,,A,lathemill
+34575,Tap [3/8-24 H3],HSS-3%V,Oxide,,3/8",,,,,,,,,,,A,lathemill
+34576,Tap [7/16-14 H3],HSS-3%V,Oxide,,7/16",,,,,,,,,,,A,lathemill
+34577,Tap [7/16-20 H3],HSS-3%V,Oxide,,7/16",,,,,,,,,,,A,lathemill
+34578,Tap [1/2-13 H3],HSS-3%V,Oxide,,1/2",,,,,,,,,,,A,lathemill
+34579,Tap [1/2-20 H3],HSS-3%V,Oxide,,1/2",,,,,,,,,,,A,lathemill
+34580,Tap [M3x0.5 D3],High Vanadium HSS,TICN,,M3,,,,,,,,,,,A,lathemill
+34581,Tap [M3.5x0.6 D4],High Vanadium HSS,TICN,,M3.5,,,,,,,,,,,A,lathemill
+34582,Tap [M4x0.7 D4],High Vanadium HSS,TICN,,M4,,,,,,,,,,,A,lathemill
+34583,Tap [M5x0.8 D4],High Vanadium HSS,TICN,,M5,,,,,,,,,,,A,lathemill
+34584,Tap [M6x1.0 D5],High Vanadium HSS,TICN,,M6,,,,,,,,,,,A,lathemill
+34585,Tap [M7x1.0 D5],High Vanadium HSS,TICN,,M7,,,,,,,,,,,A,lathemill
+34586,Tap [M8x1.25 D5],High Vanadium HSS,TICN,,M8,,,,,,,,,,,A,lathemill
+34587,Tap [M8x1.0 D5],High Vanadium HSS,TICN,,M8,,,,,,,,,,,A,lathemill
+34588,Tap [M10x1.5 D6],High Vanadium HSS,TICN,,M10,,,,,,,,,,,A,lathemill
+34589,Tap [M10x1.25 D6],High Vanadium HSS,TICN,,M10,,,,,,,,,,,A,lathemill
+34590,Tap [M12x1.75 D6],High Vanadium HSS,TICN,,M12,,,,,,,,,,,A,lathemill
+34591,Tap [M12x1.25 D6],High Vanadium HSS,TICN,,M12,,,,,,,,,,,A,lathemill
+34592,Tap [#4-40 H2],High Vanadium HSS,TICN,,4,,,,,,,,,,,A,lathemill
+34593,Tap [#4-48 H2],High Vanadium HSS,TICN,,4,,,,,,,,,,,A,lathemill
+34594,Tap [#5-40 H2],High Vanadium HSS,TICN,,5,,,,,,,,,,,A,lathemill
+34595,Tap [#5-44 H2],High Vanadium HSS,TICN,,5,,,,,,,,,,,A,lathemill
+34596,Tap [#6-32 H2],High Vanadium HSS,TICN,,6,,,,,,,,,,,A,lathemill
+34597,Tap [#6-40 H2],High Vanadium HSS,TICN,,6,,,,,,,,,,,A,lathemill
+34598,Tap [#8-32 H2],High Vanadium HSS,TICN,,8,,,,,,,,,,,A,lathemill
+34599,Tap [#8-36 H2],High Vanadium HSS,TICN,,8,,,,,,,,,,,A,lathemill
+34600,Tap [#10-24 H3],High Vanadium HSS,TICN,,10,,,,,,,,,,,A,lathemill
+34603,Tap [#10-32 H3],High Vanadium HSS,TICN,,10,,,,,,,,,,,A,lathemill
+34604,Tap [#12-24 H3],High Vanadium HSS,TICN,,12,,,,,,,,,,,A,lathemill
+34605,Tap [#12-28 H3],High Vanadium HSS,TICN,,12,,,,,,,,,,,A,lathemill
+34606,Tap [1/4-20 H3],High Vanadium HSS,TICN,,1/4",,,,,,,,,,,A,lathemill
+34607,Tap [1/4-28 H3],High Vanadium HSS,TICN,,1/4",,,,,,,,,,,A,lathemill
+34608,Tap [5/16-18 H3],High Vanadium HSS,TICN,,5/16",,,,,,,,,,,A,lathemill
+34609,Tap [5/16-24 H3],High Vanadium HSS,TICN,,5/16",,,,,,,,,,,A,lathemill
+34610,Tap [3/8-16 H3],High Vanadium HSS,TICN,,3/8",,,,,,,,,,,A,lathemill
+34611,Tap [3/8-24 H3],High Vanadium HSS,TICN,,3/8",,,,,,,,,,,A,lathemill
+34612,Tap [7/16-14 H3],High Vanadium HSS,TICN,,7/16",,,,,,,,,,,A,lathemill
+34613,Tap [7/16-20 H3],High Vanadium HSS,TICN,,7/16",,,,,,,,,,,A,lathemill
+34614,Tap [1/2-13 H5],High Vanadium HSS,TICN,,1/2",,,,,,,,,,,A,lathemill
+34615,Tap [1/2-20 H5],High Vanadium HSS,TICN,,1/2",,,,,,,,,,,A,lathemill
+34676,endmill [3/16],Micrograin Carbide,uncoated,1,3/16",,,,1",,,,,,,A,lathemill
+34677,endmill [1/4],Micrograin Carbide,uncoated,1,1/4",,,,1-1/4",,,,,,,A,lathemill
+34678,endmill [3/18],Micrograin Carbide,uncoated,1,3/8",,,,2",,,,,,,A,lathemill
+34680,Engraver,,,,1/100”,,,,,,,,,,,A,mill
+34691,Threadmill [1/4],Micrograin Carbide,uncoated,4,0.12,,,,.120",,,,,,,A,mill
+34692,Threadmill [1/4],Micrograin Carbide,uncoated,4,0.135,,,,0.135",,,,,,,A,mill
+34693,Threadmill [1/4],Micrograin Carbide,uncoated,4,0.16,,,,0.16",,,,,,,A,mill
+34694,Threadmill [3/16],Micrograin Carbide,uncoated,4,0.18,,,,0.18",,,,,,,A,mill
+34695,Threadmill [5/16],Micrograin Carbide,uncoated,4,0.24,,,,0.24",,,,,,,A,mill
+34696,Threadmill [3/8],Micrograin Carbide,uncoated,4,0.3,,,,.3",,,,,,,A,mill
+34697,Threadmill [1/2],Micrograin Carbide,uncoated,4,0.388,,,,0.388",,,,,,,A,mill
+34954,endmill [1/8],Micrograin Carbide,CrN,3,1/8",45°,,,3/8",,,,,,,A,lathemill
+34955,endmill [1/4],Micrograin Carbide,CrN,3,1/4",45°,,,5/8",,,,,,,A,lathemill
+34956,endmill [3/8],Micrograin Carbide,CrN,3,3/8",45°,,,1",,,,,,,A,lathemill
+34957,endmill [1/2],Micrograin Carbide,CrN,3,1/2",45°,,,1-1/4",,,,,,,A,lathemill
+34958,endmill [1/16],Micrograin Carbide,CrN,3,1/16",45°,,,1/8",,,,,,,A,lathemill
+34959,endmill [1/8],Micrograin Carbide,CrN,3,1/8",45°,,,3/8",,,,,,,A,lathemill
+34960,endmill [3/16],Micrograin Carbide,CrN,3,3/16",45°,,,5/8",,,,,,,A,lathemill
+34961,endmill [1/4],Micrograin Carbide,CrN,3,1/4",45°,,,5/8",,,,,,,A,lathemill
+34962,endmill [5/16],Micrograin Carbide,CrN,3,5/16",45°,,,13/16",,,,,,,A,lathemill
+34963,endmill [3/8],Micrograin Carbide,CrN,3,3/8",45°,,,1”,,,,,,,A,lathemill
+34964,endmill [7/16],Micrograin Carbide,CrN,3,7/16",45°,,,1",,,,,,,A,lathemill
+34965,endmill [1/2],Micrograin Carbide,CrN,3,1/2",45°,,,1-1/4",,,,,,,A,lathemill
+34972,endmill [1/8],Micrograin Carbide,Nano AlTiN,4,1/8",45°,,,3/8",,,,,,,A,lathemill
+34973,endmill [3/16],Micrograin Carbide,Nano AlTiN,4,3/16",45°,,,7/16",,,,,,,A,lathemill
+34974,endmill [1/4],Micrograin Carbide,Nano AlTiN,4,1/4",45°,,,5/8",,,,,,,A,lathemill
+34975,endmill [5/16],Micrograin Carbide,Nano AlTiN,4,5/16",45°,,,13/16",,,,,,,A,lathemill
+34976,endmill [3/8],Micrograin Carbide,Nano AlTiN,4,3/8",45°,,,7/8",,,,,,,A,lathemill
+34977,endmill [1/2],Micrograin Carbide,Nano AlTiN,4,1/2",45°,,,,,,,,,,A,lathemill
+34978,Slitting Saw [1/32],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34979,Slitting Saw [1/16],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34980,Slitting Saw [3/32],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34981,Slitting Saw [1/8],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34982,Slitting Saw [1/32],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34983,Slitting Saw [1/16],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34984,Slitting Saw [3/32],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34985,Slitting Saw [1/8],Micrograin Carbide,Uncoated,24,2",,,,,,,,,,,A,mill
+34986,Slitting Saw [1/32],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34987,Slitting Saw [1/16],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34988,Slitting Saw [3/32],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34989,Slitting Saw [1/8],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34990,Slitting Saw [1/32],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34991,Slitting Saw [1/16],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34992,Slitting Saw [3/32],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+34993,Slitting Saw [1/8],Micrograin Carbide,Uncoated,30,3",,,,,,,,,,,A,mill
+35273,Drill-Mills [1/8],Micrograin Carbide,TiAln,2,1/8",,,,1/2",,,,,,,A,lathemill
+35274,endmill [1/4],Micrograin Carbide,TiAln,2,1/4",,,,7/16",,,,,,,A,lathemill
+35275,endmill [3/8],Micrograin Carbide,TiAln,2,3/8",,,,3/4",,,,,,,A,lathemill
+35276,endmill [1/2],Micrograin Carbide,TiAln,2,1/2",,,,15/16",,,,,,,A,lathemill
+35571,ShearHog,Carbide,uncoated,1,0.75,,0.032,,0.2,,,,,,,A,mill
+35609,ShearHog,Carbide,uncoated,2,2,,0.032,,0.2,,,,,,,A,mill
+35707,ShearHog,Carbide,uncoated,1,1,,0.032,,0.2,,,,,,,A,mill
+35937,endmill [1/4],Micrograin Carbide,TiAlN,5,1/4",Variable,,,5/8",,,,,,,A,lathemill
+35938,endmill [9/32],Micrograin Carbide,TiAlN,5,9/32",Variable,,,,,,,,,,A,lathemill
+35939,endmill [5/16],Micrograin Carbide,TiAlN,5,5/16",Variable,,,13/16",,,,,,,A,lathemill
+35940,endmill [11/32],Micrograin Carbide,TiAlN,5,11/32",Variable,,,7/8",,,,,,,A,lathemill
+35941,endmill [3/8],Micrograin Carbide,TiAlN,5,3/8",Variable,,,7/8",,,,,,,A,lathemill
+35942,endmill [13/32],Micrograin Carbide,TiAlN,5,13/32",Variable,,,1",,,,,,,A,lathemill
+35943,endmill [7/16],Micrograin Carbide,TiAlN,5,7/16",Variable,,,1",,,,,,,A,lathemill
+35944,endmill [15/32],Micrograin Carbide,TiAlN,5,15/32",Variable,,,1/2",,,,,,,A,lathemill
+35945,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,,,1",,,,,,,A,lathemill
+35946,endmill [1/4],Micrograin Carbide,TiAlN,5,1/4",Variable,R.015",,5/8",,,,,,,A,lathemill
+35947,endmill [1/4],Micrograin Carbide,TiAlN,5,1/4",Variable,R.030",,5/8",,,,,,,A,lathemill
+35950,endmill [5/16],Micrograin Carbide,TiAlN,5,5/16",Variable,R.015",,1-1/4",,,,,,,A,lathemill
+35951,endmill [5/16],Micrograin Carbide,TiAlN,5,5/16",Variable,R.030",,1",,,,,,,A,lathemill
+35954,endmill [3/8],Micrograin Carbide,TiAlN,5,3/8",Variable,R.015",,7/8",,,,,,,A,lathemill
+35955,endmill [3/8],Micrograin Carbide,TiAlN,5,3/8",Variable,R.030",,1/2",,,,,,,A,lathemill
+35958,endmill [7/16],Micrograin Carbide,TiAlN,5,7/16",Variable,R.015",,5/8",,,,,,,A,lathemill
+35959,endmill [7/16],Micrograin Carbide,TiAlN,5,7/16",Variable,R.030",,,,,,,,,A,lathemill
+35962,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.015",,1",,,,,,,A,lathemill
+35963,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.030",,1",,,,,,,A,lathemill
+35964,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.045",,1",,,,,,,A,lathemill
+35965,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.060",,1",,,,,,,A,lathemill
+35966,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.090",,1",,,,,,,A,lathemill
+35967,endmill [1/2],Micrograin Carbide,TiAlN,5,1/2",Variable,R.120",,1",,,,,,,A,lathemill
+37367,endmill [1/8],Carbide,,3,1/8",,,,3/8",,,,,,,A,lathemill
+37368,endmill [1/8],Carbide,,2,1/8",,,,3/8",,,,,,,A,lathemill
+37370,endmill [1/4],Carbide,,3,1/4",,,,3/4",,,,,,,A,lathemill
+37371,endmill [1/4],Carbide,,2,1/4",,,,3/4",,,,,,,A,lathemill
+37372,endmill [3/8],Carbide,,3,3/8",,,,1",,,,,,,A,lathemill
+37373,endmill [3/8],Carbide,,3,3/8",,,,1",,,,,,,A,lathemill
+37374,endmill [1/2],Carbide,,3,1/2",,,,1-1/4",,,,,,,A,lathemill
+37375,endmill [1/2],Carbide,,3,1/2",,,,1-1/4",,,,,,,A,lathemill
+37431,endmill [1/8],Carbide,TiAlN,4,1/8",,,,1/2",,,,,,,A,lathemill
+37432,endmill [1/8],Carbide,TiAlN,2,1/8",,,,1/2",,,,,,,A,lathemill
+37433,endmill [3/16],Carbide,TiAlN,4,3/16",,,,5/8",,,,,,,A,lathemill
+37434,endmill [1/4],Carbide,TiAlN,4,1/4",,,,3/4",,,,,,,A,lathemill
+37435,endmill [1/4],Carbide,TiAlN,2,1/4",,,,3/4",,,,,,,A,lathemill
+37436,endmill [5/16],Carbide,TiAlN,4,5/16",,,,13/16",,,,,,,A,lathemill
+37437,endmill [3/8],Carbide,TiAlN,4,3/8",,,,1",,,,,,,A,lathemill
+37438,endmill [3/8],Carbide,TiAlN,4,3/8",,,,1",,,,,,,A,lathemill
+37439,endmill [1/2],Carbide,TiAlN,4,1/2",,,,1",,,,,,,A,lathemill
+37440,endmill [1/2],Carbide,TiAlN,4,1/2",,,,1",,,,,,,A,lathemill
+36060,Profiling [SVVB-N],carbide,,1,,,,,,,35,,107.5,72.5,,R,lathe
+36063,Profiling [SRDC-N],carbide,,1,,,,,,,360,,90,90,,R,lathe
+36059,Profiling [SVJB-L],carbide,,1,,,,,,,35,,87,52,,R,lathe
+36054,Profiling [SDNC-N],carbide,,1,,,,,,,55,,117.5,62.5,,R,lathe
+36058,Profiling [SVJB-R],carbide,,1,,,,,,,35,,93,58,,R,lathe
+36052,Face-turn [SDJC-R],carbide,,1,,,,,,,55,,97,42,,R,lathe
+36053,Face-turn [SDJC-L],carbide,,1,,,,,,,55,,83,28,,R,lathe
+35650,Profiling [SCLC-R],carbide,,1,,,,,,,80,,83,3,,R,lathe
+35651,Profiling [SCLC-L],carbide,,1,,,,,,,85,,80,165,,R,lathe
+35652,Facing [SCKC-R],carbide,,1,,,,,,,85,,100,-15,,R,lathe
+35653,Chamfer [SCSC-R] ,carbide,,1,,,,,,,80,,135,55,,R,lathe
+36018,Chamfer [SSDC-N],carbide,,1,,,,,,,90,,135,45,,R,lathe
+35654,Chamfer [SCMC-N],carbide,,1,,,,,,,80,,130,50,,R,lathe
+35655,Turning [SCBC-R],carbide,,1,,,,,,,100,,120,20,,R,lathe
+33341,Profiling [MVJN-L],carbide,,1,,,,,,,35,,87,52,,R,lathe
+33342,Profiling [MVVN-N],carbide,,1,,,,,,,35,,107.5,72.5,,R,lathe
+35420,Face-turn [SCLC-R],carbide,,1,,,,,,,80,,83,3,,R,lathe
+35421,Facing [STFC-R],carbide,,1,,,,,,,60,,0,60,,R,lathe
+33340,Facing [MTFN-L],carbide,,1,,,,,,,60,,90,30,,R,lathe
+33338,Face-turn [MCLN-L],carbide,,1,,,,,,,80,,95,15,,R,lathe
+33130,Face-turn [MCLN-R],carbide,,1,,,,,,,80,,85,5,,R,lathe
+33131,Face-turn [MWLN-R],carbide,,1,,,,,,,80,,85,5,,R,lathe
+33132,Facing [MTFN-R],carbide,,1,,,,,,,60,,90,30,,R,lathe
+33133,Profiling [MVJN-R],carbide,,1,,,,,,,35,,93,58,,R,lathe
+33339,Face-turn [MWLN-L],carbide,,1,,,,,,,80,,95,175,,R,lathe
+35634,Face-turn [SCLC-R],carbide,,1,,,,,,,80,,83,3,,R,lathe
+36061,Profiling [SRDC-N],carbide,,1,,,,,,,360,,90,90,,R,lathe
+36056,Face-turn [SDJC-L],carbide,,1,,,,,,,55,,83,28,,R,lathe
+36055,Profiling [SCLC-R],carbide,,1,,,,,,,80,,83,3,,R,lathe
+36057,Profiling [SDNC-N],carbide,,1,,,,,,,55,,117.5,62.5,,R,lathe
+35635,Profiling [SCLC-L],carbide,,1,,,,,,,85,,80,165,,R,lathe
+35636,Facing [SCKC-R],carbide,,1,,,,,,,85,,100,-15,,R,lathe
+35637,Turning [SCSC-R] ,carbide,,1,,,,,,,80,,135,55,,R,lathe
+35638,Chamfer [SCMC-N],carbide,,1,,,,,,,80,,130,50,,R,lathe
+35639,Turning [SCBC-R],carbide,,1,,,,,,,100,,120,20,,R,lathe
+35642,Face-turn [SCLC-R],carbide,,1,,,,,,,80,,83,3,,R,lathe
+35643,Face-turn [SCLC-L],carbide,,1,,,,,,,85,,80,165,,R,lathe
+35644,Facing [SCKC-R],carbide,,1,,,,,,,85,,100,-15,,R,lathe
+35645,Chamfer [SCSC-R] ,carbide,,1,,,,,,,80,,135,55,,R,lathe
+35646,Chamfer [SCMC-N],carbide,,1,,,,,,,80,,130,50,,R,lathe
+35647,Face-turn [SCBC-R],carbide,,1,,,,,,,100,,120,20,,R,lathe
+36062,Profiling [SRDC-N],carbide,,1,,,,,,,360,,90,90,,R,lathe
+36026,Profiling [SVVB-N],carbide,,1,,,,,,,35,,107.5,72.5,,R,lathe
+36017,Chamfer [SDNC-N],carbide,,1,,,,,,,55,,117.5,62.5,,R,lathe
+36022,Profiling [SDJC-L],carbide,,1,,,,,,,55,,83,28,,R,lathe
+36025,Profiling [SVJB-L],carbide,,1,,,,,,,35,,87,52,,R,lathe
+36024,Profiling [SVJB-R],carbide,,1,,,,,,,35,,93,58,,R,lathe
+36023,Profiling [SDNC-N],carbide,,1,,,,,,,55,,117.5,62.5,,R,lathe
+35180,Face-turn [SDJC-R],carbide,,1,,,,,,,55,,97,42,,R,lathe
+35182,Facing [MTFN-R],carbide,,1,,,,,,,60,,90,30,,R,lathe
+35183,Chamfer [SSDN-N],carbide,,1,,,,,,,90,,135,45,,R,lathe
+35181,Turning [MTGN-R],carbide,,1,,,,,,,60,,90,30,,R,lathe
+36039,Boring [STFC-R],carbide,,1,,,,,,SC_T-21.51,60,,90,120,0.5,R,lathe
+36038,Boring [STFC-R],carbide,,1,,,,,,SC_T-21.51,60,,90,120,0.625,R,lathe
+36037,Boring [STFC-R],carbide,,1,,,,,,SC_T-21.51,60,,90,120,0.812,R,lathe
+36036,Boring [STFC-R],carbide,,1,,,,,,SC_T-32.52,60,,90,120,1,R,lathe
+36040,Boring [STFC-R],carbide,,1,,,,,,SC_T-21.51,60,,90,120,0.375,R,lathe
+37122,Boring [STFC-L],carbide,,1,,,,,,SC_T-21.51,60,,-90,-120,0.812,R,lathe
+37125,Boring [STFC-L],carbide,,1,,,,,,SC_T-21.51,60,,-90,-120,0.375,R,lathe
+37124,Boring [STFC-L],carbide,,1,,,,,,SC_T-21.51,60,,-90,-120,0.5,R,lathe
+37123,Boring [STFC-L],carbide,,1,,,,,,SC_T-21.51,60,,-90,-120,0.625,R,lathe
+35649,Boring [SCLC-L],carbide,,1,,,,,,CC_T-32.52,80,,-93,-13,0.954,R,lathe
+35648,Boring [SCLC-R],carbide,,1,,,,,,CC_T-32.52,80,,93,13,0.954,R,lathe
+33356,Boring [DCLN-L],carbide,,1,,,,,,CNM_-432,80,,-95,-15,0.954,R,lathe
+33135,Boring [DCLN-R],carbide,,1,,,,,,CNM_-432,80,,95,15,0.954,R,lathe
+35632,Boring [SCLC-R],carbide,,1,,,,,,CC_T-21.51,80,,93,13,0.5,R,lathe
+35641,Boring [SCLC-L],carbide,,1,,,,,,CC_T-21.51,80,,-93,-13,0.625,R,lathe
+35640,Boring [SCLC-R],carbide,,1,,,,,,CC_T-21.51,80,,93,13,0.625,R,lathe
+35633,Boring [SCLC-L],carbide,,1,,,,,,CC_T-21.51,80,,-93,-13,0.5,R,lathe
+37121,Boring [STFC-L],carbide,,1,,,,,,SC_T-32.52,60,,60,-120,0.954,R,lathe
+35210,OD Threading [SER0500H11],carbide,,1,,,,,,11ERA60,60,,120,60,,R,lathe
+35213,OD Threading [SEL0500H11],carbide,,1,,,,,,11ERA60,60,,120,60,,R,lathe
+33144,OD Threading [CER0750K16],carbide,,1,,,,,,16ERAG60,60,,120,60,,R,lathe
+34418,OD Threading [CEL0750K16],carbide,,1,,,,,,16ERAG60,60,,120,60,,R,lathe
+35214,ID Threading [SIL0375H11],carbide,,1,,,,,,11ERA60,60,,120,60,,R,lathe
+33349,ID Threading [SIR0375H11],carbide,,1,,,,,,11ERA60,60,,120,60,,R,lathe
+34419,ID Threading [CNL0750P16],carbide,,1,,,,,,16ERAG60,60,,120,60,,R,lathe
+33145,ID Threading [CNR0750P16],carbide,,1,,,,,,16ERAG60,60,,120,60,,R,lathe
+37131,Grooving [SGTHL-12.7-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+37132,Grooving [SGTHR-19-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+37133,Grooving [SGTHL-19-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+37130,Grooving [SGTHR-12.7-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+37128,Grooving [SGTHR-9.5-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+33134,Parting [SLTBN19-5],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+33347,Grooving [SGTHR-19-4],carbide,,1,,,,,,GTN-4,90,0.16,90,90,,R,lathe
+33348,Grooving [SGTHL-19-4],carbide,,1,,,,,,GTN-4,90,0.16,90,90,,R,lathe
+37129,Grooving [SGTHL-9.5-3],carbide,,1,,,,,,GTN-3,90,0.118,90,90,,R,lathe
+38160,DIJET - Indexable endmill,Carbide,,3,0.98",,.3937”,,0.06,EOHW060220ZTR,,,,,,A,mill
+39161,Spiral 'O' Flute Up-Cut Router [2.0mm],carbide,uncoated,1,2.0mm,,,,6.0mm,,,,,,,A,mill
+39162,Spiral 'O' Flute Up-Cut Router [4.0mm],carbide,uncoated,1,4.0mm,,,,6.0mm,,,,,,,A,mill
+39163,Spiral 'O' Flute Up-Cut Router [4.0mm],carbide,uncoated,1,4.0mm,,,,8.0mm,,,,,,,A,mill
+39164,Square Endmill [4.0mm],carbide,TiAlN,2,4.0mm,,,,6.0mm,,,,,,,A,mill
+39165,Tapered Ball Nose Endmill [1.0mm],carbide,TiAlN,3,1.0mm,,0.5mm,,10.0mm,,,,,,,A,mill
+39166,Ball Nose Endmill [4.0mm],carbide,TiAlN,3,4.0mm,,2.0mm,,25.0mm,,,,,,,A,mill
+39167,Spiral 'O' Flute Up-Cut Router [2.0mm],carbide,uncoated,1,2.0mm,,,,12.0mm,,,,,,,A,mill
+39168,Spiral 'O' Flute Up-Cut Router [4.0mm],carbide,uncoated,1,4.0mm,,,,12.0mm,,,,,,,A,mill
+39169,Spiral 'O' Flute Down-Cut Router [4.0mm],carbide,uncoated,1,4.0mm,,,,25.0mm,,,,,,,A,mill
+39170,Spiral 'O' Flute Up-Cut Router [4.0mm],carbide,uncoated,2,4.0mm,,,,25.0mm,,,,,,,A,mill
+39171,Ball Nose Up-Cut Router [2.0mm],carbide,TiAlN,2,2.0mm,,1.0mm,,12.0mm,,,,,,,A,mill
+39172,Spiral Down-Cut Router [4.0mm],carbide,uncoated,4,4.0mm,,,,12.0mm,,,,,,,A,mill
+39173,Spiral Compression Router [4.0mm],carbide,uncoated,2,4.0mm,,,,20.0mm,,,,,,,A,mill
+39174,Spiral Up-Cut Plunge Router [4.0mm],carbide,uncoated,2,4.0mm,,,,12.0mm,,,,,,,A,mill
+39175,Spiral Down-Cut Plunge Router [4.0mm],carbide,uncoated,2,4.0mm,,,,12.0mm,,,,,,,A,mill
+39176,Spiral Up-Cut Plunge Router [4.0mm],carbide,uncoated,2,4.0mm,,,,12.0mm,,,,,,,A,mill

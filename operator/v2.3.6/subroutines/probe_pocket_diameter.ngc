@@ -1,0 +1,124 @@
+o<probe_pocket_diameter> sub
+
+;(PRINT,begin o<probe_pocket_diameter> sub --------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+;(rapid_feedrate, rough_feedrate, fine_feedrate, x_limit_min, x_limit_max, y_limit_min, y_limit_max, x_wcs_offset, y_wcs_offset, tip_diameter, analog pin)
+
+
+#<feed_rapid> = #1        (current units)
+#<feed_ruff> = #2         (current units)
+#<feed_fine> = #3         (current units)
+#<x_axis_limit_min> = #4  (current units)
+#<x_axis_limit_max> = #5  (current units)
+#<y_axis_limit_min> = #6  (current units)
+#<y_axis_limit_max> = #7  (current units)
+#<x_wcs_offset> = #8      (current units)
+#<y_wcs_offset> = #9      (current units)
+#<tip_diameter> = #10     (current units)
+#<analog_pin> = #11       (most likely 19)
+
+(we pass in tip_diameter but we use 0.0)
+(this is so we can use the known ring guage diameter to determine effective tip diameter)
+#<tip_diameter> = 0.0
+
+;(PRINT,x_y_or_both: #<x_y_or_both>, feed_ruf: #<feed_ruff>, feed_fine: #<feed_fine>)
+;(PRINT,x_axis_limit_min: #<x_axis_limit_min>, x_axis_limit_max: #<x_axis_limit_max>)
+;(PRINT,y_axis_limit_min: #<y_axis_limit_min>, y_axis_limit_max: #<y_axis_limit_max>)
+;(PRINT,x_wcs_offset: #<x_wcs_offset>, y_wcs_offset: #<y_wcs_offset>)
+(PRINT,tip_diameter: #<tip_diameter>)
+;(PRINT,analog_pin: #<analog_pin>)
+
+o<probe_prep> call
+
+#<abs_retract> = ABS[#<tip_diameter> / 1.5]
+o105 if [#<abs_retract> EQ 0.0]
+  #<abs_retract> = 0.050
+  o106 if [#<_metric> NE 0]
+    #<abs_retract> = [#<abs_retract> * 25.4]
+  o106 endif
+o105 endif
+
+(current position including WCS offsets in current program units)
+(return here after probe)
+#<x_axis_start> = #<_x>
+#<y_axis_start> = #<_y>
+(PRINT,starting point #<x_axis_start>,#<y_axis_start>)
+
+(probe X plus)
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<x_max> = #<_value>
+(PRINT,x_max: #<x_max>)
+
+(move back to X start)
+o<probe_g1_by_index> call [0] [#<x_axis_start>] [#<feed_rapid>]
+
+(probe X minus)
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_min>] [#<x_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [0]
+#<x_min> = #<_value>
+(PRINT,x_min: #<x_min>)
+
+(move to X center)
+#<x_radius> = [[#<x_max> - #<x_min>] / 2]
+#<x_center> = [#<x_min> + #<x_radius>]
+(PRINT,x_center: #<x_center>)
+o<probe_g1_by_index> call [0] [#<x_center>] [#<feed_rapid>]
+
+(probe Y plus)
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_max>] [#<y_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<y_max> = #<_value>
+(PRINT,y_max: #<y_max>)
+
+(move back to Y start)
+o<probe_g1_by_index> call [1] [#<y_axis_start>] [#<feed_rapid>]
+
+(probe Y minus)
+o<probe_xyz> call [1] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<y_axis_limit_min>] [#<y_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [0]
+#<y_min> = #<_value>
+(PRINT,y_min: #<y_min>)
+
+(move to Y center)
+#<y_radius> = [[#<y_max> - #<y_min>] / 2]
+#<y_center> = [#<y_min> + #<y_radius>]
+(PRINT,y_center: #<y_center>)
+o<probe_g1_by_index> call [1] [#<y_center>] [#<feed_rapid>]
+
+(move close to x_max)
+o<probe_g1_by_index> call [0] [#<x_max> - #<abs_retract>] [#<feed_rapid>]
+
+(probe X plus again)
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_max>] [#<x_wcs_offset>] [0] [1] [#<tip_diameter>] [-1] [0]
+#<x_max> = #<_value>
+(PRINT,x_max: #<x_max>)
+
+(move close to x_min)
+o<probe_g1_by_index> call [0] [#<x_min> + #<abs_retract>] [#<feed_rapid>]
+
+(probe X minus again)
+o<probe_xyz> call [0] [#<feed_rapid>] [#<feed_ruff>] [#<feed_fine>] [#<x_axis_limit_min>] [#<x_wcs_offset>] [0] [-1] [#<tip_diameter>] [-1] [0]
+#<x_min> = #<_value>
+(PRINT,x_min: #<x_min>)
+
+(go to center)
+(move to X center)
+#<x_radius> = [[#<x_max> - #<x_min>] / 2]
+#<x_center> = [#<x_min> + #<x_radius>]
+o<probe_g1_by_index> call [0] [#<x_center>] [#<feed_rapid>]
+
+(compute diameter from X)
+#<x_diameter> = [#<x_max> - #<x_min>]
+(PRINT,x_diameter: #<x_diameter>)
+
+o200 if [#<analog_pin> NE -1]
+  (set DRO analog output to the diameter)
+  (PRINT,M68 E #<analog_pin> Q #<x_diameter)
+  M68 E #<analog_pin> Q #<x_diameter>
+o200 endif
+
+o<probe_restore> call
+
+;(PRINT,end o<probe_pocket_diameter> sub --------------------------------------------------)
+
+o<probe_pocket_diameter> endsub
+
+M02

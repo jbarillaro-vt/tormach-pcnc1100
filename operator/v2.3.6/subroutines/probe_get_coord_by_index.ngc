@@ -1,0 +1,23 @@
+o<probe_get_coord_by_index> sub
+
+(#1 is the axis index where 0 means X, 1 means Y, and 2 means Z)
+
+(return the axis location in current WCS)
+
+o100 if [#1 EQ 0]
+  (PRINT X = #<_x>)
+  #<coord> = #<_x>
+o100 elseif [#1 EQ 1]
+  (PRINT Y = #<_y>)
+  #<coord> = #<_y>
+o100 elseif [#1 EQ 2]
+  (PRINT Z = #<_z>)
+  #<coord> = #<_z>
+o100 else
+  (PRINT,ERROR! o<probe_get_coord_by_index> axis index arg ^#1^ not 0, 1, or 2)
+  #<coord> = 0.0
+o100 endif
+
+o<probe_get_coord_by_index> return [#<coord>]
+
+M02

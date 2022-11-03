@@ -1,0 +1,72 @@
+o<orient_check> sub
+  o<bounce> if [#<_spindle_orient_needed> NE 1.0]
+    o<orient_check> return       (bounce out)
+  o<bounce> endif
+   (---------------------------------------------------------------------------)
+   ( Check if the orient successful before proceeding further                  )
+   (    3 attempts are made to orient                                          )
+   (    If more than 15 seconds to complete or out of angle target:            )
+   (       re-orient again after repositioning spindle angle                   )
+   (       Recheck status                                                      )
+   ( Abort part program if orient fails after 3 tries                          )
+   (---------------------------------------------------------------------------)
+   #<retries>  = 3
+   o<retry_orient_loop> while [#<retries> GT 0 ]
+        #<retries> = [#<retries> - 1]
+        (---------------------------------------------------------------------------------)
+        (  Check orient complete :  uses orient_drift values set by m200.comp after M19   )
+        (   Orient drift = -1    - orient in progress .. please wait                      )
+        (   Orient drift =  0    - orient completed no issues                             )
+        (   Orient drift = other - orient completed but target angle is now out of range  )
+        (                                                                                 )
+        (   The spindle component will wait for the lock mechanism to settle before       )
+        (    posting completion                                                           )
+        (   This waits up to 20 seconds for orient as 2000*0.01=20secs                           )
+        (---------------------------------------------------------------------------------)
+        #<drift_loop_cnt> = 0
+        o<drift_check_loop> while [#<drift_loop_cnt> LT 2000]
+            M64 P41
+            M66 E #<_orient_drift> L0      (read status into  #5399)
+            #<drift> = #5399
+            M65 P41
+            o<wait_done> if [#<drift> NE -1] (wait for spindle comp to post complete)
+                o<drift_check_loop> break
+            o<wait_done> endif
+            G4 P.01
+            #<drift_loop_cnt> = [#<drift_loop_cnt> + 1]
+        o<drift_check_loop> endwhile
+
+        M66 E22 L0
+        (PRINT, rawdrift #5399 df #<drift> ot #<_old_tool> nt #<_old_tool> os #<_old_slot> ns #<_new_slot>)
+
+        o<integrity_check> if [#<drift> NE 0.0]
+            (---------------------------------------------------------)
+            (    Ruh Roh - spindle is out of the orient zone          )
+            (       Reposition and retry                              )
+            (---------------------------------------------------------)
+            (PRINT, Retrying spindle orient)
+            #<_orient_retry_count> = [#<_orient_retry_count> + 1]
+            M5                                (reset prior orient, start anew)
+            M64 P42
+            G4 P1                             (let reset process)
+            M65 P42
+            o<orient_spindle> call  [0][0]    (and back to 0 degrees, no wait )
+        o<integrity_check> else
+            (---------------------------------------------------------)
+            (        SUCCESSFUL EXIT                                  )
+            ( ... and almost all the time, it just plain works        )
+            (---------------------------------------------------------)
+
+              #<_orient_success_count> = [#<_orient_success_count> + 1]
+
+              o<orient_check> return [0]    (done  -  ready to move on)
+        o<integrity_check> endif
+   o<retry_orient_loop> endwhile            (go around again if reorienting)
+
+   (----------------------------------------------------------------)
+   (                   UNSUCCESSFUL EXIT                            )
+   (----------------------------------------------------------------)
+   #<_orient_fail_count> = [#<_orient_fail_count> + 1]
+   o<atc_errors> call [#<_atc_spindle_orient_error>]  (sorry charlie, orient failure!)
+
+o<orient_check> endsub

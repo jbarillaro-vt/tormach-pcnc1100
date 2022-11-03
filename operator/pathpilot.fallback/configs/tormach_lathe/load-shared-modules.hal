@@ -1,0 +1,6 @@
+
+# mux2
+# pcnc-1100: loadrt mux2.0
+# shuttlexpress: loadrt mux2 names=mux2.sxp-x-analog,mux2.sxp-y-analog,mux2.sxp-z-analog
+loadrt mux2 names=mux2.0,mux2.sxp-x-analog,mux2.sxp-y-analog,mux2.sxp-z-analog
+

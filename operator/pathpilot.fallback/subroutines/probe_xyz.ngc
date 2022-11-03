@@ -1,0 +1,112 @@
+o<probe_xyz> sub
+
+;(PRINT,begin o<probe_xyz> sub ----------------------------------------------------------)
+;(PRINT,args: #1, #2, #3, #4, #5, #6, #6, #7, #8, #9, #10, #11)
+
+o<probe_prep> call
+
+#<axis_index> = #1       (0, 1, or 2)
+#<feed_rapid> = #2       (current units)
+#<feed_ruff> = #3        (current units)
+#<feed_fine> = #4        (current units)
+#<axis_limit> = #5       (current units)
+#<wcs_offset> = #6       (current units)
+#<set_origin_flag> = #7  (do G10 L2 after probe)
+#<direction> = #8        (1 positive, -1 negative)
+#<tip_diameter> = #9     (current units)
+#<analog_pin> = #10      (UI uses analog pin for probe DRO)
+#<return_to_start> = #11 (return to starting point when finished)
+#<tool_offset_z> = #12   (tool length)
+
+#<tip_radius> = [#<tip_diameter> / 2.0]
+;(PRINT,tip_radius: #<tip_radius>)
+;(PRINT,direction #<direction>)
+
+#<tip_compensation> = [#<tip_radius> * #<direction>]
+
+#<abs_retract> = ABS[#<tip_diameter> / 1.5]
+o105 if [#<abs_retract> EQ 0.0]
+  #<abs_retract> = 0.050
+  o106 if [#<_metric> NE 0]
+    #<abs_retract> = [#<abs_retract> * 25.4]
+  o106 endif
+o105 endif
+
+(current position including WCS offsets in current program units)
+o<probe_get_coord_by_index> call [#<axis_index>]
+#<axis_start> = #<_value>
+
+(in current WCS and units as far as possible yet within soft limit)
+#<axis_end> = [#<axis_limit> - #<wcs_offset> - 0.001 * #<direction>]
+
+(Z should not account for tip diameter)
+o110 if [#<axis_index> GT 1.9]
+  #<tip_diameter> = 0.0
+  #<tip_radius> = 0.0
+  #<axis_end> = [#<axis_end> - #<tool_offset_z>]
+o110 endif
+
+#<ruff_retract> = [#<abs_retract> * #<direction>]
+
+(PRINT,axis_start: #<axis_start>, axis_end: #<axis_end>, ruff_retract: #<ruff_retract>)
+
+(fast probe)
+o<probe_g38n_by_index> call [#<axis_index>] [#<axis_end>] [#<feed_ruff>] [2]
+
+  (probing successful)
+  o<probe_get_probe_result_by_index> call [#<axis_index>]
+  #<probe_coord> = #<_value>
+  (PRINT,rough probe contact at #<probe_coord>)
+  #<axis_ruff> = [#<probe_coord> + #<tip_compensation>]
+  (PRINT,raw probe_coord: #<probe_coord>, tip_compensation: #<tip_compensation>)
+  (PRINT,axis_ruff: #<axis_ruff>)
+
+  (partial retract)
+  o<probe_g38n_by_index> call [#<axis_index>] [#<axis_ruff> - #<ruff_retract>] [#<feed_ruff>] [6]
+
+  (slow probe)
+  o<probe_g38n_by_index> call [#<axis_index>] [#<axis_end>] [#<feed_fine>] [2]
+
+    (probing successful)
+    o<probe_get_probe_result_by_index> call [#<axis_index>]
+    #<probe_coord> = #<_value>
+    (PRINT,fine probe contact at #<probe_coord>)
+    #<axis_fine> = [#<probe_coord> + #<tip_compensation>]
+    (PRINT,raw probe_coord: #<probe_coord>, tip_compensation: #<tip_compensation>)
+    (PRINT,axis_fine: #<axis_fine>)
+
+    (partial retract)
+    ;(PRINT,retract to #<axis_fine> - #<ruff_retract>)
+    o<probe_g38n_by_index> call [#<axis_index>] [#<axis_fine> - #<ruff_retract>] [#<feed_ruff>] [6]
+
+    o160 if [#<return_to_start> NE 0]
+      (full retract to starting point)
+      (PRINT,move back to start)
+      o<probe_g1_by_index> call [#<axis_index>] [#<axis_start>] [#<feed_rapid>]
+    o160 endif
+
+    o130 if [#<set_origin_flag> NE 0]
+      (setting origin)
+      #<axis_origin> = [#<axis_fine> + #<wcs_offset>]
+      (PRINT,#<axis_origin> = [#<axis_fine> + #<wcs_offset>])
+      o<probe_g10l2p0_by_index> call [#<axis_index>] [#<axis_origin>]
+    o130 endif
+
+o140 if [#<set_origin_flag> GE 0]
+  (not setting origin)
+  (analog pin must be >= 0, if < 0 do not set analog pin)
+  o150 if [#<analog_pin> NE -1]
+    (set DRO analog output to the probed point, 0.0 if probing unsuccessful)
+    (PRINT,M68 E #<analog_pin> Q #<axis_fine>)
+    M68 E #<analog_pin> Q #<axis_fine>
+  o150 endif
+o140 endif
+
+o<probe_restore> call
+
+;(PRINT,o<probe_xyz> endsub #<axis_fine> -----------------------------------------------------------)
+
+(return fine probe location)
+o<probe_xyz> endsub [#<axis_fine>]
+
+M02

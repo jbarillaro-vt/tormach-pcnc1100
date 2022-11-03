@@ -1,0 +1,460 @@
+PatchElf: patched
+  XZ: updating...
+Patching xzdec ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libc-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 8192 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libc-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libgcc_s.so.1 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+  XZ: extracting
+  XZ: ok
+Patching teamviewerd ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching TeamViewer_Desktop ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching TVGuiSlave.32 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching wine ...
+  orig: ${ORIGIN}/../lib:$ORIGIN/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wineserver ...
+  orig: ${ORIGIN}/../lib:$ORIGIN/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching tvwine.dll.so ...
+  orig: /lib32:/usr/lib32:${ORIGIN}
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib:/home/operator/teamviewerqs/tv_bin/wine/drive_c/TeamViewer
+Patching wine ...
+Patching libwine.so.1.0 ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching advapi32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching atl100.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching avicap32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching comctl32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching comdlg32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching crypt32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching dbghelp.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching ddraw.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching devenum.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching dsound.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching explorer.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching gdi32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching gdiplus.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching imagehlp.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching imm32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching iphlpapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching kernel32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching mapi32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching midimap.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching mmdevapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching mpr.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching msacm32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching msacm32.drv.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching msimg32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching msvcrt.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching msvfw32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching netapi32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching ntdll.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching ole32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching oleaut32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching opengl32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching psapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching quartz.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching regedit.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching riched20.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching rpcrt4.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching rsaenh.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching rundll32.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching secur32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching sensapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching services.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching setupapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching shell32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching shlwapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching user32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching userenv.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching usp10.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching uxtheme.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching version.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching windowscodecs.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching windowscodecsext.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wineboot.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winecfg.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wined3d.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winedbg.exe.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winemapi.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winex11.drv.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winhttp.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wininet.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winmm.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winspool.drv.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching winsta.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wintrust.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching ws2_32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching wtsapi32.dll.so ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching libasound.so.2.0.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libc-2.15.so ...
+Patching libcap.so.2.22 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libdbus-1.so.3 ...
+  orig: ${ORIGIN}/../lib
+  path: /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib
+Patching libdl-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libdl-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libexpat.so.1.5.2 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libfontconfig.so.1.4.4 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libfreetype.so.6.8.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libgcc_s.so.1 ...
+Patching libm-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libm-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libnsl-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 12288 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libnsl-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libnss_compat-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libnss_compat-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libnss_dns-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libnss_dns-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libnss_files-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libnss_files-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libnss_nis-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libnss_nis-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libpng12.so.0.46.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libpthread-2.15.so ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libpulsecommon-1.1.so ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libpulse.so.0.13.5 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libresolv-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 12288 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/libresolv-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching librt-2.15.so ...
+warning: working around a Linux kernel bug by creating a hole of 4096 bytes in ‘/home/operator/teamviewerqs/tv_bin/RTlib/librt-2.15.so’
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libtasn1.so.3.1.12 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libX11.so.6.3.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXau.so.6.0.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libxcb.so.1.1.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXcomposite.so.1.0.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXcursor.so.1.0.2 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXdamage.so.1.1.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXdmcp.so.6.0.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXext.so.6.4.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXfixes.so.3.1.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXinerama.so.1.0.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXi.so.6.1.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXrandr.so.2.2.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXrender.so.1.3.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libXtst.so.6.1.0 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+Patching libz.so.1.2.3.4 ...
+  orig: 
+  path: /home/operator/teamviewerqs/tv_bin/RTlib
+
+Binary paths:
+           teamviewerd - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+    TeamViewer_Desktop - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+         TVGuiSlave.32 - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+                  wine - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+            wineserver - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+         tvwine.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib:/home/operator/teamviewerqs/tv_bin/wine/drive_c/TeamViewer - 
+                  wine - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+        libwine.so.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       advapi32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         atl100.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       avicap32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       comctl32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       comdlg32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        crypt32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        dbghelp.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          ddraw.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        devenum.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         dsound.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       explorer.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          gdi32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        gdiplus.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       imagehlp.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          imm32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       iphlpapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       kernel32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         mapi32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        midimap.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       mmdevapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+            mpr.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        msacm32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        msacm32.drv.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        msimg32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         msvcrt.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        msvfw32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       netapi32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          ntdll.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          ole32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       oleaut32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       opengl32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          psapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         quartz.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        regedit.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       riched20.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         rpcrt4.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         rsaenh.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       rundll32.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        secur32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        sensapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       services.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       setupapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        shell32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        shlwapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         user32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        userenv.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          usp10.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        uxtheme.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        version.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+  windowscodecs.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+windowscodecsext.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       wineboot.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        winecfg.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        wined3d.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        winedbg.exe.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       winemapi.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        winex11.drv.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        winhttp.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+        wininet.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+          winmm.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       winspool.drv.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         winsta.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       wintrust.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         ws2_32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+       wtsapi32.dll.so - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+    libasound.so.2.0.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+          libc-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+        libcap.so.2.22 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+        libdbus-1.so.3 - /home/operator/teamviewerqs/tv_bin/RTlib:${ORIGIN}/../lib - 
+         libdl-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+     libexpat.so.1.5.2 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+libfontconfig.so.1.4.4 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+  libfreetype.so.6.8.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+         libgcc_s.so.1 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+          libm-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+        libnsl-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+ libnss_compat-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+    libnss_dns-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+  libnss_files-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+    libnss_nis-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+    libpng12.so.0.46.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+    libpthread-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+ libpulsecommon-1.1.so - /home/operator/teamviewerqs/tv_bin/RTlib - 
+    libpulse.so.0.13.5 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+     libresolv-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+         librt-2.15.so - /home/operator/teamviewerqs/tv_bin/RTlib - /home/operator/teamviewerqs/tv_bin/RTlib/ld-linux.so.2
+    libtasn1.so.3.1.12 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+       libX11.so.6.3.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+       libXau.so.6.0.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+       libxcb.so.1.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+libXcomposite.so.1.0.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+   libXcursor.so.1.0.2 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+   libXdamage.so.1.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+     libXdmcp.so.6.0.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+      libXext.so.6.4.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+    libXfixes.so.3.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+  libXinerama.so.1.0.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+        libXi.so.6.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+    libXrandr.so.2.2.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+   libXrender.so.1.3.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+      libXtst.so.6.1.0 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+       libz.so.1.2.3.4 - /home/operator/teamviewerqs/tv_bin/RTlib - 
+

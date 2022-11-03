@@ -1,0 +1,51 @@
+o<f360_probing-y> sub
+(SG, probe Y)
+
+(fetch our parameters into named variables)
+#<x> = #1
+#<y> = #2
+#<z> = #3
+#<nominaldiameter> = #4
+#<feed> = #5
+#<depth> = #6
+#<approach> = #7
+#<clearance> = #8
+#<overtravel> = #9
+#<retract> = #10
+#<targetwcs> = #11
+
+(we will need to know the accurate - tool table - tip radius)
+o<f360_tip_radius> call
+#<tip_radius> = #<_value>
+
+G90 (set to absolute position mode)
+G92.1  (Cancel G92 offset, maybe some day it should be allowed)
+
+(rapid down to retract height)
+G0 Z#<retract>
+
+(safe move down to probe height)
+o<f360_safe_move_z> call [-#<depth>] [#<feed>]
+
+(probe y)
+o<f360_probe_y> call [#<approach>] [#<clearance> + #<overtravel>]
+
+(where did the hit occur)
+#<hit> = [#5062 + #<approach> * #<tip_radius>]
+
+(where should it have been)
+#<expected> = [#<y> + #<approach> * [#<clearance> + #<nominaldiameter>/2.0]]
+
+(modify the target WCS)
+o<f360_update_y> call [#<targetwcs>] [#<hit>] [#<expected>]
+
+(return to the starting position)
+G90
+G0 Y#<y>
+G0 Z#<z>
+
+
+o<f360_probing-y> endsub
+
+M02 (end program)
+
